@@ -1,149 +1,270 @@
 :root {
-    --bg-color: #080808;
-    --text-primary: #e6e6e6;
-    --text-secondary: #999;
-    --accent: #ff2a2a; /* Vermelho alerta */
-    --warning: #ffcc00;
-    --border: #222;
-    --font-mono: 'JetBrains Mono', monospace;
-    --font-serif: 'Merriweather', serif;
+    --bg-color: #0a0a0a;
+    --text-color: #e0e0e0;
+    --accent-color: #ff3333; /* Vermelho alerta */
+    --dim-color: #666666;
+    --font-main: 'Fira Code', monospace;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     background-color: var(--bg-color);
-    color: var(--text-primary);
-    font-family: var(--font-serif);
+    color: var(--text-color);
+    font-family: var(--font-main);
     line-height: 1.6;
+    font-size: 14px;
     overflow-x: hidden;
 }
 
-/* Efeito Scanline (TV Velha) */
+/* Efeito Scanline (CRT antigo) */
 .scanline {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100px;
-    z-index: 10;
-    background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(255, 255, 255, 0.02) 50%, rgba(0,0,0,0) 100%);
-    opacity: 0.1;
-    position: absolute;
-    bottom: 100%;
-    animation: scanline 10s linear infinite;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0) 50%,
+        rgba(0,0,0,0.1) 50%,
+        rgba(0,0,0,0.1)
+    );
+    background-size: 100% 4px;
     pointer-events: none;
-}
-
-@keyframes scanline {
-    0% { bottom: 100%; }
-    100% { bottom: -100%; }
+    z-index: 10;
 }
 
 .container {
-    max-width: 760px;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 40px 20px;
+    border-left: 1px solid var(--dim-color);
+    border-right: 1px solid var(--dim-color);
+    min-height: 100vh;
 }
 
-/* Header & Tipografia */
-h1 { 
-    font-family: var(--font-mono); 
-    font-size: 2.2rem; 
-    margin-top: 1.5rem; 
+/* Tipografia e Glitch */
+h1, h2, h3 {
+    font-weight: 700;
+    text-transform: uppercase;
     letter-spacing: -1px;
 }
 
+h1.glitch {
+    font-size: 2.5rem;
+    position: relative;
+    color: var(--text-color);
+}
+
+/* Efeito Glitch CSS puro */
+h1.glitch::before, h1.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+}
+
+h1.glitch::before {
+    left: 2px;
+    text-shadow: -1px 0 var(--accent-color);
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch-anim 3s infinite linear alternate-reverse;
+}
+
+h1.glitch::after {
+    left: -2px;
+    text-shadow: -1px 0 #00ffea;
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch-anim 2s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% { clip: rect(14px, 9999px, 121px, 0); }
+    20% { clip: rect(89px, 9999px, 99px, 0); }
+    40% { clip: rect(23px, 9999px, 12px, 0); }
+    60% { clip: rect(67px, 9999px, 111px, 0); }
+    80% { clip: rect(4px, 9999px, 77px, 0); }
+    100% { clip: rect(95px, 9999px, 33px, 0); }
+}
+
 .subtitle {
-    font-family: var(--font-mono);
-    color: var(--text-secondary);
-    font-size: 1rem;
-    margin-bottom: 2rem;
+    color: var(--dim-color);
+    margin-bottom: 20px;
 }
 
-.bio-statement {
-    font-size: 1.2rem;
-    font-style: italic;
-    border-left: 3px solid var(--accent);
-    padding-left: 1.5rem;
-    margin-bottom: 2.5rem;
-    color: #ddd;
-}
-
-.terminal-header {
-    font-family: var(--font-mono);
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-    color: #555;
-}
-.prompt { color: var(--accent); }
-.command { animation: blink 1s step-end infinite; }
-
-@keyframes blink { 50% { opacity: 0; } }
-
-/* Navegação */
-nav { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 4rem; }
-nav a {
-    font-family: var(--font-mono);
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: color 0.2s;
-}
-nav a:hover { color: var(--text-primary); text-decoration: underline; }
-
-/* Seção de Artigos */
-.section-title {
-    font-family: var(--font-mono);
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 0.5rem;
-    margin-bottom: 2rem;
-}
-
-.paper-entry {
-    margin-bottom: 2.5rem;
-    padding-left: 1rem;
-    border-left: 1px solid var(--border);
-    transition: border-left-color 0.3s;
-}
-
-.paper-entry:hover { border-left-color: var(--accent); }
-
-.paper-header {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    margin-bottom: 0.5rem;
+.status-bar {
+    font-size: 0.8rem;
+    border-top: 1px dashed var(--dim-color);
+    border-bottom: 1px dashed var(--dim-color);
+    padding: 5px 0;
     display: flex;
-    gap: 1rem;
-    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
 }
 
-.status.warning { color: var(--warning); background: rgba(255, 204, 0, 0.05); padding: 2px 6px; }
-.date { color: #555; }
+.blink {
+    animation: blinker 1.5s linear infinite;
+    color: var(--accent-color);
+}
 
-h3 { font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 700; color: #fff; }
+@keyframes blinker {
+    50% { opacity: 0; }
+}
 
-.abstract { font-size: 1rem; color: #aaa; margin-bottom: 0.8rem; }
+hr {
+    border: 0;
+    border-bottom: 1px solid var(--dim-color);
+    margin: 40px 0;
+}
 
-.tags span {
-    font-family: var(--font-mono);
+/* Sections */
+section {
+    margin-bottom: 60px;
+}
+
+h2 {
+    border-left: 4px solid var(--accent-color);
+    padding-left: 10px;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.highlight {
+    color: var(--text-color);
+    background-color: #333;
+    padding: 0 4px;
+}
+
+/* Entries (Projetos) */
+.entry {
+    margin-bottom: 40px;
+    border: 1px solid #333;
+    padding: 20px;
+    transition: border-color 0.3s;
+}
+
+.entry:hover {
+    border-color: var(--accent-color);
+}
+
+.entry-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.entry-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.tag {
+    background: #222;
     font-size: 0.75rem;
+    padding: 2px 6px;
+    border: 1px solid var(--dim-color);
+}
+
+.description {
+    color: #bbb;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.tech-stack {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 0.8rem;
+    color: var(--dim-color);
+    margin-bottom: 20px;
+}
+
+.tech-stack li::before {
+    content: "+ ";
+    color: var(--accent-color);
+}
+
+.link-btn {
+    display: inline-block;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.link-btn:hover {
+    background-color: var(--accent-color);
+    color: #000;
+}
+
+/* Terminal Box */
+.terminal-box {
+    background-color: #000;
+    border: 1px solid var(--dim-color);
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.terminal-box a {
+    color: var(--text-color);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--dim-color);
+}
+
+.terminal-box a:hover {
+    color: var(--accent-color);
+}
+
+.btn-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.terminal-box .comment {
     color: #666;
-    margin-right: 0.8rem;
+    margin-bottom: 5px;
+    font-style: italic;
 }
 
 /* Footer */
-footer {
-    text-align: center;
-    margin-top: 5rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
-    font-family: var(--font-mono);
-    color: #444;
+footer ul {
+    list-style: none;
+    margin-top: 10px;
 }
-.tiny { font-size: 0.75rem; margin-top: 0.5rem; }
 
-/* Mobile */
+footer a {
+    color: var(--dim-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: var(--accent-color);
+}
+
+.copyright {
+    margin-top: 30px;
+    font-size: 0.7rem;
+    color: #333;
+    text-align: center;
+}
+
+/* Responsivo */
 @media (max-width: 600px) {
-    h1 { font-size: 1.8rem; }
-    .bio-statement { font-size: 1.1rem; }
+    h1.glitch { font-size: 1.8rem; }
+    .container { border: none; }
 }

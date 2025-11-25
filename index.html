@@ -3,79 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gabriel V. Silva | Pesquisa & Análise</title>
-    <meta name="description" content="Falhas humanas, éticas e políticas em sistemas digitais. Portfólio acadêmico.">
+    <title>ESCOMBROS.LOG // GABRIEL V. SILVA</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- Fontes: JetBrains Mono (Dev) e Merriweather (Acadêmico) -->
+    <!-- Fonte Monospace (Google Fonts) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Merriweather:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <div class="scanline"></div>
-
-    <header class="container">
-        <div class="terminal-header">
-            <span class="prompt">gabriel@ufca:~$</span> <span class="command">cat profile.txt</span>
-        </div>
+    
+    <div class="container">
         
-        <h1>Gabriel V. Silva</h1>
-        <p class="subtitle">Pesquisa & Análise</p>
-        
-        <div class="bio-statement">
-            "Falhas humanas, éticas e políticas em sistemas digitais."
-        </div>
+        <!-- HEADER / IDENTIDADE -->
+        <header>
+            <h1 class="glitch" data-text="GABRIEL_V._SILVA">GABRIEL_V._SILVA</h1>
+            <p class="subtitle">Data Scavenger | Pesquisador Sociotécnico | Full-Cycle Dev</p>
+            <div class="status-bar">
+                <span>LOC: Brazil</span>
+                <span>OS: Debian 13</span>
+                <span class="blink">STATUS: ONLINE</span>
+            </div>
+        </header>
 
-        <nav>
-            <a href="#research">[Artigos]</a>
-            <a href="http://lattes.cnpq.br/SEU_LATTES" target="_blank">[Lattes]</a>
-            <a href="https://github.com/vasconcel" target="_blank">[GitHub]</a>
-            <a href="mailto:seu_email@ufca.edu.br">[Contato]</a>
-        </nav>
-    </header>
+        <hr>
 
-    <main class="container">
-        
-        <section id="research">
-            <h2 class="section-title">> ./publicações</h2>
-            
-            <article class="paper-entry">
-                <div class="paper-header">
-                    <span class="status warning">UNDER REVIEW</span>
-                    <span class="date">2025</span>
-                </div>
-                <h3>Anti-patterns in Online Recruitment and Selection</h3>
-                <p class="abstract">
-                    Uma investigação qualitativa sobre como práticas de R&S digital geram exclusão e dissonância cognitiva em engenheiros de software novatos.
-                </p>
-                <div class="tags">
-                    <span>#AART</span> <span>#HumanAspects</span> <span>#Necropolítica</span>
-                </div>
-                <!-- Link para arXiv ou PDF se/quando disponível -->
-                <!-- <a href="#" class="paper-link">Ler Preprint -></a> -->
-            </article>
-
-            <article class="paper-entry">
-                <div class="paper-header">
-                    <span class="status warning">UNDER REVIEW</span>
-                    <span class="date">2025</span>
-                </div>
-                <h3>Constructive Patterns for Human-Centered Tech Hiring</h3>
-                <p class="abstract">
-                    Proposta de um framework construtivo para re-humanizar processos seletivos técnicos, focado na experiência do candidato.
-                </p>
-                <div class="tags">
-                    <span>#SoftEng</span> <span>#Qualitative</span> <span>#R&S</span>
-                </div>
-            </article>
+        <!-- MANIFESTO (SOBRE) -->
+        <section id="about">
+            <h2>01_MANIFESTO</h2>
+            <p>
+                Não apenas construo sistemas; eu os investigo. Atuando na intersecção entre 
+                <span class="highlight">Ciência de Dados</span>, <span class="highlight">Teoria Crítica</span> 
+                e <span class="highlight">Engenharia de Software</span>.
+            </p>
+            <p>
+                Meu trabalho consiste em revirar os "escombros" da tecnologia — falhas éticas, 
+                vieses algorítmicos e estruturas de opressão digital — para propor alternativas 
+                baseadas em Ciência Aberta e tecnologias emancipatórias.
+            </p>
         </section>
 
-    </main>
+        <!-- INVESTIGAÇÕES (PROJETOS) -->
+        <section id="investigations">
+            <h2>02_LOGS_DE_INVESTIGAÇÃO</h2>
 
-    <footer>
-        <p>escombros.log // <span id="year"></span></p>
-        <p class="tiny">Debian 13 | HTML5 | Sem trackers</p>
-    </footer>
+            <!-- PROJETO 1: PESQUISA R&S -->
+            <div class="entry">
+                <div class="entry-header">
+                    <h3>> HUMAN-CENTERED TECH HIRING</h3>
+                    <span class="tag">Pesquisa Qualitativa</span>
+                    <span class="tag">AART Theory</span>
+                </div>
+                <p class="description">
+                    Investigação acadêmica sobre a desumanização em processos seletivos de TI. 
+                    Identificação de 25 Anti-patterns (práticas tóxicas) e proposição de Padrões Construtivos.
+                    Trabalho submetido ao CHASE'26 e Empirical Software Engineering.
+                </p>
+                <ul class="tech-stack">
+                    <li>Thematic Analysis</li>
+                    <li>Sociotechnical Systems</li>
+                    <li>Academic Writing</li>
+                </ul>
+                <!-- Quando tiver os PDFs ou links dos artigos, insira aqui -->
+                <a href="#" class="link-btn">[EM REVISÃO]</a>
+            </div>
+
+            <!-- PROJETO 2: dataWASHES -->
+            <div class="entry">
+                <div class="entry-header">
+                    <h3>> dataWASHES API</h3>
+                    <span class="tag">Open Science</span>
+                    <span class="tag">Backend Dev</span>
+                </div>
+                <p class="description">
+                    Desenvolvimento de infraestrutura pública para acesso a dados científicos (WASHES).
+                    Construção de API RESTful para democratizar o acesso a metadados acadêmicos, 
+                    combatendo o cercamento do conhecimento.
+                </p>
+                <ul class="tech-stack">
+                    <li>Python</li>
+                    <li>Flask</li>
+                    <li>Unit Testing</li>
+                    <li>Swagger/OpenAPI</li>
+                </ul>
+                <div class="btn-group">
+                    <a href="https://datawashes.pythonanywhere.com/" target="_blank" class="link-btn">[DEPLOY ATIVO]</a>
+                    <a href="https://github.com/gesid/dataWASHES" target="_blank" class="link-btn">[SRC CODE]</a>
+                </div>
+            </div>
+
+            <!-- PROJETO 3: BLOCKCHAIN -->
+            <div class="entry">
+                <div class="entry-header">
+                    <h3>> LEDGER ARCHITECTURES</h3>
+                    <span class="tag">Distributed Systems</span>
+                    <span class="tag">Architecture</span>
+                </div>
+                <p class="description">
+                    Estudo aprofundado de arquiteturas descentralizadas. Desenvolvimento de DApps 
+                    e simulação de redes Proof-of-Work para compreender a materialidade técnica 
+                    por trás da especulação financeira.
+                </p>
+                <ul class="tech-stack">
+                    <li>Solidity</li>
+                    <li>Node.js</li>
+                    <li>Hardhat</li>
+                    <li>AWS</li>
+                </ul>
+                <div class="btn-group">
+                    <a href="https://sky-clock-04e.notion.site/Crypto-Submersion-10c0cf477938801ebda8e0059ccb94b7" target="_blank" class="link-btn">[STUDY LOGS]</a>
+                    <a href="https://github.com/vasconcel/crypto-submersion" target="_blank" class="link-btn">[SRC REPO]</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONHECIMENTO E GUIAS (NOTION) -->
+        <section id="knowledge-base">
+            <h2>03_BANCO_DE_DADOS</h2>
+            <p>Documentação bruta do processo de aprendizado e guias técnicos para disseminação de conhecimento.</p>
+            
+            <div class="terminal-box">
+                <p class="comment"># LOGS ACADÊMICOS</p>
+                <p>> <a href="https://sky-clock-04e.notion.site/Analysis-Development-of-Systems-1920cf47793880baad7fcff13d736b55" target="_blank">ACCESS_SYSTEMS_ANALYSIS_LOGS.exe</a></p>
+                <br>
+                <p class="comment"># GUIAS</p>
+                <p>> <a href="https://sky-clock-04e.notion.site/Guia-Pr-tico-do-Overleaf-2550cf4779388016909cc92a3755ec30" target="_blank">MANUAL_LATEX_OVERLEAF.pdf</a> <span class="blink">_new</span></p>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <hr>
+            <div class="contact-info">
+                <p>COMM_CHANNELS:</p>
+                <ul>
+                    <li><a href="https://www.linkedin.com/in/vasconcel" target="_blank">:: LINKEDIN</a></li>
+                    <li><a href="https://github.com/vasconcel" target="_blank">:: GITHUB</a></li>
+                    <li><a href="https://instagram.com/escombros.log" target="_blank">:: @ESCOMBROS.LOG</a></li>
+                    <li>:: GABRIEL.VASCONCEL@OUTLOOK.COM</li>
+                </ul>
+            </div>
+            <p class="copyright">© 2025 // NO RIGHTS RESERVED // OPEN KNOWLEDGE</p>
+        </footer>
+
+    </div>
 
     <script src="assets/js/main.js"></script>
 </body>
