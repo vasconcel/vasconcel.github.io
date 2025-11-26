@@ -157,12 +157,6 @@ h1.glitch::after {
     color: var(--dim-color);
 }
 
-/* NOVO: cor para a stack tática */
-.status-bar .accent-stack {
-    color: #00ffea; /* Um ciano para contraste com o vermelho de alerta */
-    font-weight: bold;
-}
-
 .status-bar .log-date {
     color: var(--accent-color);
     font-weight: bold;
@@ -183,17 +177,6 @@ h1.glitch::after {
     border: 0;
     border-bottom: 1px dashed var(--dim-color);
     margin: 40px 0;
-}
-
-/* Manifesto Quote (Novo) */
-.manifesto-quote {
-    font-style: italic;
-    font-size: 1.05rem;
-    color: var(--text-color);
-    border-left: 3px solid var(--accent-color);
-    padding-left: 15px;
-    margin: 20px 0 40px 0;
-    white-space: pre-wrap;
 }
 
 /* Tabela de Conteúdos (TOC) */

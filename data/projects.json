@@ -1,0 +1,84 @@
+{
+  "investigations": [
+    {
+      "id": "human-centered-tech-hiring",
+      "title": "HUMAN-CENTERED TECH HIRING",
+      "description": "Investigação acadêmica sobre a desumanização em processos seletivos de TI. Identificação de 25 Anti-patterns e proposição de Constructive Patterns.",
+      "tags": [
+        { "name": "Pesquisa Qualitativa", "class": "tag-theory" },
+        { "name": "AART Theory", "class": "tag-theory" }
+      ],
+      "stack": [
+        "Thematic Analysis",
+        "Sociotechnical Systems",
+        "Academic Writing"
+      ],
+      "status": {
+        "text": "[SUBMETIDO: EMPIRICAL SOFTWARE ENGINEERING]",
+        "class": "status-alert",
+        "is_link": false
+      },
+      "links": []
+    },
+    {
+      "id": "datawashes-api",
+      "title": "dataWASHES API",
+      "description": "Desenvolvimento de infraestrutura pública para acesso a dados científicos (WASHES). Construção de API RESTful para democratizar o acesso a metadados acadêmicos.",
+      "tags": [
+        { "name": "Open Science", "class": "tag-os" },
+        { "name": "Backend Dev", "class": "" }
+      ],
+      "stack": ["Python", "Flask", "Unit Testing", "Swagger/OpenAPI"],
+      "status": null,
+      "links": [
+        {
+          "text": "[DEPLOY ATIVO]",
+          "url": "https://datawashes.pythonanywhere.com/"
+        },
+        { "text": "[SRC CODE]", "url": "https://github.com/gesid/dataWASHES" }
+      ]
+    },
+    {
+      "id": "ledger-architectures",
+      "title": "LEDGER ARCHITECTURES",
+      "description": "Estudo aprofundado de arquiteturas descentralizadas. Desenvolvimento de DApps e simulação de redes Proof-of-Work para compreender a materialidade técnica por trás da especulação financeira.",
+      "tags": [
+        { "name": "Distributed Systems", "class": "" },
+        { "name": "Architecture Critique", "class": "tag-theory" }
+      ],
+      "stack": ["Solidity", "Node.js", "Hardhat", "AWS"],
+      "status": null,
+      "links": [
+        {
+          "text": "[STUDY LOGS]",
+          "url": "https://sky-clock-04e.notion.site/Crypto-Submersion-10c0cf477938801ebda8e0059ccb94b7"
+        },
+        {
+          "text": "[SRC REPO]",
+          "url": "https://github.com/vasconcel/crypto-submersion"
+        }
+      ]
+    }
+  ],
+  "knowledge_base": [
+    {
+      "title": "LOGS ACADÊMICOS",
+      "type": "comment"
+    },
+    {
+      "title": "SYSTEMS_ANALYSIS__DEVELOPMENT_LOGS.md",
+      "type": "output",
+      "url": "https://sky-clock-04e.notion.site/Analysis-Development-of-Systems-1920cf47793880baad7fcff13d736b55"
+    },
+    {
+      "title": "GUIAS",
+      "type": "comment"
+    },
+    {
+      "title": "MANUAL_LATEX_OVERLEAF.md",
+      "type": "output",
+      "url": "https://sky-clock-04e.notion.site/Guia-Pr-tico-do-Overleaf-2550cf4779388016909cc92a3755ec30",
+      "is_new": true
+    }
+  ]
+}
