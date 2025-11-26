@@ -1,8 +1,8 @@
 :root {
     --bg-color: #0a0a0a;
     --text-color: #e0e0e0;
-    --accent-color: #ff3333; /* Vermelho alerta */
-    --dim-color: #666666;
+    --accent-color: #ff3333;
+    --dim-color: #888;
     --font-main: 'Fira Code', monospace;
     --glitch-shadow: -1px 0 var(--accent-color), 1px 0 #00ffea;
 }
@@ -106,7 +106,6 @@ h1.glitch::after {
     100% { transform: translate(0, 0); clip: rect(10px, 9999px, 120px, 0); }
 }
 
-/* NOVO: Glitch Small para H2 hover */
 .glitch-small {
     position: relative;
 }
@@ -172,7 +171,6 @@ h1.glitch::after {
     50% { opacity: 0; }
 }
 
-/* Separador melhorado (mais terminal) */
 .separator {
     border: 0;
     border-bottom: 1px dashed var(--dim-color);
@@ -215,14 +213,12 @@ section {
 }
 
 h2 {
-    /* Alteração 5: Removida a borda lateral */
     padding-left: 0;
     margin-bottom: 20px;
     color: var(--text-color);
     transition: transform 0.2s ease, text-shadow 0.2s ease;
 }
 
-/* NOVO: Prompt de Comando para H2 */
 h2::before {
     content: '$ ';
     color: var(--accent-color);
@@ -230,7 +226,6 @@ h2::before {
     display: inline-block;
 }
 
-/* Highlight (com contraste maior) */
 .highlight {
     color: var(--accent-color);
     background-color: #222;
@@ -247,7 +242,7 @@ h2::before {
 
 .entry:hover {
     border-color: var(--accent-color);
-    transform: translateX(2px); /* Efeito de deslize sutil */
+    transform: translateX(2px);
 }
 
 .entry-header {
@@ -270,7 +265,6 @@ h2::before {
     border: 1px solid var(--dim-color);
 }
 
-/* NOVO: Diferenciação de tags teóricas */
 .tag-theory {
     border-color: var(--accent-color);
     color: var(--accent-color);
@@ -303,7 +297,6 @@ h2::before {
     color: var(--accent-color);
 }
 
-/* Botão de status/link não-ativo */
 .status-btn {
     display: inline-block;
     color: var(--dim-color);
@@ -314,14 +307,13 @@ h2::before {
     user-select: none;
 }
 
-/* NOVO: Botão de status de alerta (vermelho) */
 .status-alert {
     color: var(--accent-color);
     border-color: var(--accent-color);
     animation: blinker 2s linear infinite;
 }
 .status-alert:hover {
-    animation: none; /* Desativa o blinker no hover */
+    animation: none;
 }
 
 
@@ -331,7 +323,7 @@ h2::before {
     text-decoration: none;
     font-weight: bold;
     font-size: 0.9rem;
-    border: 1px solid var(--accent-color); /* Adicionado borda */
+    border: 1px solid var(--accent-color);
     padding: 2px 4px;
     transition: background-color 0.1s, color 0.1s;
 }
@@ -415,4 +407,25 @@ footer a:hover {
     h1.glitch { font-size: 1.8rem; }
     .container { border: none; }
     .status-bar { flex-direction: column; gap: 5px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    h1.glitch::before, 
+    h1.glitch::after,
+    .glitch-small::before, 
+    .glitch-small::after,
+    .blink,
+    .cursor {
+        animation: none;
+        clip: auto;
+        display: none;
+    }
+    
+    h1.glitch {
+        text-shadow: none;
+    }
+    
+    .scanline {
+        display: none;
+    }
 }
