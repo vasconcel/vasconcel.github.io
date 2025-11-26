@@ -4,6 +4,7 @@
     --accent-color: #ff3333; /* Vermelho alerta */
     --dim-color: #666666;
     --font-main: 'Fira Code', monospace;
+    --glitch-shadow: -1px 0 var(--accent-color), 1px 0 #00ffea;
 }
 
 * {
@@ -60,9 +61,16 @@ h1.glitch {
     font-size: 2.5rem;
     position: relative;
     color: var(--text-color);
+    display: inline-block; /* Necessário para o cursor */
 }
 
-/* Efeito Glitch CSS puro */
+/* Cursor Blinking */
+h1.glitch .cursor {
+    animation: blinker 0.8s step-end infinite;
+    color: var(--accent-color);
+}
+
+/* Efeito Glitch CSS puro (simplificado e mais responsivo) */
 h1.glitch::before, h1.glitch::after {
     content: attr(data-text);
     position: absolute;
@@ -74,27 +82,30 @@ h1.glitch::before, h1.glitch::after {
 }
 
 h1.glitch::before {
-    left: 2px;
-    text-shadow: -1px 0 var(--accent-color);
-    clip: rect(24px, 550px, 90px, 0);
-    animation: glitch-anim 3s infinite linear alternate-reverse;
+    left: 1px;
+    text-shadow: 1px 0 var(--accent-color);
+    clip: rect(30px, 9999px, 80px, 0);
+    animation: glitch-anim 2.5s infinite linear alternate-reverse;
 }
 
 h1.glitch::after {
-    left: -2px;
+    left: -1px;
     text-shadow: -1px 0 #00ffea;
-    clip: rect(85px, 550px, 140px, 0);
-    animation: glitch-anim 2s infinite linear alternate-reverse;
+    clip: rect(50px, 9999px, 100px, 0);
+    animation: glitch-anim 3s infinite linear alternate-reverse;
 }
 
 @keyframes glitch-anim {
-    0% { clip: rect(14px, 9999px, 121px, 0); }
-    20% { clip: rect(89px, 9999px, 99px, 0); }
-    40% { clip: rect(23px, 9999px, 12px, 0); }
-    60% { clip: rect(67px, 9999px, 111px, 0); }
-    80% { clip: rect(4px, 9999px, 77px, 0); }
-    100% { clip: rect(95px, 9999px, 33px, 0); }
+    0% { transform: translate(0, 0); clip: rect(10px, 9999px, 120px, 0); }
+    15% { transform: translate(-2px, 1px); clip: rect(80px, 9999px, 20px, 0); }
+    30% { transform: translate(1px, -1px); clip: rect(40px, 9999px, 100px, 0); }
+    45% { transform: translate(0, 2px); clip: rect(110px, 9999px, 50px, 0); }
+    60% { transform: translate(-1px, 0); clip: rect(20px, 9999px, 130px, 0); }
+    75% { transform: translate(2px, -2px); clip: rect(90px, 9999px, 70px, 0); }
+    90% { transform: translate(-1px, 1px); clip: rect(60px, 9999px, 30px, 0); }
+    100% { transform: translate(0, 0); clip: rect(10px, 9999px, 120px, 0); }
 }
+
 
 .subtitle {
     color: var(--dim-color);
@@ -109,8 +120,15 @@ h1.glitch::after {
     display: flex;
     justify-content: space-between;
     margin-bottom: 40px;
+    color: var(--dim-color);
 }
 
+.status-bar .log-date {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* Efeito Blinker para novos itens e cursor */
 .blink {
     animation: blinker 1.5s linear infinite;
     color: var(--accent-color);
@@ -120,10 +138,41 @@ h1.glitch::after {
     50% { opacity: 0; }
 }
 
-hr {
+/* Separador melhorado (mais terminal) */
+.separator {
     border: 0;
-    border-bottom: 1px solid var(--dim-color);
+    border-bottom: 1px dashed var(--dim-color);
     margin: 40px 0;
+}
+
+/* Tabela de Conteúdos (TOC) */
+#toc {
+    margin-bottom: 40px;
+}
+
+.toc-title {
+    font-size: 0.9rem;
+    color: var(--dim-color);
+    margin-bottom: 10px;
+    border: none;
+    padding-left: 0;
+}
+
+#toc ul {
+    list-style: none;
+    padding-left: 10px;
+}
+
+#toc li a {
+    color: var(--text-color);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--dim-color);
+    transition: color 0.3s;
+}
+
+#toc li a:hover {
+    color: var(--accent-color);
+    text-shadow: 0 0 5px rgba(255, 51, 51, 0.5);
 }
 
 /* Sections */
@@ -136,11 +185,13 @@ h2 {
     padding-left: 10px;
     margin-bottom: 20px;
     color: var(--text-color);
+    transition: padding-left 0.2s ease, text-shadow 0.2s ease;
 }
 
+/* Highlight (com contraste maior) */
 .highlight {
-    color: var(--text-color);
-    background-color: #333;
+    color: var(--accent-color);
+    background-color: #222;
     padding: 0 4px;
 }
 
@@ -149,11 +200,12 @@ h2 {
     margin-bottom: 40px;
     border: 1px solid #333;
     padding: 20px;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, transform 0.2s;
 }
 
 .entry:hover {
     border-color: var(--accent-color);
+    transform: translateX(2px); /* Efeito de deslize sutil */
 }
 
 .entry-header {
@@ -197,17 +249,32 @@ h2 {
     color: var(--accent-color);
 }
 
+/* Botão de status/link não-ativo */
+.status-btn {
+    display: inline-block;
+    color: var(--dim-color);
+    font-weight: bold;
+    font-size: 0.9rem;
+    border: 1px solid var(--dim-color);
+    padding: 2px 4px;
+    user-select: none;
+}
+
 .link-btn {
     display: inline-block;
     color: var(--accent-color);
     text-decoration: none;
     font-weight: bold;
     font-size: 0.9rem;
+    border: 1px solid var(--accent-color); /* Adicionado borda */
+    padding: 2px 4px;
+    transition: background-color 0.1s, color 0.1s;
 }
 
 .link-btn:hover {
     background-color: var(--accent-color);
     color: #000;
+    text-shadow: none;
 }
 
 /* Terminal Box */
@@ -218,6 +285,10 @@ h2 {
     font-family: 'Courier New', Courier, monospace;
 }
 
+.terminal-box .output-line {
+    margin: 5px 0;
+}
+
 .terminal-box a {
     color: var(--text-color);
     text-decoration: none;
@@ -226,6 +297,7 @@ h2 {
 
 .terminal-box a:hover {
     color: var(--accent-color);
+    border-bottom-color: var(--accent-color);
 }
 
 .btn-group {
@@ -246,14 +318,24 @@ footer ul {
     margin-top: 10px;
 }
 
-footer a {
+.contact-info .key {
     color: var(--dim-color);
+}
+
+.contact-info .value {
+    color: var(--text-color);
+}
+
+footer a {
+    color: var(--text-color);
     text-decoration: none;
     transition: color 0.3s;
+    border-bottom: 1px dotted var(--dim-color);
 }
 
 footer a:hover {
     color: var(--accent-color);
+    border-bottom-color: var(--accent-color);
 }
 
 .copyright {
@@ -267,4 +349,5 @@ footer a:hover {
 @media (max-width: 600px) {
     h1.glitch { font-size: 1.8rem; }
     .container { border: none; }
+    .status-bar { flex-direction: column; gap: 5px; }
 }

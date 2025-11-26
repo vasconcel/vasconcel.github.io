@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESCOMBROS.LOG</title>
+    <title>ESCOMBROS.LOG | GABRIEL V. SILVA</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Fonte Monospace (Google Fonts) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,16 +17,28 @@
         
         <!-- HEADER / IDENTIDADE -->
         <header>
-            <h1 class="glitch" data-text="GABRIEL V. SILVA_">GABRIEL V. SILVA</h1>
+            <h1 class="glitch" data-text="GABRIEL V. SILVA_">GABRIEL V. SILVA<span class="cursor">_</span></h1>
             <p class="subtitle">Pesquisador | Full-Cycle Developer</p>
             <div class="status-bar">
                 <span>LOC: Brazil</span>
                 <span>OS: Debian 13</span>
-                <span class="blink">STATUS: ONLINE</span>
+                <span class="log-date" data-prefix="UPDATED: "></span>
             </div>
         </header>
 
-        <hr>
+        <hr class="separator">
+
+        <!-- NAVEGAÇÃO / TOC -->
+        <nav id="toc">
+            <h2 class="toc-title">DIRECTORY LISTING</h2>
+            <ul>
+                <li>[<a href="#about">01 SOBRE</a>]</li>
+                <li>[<a href="#investigations">02 INVESTIGAÇÕES</a>]</li>
+                <li>[<a href="#knowledge-base">03 BANCO DE DADOS</a>]</li>
+            </ul>
+        </nav>
+
+        <hr class="separator">
 
         <!-- MANIFESTO (SOBRE) -->
         <section id="about">
@@ -64,8 +76,8 @@
                     <li>Sociotechnical Systems</li>
                     <li>Academic Writing</li>
                 </ul>
-                <!-- Quando tiver os PDFs ou links dos artigos, insira aqui -->
-                <a href="#" class="link-btn">[EM REVISÃO]</a>
+                <!-- Mudança: De <a> para <span> para indicar status não-link -->
+                <span class="status-btn">[EM REVISÃO]</span>
             </div>
 
             <!-- PROJETO 2: dataWASHES -->
@@ -123,23 +135,23 @@
             
             <div class="terminal-box">
                 <p class="comment"># LOGS ACADÊMICOS</p>
-                <p>> <a href="https://sky-clock-04e.notion.site/Analysis-Development-of-Systems-1920cf47793880baad7fcff13d736b55" target="_blank">SYSTEMS_ANALYSIS__DEVELOPMENT_LOGS.md</a></p>
+                <p class="output-line">>&nbsp;<a href="https://sky-clock-04e.notion.site/Analysis-Development-of-Systems-1920cf47793880baad7fcff13d736b55" target="_blank">SYSTEMS_ANALYSIS__DEVELOPMENT_LOGS.md</a></p>
                 <br>
                 <p class="comment"># GUIAS</p>
-                <p>> <a href="https://sky-clock-04e.notion.site/Guia-Pr-tico-do-Overleaf-2550cf4779388016909cc92a3755ec30" target="_blank">MANUAL_LATEX_OVERLEAF.md</a> <span class="blink">_new</span></p>
+                <p class="output-line">>&nbsp;<a href="https://sky-clock-04e.notion.site/Guia-Pr-tico-do-Overleaf-2550cf4779388016909cc92a3755ec30" target="_blank">MANUAL_LATEX_OVERLEAF.md</a> <span class="blink">_new</span></p>
             </div>
         </section>
 
         <!-- FOOTER -->
         <footer>
-            <hr>
+            <hr class="separator">
             <div class="contact-info">
-                <p>COMM_CHANNELS:</p>
+                <p class="comment"># COMM_CHANNELS</p>
                 <ul>
-                    <li><a href="https://www.linkedin.com/in/vasconcel" target="_blank">:: LINKEDIN</a></li>
-                    <li><a href="https://github.com/vasconcel" target="_blank">:: GITHUB</a></li>
-                    <li><a href="https://instagram.com/escombros.log" target="_blank">:: @ESCOMBROS.LOG</a></li>
-                    <li>:: GABRIEL.VASCONCEL@OUTLOOK.COM</li>
+                    <li><span class="key">:: LINKEDIN</span>: <a href="https://www.linkedin.com/in/vasconcel" target="_blank">vasconcel</a></li>
+                    <li><span class="key">:: GITHUB</span>: <a href="https://github.com/vasconcel" target="_blank">vasconcel</a></li>
+                    <li><span class="key">:: INSTAGRAM</span>: <a href="https://instagram.com/escombros.log" target="_blank">@escombros.log</a></li>
+                    <li><span class="key">:: E-MAIL</span>: <span class="value">gabriel.vasconcel@outlook.com</span></li>
                 </ul>
             </div>
             <p class="copyright">© 2025 // NO RIGHTS RESERVED // OPEN KNOWLEDGE</p>
