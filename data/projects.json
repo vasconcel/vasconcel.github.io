@@ -35,7 +35,14 @@
           "text": "[DEPLOY ATIVO]",
           "url": "https://datawashes.pythonanywhere.com/"
         },
-        { "text": "[SRC CODE]", "url": "https://github.com/gesid/dataWASHES" }
+        { 
+          "text": "[SRC CODE]", 
+          "url": "https://github.com/gesid/dataWASHES" 
+        },
+        {
+          "text": "[DOC: RESUMO.PDF]",
+          "url": "assets/docs/datawashes_resumo_expandido.pdf"
+        }
       ]
     },
     {
