@@ -106,6 +106,40 @@ h1.glitch::after {
     100% { transform: translate(0, 0); clip: rect(10px, 9999px, 120px, 0); }
 }
 
+/* NOVO: Glitch Small para H2 hover */
+.glitch-small {
+    position: relative;
+}
+
+.glitch-small::before, .glitch-small::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch-small::before {
+    left: 1px;
+    text-shadow: 1px 0 var(--accent-color);
+    clip: rect(2px, 9999px, 20px, 0);
+    animation: glitch-anim-small 0.5s infinite linear alternate-reverse;
+}
+
+.glitch-small::after {
+    left: -1px;
+    text-shadow: -1px 0 #00ffea;
+    clip: rect(10px, 9999px, 15px, 0);
+    animation: glitch-anim-small 0.4s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim-small {
+    0% { transform: translate(0, 0); clip: rect(1px, 9999px, 10px, 0); }
+    50% { transform: translate(-0.5px, 0.5px); clip: rect(5px, 9999px, 15px, 0); }
+    100% { transform: translate(0.5px, -0.5px); clip: rect(10px, 9999px, 20px, 0); }
+}
+
 
 .subtitle {
     color: var(--dim-color);
@@ -121,6 +155,12 @@ h1.glitch::after {
     justify-content: space-between;
     margin-bottom: 40px;
     color: var(--dim-color);
+}
+
+/* NOVO: cor para a stack tática */
+.status-bar .accent-stack {
+    color: #00ffea; /* Um ciano para contraste com o vermelho de alerta */
+    font-weight: bold;
 }
 
 .status-bar .log-date {
@@ -143,6 +183,17 @@ h1.glitch::after {
     border: 0;
     border-bottom: 1px dashed var(--dim-color);
     margin: 40px 0;
+}
+
+/* Manifesto Quote (Novo) */
+.manifesto-quote {
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--text-color);
+    border-left: 3px solid var(--accent-color);
+    padding-left: 15px;
+    margin: 20px 0 40px 0;
+    white-space: pre-wrap;
 }
 
 /* Tabela de Conteúdos (TOC) */
@@ -181,11 +232,19 @@ section {
 }
 
 h2 {
-    border-left: 4px solid var(--accent-color);
-    padding-left: 10px;
+    /* Alteração 5: Removida a borda lateral */
+    padding-left: 0;
     margin-bottom: 20px;
     color: var(--text-color);
-    transition: padding-left 0.2s ease, text-shadow 0.2s ease;
+    transition: transform 0.2s ease, text-shadow 0.2s ease;
+}
+
+/* NOVO: Prompt de Comando para H2 */
+h2::before {
+    content: '$ ';
+    color: var(--accent-color);
+    font-weight: bold;
+    display: inline-block;
 }
 
 /* Highlight (com contraste maior) */
@@ -228,6 +287,18 @@ h2 {
     border: 1px solid var(--dim-color);
 }
 
+/* NOVO: Diferenciação de tags teóricas */
+.tag-theory {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.tag-os {
+    border-color: #00ffea;
+    color: #00ffea;
+}
+
+
 .description {
     color: #bbb;
     margin-bottom: 15px;
@@ -259,6 +330,17 @@ h2 {
     padding: 2px 4px;
     user-select: none;
 }
+
+/* NOVO: Botão de status de alerta (vermelho) */
+.status-alert {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    animation: blinker 2s linear infinite;
+}
+.status-alert:hover {
+    animation: none; /* Desativa o blinker no hover */
+}
+
 
 .link-btn {
     display: inline-block;

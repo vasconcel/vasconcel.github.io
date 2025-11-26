@@ -21,17 +21,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Efeito Glitch/Flicker Sutil nos títulos das seções (h2)
     const sections = document.querySelectorAll('section h2');
     
-    sections.forEach(section => {
-        section.addEventListener('mouseover', () => {
-            // Aprofunda o alinhamento e adiciona um "text-shadow" de glitch
-            section.style.paddingLeft = '15px';
-            section.style.textShadow = '1px 1px 0 var(--accent-color), -1px -1px 0 #00ffea';
+    sections.forEach(h2 => {
+        // Para que o glitch possa funcionar, adiciona-se o data-text (igual ao H1)
+        const originalText = h2.textContent.replace('$ ', '').trim();
+        h2.setAttribute('data-text', originalText);
+        
+        h2.addEventListener('mouseover', () => {
+            // Adiciona a classe que aplica o CSS Glitch/Flicker
+            h2.classList.add('glitch-small');
+            h2.style.transform = 'translateY(-1px)'; // Efeito de levantamento sutil
         });
         
-        section.addEventListener('mouseout', () => {
-            // Retorna ao estado normal
-            section.style.paddingLeft = '10px';
-            section.style.textShadow = 'none';
+        h2.addEventListener('mouseout', () => {
+            // Remove a classe para retornar ao estado normal
+            h2.classList.remove('glitch-small');
+            h2.style.transform = 'translateY(0)';
         });
     });
     
