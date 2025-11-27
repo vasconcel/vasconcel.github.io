@@ -3,93 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- TÍTULO: Simples e Direto -->
     <title>@ESCOMBROS.LOG</title>
-    
-    <meta name="description" content="Projeto @escombros.log: Investigando Sistemas Digitais, Teoria Crítica (Marxista, Decolonial) e Data Activism. Foco em falhas éticas, necropolítica digital e arquiteturas emancipatórias.">
-    
+
+    <!-- DESCRIÇÃO: Rigor e Foco Acadêmico-Crítico -->
+    <meta name="description" content="Plataforma de Investigação em Sociologia Digital e Engenharia de Software. Análise crítica de Governamentalidade Algorítmica, Economia Política e estruturas de poder inscritas na tecnologia.">
+    <meta name="author" content="Gabriel V. Silva">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Fonts: Fira Code (estética terminal) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
+    <!-- Efeitos visuais -->
     <div class="scanline"></div>
-    
+    <div class="noise"></div>
+
     <div class="container">
-        
+
         <!-- HEADER / IDENTIDADE -->
         <header>
-            <h1 class="glitch" data-text="@ESCOMBROS.LOG_">@ESCOMBROS.LOG<span class="cursor">_</span></h1>
-            <p class="subtitle">GABRIEL V. SILVA | Researcher and Full-Cycle Developer</p>
+            <div class="header-top">
+                <span class="sys-msg">:: SYSTEM_BOOT_SEQUENCE_INIT ::</span>
+                <span class="sys-msg" id="last-login">LOGIN: GUEST</span>
+            </div>
+
+            <h1 class="glitch" data-text="@ESCOMBROS.LOG">@ESCOMBROS.LOG<span class="cursor">_</span></h1>
+
+            <p class="role-title">
+                <span class="highlight">>> GABRIEL V. SILVA</span><br>
+                [RESEARCHER: SOCIOTECHNICAL SYSTEMS & DIGITAL SOCIETY]
+            </p>
+
             <div class="status-bar">
-                <span>LOC: Brazil</span>
-                <span class="log-date" data-prefix="UPDATED: "></span>
+                <span>LOC: Brazil [NETS_TARGET]</span>
+                <span class="log-date" id="system-clock"></span>
             </div>
         </header>
 
+        <hr class="separator-double">
 
-        <!-- NAVEGAÇÃO / TOC -->
+        <!-- NAVEGAÇÃO -->
         <nav id="toc">
-            <h2 class="toc-title">DIRECTORY LISTING</h2>
+            <h2 class="toc-title">ROOT_DIRECTORY/</h2>
             <ul>
-                <li>[<a href="#about">01 SOBRE</a>]</li>
-                <li>[<a href="#investigations">02 INVESTIGAÇÕES</a>]</li>
-                <li>[<a href="#knowledge-base">03 BANCO DE DADOS</a>]</li>
+                <li><span class="index">00</span> <a href="#manifesto">MANIFESTO.md</a></li>
+                <li><span class="index">01</span> <a href="#audits">CRITICAL_AUDITS/</a> <span class="blink_slow">[ACTIVE_CASES]</span></li>
+                <li><span class="index">02</span> <a href="#evidence">EVIDENCE_LOCKER/</a></li>
+                <li><span class="index">03</span> <a href="#interventions">MEDIA_INTERVENTIONS/</a></li>
             </ul>
         </nav>
 
         <hr class="separator">
 
-        <!-- MANIFESTO (SOBRE) -->
-        <section id="about">
-            <h2>01 SOBRE</h2>
-            <p>
-                Investigo sistemas e atuo na intersecção entre 
-                <span class="highlight">Análise de Dados Crítica</span>, <span class="highlight">Teoria Sociotécnica</span> 
-                e <span class="highlight">Engenharia de Software</span>.
-            </p>
-            <p>
-                Meu trabalho é revirar os "escombros" da tecnologia — falhas éticas, 
-                vieses algorítmicos e estruturas de opressão digital. O objetivo é expor a 
-                <span class="highlight">Governamentalidade Algorítmica</span> e propor alternativas 
-                baseadas em Ciência Aberta e tecnologias emancipatórias.
-            </p>
+        <!-- 00 — MANIFESTO -->
+        <section id="manifesto">
+            <h2 data-text="00_MANIFESTO.md">00_MANIFESTO.md</h2>
+
+            <div class="text-block">
+                <p>
+                    Este projeto nasce do interesse em entender como tecnologias influenciam práticas sociais, decisões e formas de organização. Sistemas digitais não são neutros: eles incorporam escolhas e valores, como demonstram estudos sobre infraestruturas sociotécnicas e governança automatizada.
+                </p>
+
+                <p>
+                    A pesquisa combina elementos de <strong>Sociologia Econômica</strong>, <strong>Estudos Sociotécnicos</strong> e <strong>Engenharia de Software</strong>. O foco é observar como sistemas são construídos, como funcionam na prática e quais efeitos produzem para diferentes grupos.
+                </p>
+
+                <p>
+                    Quando necessário, são mobilizados conceitos como <strong>Governamentalidade Algorítmica</strong>, <strong>Necropolítica Digital</strong> e <strong>Economia Política das Infraestruturas</strong> para apoiar análises que envolvem assimetrias, desigualdades e processos automatizados de decisão.
+                </p>
+            </div>
+
         </section>
 
         <hr class="separator">
 
-        <!-- INVESTIGAÇÕES (PROJETOS) -->
-        <section id="investigations">
-            <h2>02 INVESTIGAÇÕES</h2>
-            <noscript>
-                <p>SYSTEM ERROR: JAVASCRIPT REQUIRED FOR DECIPHERING DATA LOGS.</p>
-                <p>Please enable JS to access the archives.</p>
-            </noscript>
+        <!-- 01 — ESTUDOS -->
+        <section id="audits">
+            <h2 data-text="01_CRITICAL_AUDITS/">01_CRITICAL_AUDITS/</h2>
+            <div id="projects-container">
+                <noscript>
+                    <p class="error">FATAL_ERROR: JAVASCRIPT REQUIRED TO DECRYPT ARCHIVES.</p>
+                </noscript>
+            </div>
         </section>
 
         <hr class="separator">
 
-        <section id="knowledge-base">
-            <h2>03 BANCO DE DADOS</h2>
-            <p>Documentação de estudos e guias técnicos para disseminação do conhecimento.</p>
-            
-            <div class="terminal-box">
+        <!-- 02 — EVIDENCE LOCKER -->
+        <section id="evidence">
+            <h2 data-text="02_EVIDENCE_LOCKER/">02_EVIDENCE_LOCKER/</h2>
+            <p class="section-desc">
+                Dados brutos, logs de pesquisa e documentação técnica para verificação e análise.
+            </p>
+
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="buttons">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <span class="title">bash -- active_session</span>
+                </div>
+
+                <div class="terminal-body" id="knowledge-container">
+                    <div class="loading">Fetching data streams...</div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="separator">
+
+        <!-- 03 — MEDIA INTERVENTIONS -->
+        <section id="interventions">
+            <h2 data-text="03_MEDIA_INTERVENTIONS/">03_MEDIA_INTERVENTIONS/</h2>
+            <p class="section-desc">
+                Artefatos visuais e mídias táticas que ampliam o alcance público das investigações.
+            </p>
+
+            <div class="terminal-window">
+                <div class="terminal-body" id="instagram-feed-container">
+                    <div class="loading">
+                        <span style="color:var(--accent-secondary)">$ fetch @escombros.log stream...</span>
+
+                        <p class="output-line">
+                            <span style="color:var(--text-color); margin-top: 10px;">
+                                > <a href="https://instagram.com/escombros.log" target="_blank">Access Live Broadcast Channel (INSTAGRAM)</a>
+                            </span>
+                        </p>
+
+                        <div class="data-preview" style="border: none; padding-left: 0; margin-top: 10px;">
+                            └── PREVIEW: VISUAL_ARTIFACTS // EXPOSING_PATTERNS
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- FOOTER -->
         <footer>
-            <hr class="separator">
-            <div class="contact-info">
-                <p class="comment"># COMM_CHANNELS</p>
-                <ul>
-                    <li><span class="key">:: LINKEDIN</span>: <a href="https://www.linkedin.com/in/vasconcel" target="_blank">vasconcel</a></li>
-                    <li><span class="key">:: GITHUB</span>: <a href="https://github.com/vasconcel" target="_blank">vasconcel</a></li>
-                    <li><span class="key">:: INSTAGRAM</span>: <a href="https://instagram.com/escombros.log" target="_blank">@escombros.log</a></li>
-                    <li><span class="key">:: E-MAIL</span>: <a href="mailto:gabriel.vasconcel@outlook.com">gabriel.vasconcel@outlook.com</a></li>
-                </ul>
+            <hr class="separator-double">
+
+            <div class="footer-content">
+
+                <div class="contact-block">
+                    <p class="comment">// CHANNELS_OF_CONTACT</p>
+                    <ul>
+                        <li><span class="key">:: MAIL</span>: <a href="mailto:gabriel.vasconcel@outlook.com">gabriel.vasconcel@outlook.com</a></li>
+                        <li><span class="key">:: LATTES</span>: <a href="http://lattes.cnpq.br/7193014410256740" target="_blank">7193014410256740</a></li>
+                        <li><span class="key">:: GITHUB</span>: <a href="https://github.com/vasconcel" target="_blank">vasconcel</a></li>
+                        <li><span class="key">:: INSTAGRAM</span>: <a href="https://instagram.com/escombros.log" target="_blank">@escombros.log</a></li>
+                    </ul>
+                </div>
+
+                <div class="disclaimer">
+                    <p>OPEN KNOWLEDGE // COPYLEFT</p>
+                    <p class="tiny">CODE_AUDITED: 2025 // NO_RIGHTS_RESERVED</p>
+                </div>
+
             </div>
-            <p class="copyright">© 2025 // NO RIGHTS RESERVED // OPEN KNOWLEDGE</p>
         </footer>
 
     </div>
