@@ -5,15 +5,15 @@
 
 ---
 
-O **@ESCOMBROS.LOG** é um laboratório independente dedicado a investigar como tecnologias funcionam na prática. A proposta é examinar sistemas digitais a partir de suas estruturas técnicas, fluxos de dados e efeitos sociais, combinando métodos da **Engenharia de Software** com perspectivas das **Ciências Sociais**.
+O **@ESCOMBROS.LOG** é um laboratório independente dedicado a investigar a partir de suas estruturas técnicas, fluxos de dados e efeitos sociais, combinando métodos da **Engenharia de Software** com perspectivas das **Ciências Sociais**.
 
-O laboratório produz microinvestigações, auditorias leves, estudos exploratórios e pequenos mapeamentos de infraestrutura. O foco é tornar visíveis decisões técnicas, opacidades e assimetrias presentes no cotidiano das plataformas, priorizando análises claras, acessíveis e empiricamente fundamentadas.
+O laboratório produz microinvestigações, auditorias, estudos exploratórios e pequenos mapeamentos de infraestrutura. O foco é tornar visíveis decisões técnicas, opacidades e assimetrias presentes no cotidiano das plataformas, priorizando análises acessíveis e empiricamente fundamentadas.
 
 ### 🎯 Foco e Intenção
 
 O laboratório desenvolve investigações sobre:
 
-1.  **Opacidade e Automação:** Como sistemas filtram, priorizam ou tomam decisões — e o que permanece oculto para usuários e trabalhadores.
+1.  **Opacidade e Automação:** Como sistemas filtram, priorizam ou tomam decisões, e o que permanece oculto para usuários e trabalhadores.
 2.  **Infraestruturas Digitais:** Como plataformas estruturam regras, fluxos e limites técnicos que moldam interação, dados e formas de trabalho.
 3.  **Governança Tecnológica:** Como soluções digitais distribuem capacidades, acessos e restrições no dia a dia, frequentemente sem escrutínio público.
 
@@ -26,20 +26,20 @@ Essas análises são construídas de forma incremental, combinando experimentaç
 | Diretório | Seção do Site | Conteúdo |
 | :--- | :--- | :--- |
 | `00_MANIFESTO.md` | Manifesto | Visão geral, fundamentos e abordagem investigativa. |
-| `01_AUDITS/` | Auditorias | Microinvestigações e estudos exploratórios sobre sistemas e plataformas. |
+| `01_AUDITS/` | Auditorias | Microinvestigações e estudos exploratórios sobre sistemas e plataformas. **(Atualmente em: Aguardando a primeira investigação inédita)** |
 | `02_EVIDENCE_LOCKER/` | Evidências | Logs, scripts, dados brutos e materiais técnicos para verificação independente. |
 | `03_MEDIA_INTERVENTIONS/` | Divulgação | Artefatos visuais e materiais sintéticos para comunicação pública. |
 
 ---
 
-### 🔬 Linhas de Investigação Atuais
+### 🔬 Áreas Temáticas de Foco
 
-As primeiras linhas de pesquisa se concentram em sistemas que mediam a relação entre **trabalho**, **tecnologia** e **infraestruturas digitais**, com ênfase em:
+O Lab está atualmente direcionando esforços de desenvolvimento e aquisição de dados em sistemas que mediam a relação entre **trabalho**, **tecnologia** e **infraestruturas digitais**, com ênfase em:
 
-*   **Anti-patterns em Recrutamento de TI:** Análise exploratória de práticas problemáticas e vieses técnicos em plataformas de seleção.
-*   **Mapeamentos Sociotécnicos:** Experimentação com APIs, logs, fluxos de dados e automações para observar decisões inscritas na arquitetura de serviços digitais.
+*   **Trabalho e Governança Algorítmica:** Análise exploratória de práticas problemáticas, vieses técnicos e automação da exclusão em plataformas de Recrutamento e Seleção (R&S) e gestão de trabalho (Gig Economy).
+*   **Infraestrutura e Opacidade:** Experimentação com logs, APIs e arquiteturas de serviços digitais para mapear as decisões técnicas inscritas no código e seus efeitos sociotécnicos.
 
-Essas linhas serão ampliadas conforme novos métodos, casos e evidências forem desenvolvidos.
+Essas áreas serão formalizadas em projetos no diretório `01_AUDITS/` assim que a primeira investigação inédita estiver pronta para publicação.
 
 ---
 
