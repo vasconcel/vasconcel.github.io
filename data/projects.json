@@ -2,100 +2,45 @@
   "investigations": [
     {
       "id": "workforce-pathologies",
-      "title": "HIRING_ANTI-PATTERNS [R&S SOCIOTECHNICAL STUDY]",
-      "description": "Estudo exploratório sobre a ocorrência de 25 anti-patterns em mais de 470 processos seletivos de TI. A análise mobiliza a Sociologia das Organizações e 'Human Aspects of Software Engineering' para mapear como plataformas de recrutamento automatizam exclusões e impõem trabalho não remunerado aos candidatos.",
+      "title": "HIRING_ANTI-PATTERNS [ACADEMIC_RESEARCH]",
+      "description": "Pesquisa desenvolvida no âmbito acadêmico (GESID/UFCA) sobre a automação da exclusão no recrutamento de TI. O estudo auditou mais de 470 processos seletivos, identificando 25 'anti-patterns' que convertem plataformas em ferramentas de opacidade e trabalho não remunerado. Mobiliza a Teoria da Atribuição-Reação (AART) para mapear falhas sistêmicas na governança algorítmica.",
       "tags": [
-        { "name": "Sociotechnical Systems", "class": "tag-theory" },
-        { "name": "Qualitative Research", "class": "tag-theory" },
-        { "name": "Workforce Analytics", "class": "tag-os" }
+        { "name": "Algorithmic Opacity", "class": "tag-theory" },
+        { "name": "Academic Research", "class": "tag-os" },
+        { "name": "Systemic Audit", "class": "tag-os" }
       ],
       "status": {
-        "text": "[STATUS: SUBMITTED FOR PEER REVIEW]",
+        "text": "[STATUS: AWAITING_PUBLICATION]",
         "class": "status-alert"
       },
       "links": []
-    },
-    {
-      "id": "data-liberation-protocol",
-      "title": "OPEN_ACCESS_PROTOCOL [DATA_WASHES API]",
-      "description": "Desenvolvimento de infraestrutura de Ciência Aberta para democratizar o acesso programático a metadados científicos (Lattes/CNPq). O projeto atua como uma camada de engenharia reversa contra processos de cercamento e privatização de dados públicos.",
-      "tags": [
-        { "name": "Open Science", "class": "tag-theory" },
-        { "name": "Data Engineering", "class": "tag-os" },
-        { "name": "API REST", "class": "tag-os" }
-      ],
-      "status": {
-        "text": "[DEPLOYED: ACTIVE]",
-        "class": ""
-      },
-      "links": [
-        {
-          "text": "[ACCESS_API_NODE]",
-          "url": "https://datawashes.pythonanywhere.com/"
-        },
-        {
-          "text": "[READ_DOCS.PDF]",
-          "url": "assets/docs/datawashes_resumo_expandido.pdf"
-        }
-      ]
-    },
-    {
-      "id": "capital-sim",
-      "title": "CRYPTO_ARCHITECTURE_AUDIT [ECONOMIC_CRITIQUE]",
-      "description": "Investigação sobre a materialidade técnica das Distributed Ledger Technologies (DLTs). Análise crítica de como arquiteturas 'trustless' (como Proof-of-Work) cristalizam especulação financeira e formas de extração de valor no nível do protocolo.",
-      "tags": [
-        { "name": "Political Economy", "class": "tag-theory" },
-        { "name": "Smart Contracts", "class": "tag-os" }
-      ],
-      "status": {
-        "text": "[ARCHIVED: V1.0]",
-        "class": ""
-      },
-      "links": [
-        {
-          "text": "[GITHUB_REPO]",
-          "url": "https://github.com/vasconcel/crypto-submersion"
-        },
-        {
-          "text": "[THEORY_NOTES]",
-          "url": "https://sky-clock-04e.notion.site/Crypto-Submersion-10c0cf477938801ebda8e0059ccb94b7"
-        }
-      ]
     }
   ],
 
   "knowledge_base": [
     {
-      "title": "RAW_DATA_LEAKS // HIRING_PATTERNS",
+      "title": "EXTERNAL_CASE // HIRING_PATTERNS",
       "type": "comment"
     },
     {
-      "title": "HIRING_ANTI_PATTERNS_DATASET_V1.csv",
+      "title": "dataset_hiring_anti_patterns_v1.csv",
       "type": "file",
       "url": "",
       "is_locked": true,
-      "notes": "Dataset retido. Aguardando publicação formal em periódico (Embargo Acadêmico).",
-      "data_preview": "MD5: a1b2c3d4e5f6..."
+      "notes": "EMBARGOED: Research data retained pending formal publication.",
+      "data_preview": "ACCESS_DENIED // SHA-256: 8a7b3c2d..."
     },
     {
-      "title": "SCRIPTS // INFRASTRUCTURE",
+      "title": "LAB_STATUS // SYSTEM_LOG",
       "type": "comment"
     },
     {
-      "title": "WASHES_API_SCRAPER.py",
+      "title": "init_sequence.sh",
       "type": "file",
-      "url": "https://github.com/gesid/dataWASHES",
+      "url": "",
       "is_locked": false,
       "is_new": false,
-      "data_preview": "Python crawler for public databases."
-    },
-    {
-      "title": "ADS_CURRICULUM.log",
-      "type": "file",
-      "url": "https://sky-clock-04e.notion.site/Analysis-Development-of-Systems-1920cf47793880baad7fcff13d736b55",
-      "is_locked": false,
-      "is_new": true,
-      "data_preview": "Modules: Ethics, Algorithms, AI, Security & IT Gov."
+      "data_preview": "System initialized. Waiting for new independent audits..."
     }
   ]
 }
