@@ -1,35 +1,6 @@
 {
-  "investigations": [
-    {
-      "id": "workforce-pathologies",
-      "title": "HIRING_ANTI-PATTERNS [ACADEMIC_RESEARCH]",
-      "description": "Pesquisa desenvolvida no âmbito acadêmico (GESID/UFCA) sobre a automação da exclusão no recrutamento de TI. O estudo auditou mais de 470 processos seletivos, identificando 25 'anti-patterns' que convertem plataformas em ferramentas de opacidade e trabalho não remunerado. Mobiliza a Teoria da Atribuição-Reação (AART) para mapear falhas sistêmicas na governança algorítmica.",
-      "tags": [
-        { "name": "Algorithmic Opacity", "class": "tag-theory" },
-        { "name": "Academic Research", "class": "tag-os" },
-        { "name": "Systemic Audit", "class": "tag-os" }
-      ],
-      "status": {
-        "text": "[STATUS: AWAITING_PUBLICATION]",
-        "class": "status-alert"
-      },
-      "links": []
-    }
-  ],
-
+  "investigations": [], 
   "knowledge_base": [
-    {
-      "title": "EXTERNAL_CASE // HIRING_PATTERNS",
-      "type": "comment"
-    },
-    {
-      "title": "dataset_hiring_anti_patterns_v1.csv",
-      "type": "file",
-      "url": "",
-      "is_locked": true,
-      "notes": "EMBARGOED: Research data retained pending formal publication.",
-      "data_preview": "ACCESS_DENIED // SHA-256: 8a7b3c2d..."
-    },
     {
       "title": "LAB_STATUS // SYSTEM_LOG",
       "type": "comment"
