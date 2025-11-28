@@ -1,142 +1,210 @@
-// assets/js/main.js - VERSÃO FINAL REFATORADA
+/**
+ * ESCOMBROS.LOG // MAIN CONTROL SCRIPT
+ * Author: Gabriel V. Silva
+ * Description: Gerencia o fetch de dados, renderização do terminal e efeitos de interface.
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Referências aos Containers
-    const PROJECTS_CONTAINER = document.getElementById('projects-container');
-    const KNOWLEDGE_CONTAINER = document.getElementById('knowledge-container');
-    const DATE_ELEMENT = document.getElementById('system-clock');
-    
-    // URL do JSON
-    const PROJECTS_JSON_URL = 'data/projects.json';
-
-
-    // ----------------------------------------------------
-    // 1. FUNÇÕES DE UTILIDADE E INIT
-    // ----------------------------------------------------
-    
-    // Atualiza data do sistema estilo log
-    const updateTime = () => {
-        const now = new Date();
-        // Formatando para ISO Date e Time (ex: 2025-11-27 [17:00:00])
-        if(DATE_ELEMENT) {
-            DATE_ELEMENT.innerText = `SYS_TIME: ${now.toISOString().split('T')[0]} [${now.toTimeString().split(' ')[0]}]`;
-        }
+    // --- CONFIGURAÇÃO E SELETORES ---
+    const CONFIG = {
+        dataUrl: 'data/projects.json',
+        refreshRate: 1000 // Para o relógio
     };
-    // Inicia o relógio do sistema
-    setInterval(updateTime, 1000);
-    updateTime();
 
-    // Função principal para buscar o JSON e renderizar o conteúdo
-    const loadContent = async () => {
-        try {
-            const response = await fetch(PROJECTS_JSON_URL);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+    const DOM = {
+        projectsContainer: document.getElementById('projects-container'),
+        knowledgeContainer: document.getElementById('knowledge-container'),
+        clockElement: document.getElementById('system-clock'),
+        tocLinks: document.querySelectorAll('nav#toc a')
+    };
+
+    // --- 1. SYSTEM CLOCK (Relógio do Header) ---
+    const initSystemClock = () => {
+        const updateTime = () => {
+            const now = new Date();
+            // Formato: YYYY-MM-DD [HH:MM:SS]
+            const dateStr = now.toISOString().split('T')[0];
+            const timeStr = now.toTimeString().split(' ')[0];
+            
+            if (DOM.clockElement) {
+                DOM.clockElement.innerText = `SYS_TIME: ${dateStr} [${timeStr}]`;
             }
+        };
+
+        updateTime(); // Executa imediatamente
+        setInterval(updateTime, CONFIG.refreshRate);
+    };
+
+    // --- 2. DATA FETCHING (Carregamento do JSON) ---
+    const loadSystemData = async () => {
+        try {
+            // Pequeno delay artificial (300ms) para o usuário ver a msg "Establishing Connection"
+            // Isso dá uma sensação de "boot" do sistema.
+            await new Promise(resolve => setTimeout(resolve, 300));
+
+            const response = await fetch(CONFIG.dataUrl);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP_STATUS_${response.status}`);
+            }
+
             const data = await response.json();
 
-            renderProjects(data.investigations);
+            // Renderiza as seções
+            renderAudits(data.investigations);
             renderEvidence(data.knowledge_base);
-            
-            // Inicia efeitos e navegação após o load
-            initializeEffects(); 
 
         } catch (error) {
-            console.error('CRITICAL FAILURE: Failed to load project data.', error);
-            if(PROJECTS_CONTAINER) {
-                PROJECTS_CONTAINER.innerHTML = `<p class="alert-box">ERROR: DATA LOAD FAILED. STATUS: ${error.message}</p>`;
-            }
+            console.error('SYSTEM FAILURE:', error);
+            handleLoadError(error.message);
         }
     };
-    
-    // ----------------------------------------------------
-    // 2. RENDERIZAÇÃO DE CONTEÚDO (AUDITS)
-    // ----------------------------------------------------
 
-    const renderProjects = (projects) => {
-        if(!PROJECTS_CONTAINER) return;
-        PROJECTS_CONTAINER.innerHTML = projects.map(p => `
-            <div class="entry">
-                <div class="entry-header">
-                    <h3>> ${p.title}</h3>
-                </div>
-                <div class="tags-container">
-                    ${p.tags.map(t => `<span class="tag ${t.class}">${t.name}</span>`).join('')}
-                </div>
-                <p class="entry-desc">${p.description}</p>
-                <!-- Stack já não é mais um <ul> e sim parte da descrição/tags, mas mantemos o slot para futuros metadados -->
-                
-                <div class="meta">
-                    ${p.status ? `<span class="status-badge ${p.status.class || ''}">${p.status.text}</span>` : ''}
-                </div>
-                <div class="btn-group">
+    // --- 3. RENDERERS (Geradores de HTML) ---
+
+    // Renderiza a Seção 01: Critical Audits
+    const renderAudits = (projects) => {
+        if (!DOM.projectsContainer) return;
+
+        if (!projects || projects.length === 0) {
+            DOM.projectsContainer.innerHTML = '<p class="sys-msg">>> NO_ACTIVE_INVESTIGATIONS_FOUND.</p>';
+            return;
+        }
+
+        const htmlContent = projects.map(p => {
+            // Gera as Tags
+            const tagsHtml = p.tags.map(t => 
+                `<span class="tag ${t.class || ''}">${t.name}</span>`
+            ).join('');
+
+            // Gera o Badge de Status (se existir)
+            const statusHtml = p.status 
+                ? `<span class="status-badge ${p.status.class || ''}">${p.status.text}</span>` 
+                : '';
+
+            // Gera os Botões (se existirem)
+            const linksHtml = p.links && p.links.length > 0
+                ? `<div class="btn-group">
                     ${p.links.map(l => `<a href="${l.url}" class="link-btn" target="_blank">${l.text}</a>`).join('')}
+                   </div>`
+                : '';
+
+            return `
+                <div class="entry">
+                    <div class="entry-header">
+                        <h3>> ${p.title}</h3>
+                    </div>
+                    
+                    <div class="tags-container">${tagsHtml}</div>
+                    
+                    <p class="entry-desc">${p.description}</p>
+                    
+                    <div class="meta">
+                        ${statusHtml}
+                    </div>
+                    
+                    ${linksHtml}
                 </div>
-            </div>
-        `).join('');
+            `;
+        }).join('');
+
+        DOM.projectsContainer.innerHTML = htmlContent;
     };
 
-
-    // ----------------------------------------------------
-    // 3. RENDERIZAÇÃO DE CONTEÚDO (EVIDENCE LOCKER)
-    // ----------------------------------------------------
-    
+    // Renderiza a Seção 02: Evidence Locker (Terminal)
     const renderEvidence = (items) => {
-        if(!KNOWLEDGE_CONTAINER) return;
-        KNOWLEDGE_CONTAINER.innerHTML = items.map(item => {
-            if (item.type === 'comment') return `<div class="comment"># ${item.title}</div>`;
-            
-            // Renderização do Terminal
-            const blink = item.is_new ? '<span class="blink_slow"> [NEW_EVIDENCE]</span>' : '';
+        if (!DOM.knowledgeContainer) return;
+
+        const htmlContent = items.map(item => {
+            // Caso 1: Comentários (# headers)
+            if (item.type === 'comment') {
+                return `<span class="comment"># ${item.title}</span>`;
+            }
+
+            // Caso 2: Arquivos Bloqueados (Lógica corrigida)
+            if (item.is_locked) {
+                return `
+                    <div class="output-block locked">
+                        <p class="output-line">
+                            <span style="color:var(--accent-color)">[LOCKED]</span> 
+                            <span>${item.title}</span>
+                        </p>
+                        <div class="data-preview">
+                            └── STATUS: ACCESS_DENIED // ${item.notes || 'Awaiting Clearance'}
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Caso 3: Arquivos Normais (Output)
+            const blinkNew = item.is_new ? '<span class="blink_slow"> [NEW]</span>' : '';
             const preview = item.data_preview 
-                ? `<div class="data-preview">└── DUMP: ${item.data_preview}</div>` 
+                ? `<div class="data-preview">└── ${item.data_preview}</div>` 
                 : '';
-            
+
+            // Verifica se tem URL, senão coloca um placeholder
+            const fileLink = item.url 
+                ? `<a href="${item.url}" target="_blank">${item.title}</a>`
+                : item.title;
+
             return `
                 <div class="output-block">
                     <p class="output-line">
                         <span style="color:var(--accent-secondary)">$ cat</span> 
-                        <a href="${item.url}" target="_blank">${item.title}</a>${blink}
+                        ${fileLink}${blinkNew}
                     </p>
                     ${preview}
                 </div>
             `;
         }).join('');
+
+        DOM.knowledgeContainer.innerHTML = htmlContent;
     };
 
-    // ----------------------------------------------------
-    // 4. INICIALIZAÇÃO DE EFEITOS E INTERAÇÃO
-    // ----------------------------------------------------
-    const initializeEffects = () => {
+    // --- 4. UTILITÁRIOS E EFEITOS ---
+
+    const handleLoadError = (msg) => {
+        const errorHtml = `
+            <div class="alert-box">
+                <span class="icon">!</span>
+                <div>
+                    <strong>FATAL_ERROR: DATA_FETCH_FAILED</strong><br>
+                    <span class="tiny">CODE: ${msg} // CHECK CONSOLE FOR LOGS</span>
+                </div>
+            </div>
+        `;
         
-        // Efeito Glitch/Flicker Sutil nos títulos das seções (h2)
-        const sectionsH2 = document.querySelectorAll('section h2');
-        
-        sectionsH2.forEach(h2 => {
-            const originalText = h2.textContent.replace(/^$ /, '').trim();
-            h2.setAttribute('data-text', originalText);
-            
-            h2.addEventListener('mouseover', () => {
-                h2.classList.add('glitch-small');
-            });
-            
-            h2.addEventListener('mouseout', () => {
-                h2.classList.remove('glitch-small');
-            });
-        });
-        
-        // Smooth Scroll para a TOC (Usabilidade)
-        document.querySelectorAll('nav#toc a').forEach(anchor => {
+        if(DOM.projectsContainer) DOM.projectsContainer.innerHTML = errorHtml;
+        if(DOM.knowledgeContainer) DOM.knowledgeContainer.innerHTML = `<span style="color:var(--accent-color)">$ connection_lost...</span>`;
+    };
+
+    const initSmoothScroll = () => {
+        DOM.tocLinks.forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
-                document.querySelector(targetId).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
         });
-    }
+    };
 
-    // Inicia o carregamento do conteúdo
-    loadContent();
+    // --- 5. INICIALIZAÇÃO ---
+    
+    initSystemClock();
+    initSmoothScroll();
+    loadSystemData();
+
+    console.log(
+        "%c @ESCOMBROS.LOG %c SYSTEM READY ",
+        "background:#000; color:#fff; font-weight:bold; padding:5px;",
+        "background:#00ff41; color:#000; padding:5px;"
+    );
 });

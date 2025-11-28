@@ -3,42 +3,38 @@
     {
       "id": "workforce-pathologies",
       "title": "HIRING_ANTI-PATTERNS [R&S SOCIOTECHNICAL STUDY]",
-      "description": "Estudo exploratório sobre a ocorrência de 25 anti-patterns em mais de 470 processos seletivos de TI, analisados sob uma perspectiva sociotécnica e informados por contribuições da Sociologia das Organizações e dos Human Aspects of Software Engineering. Desenvolvido no âmbito do GESID/UFCA.",
+      "description": "Estudo exploratório sobre a ocorrência de 25 anti-patterns em mais de 470 processos seletivos de TI. A análise mobiliza a Sociologia das Organizações e 'Human Aspects of Software Engineering' para mapear como plataformas de recrutamento automatizam exclusões e impõem trabalho não remunerado aos candidatos.",
       "tags": [
         { "name": "Sociotechnical Systems", "class": "tag-theory" },
-        { "name": "Human Aspects of SE", "class": "tag-theory" },
-        { "name": "Qualitative Research", "class": "tag-os" }
+        { "name": "Qualitative Research", "class": "tag-theory" },
+        { "name": "Workforce Analytics", "class": "tag-os" }
       ],
-      "stack": ["Thematic Analysis", "Cross-Case Comparison", "Sociotechnical Inquiry"],
       "status": {
         "text": "[STATUS: SUBMITTED FOR PEER REVIEW]",
-        "class": "status-alert",
-        "is_link": false
+        "class": "status-alert"
       },
       "links": []
     },
     {
       "id": "data-liberation-protocol",
       "title": "OPEN_ACCESS_PROTOCOL [DATA_WASHES API]",
-      "description": "Desenvolvimento de infraestrutura de Ciência Aberta para democratizar o acesso programático a metadados científicos (WASHES), atuando contra processos de cercamento e privatização do conhecimento acadêmico.",
+      "description": "Desenvolvimento de infraestrutura de Ciência Aberta para democratizar o acesso programático a metadados científicos (Lattes/CNPq). O projeto atua como uma camada de engenharia reversa contra processos de cercamento e privatização de dados públicos.",
       "tags": [
         { "name": "Open Science", "class": "tag-theory" },
-        { "name": "Data Engineering", "class": "tag-os" }
+        { "name": "Data Engineering", "class": "tag-os" },
+        { "name": "API REST", "class": "tag-os" }
       ],
-      "stack": ["Python", "Flask", "OpenAPI", "REST Architecture"],
       "status": {
         "text": "[DEPLOYED: ACTIVE]",
-        "class": "",
-        "is_link": true,
-        "url": "https://datawashes.pythonanywhere.com/"
+        "class": ""
       },
       "links": [
         {
-          "text": "[API_NODE]",
+          "text": "[ACCESS_API_NODE]",
           "url": "https://datawashes.pythonanywhere.com/"
         },
         {
-          "text": "[DOCUMENTATION.PDF]",
+          "text": "[READ_DOCS.PDF]",
           "url": "assets/docs/datawashes_resumo_expandido.pdf"
         }
       ]
@@ -46,16 +42,18 @@
     {
       "id": "capital-sim",
       "title": "CRYPTO_ARCHITECTURE_AUDIT [ECONOMIC_CRITIQUE]",
-      "description": "Investigação sobre a materialidade técnica das Distributed Ledger Technologies (DLTs) e como arquiteturas de 'sistemas sem confiança' (como Proof-of-Work) cristalizam especulação e formas de extração de valor.",
+      "description": "Investigação sobre a materialidade técnica das Distributed Ledger Technologies (DLTs). Análise crítica de como arquiteturas 'trustless' (como Proof-of-Work) cristalizam especulação financeira e formas de extração de valor no nível do protocolo.",
       "tags": [
-        { "name": "Political Economy of AI", "class": "tag-theory" },
-        { "name": "Sociology of Money", "class": "tag-theory" }
+        { "name": "Political Economy", "class": "tag-theory" },
+        { "name": "Smart Contracts", "class": "tag-os" }
       ],
-      "stack": ["Solidity", "Blockchain Architecture", "Node.js", "Cryptology"],
-      "status": null,
+      "status": {
+        "text": "[ARCHIVED: V1.0]",
+        "class": ""
+      },
       "links": [
         {
-          "text": "[TECHNICAL_LOGS]",
+          "text": "[GITHUB_REPO]",
           "url": "https://github.com/vasconcel/crypto-submersion"
         },
         {
@@ -68,29 +66,36 @@
 
   "knowledge_base": [
     {
-      "title": "RAW_DATA_LEAKS // ANTI-PATTERNS_V1",
+      "title": "RAW_DATA_LEAKS // HIRING_PATTERNS",
       "type": "comment"
     },
     {
       "title": "HIRING_ANTI_PATTERNS_DATASET_V1.csv",
-      "type": "placeholder",
+      "type": "file",
+      "url": "",
       "is_locked": true,
-      "data_preview": "Arquivo provisoriamente indisponível — aguardando publicação do artigo.",
-      "notes": "Dataset será liberado após aprovação e publicação formal em periódico."
+      "notes": "Dataset retido. Aguardando publicação formal em periódico (Embargo Acadêmico).",
+      "data_preview": "MD5: a1b2c3d4e5f6..."
     },
     {
-      "title": "SCRIPTS // DATA_COLLECTORS",
+      "title": "SCRIPTS // INFRASTRUCTURE",
       "type": "comment"
     },
     {
       "title": "WASHES_API_SCRAPER.py",
-      "type": "output",
-      "url": "https://github.com/gesid/dataWASHES"
+      "type": "file",
+      "url": "https://github.com/gesid/dataWASHES",
+      "is_locked": false,
+      "is_new": false,
+      "data_preview": "Python crawler for public databases."
     },
     {
-      "title": "SYSTEMS_ANALYSIS_NOTES.md",
-      "type": "output",
-      "url": "https://sky-clock-04e.notion.site/Analysis-Development-of-Systems-1920cf47793880baad7fcff13d736b55"
+      "title": "ADS_CURRICULUM.log",
+      "type": "file",
+      "url": "https://sky-clock-04e.notion.site/Analysis-Development-of-Systems-1920cf47793880baad7fcff13d736b55",
+      "is_locked": false,
+      "is_new": true,
+      "data_preview": "Modules: Ethics, Algorithms, AI, Security & IT Gov."
     }
   ]
 }
