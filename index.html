@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="description"
-    content="Academic Research Portfolio — Undergraduate Researcher in Empirical Software Engineering and Socio-Technical Systems."
-  />
+  <meta name="description"
+    content="Academic Research Portfolio — Undergraduate Researcher in Empirical Software Engineering and Socio-Technical Systems." />
   <title>Gabriel V. Silva</title>
   <link rel="stylesheet" href="assets/styles.css" />
+  <!-- Importando Lucide Icons para um visual técnico e limpo -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
@@ -16,11 +17,7 @@
   <!-- ================= HEADER ================= -->
   <header class="site-header">
     <div class="container header-content">
-      <img
-        src="assets/profile.jpg"
-        alt="Gabriel V. Silva"
-        class="profile-image"
-      />
+      <img src="assets/profile.jpg" alt="Gabriel V. Silva" class="profile-image" />
 
       <div class="header-text">
         <h1>Gabriel V. Silva</h1>
@@ -29,10 +26,18 @@
         </p>
 
         <div class="header-links">
-          <a href="mailto:gabriel.vasconcel@outlook.com">Email</a>
-          <a href="http://lattes.cnpq.br/7193014410256740" target="_blank" rel="noopener noreferrer">Lattes (CNPq)</a>
-          <a href="https://github.com/vasconcel" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://www.linkedin.com/in/vasconcel/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="mailto:gabriel.vasconcel@outlook.com">
+            <i data-lucide="mail" class="icon-sm"></i> Email
+          </a>
+          <a href="http://lattes.cnpq.br/7193014410256740" target="_blank" rel="noopener noreferrer">
+            <i data-lucide="file-text" class="icon-sm"></i> Lattes (CNPq)
+          </a>
+          <a href="https://github.com/vasconcel" target="_blank" rel="noopener noreferrer">
+            <i data-lucide="github" class="icon-sm"></i> GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/vasconcel/" target="_blank" rel="noopener noreferrer">
+            <i data-lucide="linkedin" class="icon-sm"></i> LinkedIn
+          </a>
         </div>
       </div>
     </div>
@@ -43,13 +48,15 @@
     <!-- ================= RESEARCH OVERVIEW ================= -->
     <section class="section">
       <div class="container">
-        <h2>Research Overview</h2>
+        <h2 class="section-title">
+          <i data-lucide="microscope" class="icon-md"></i> Research Overview
+        </h2>
         <p>
-          Research activities focus on <strong>Empirical Software Engineering</strong> and 
-          <strong>Information Systems</strong>, with particular emphasis on 
-          <strong>socio-technical systems</strong> and <strong>human aspects of software development</strong>. 
-          Current investigations examine online recruitment and selection practices, 
-          organizational decision-making processes, and the design of open research infrastructures 
+          Research activities focus on <strong>Empirical Software Engineering</strong> and
+          <strong>Information Systems</strong>, with particular emphasis on
+          <strong>socio-technical systems</strong> and <strong>human aspects of software development</strong>.
+          Current investigations examine online recruitment and selection practices,
+          organizational decision-making processes, and the design of open research infrastructures
           that support transparency, data curation, and reproducibility.
         </p>
 
@@ -65,9 +72,10 @@
     <!-- ================= AFFILIATIONS ================= -->
     <section class="section section-alt">
       <div class="container">
-        <h2>Affiliations & Research Groups</h2>
+        <h2 class="section-title">
+          <i data-lucide="building-2" class="icon-md"></i> Affiliations & Research Groups
+        </h2>
 
-        <!-- Adicionada a classe "multi-col" para colocar os cards lado a lado no desktop -->
         <div class="research-grid multi-col">
 
           <div class="card">
@@ -76,30 +84,30 @@
               Laboratory of Advanced Practices in Development, Innovation and Methodologies
             </p>
             <p>
-              Research trainee affiliated with the PADIM Lab, a research laboratory dedicated to 
-              advancing scientific and technological knowledge in Systems Engineering, Software 
-              Engineering, and Information Systems. The laboratory emphasizes applied, interdisciplinary, 
-              and problem-oriented research, with impacts spanning scientific production, technological 
-              innovation, education, and socio-economic development.
+              Research trainee affiliated with the PADIM Lab, a research laboratory dedicated to
+              advancing scientific and technological knowledge in Systems Engineering, Software
+              Engineering, and Information Systems.
             </p>
             <div class="card-links">
-              <a href="http://padimlab.github.io/" target="_blank" rel="noopener noreferrer">Laboratory Website</a>
+              <a href="http://padimlab.github.io/" target="_blank" rel="noopener noreferrer">
+                Visit Laboratory <i data-lucide="external-link" class="icon-xs"></i>
+              </a>
             </div>
           </div>
 
           <div class="card">
             <h3>GESID</h3>
             <p class="meta">
-              Group for Information Systems and Digital Innovation · Federal University of Cariri (UFCA)
+              Group for Information Systems and Digital Innovation · UFCA
             </p>
             <p>
-              Member of the GESID research group, an interdisciplinary initiative focused on the research 
-              and development of solutions in Information Systems through innovation, engineering, and 
-              digital transformation. The group addresses organizational and technological challenges 
-              relevant to contemporary society.
+              Member of the GESID research group, an interdisciplinary initiative focused on the research
+              and development of solutions in Information Systems through innovation and digital transformation.
             </p>
             <div class="card-links">
-              <a href="https://gesid.github.io/" target="_blank" rel="noopener noreferrer">Group Website</a>
+              <a href="https://gesid.github.io/" target="_blank" rel="noopener noreferrer">
+                Visit Group <i data-lucide="external-link" class="icon-xs"></i>
+              </a>
             </div>
           </div>
 
@@ -110,41 +118,80 @@
     <!-- ================= PUBLICATIONS ================= -->
     <section class="section">
       <div class="container">
-        <h2>Selected Publications</h2>
+        <h2 class="section-title">
+          <i data-lucide="book-open" class="icon-md"></i> Selected Publications
+        </h2>
 
         <div class="research-grid">
 
+          <!-- 1. CHASE 2026 (Constructive Patterns) -->
           <div class="card publication-card">
-            <div class="status-badge">Accepted</div>
+            <div class="status-badge">
+              <i data-lucide="check-circle" class="icon-xs"></i> Accepted
+            </div>
             <h3>Constructive Patterns for Human-Centered Tech Hiring</h3>
             <p class="meta">
-              <strong>CHASE 2026</strong> · International Conference on the Human Aspects of Software Engineering
+              <strong>CHASE 2026</strong> · Int. Conf. on the Human Aspects of Software Engineering
             </p>
             <p>
-              This study investigates constructive socio-technical patterns in online
-              recruitment and selection processes. Based on qualitative empirical data, the paper 
-              analyzes how organizational practices and candidate experiences interact, identifying 
-              recurring patterns that support transparency, fairness, and human-centered decision-making 
-              in software engineering hiring contexts.
+              Guided by <strong>Applicant Attribution-Reaction Theory (AART)</strong>, this study moves beyond
+              diagnosing dysfunctions to design growth-oriented hiring. Based on 22 semi-structured interviews covering
+              +470 R&S experiences, we identified <strong>22 Constructive Patterns (CPs)</strong> that foster
+              transparency, fairness, and humanized interactions in the software industry.
             </p>
             <div class="card-links">
-              <a href="http://camps.aptaracorp.com//ACM_PMS/PMS/ACM/CHASE26/13/0cfb4075-073c-11f1-aa9c-16ffd757ba29/OUT/chase26-13.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
-              <a href="http://camps.aptaracorp.com//ACM_PMS/PMS/ACM/CHASE26/13/0cfb4075-073c-11f1-aa9c-16ffd757ba29/OUT/chase26-13.html" target="_blank" rel="noopener noreferrer">HTML</a>
+              <a href="https://gesid.github.io/papers/swe-cps-hiring/" target="_blank" rel="noopener noreferrer">
+                <i data-lucide="layout-template" class="icon-sm"></i> Artifact (CP Catalog)
+              </a>
+              <a href="http://camps.aptaracorp.com//ACM_PMS/PMS/ACM/CHASE26/13/0cfb4075-073c-11f1-aa9c-16ffd757ba29/OUT/chase26-13.pdf"
+                target="_blank" rel="noopener noreferrer">
+                <i data-lucide="file-down" class="icon-sm"></i> PDF
+              </a>
+              <a href="http://camps.aptaracorp.com//ACM_PMS/PMS/ACM/CHASE26/13/0cfb4075-073c-11f1-aa9c-16ffd757ba29/OUT/chase26-13.html"
+                target="_blank" rel="noopener noreferrer">
+                <i data-lucide="code-2" class="icon-sm"></i> HTML
+              </a>
             </div>
           </div>
 
+          <!-- 2. EMSE Journal (Anti-patterns) -->
           <div class="card publication-card">
-            <div class="status-badge review">Under Peer Review</div>
-            <h3>Anti-patterns in Online Recruitment and Selection</h3>
+            <div class="status-badge review">
+              <i data-lucide="refresh-cw" class="icon-xs"></i> Under Peer Review
+            </div>
+            <h3>Anti-patterns in Online Recruitment and Selection Experienced by Early-Career Software Engineers</h3>
             <p class="meta">
               <strong>Empirical Software Engineering (EMSE)</strong> · Journal
             </p>
             <p>
-              This paper reports a qualitative empirical investigation of anti-patterns perceived by 
-              early-career software engineers during online recruitment and selection processes. 
-              The study examines how specific practices negatively affect candidate experience, 
-              sense-making, and perceptions of organizational legitimacy.
+              <strong>First-authored</strong> qualitative investigation identifying <strong>25 distinct Anti-patterns
+                (APs)</strong> in tech hiring. The study characterizes practices perceived as ineffective or unfair by
+              novice SEs, providing actionable insights for organizations to improve candidate experience and mitigate
+              perceptions of organizational illegitimacy.
             </p>
+          </div>
+
+          <!-- 3. SEPEC 2024 (dataWASHES) -->
+          <div class="card publication-card">
+            <div class="status-badge">
+              <i data-lucide="check-circle" class="icon-xs"></i> Published
+            </div>
+            <h3>Uma Visão Geral sobre o Projeto dataWASHES e sua Relação com a Extensão Universitária na UFCA</h3>
+            <p class="meta">
+              <strong>SEPEC 2024</strong> · Extended Abstract (Resumo Expandido)
+            </p>
+            <p>
+              Presents <strong>dataWASHES</strong>, an open research infrastructure designed to provide programmatic
+              access to the WASHES workshop proceedings. The work explores the intersection between <strong>Open
+                Science</strong> and University Extension, demonstrating how technical APIs can democratize access to
+              scientific data.
+            </p>
+            <div class="card-links">
+              <a href="https://www.researchgate.net/publication/399740661_Uma_Visao_Geral_sobre_o_Projeto_dataWASHES_e_sua_Relacao_com_a_Extensao_Universitaria_na_UFCA"
+                target="_blank" rel="noopener noreferrer">
+                <i data-lucide="external-link" class="icon-sm"></i> ResearchGate
+              </a>
+            </div>
           </div>
 
         </div>
@@ -154,30 +201,83 @@
     <!-- ================= ACADEMIC BACKGROUND ================= -->
     <section class="section section-alt">
       <div class="container">
-        <h2>Academic Background</h2>
+        <h2 class="section-title">
+          <i data-lucide="graduation-cap" class="icon-md"></i> Academic Background & Extension
+        </h2>
 
-        <div class="card">
-          <h3>Technologist Degree (in progress) in Systems Analysis and Development</h3>
-          <p class="meta">
-            Federal University of Cariri (UFCA)
-          </p>
-          <p>
-            Undergraduate academic training focused on Software Engineering and Information Systems. 
-            Active participation in institutional research groups, with emphasis on empirical research 
-            methods, socio-technical analysis, and methodological rigor in applied computing research.
-          </p>
+        <div class="research-grid multi-col">
+
+          <!-- Card Formação Atualizado -->
+          <div class="card">
+            <div class="status-badge">
+              <i data-lucide="clock" class="icon-xs"></i> Semester 3 / 4
+            </div>
+            <h3>Technologist Degree in Systems Analysis and Development</h3>
+            <p class="meta">
+              Federal University of Cariri (UFCA) · [Remote/EaD]
+            </p>
+            <p>
+              Academic training covering the full <strong>Software Development Life Cycle (SDLC)</strong>.
+              The curriculum integrates Software Engineering, Cloud Computing, Agile Management,
+              and Machine Learning. A key pillar of the program is the <strong>Integrated Project (PI)</strong>
+              series, which focuses on solving real-world challenges through applied systems design
+              and development.
+            </p>
+            <div class="card-links">
+              <a href="https://sky-clock-04e.notion.site/Analysis-Development-of-Systems-1920cf47793880baad7fcff13d736b55"
+                target="_blank" rel="noopener noreferrer">
+                <i data-lucide="book" class="icon-sm"></i> Study Logs (Notion)
+              </a>
+              <a href="https://ufca.edu.br/" target="_blank" rel="noopener noreferrer">
+                <i data-lucide="university" class="icon-sm"></i> UFCA
+              </a>
+            </div>
+          </div>
+
+          <!-- Card Projeto dataWASHES (Foco em Software Engineering) -->
+          <div class="card">
+            <div class="status-badge">
+              <i data-lucide="code" class="icon-xs"></i> Open Infrastructure
+            </div>
+            <h3>dataWASHES API</h3>
+            <p class="meta">
+              UFCA Extension Project · 2024
+            </p>
+            <p>
+              Contributed to the development of an open infrastructure for gathering SE research data.
+              Responsible for implementing <strong>RESTful routes</strong>, conducting unit testing
+              with <strong>Pylint</strong>, and ensuring <strong>Clean Code</strong> standards.
+              The project focused on enhancing the accessibility of WASHES proceedings through
+              programmatic tools.
+            </p>
+            <div class="card-links">
+              <a href="https://datawashes.pythonanywhere.com/" target="_blank" rel="noopener noreferrer">
+                <i data-lucide="database" class="icon-sm"></i> Documentation
+              </a>
+              <a href="https://github.com/gesid/dataWASHES" target="_blank" rel="noopener noreferrer">
+                <i data-lucide="github" class="icon-sm"></i> Repository
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
-  </main>
 
-  <!-- ================= FOOTER ================= -->
-  <footer class="site-footer">
-    <div class="container">
-      <p>© <span id="year"></span> Gabriel V. Silva</p>
-    </div>
-  </footer>
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> Gabriel V. Silva</p>
+      </div>
+    </footer>
 
-  <script src="scripts/main.js"></script>
+    <script>
+      // Inicializa os ícones Lucide
+      lucide.createIcons();
+
+      // Atualiza o ano automaticamente
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
+
 </html>
