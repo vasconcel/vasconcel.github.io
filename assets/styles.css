@@ -38,6 +38,16 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* ================= ACESSIBILIDADE ================= */
+*:focus-visible {
+  outline: 2px dashed var(--accent);
+  outline-offset: 4px;
+}
+
+a {
+  transition: color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+}
+
 /* ================= LAYOUT ================= */
 .container {
   width: 100%;
@@ -109,20 +119,30 @@ body {
 .header-links a:hover {
   opacity: 1;
   border-bottom: 1px solid var(--border);
+  color: var(--accent);
 }
 
 /* ================= RESEARCH TAGS ================= */
-/* Tornadas textuais para evitar leitura de "chips de UX" */
+/* Tornadas textuais e organizadas com separadores "bullet" */
 .research-tags {
   margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
 }
 
 .research-tags span {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   color: var(--text-muted);
-  margin-right: 1.2rem;
   white-space: nowrap;
+}
+
+/* Separador visual minimalista entre as tags */
+.research-tags span:not(:last-child)::after {
+  content: "•";
+  margin: 0 1rem;
+  opacity: 0.4;
 }
 
 /* ================= HEADINGS ================= */
@@ -132,20 +152,34 @@ h2 {
   font-weight: 600;
 }
 
+p {
+  max-width: 70ch; /* Limite ergonômico para evitar linhas excessivamente longas */
+}
+
 /* ================= GRIDS ================= */
 .research-grid {
   display: grid;
-  grid-template-columns: 1fr;
   gap: 2rem;
+  grid-template-columns: 1fr; /* Coluna única por padrão para leitura profunda */
+}
+
+/* Grid dinâmico para os laboratórios/afiliações */
+.research-grid.multi-col {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
 
 /* ================= CARDS ================= */
 .card {
   background-color: var(--card-bg);
   border: 1px solid var(--border);
-  padding: 2rem;
+  padding: 2.2rem;
   border-radius: var(--radius);
   position: relative;
+  transition: border-color 0.3s ease;
+}
+
+.card:hover {
+  border-color: rgba(143, 174, 160, 0.4); /* Interação sutil */
 }
 
 .card h3 {
@@ -165,7 +199,6 @@ h2 {
 .card p {
   color: var(--text-muted);
   margin-bottom: 1.4rem;
-  max-width: 800px;
 }
 
 /* ================= PUBLICATIONS PRIORITY ================= */
@@ -245,5 +278,9 @@ h2 {
     position: static;
     display: inline-block;
     margin-bottom: 0.8rem;
+  }
+  
+  .research-tags span:not(:last-child)::after {
+    margin: 0 0.5rem;
   }
 }
