@@ -1,8 +1,8 @@
 // ================= INITIALIZATION =================
 document.addEventListener("DOMContentLoaded", () => {
-  initLucideIcons();
-  initYear();
   initRevealAnimations();
+  initYear();
+  initLucideIcons();
 });
 
 // ================= LUCIDE ICONS =================

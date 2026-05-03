@@ -63,6 +63,9 @@ body {
   -webkit-font-smoothing: antialiased;
   position: relative;
   overflow-x: hidden;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-blend-mode: overlay;
+  background-size: 180px;
 }
 
 body::before,
@@ -70,25 +73,25 @@ body::after {
   content: '';
   position: fixed;
   border-radius: 50%;
-  filter: blur(120px);
+  filter: blur(100px);
   pointer-events: none;
   z-index: -1;
 }
 
 body::before {
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(88, 166, 255, 0.08) 0%, transparent 70%);
-  top: -200px;
-  right: -150px;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(30, 58, 138, 0.18) 0%, rgba(76, 29, 149, 0.12) 50%, transparent 70%);
+  top: -250px;
+  right: -200px;
 }
 
 body::after {
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(88, 166, 255, 0.05) 0%, transparent 70%);
-  bottom: 10%;
-  left: -100px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(76, 29, 149, 0.15) 0%, rgba(30, 58, 138, 0.1) 50%, transparent 70%);
+  bottom: 5%;
+  left: -150px;
 }
 
 /* ================= ACCESSIBILITY ================= */
@@ -233,8 +236,8 @@ a:focus-visible {
   transition: all 0.25s ease;
   padding: 0.6rem 1rem;
   border-radius: 100px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(51, 51, 51, 0.6);
   position: relative;
   overflow: hidden;
 }
@@ -256,8 +259,8 @@ a:focus-visible {
 .header-links a:hover,
 .header-links a:focus-visible {
   color: var(--text-main);
-  background: rgba(88, 166, 255, 0.08);
-  border-color: rgba(88, 166, 255, 0.2);
+  background: rgba(88, 166, 255, 0.12);
+  border-color: rgba(88, 166, 255, 0.35);
   transform: translateY(-1px);
 }
 
@@ -352,6 +355,20 @@ strong {
   pointer-events: none;
   opacity: 0.4;
   transition: opacity 0.35s ease;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius) 0 0 0;
+  pointer-events: none;
+  opacity: 0.6;
 }
 
 .card:hover {
