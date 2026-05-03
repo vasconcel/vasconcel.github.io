@@ -11,7 +11,13 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
-<body>
+<body class="domain-academia">
+
+  <nav class="global-nav" aria-label="Main navigation">
+    <a href="#academic" class="active">[ ACADEMIC ]</a>
+    <a href="#engineering">[ ENGINEERING ]</a>
+    <a href="#forensics">[ FORENSICS ]</a>
+  </nav>
 
   <header class="site-header">
     <div class="container header-content">
@@ -45,7 +51,7 @@
   </header>
 
   <main>
-    <section class="section reveal" aria-labelledby="research-title">
+    <section id="academic" class="section reveal" aria-labelledby="research-title">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title" id="research-title">
@@ -114,84 +120,6 @@
             </div>
           </article>
 
-        </div>
-      </div>
-    </section>
-
-    <section class="section reveal" aria-labelledby="systems-title">
-      <div class="container">
-        <div class="section-header carousel-header">
-          <h2 class="section-title" id="systems-title">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" x2="9" y1="1" y2="4"/><line x1="15" x2="15" y1="1" y2="4"/><line x1="9" x2="9" y1="20" y2="23"/><line x1="15" x2="15" y1="20" y2="23"/><line x1="20" x2="23" y1="9" y2="9"/><line x1="20" x2="23" y1="14" y2="14"/><line x1="1" x2="4" y1="9" y2="9"/><line x1="1" x2="4" y1="14" y2="14"/></svg> Systems & Infrastructure
-          </h2>
-          <div class="carousel-controls">
-            <button class="carousel-btn prev" aria-label="Previous system">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
-            </button>
-            <button class="carousel-btn next" aria-label="Next system">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </button>
-          </div>
-        </div>
-
-        <div class="carousel-container">
-          <div class="carousel-track">
-
-            <article class="card">
-              <h3>AIMS: AI-Powered Multivocal Literature Review Pipeline</h3>
-              <div class="badge-row">
-                <span class="badge-tag">Role: Lead Dev & Architect</span>
-                <span class="badge-tag">Protocol: Garousi et al. 2019</span>
-                <span class="badge-tag">Status: IN DEVELOPMENT / ALPHA</span>
-              </div>
-              <p>
-                End-to-end platform for Systematic Literature Reviews following Garousi et al. (2019). 
-                Operationalizes formal screening funnels, inter-reviewer consensus (Cohen's Kappa), 
-                and AI-powered comparative synthesis.
-              </p>
-              <div class="tool-features">
-                <span class="tool-log">DATA :: Eligibility Criteria Funnel</span>
-                <span class="tool-log">IRT :: Inter-rater Reliability</span>
-                <span class="tool-log">AI :: Comparative Synthesis</span>
-              </div>
-              <div class="card-links">
-                <a href="#" target="_blank" rel="noopener noreferrer">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Documentation
-                </a>
-                <a href="https://github.com/vasconcel/aims" target="_blank" rel="noopener noreferrer">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> Repository
-                </a>
-              </div>
-            </article>
-
-            <article class="card">
-              <h3>dataWASHES: Open Data Infrastructure for SE Research</h3>
-              <div class="badge-row">
-                <span class="badge-tag">Role: Developer</span>
-                <span class="badge-tag">Status: Open Infrastructure</span>
-                <span class="badge-tag">Source: SBC OpenLib</span>
-                <span class="badge-tag">SEPEC 2024</span>
-              </div>
-              <p>
-                A public academic API providing programmatic access to the WASHES workshop proceedings. 
-                Facilitates secondary studies by automating data retrieval from SBC OpenLib.
-              </p>
-              <div class="tool-features">
-                <span class="tool-log">API :: RESTful architecture</span>
-                <span class="tool-log">OPEN SCIENCE :: Transparency</span>
-                <span class="tool-log">STACK :: Python/Flask</span>
-              </div>
-              <div class="card-links">
-                <a href="https://datawashes.pythonanywhere.com/" target="_blank" rel="noopener noreferrer">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg> Documentation
-                </a>
-                <a href="https://github.com/gesid/dataWASHES" target="_blank" rel="noopener noreferrer">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> Repository
-                </a>
-              </div>
-            </article>
-
-          </div>
         </div>
       </div>
     </section>
@@ -319,6 +247,151 @@
             </div>
           </article>
 
+        </div>
+      </div>
+    </section>
+
+    <section id="engineering" class="section alt reveal" aria-labelledby="engineering-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="engineering-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg> [ SYSTEM LANGUAGE DISTRIBUTION AUDIT ]
+          </h2>
+        </div>
+
+        <div class="language-audit">
+          <div class="language-bar">
+            <div class="lang-segment python" style="width: 65.4%;"></div>
+            <div class="lang-segment javascript" style="width: 20.1%;"></div>
+            <div class="lang-segment shell" style="width: 14.5%;"></div>
+          </div>
+
+          <div class="language-logs">
+            <div class="lang-log">
+              <span class="lang-index">[ 01 ]</span>
+              <span class="lang-name">PYTHON</span>
+              <span class="lang-percent">:: 65.4%</span>
+              <span class="lang-status">[ STATUS: OPTIMIZED ]</span>
+            </div>
+            <div class="lang-log">
+              <span class="lang-index">[ 02 ]</span>
+              <span class="lang-name">JAVASCRIPT</span>
+              <span class="lang-percent">:: 20.1%</span>
+              <span class="lang-status">[ STATUS: OPERATIONAL ]</span>
+            </div>
+            <div class="lang-log">
+              <span class="lang-index">[ 03 ]</span>
+              <span class="lang-name">SQL/SHELL</span>
+              <span class="lang-percent">:: 14.5%</span>
+              <span class="lang-status">[ STATUS: CORE ]</span>
+            </div>
+          </div>
+
+          <div class="certification-slot">
+            <div class="cert-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>AWS Certified Cloud Practitioner</span>
+            </div>
+            <span class="cert-verified">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg> VERIFIED
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" aria-labelledby="systems-title">
+      <div class="container">
+        <div class="section-header carousel-header">
+          <h2 class="section-title" id="systems-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" x2="9" y1="1" y2="4"/><line x1="15" x2="15" y1="1" y2="4"/><line x1="9" x2="9" y1="20" y2="23"/><line x1="15" x2="15" y1="20" y2="23"/><line x1="20" x2="23" y1="9" y2="9"/><line x1="20" x2="23" y1="14" y2="14"/><line x1="1" x2="4" y1="9" y2="9"/><line x1="1" x2="4" y1="14" y2="14"/></svg> Systems & Infrastructure
+          </h2>
+          <div class="carousel-controls">
+            <button class="carousel-btn prev" aria-label="Previous system">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button class="carousel-btn next" aria-label="Next system">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="carousel-container">
+          <div class="carousel-track">
+
+            <article class="card">
+              <h3>AIMS: AI-Powered Multivocal Literature Review Pipeline</h3>
+              <div class="badge-row">
+                <span class="badge-tag">Role: Lead Dev & Architect</span>
+                <span class="badge-tag">Protocol: Garousi et al. 2019</span>
+                <span class="badge-tag">Status: IN DEVELOPMENT / ALPHA</span>
+              </div>
+              <p>
+                End-to-end platform for Systematic Literature Reviews following Garousi et al. (2019).
+                Operationalizes formal screening funnels, inter-reviewer consensus (Cohen's Kappa),
+                and AI-powered comparative synthesis.
+              </p>
+              <div class="tool-features">
+                <span class="tool-log">DATA :: Eligibility Criteria Funnel</span>
+                <span class="tool-log">IRT :: Inter-rater Reliability</span>
+                <span class="tool-log">AI :: Comparative Synthesis</span>
+              </div>
+              <div class="card-links">
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Documentation
+                </a>
+                <a href="https://github.com/vasconcel/aims" target="_blank" rel="noopener noreferrer">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> Repository
+                </a>
+              </div>
+            </article>
+
+            <article class="card">
+              <h3>dataWASHES: Open Data Infrastructure for SE Research</h3>
+              <div class="badge-row">
+                <span class="badge-tag">Role: Developer</span>
+                <span class="badge-tag">Status: Open Infrastructure</span>
+                <span class="badge-tag">Source: SBC OpenLib</span>
+                <span class="badge-tag">SEPEC 2024</span>
+              </div>
+              <p>
+                A public academic API providing programmatic access to the WASHES workshop proceedings.
+                Facilitates secondary studies by automating data retrieval from SBC OpenLib.
+              </p>
+              <div class="tool-features">
+                <span class="tool-log">API :: RESTful architecture</span>
+                <span class="tool-log">OPEN SCIENCE :: Transparency</span>
+                <span class="tool-log">STACK :: Python/Flask</span>
+              </div>
+              <div class="card-links">
+                <a href="https://datawashes.pythonanywhere.com/" target="_blank" rel="noopener noreferrer">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg> Documentation
+                </a>
+                <a href="https://github.com/gesid/dataWASHES" target="_blank" rel="noopener noreferrer">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> Repository
+                </a>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="forensics" class="section alt reveal">
+      <div class="container">
+        <div class="restricted-module">
+          <svg class="restricted-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            <circle cx="12" cy="16" r="1"/>
+          </svg>
+          <h2 class="restricted-title">[ ACCESS RESTRICTED ]</h2>
+          <p class="restricted-message">
+            [ FUTURE MODULE ]<br/><br/>
+            This domain is reserved for upcoming forensic analysis modules.<br/>
+            Check back later for updates.
+          </p>
         </div>
       </div>
     </section>
