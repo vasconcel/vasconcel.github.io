@@ -592,16 +592,8 @@ strong {
   background: rgba(0, 0, 0, 0.3);
 }
 
-.lang-segment.python {
-  background: linear-gradient(90deg, #3fb950, #2ea043);
-}
-
-.lang-segment.javascript {
-  background: linear-gradient(90deg, #f0db4f, #d4b828);
-}
-
-.lang-segment.shell {
-  background: linear-gradient(90deg, #6e7681, #484f58);
+.lang-segment {
+  background-color: var(--accent);
 }
 
 .language-logs {
@@ -670,6 +662,28 @@ strong {
   background: rgba(63, 185, 80, 0.1);
   text-transform: uppercase;
   letter-spacing: 0.1em;
+}
+
+.audit-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.sync-status {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.last-updated {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-muted);
 }
 
 .cert-verify {
