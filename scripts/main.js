@@ -9,6 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
 function initLucideIcons() {
   if (typeof lucide !== 'undefined' && lucide.createIcons) {
     lucide.createIcons();
+    console.log("Lucide icons initialized");
+  } else {
+    console.error("Lucide library not loaded");
   }
 }
 

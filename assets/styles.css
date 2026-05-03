@@ -81,7 +81,7 @@ body::after {
 body::before {
   width: 700px;
   height: 700px;
-  background: radial-gradient(circle, rgba(30, 58, 138, 0.18) 0%, rgba(76, 29, 149, 0.12) 50%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 30, 60, 0.25) 0%, rgba(0, 95, 115, 0.15) 50%, transparent 70%);
   top: -250px;
   right: -200px;
 }
@@ -89,7 +89,7 @@ body::before {
 body::after {
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(76, 29, 149, 0.15) 0%, rgba(30, 58, 138, 0.1) 50%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 18, 33, 0.2) 0%, rgba(0, 30, 60, 0.12) 50%, transparent 70%);
   bottom: 5%;
   left: -150px;
 }
@@ -236,7 +236,7 @@ a:focus-visible {
   transition: all 0.25s ease;
   padding: 0.6rem 1rem;
   border-radius: 100px;
-  background: rgba(255, 255, 255, 0.025);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(51, 51, 51, 0.6);
   position: relative;
   overflow: hidden;
@@ -278,6 +278,17 @@ a:focus-visible {
   margin-bottom: 2rem;
   font-weight: 600;
   color: #fff;
+}
+
+.section-title::after {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-left: auto;
+  box-shadow: 0 0 8px var(--accent-glow);
 }
 
 p {
