@@ -554,6 +554,90 @@ strong {
   gap: 0.5rem;
 }
 
+.tech-stack-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.tech-micro-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+.intro-block {
+  padding: 1rem 0;
+}
+
+.intro-text {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  max-width: 65ch;
+  line-height: 1.6;
+  margin-top: 1rem;
+}
+
+.principles-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.principle-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent);
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.75rem;
+}
+
+.problems-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.problem-item {
+  padding: 0.75rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+}
+
+.problem-type {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-primary);
+}
+
+.problem-note {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.engineering-chars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.char-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted-lighter);
+  background: transparent;
+  border: 1px dashed var(--border);
+  padding: 0.35rem 0.5rem;
+}
+
 .tech-category-header {
   font-family: var(--font-mono);
   font-size: 0.75rem;
