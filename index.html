@@ -8,13 +8,11 @@
     content="Academic Research Portfolio — Undergraduate Student in Systems and Development Analysis." />
   <title>Gabriel V. Silva</title>
   <link rel="stylesheet" href="assets/styles.css" />
-  <!-- Importando Lucide Icons para um visual técnico e limpo -->
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
 
-  <!-- ================= HEADER ================= -->
   <header class="site-header">
     <div class="container header-content">
       <img src="assets/profile.jpg" alt="Gabriel V. Silva" class="profile-image" />
@@ -25,31 +23,29 @@
           Undergraduate Student in Systems and Development Analysis
         </p>
 
-        <div class="header-links">
+        <nav class="header-links" aria-label="Social links">
           <a href="mailto:gabriel.vasconcel@outlook.com">
-            <i data-lucide="mail" class="icon-sm"></i> Email
+            <i data-lucide="mail" class="icon-sm" aria-hidden="true"></i> Email
           </a>
           <a href="http://lattes.cnpq.br/7193014410256740" target="_blank" rel="noopener noreferrer">
-            <i data-lucide="file-text" class="icon-sm"></i> Lattes (CNPq)
+            <i data-lucide="file-text" class="icon-sm" aria-hidden="true"></i> Lattes (CNPq)
           </a>
           <a href="https://github.com/vasconcel" target="_blank" rel="noopener noreferrer">
-            <i data-lucide="github" class="icon-sm"></i> GitHub
+            <i data-lucide="github" class="icon-sm" aria-hidden="true"></i> GitHub
           </a>
           <a href="https://www.linkedin.com/in/vasconcel/" target="_blank" rel="noopener noreferrer">
-            <i data-lucide="linkedin" class="icon-sm"></i> LinkedIn
+            <i data-lucide="linkedin" class="icon-sm" aria-hidden="true"></i> LinkedIn
           </a>
-        </div>
+        </nav>
       </div>
     </div>
   </header>
 
-  <!-- ================= MAIN CONTENT ================= -->
   <main>
-    <!-- ================= RESEARCH OVERVIEW ================= -->
-    <section class="section">
+    <section class="section reveal" aria-labelledby="research-title">
       <div class="container">
-        <h2 class="section-title">
-          <i data-lucide="microscope" class="icon-md"></i> Research Overview
+        <h2 class="section-title" id="research-title">
+          <i data-lucide="microscope" class="icon-md" aria-hidden="true"></i> Research Overview
         </h2>
         <p>
           Research activities focus on <strong>Empirical Software Engineering</strong> and
@@ -59,25 +55,24 @@
           that support transparency, data curation, and reproducibility.
         </p>
 
-        <div class="research-tags">
-          <span>Human Aspects in Software Engineering</span>
-          <span>Socio-Technical Systems</span>
-          <span>Qualitative & Empirical Methods</span>
-          <span>Open Science & Reproducibility</span>
+        <div class="research-tags" role="list" aria-label="Research areas">
+          <span role="listitem">Human Aspects in Software Engineering</span>
+          <span role="listitem">Socio-Technical Systems</span>
+          <span role="listitem">Qualitative & Empirical Methods</span>
+          <span role="listitem">Open Science & Reproducibility</span>
         </div>
       </div>
     </section>
 
-    <!-- ================= AFFILIATIONS ================= -->
-    <section class="section section-alt">
+    <section class="section section-alt reveal" aria-labelledby="affiliations-title">
       <div class="container">
-        <h2 class="section-title">
-          <i data-lucide="building-2" class="icon-md"></i> Affiliations & Research Groups
+        <h2 class="section-title" id="affiliations-title">
+          <i data-lucide="building-2" class="icon-md" aria-hidden="true"></i> Affiliations & Research Groups
         </h2>
 
         <div class="research-grid multi-col">
 
-          <div class="card">
+          <article class="card">
             <h3>PADIM Lab</h3>
             <p class="meta">
               Laboratory of Advanced Practices in Development, Innovation and Methodologies
@@ -89,12 +84,12 @@
             </p>
             <div class="card-links">
               <a href="http://padimlab.github.io/" target="_blank" rel="noopener noreferrer">
-                Visit Laboratory <i data-lucide="external-link" class="icon-xs"></i>
+                Visit Laboratory <i data-lucide="external-link" class="icon-xs" aria-hidden="true"></i>
               </a>
             </div>
-          </div>
+          </article>
 
-          <div class="card">
+          <article class="card">
             <h3>GESID</h3>
             <p class="meta">
               Group for Information Systems and Digital Innovation · UFCA
@@ -105,28 +100,26 @@
             </p>
             <div class="card-links">
               <a href="https://gesid.github.io/" target="_blank" rel="noopener noreferrer">
-                Visit Group <i data-lucide="external-link" class="icon-xs"></i>
+                Visit Group <i data-lucide="external-link" class="icon-xs" aria-hidden="true"></i>
               </a>
             </div>
-          </div>
+          </article>
 
         </div>
       </div>
     </section>
 
-    <!-- ================= PUBLICATIONS ================= -->
-    <section class="section">
+    <section class="section reveal" aria-labelledby="publications-title">
       <div class="container">
-        <h2 class="section-title">
-          <i data-lucide="book-open" class="icon-md"></i> Selected Publications
+        <h2 class="section-title" id="publications-title">
+          <i data-lucide="book-open" class="icon-md" aria-hidden="true"></i> Selected Publications
         </h2>
 
         <div class="research-grid">
 
-          <!-- 1. CHASE 2026 (Constructive Patterns) -->
-          <div class="card publication-card">
+          <article class="card publication-card">
             <div class="status-badge">
-              <i data-lucide="check-circle" class="icon-xs"></i> Accepted
+              <i data-lucide="check-circle" class="icon-xs" aria-hidden="true"></i> Accepted
             </div>
             <h3>Constructive Patterns for Human-Centered Tech Hiring</h3>
             <p class="meta">
@@ -140,23 +133,22 @@
             </p>
             <div class="card-links">
               <a href="https://gesid.github.io/papers/swe-cps-hiring/" target="_blank" rel="noopener noreferrer">
-                <i data-lucide="layout-template" class="icon-sm"></i> Artifact (CP Catalog)
+                <i data-lucide="layout-template" class="icon-sm" aria-hidden="true"></i> Artifact (CP Catalog)
               </a>
               <a href="https://arxiv.org/pdf/2602.13845"
                 target="_blank" rel="noopener noreferrer">
-                <i data-lucide="file-down" class="icon-sm"></i> PDF
+                <i data-lucide="file-down" class="icon-sm" aria-hidden="true"></i> PDF
               </a>
               <a href="http://camps.aptaracorp.com//ACM_PMS/PMS/ACM/CHASE26/13/0cfb4075-073c-11f1-aa9c-16ffd757ba29/OUT/chase26-13.html"
                 target="_blank" rel="noopener noreferrer">
-                <i data-lucide="code-2" class="icon-sm"></i> HTML
+                <i data-lucide="code-2" class="icon-sm" aria-hidden="true"></i> HTML
               </a>
             </div>
-          </div>
+          </article>
 
-          <!-- 2. EMSE Journal (Anti-patterns) -->
-          <div class="card publication-card">
+          <article class="card publication-card">
             <div class="status-badge review">
-              <i data-lucide="refresh-cw" class="icon-xs"></i> Under Peer Review
+              <i data-lucide="refresh-cw" class="icon-xs" aria-hidden="true"></i> Under Peer Review
             </div>
             <h3>Anti-patterns in Online Recruitment and Selection Experienced by Early-Career Software Engineers</h3>
             <p class="meta">
@@ -168,12 +160,11 @@
               novice SEs, providing actionable insights for organizations to improve candidate experience and mitigate
               perceptions of organizational illegitimacy.
             </p>
-          </div>
+          </article>
 
-          <!-- 3. SEPEC 2024 (dataWASHES) -->
-          <div class="card publication-card">
+          <article class="card publication-card">
             <div class="status-badge">
-              <i data-lucide="check-circle" class="icon-xs"></i> Published
+              <i data-lucide="check-circle" class="icon-xs" aria-hidden="true"></i> Published
             </div>
             <h3>An Overview of the dataWASHES Project and its Relation to University Extension at UFCA
               <span style="font-weight:normal; font-size:0.85rem; display:block;">
@@ -193,28 +184,26 @@
             <div class="card-links">
               <a href="https://www.researchgate.net/publication/399740661_Uma_Visao_Geral_sobre_o_Projeto_dataWASHES_e_sua_Relacao_com_a_Extensao_Universitaria_na_UFCA"
                 target="_blank" rel="noopener noreferrer">
-                <i data-lucide="external-link" class="icon-sm"></i> ResearchGate
+                <i data-lucide="external-link" class="icon-sm" aria-hidden="true"></i> ResearchGate
               </a>
             </div>
-          </div>
+          </article>
 
         </div>
       </div>
     </section>
 
-    <!-- ================= ACADEMIC BACKGROUND ================= -->
-    <section class="section section-alt">
+    <section class="section section-alt reveal" aria-labelledby="academic-title">
       <div class="container">
-        <h2 class="section-title">
-          <i data-lucide="graduation-cap" class="icon-md"></i> Academic Background & Extension
+        <h2 class="section-title" id="academic-title">
+          <i data-lucide="graduation-cap" class="icon-md" aria-hidden="true"></i> Academic Background & Extension
         </h2>
 
         <div class="research-grid multi-col">
 
-          <!-- Card Formação Atualizado -->
-          <div class="card">
+          <article class="card">
             <div class="status-badge">
-              <i data-lucide="clock" class="icon-xs"></i> Semester 3 / 4
+              <i data-lucide="clock" class="icon-xs" aria-hidden="true"></i> Semester 3 / 4
             </div>
             <h3>Technologist Degree in Systems Analysis and Development</h3>
             <p class="meta">
@@ -230,18 +219,17 @@
             <div class="card-links">
               <a href="https://sky-clock-04e.notion.site/Analysis-Development-of-Systems-1920cf47793880baad7fcff13d736b55"
                 target="_blank" rel="noopener noreferrer">
-                <i data-lucide="book" class="icon-sm"></i> Study Logs (Notion)
+                <i data-lucide="book" class="icon-sm" aria-hidden="true"></i> Study Logs (Notion)
               </a>
               <a href="https://ufca.edu.br/" target="_blank" rel="noopener noreferrer">
-                <i data-lucide="university" class="icon-sm"></i> UFCA
+                <i data-lucide="university" class="icon-sm" aria-hidden="true"></i> UFCA
               </a>
             </div>
-          </div>
+          </article>
 
-          <!-- Card Projeto dataWASHES (Foco em Software Engineering) -->
-          <div class="card">
+          <article class="card">
             <div class="status-badge">
-              <i data-lucide="code" class="icon-xs"></i> Open Infrastructure
+              <i data-lucide="code" class="icon-xs" aria-hidden="true"></i> Open Infrastructure
             </div>
             <h3>dataWASHES API</h3>
             <p class="meta">
@@ -256,32 +244,27 @@
             </p>
             <div class="card-links">
               <a href="https://datawashes.pythonanywhere.com/" target="_blank" rel="noopener noreferrer">
-                <i data-lucide="database" class="icon-sm"></i> Documentation
+                <i data-lucide="database" class="icon-sm" aria-hidden="true"></i> Documentation
               </a>
               <a href="https://github.com/gesid/dataWASHES" target="_blank" rel="noopener noreferrer">
-                <i data-lucide="github" class="icon-sm"></i> Repository
+                <i data-lucide="github" class="icon-sm" aria-hidden="true"></i> Repository
               </a>
             </div>
-          </div>
+          </article>
 
         </div>
       </div>
     </section>
 
-    <!-- ================= FOOTER ================= -->
-    <footer class="site-footer">
-      <div class="container">
-        <p>© <span id="year"></span> Gabriel V. Silva</p>
-      </div>
-    </footer>
+  </main>
 
-    <script>
-      // Inicializa os ícones Lucide
-      lucide.createIcons();
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Gabriel V. Silva</p>
+    </div>
+  </footer>
 
-      // Atualiza o ano automaticamente
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+  <script src="scripts/main.js"></script>
 </body>
 
 </html>
