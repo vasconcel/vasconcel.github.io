@@ -532,8 +532,8 @@ strong {
 
 .tech-stack-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
   margin-bottom: 2rem;
 }
 
@@ -560,9 +560,7 @@ strong {
   gap: 0.5rem;
 }
 
-.tech-stack-grid {
-  grid-template-columns: repeat(4, 1fr);
-}
+
 
 .tech-micro-label {
   font-family: var(--font-mono);
