@@ -1,5 +1,5 @@
 // ================= INITIALIZATION =================
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener('load', () => {
   initRevealAnimations();
   initYear();
   initLucideIcons();
