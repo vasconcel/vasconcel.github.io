@@ -3,15 +3,18 @@ window.addEventListener('load', () => {
   initRevealAnimations();
   initYear();
   initLucideIcons();
+  initCarousels();
 });
 
 // ================= LUCIDE ICONS =================
 function initLucideIcons() {
-  if (typeof lucide !== 'undefined' && lucide.createIcons) {
-    lucide.createIcons();
-    console.log("Lucide icons initialized");
-  } else {
-    console.error("Lucide library not loaded");
+  try {
+    if (typeof lucide !== 'undefined' && lucide.createIcons) {
+      lucide.createIcons();
+      console.log("Lucide icons initialized");
+    }
+  } catch (error) {
+    console.error("Error initializing Lucide icons:", error);
   }
 }
 
@@ -44,5 +47,20 @@ function initRevealAnimations() {
 
   revealElements.forEach((el) => {
     observer.observe(el);
+  });
+}
+
+// ================= MULTIPLE CAROUSELS =================
+function initCarousels() {
+  document.querySelectorAll('.carousel-header').forEach(header => {
+    const section = header.closest('.section');
+    const track = section.querySelector('.carousel-track');
+    const prevBtn = header.querySelector('.prev');
+    const nextBtn = header.querySelector('.next');
+    
+    if (prevBtn && nextBtn && track) {
+      prevBtn.onclick = () => track.scrollBy({ left: -400, behavior: 'smooth' });
+      nextBtn.onclick = () => track.scrollBy({ left: 400, behavior: 'smooth' });
+    }
   });
 }
