@@ -497,6 +497,12 @@ strong {
   display: inline-block;
 }
 
+.badge-tag.primary {
+  background: var(--accent);
+  color: var(--bg-primary);
+  font-weight: 600;
+}
+
 .tool-features {
   margin-top: 1rem;
   display: flex;
