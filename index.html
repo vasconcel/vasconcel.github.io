@@ -5,11 +5,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Gabriel V. Silva — Systems Analysis and Development at UFCA, working across empirical software engineering, qualitative research and research infrastructure." />
-  <title>Gabriel V. Silva | empirical software engineering and research software</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2314171d'/%3E%3Ctext x='16' y='21.5' font-family='monospace' font-size='13' font-weight='700' fill='%23f0f6fc' text-anchor='middle'%3EGV%3C/text%3E%3C/svg%3E" />
+  <title>Gabriel V. Silva</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23111111'/%3E%3Ctext x='16' y='21.5' font-family='monospace' font-size='13' font-weight='700' fill='%23F0EEE8' text-anchor='middle'%3EGV%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
 
@@ -81,76 +81,79 @@
           </p>
         </header>
 
-        <article class="project-card">
-          <div class="project-body">
-            <header class="project-masthead">
-              <div class="project-id">
-                <h3 class="project-name">dataWASHES</h3>
-                <p class="project-repo">gesid / dataWASHES</p>
-              </div>
-              <nav class="project-actions" aria-label="dataWASHES links">
-                <a class="btn btn--primary btn--sm" href="https://datawashes.pythonanywhere.com/" target="_blank" rel="noopener noreferrer">Live platform&nbsp;↗</a>
-                <a class="link-arrow" href="https://github.com/gesid/dataWASHES" target="_blank" rel="noopener noreferrer">Source&nbsp;↗</a>
-                <a class="link-arrow" href="https://datawashes.pythonanywhere.com/dashboard" target="_blank" rel="noopener noreferrer">Dashboard&nbsp;↗</a>
-              </nav>
-            </header>
-
-            <p class="project-desc">
-              WASHES is a Brazilian workshop on the social and human sides of software. Its
-              papers live in SBC OpenLib, and reviewing the workshop's history means
-              opening them one by one, which is slow and easy to get wrong. dataWASHES is a GESID
-              project that gathers those proceedings into a single corpus and serves them through
-              a public API and a dashboard. Built by around a dozen students over the years, it
-              now covers eleven editions, from 2016 to 2026, with 137 papers and 429 authors.
-            </p>
-
-            <dl class="project-stats">
-              <div class="stat">
-                <dt>Editions</dt>
-                <dd>11</dd>
-              </div>
-              <div class="stat">
-                <dt>Papers</dt>
-                <dd>137</dd>
-              </div>
-              <div class="stat">
-                <dt>Authors</dt>
-                <dd>429</dd>
-              </div>
-            </dl>
-
-            <div class="project-role">
-              <p class="project-role-label">My contribution</p>
-              <p class="project-desc project-desc--role">
-                I started out on the backend and API routes, wrote tests, and helped build an
-                early version of the dashboard. Since then I have mostly worked on keeping the
-                platform and its data in good shape. Those later changes were largely my own,
-                checked with my academic advisor.
-              </p>
-              <ul class="contribution-list">
-                <li>
-                  <strong>Automated corpus updates.</strong> Every month, a GitHub Actions job
-                  gathers any new proceedings and asks an LLM to classify each paper's research
-                  approach and data-analysis methods from its abstract. It then refreshes
-                  citation counts, rebuilds the datasets, and opens a pull request so the changes
-                  can be reviewed before they reach the published data.
-                </li>
-                <li>
-                  <strong>Citation collection.</strong> Citation counts used to come from a
-                  separate .NET tool in another repository that the workflow checked out and ran.
-                  I adapted a colleague's version of it to run inside the project's Python
-                  pipeline, and each run now writes an audit report into the pull request for the
-                  reviewer.
-                </li>
-                <li>
-                  <strong>Platform and delivery.</strong> The dashboard exports in several formats
-                  and searches across the corpus, with every paper in a single table rather than
-                  split over pages. Automated tests, CI/CD and the deployment sit behind it. Many
-                  hands have shaped the platform over the project's life, including my own recent
-                  changes.
-                </li>
-              </ul>
+        <article class="project" aria-labelledby="datawashes-name">
+          <header class="project-masthead">
+            <div class="project-id">
+              <p class="project-tag">Case study</p>
+              <h3 class="project-name" id="datawashes-name">dataWASHES</h3>
+              <p class="project-repo">gesid / dataWASHES</p>
             </div>
+            <nav class="project-actions" aria-label="dataWASHES links">
+              <a class="btn btn--primary btn--sm" href="https://datawashes.pythonanywhere.com/" target="_blank" rel="noopener noreferrer">Live platform&nbsp;↗</a>
+              <a class="link-arrow" href="https://github.com/gesid/dataWASHES" target="_blank" rel="noopener noreferrer">Source&nbsp;↗</a>
+              <a class="link-arrow" href="https://datawashes.pythonanywhere.com/dashboard" target="_blank" rel="noopener noreferrer">Dashboard&nbsp;↗</a>
+            </nav>
+          </header>
+
+          <p class="project-lede">
+            WASHES is a Brazilian workshop on the social and human sides of software engineering,
+            and its proceedings are published in SBC OpenLib. Following the workshop's history
+            means opening those publications one at a time, which makes even simple questions
+            about its output slow to answer. dataWASHES gathers them into a single structured
+            corpus &mdash; papers, authors, editions, research methods and citations &mdash; and
+            serves it through a public platform, an API and a dashboard.
+          </p>
+
+          <dl class="project-stats">
+            <div class="stat">
+              <dt>Years</dt>
+              <dd>2016&ndash;2026</dd>
+            </div>
+            <div class="stat">
+              <dt>Editions</dt>
+              <dd>11</dd>
+            </div>
+            <div class="stat">
+              <dt>Papers</dt>
+              <dd>137</dd>
+            </div>
+            <div class="stat">
+              <dt>Authors</dt>
+              <dd>429</dd>
+            </div>
+          </dl>
+
+          <div class="project-role">
+            <p class="project-role-label">My contribution</p>
+            <p class="project-role-text">
+              I started out on the backend and API routes, wrote tests, and helped build an
+              early version of the dashboard. Since then I have mostly worked on keeping the
+              platform and its data in good shape. Those later changes were largely my own,
+              checked with my academic advisor.
+            </p>
+            <ul class="contribution-list">
+              <li>
+                <strong>Automated corpus updates.</strong> Every month, a GitHub Actions job
+                gathers any new proceedings and asks an LLM to classify each paper's research
+                approach and data-analysis methods from its abstract. It then refreshes
+                citation counts, rebuilds the datasets, and opens a pull request so the changes
+                can be reviewed before they reach the published data.
+              </li>
+              <li>
+                <strong>Citation collection.</strong> Citation counts used to come from a
+                separate .NET tool in another repository that the workflow checked out and ran.
+                I adapted a colleague's version of it to run inside the project's Python
+                pipeline, and each run now writes an audit report into the pull request for the
+                reviewer.
+              </li>
+              <li>
+                <strong>Platform and delivery.</strong> The dashboard exports in several formats
+                and searches across the corpus, with every paper in a single table rather than
+                split over pages. Automated tests, CI/CD and the deployment sit behind it. Many
+                hands have shaped the platform over the project's life, including my own recent
+                changes.
+              </li>
+            </ul>
           </div>
         </article>
       </div>

@@ -1,4 +1,10 @@
 // ================= INITIALIZATION =================
+// The reveal is set up as soon as the script is parsed, at the end of the
+// body: the targets exist by then, and hiding them here (before paint)
+// avoids a flash that waiting for "load" would cause while the portrait
+// downloads. Everything else waits for load.
+initReveal();
+
 window.addEventListener('load', () => {
   initYear();
   initNavSpy();
@@ -82,4 +88,73 @@ function initNavSpy() {
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
   pick();
+}
+
+// ================= ENTRANCE REVEAL =================
+// Progressive enhancement: nothing is hidden unless this runs, so the page
+// is identical with JavaScript off. It steps aside entirely when the reader
+// prefers reduced motion or the browser lacks IntersectionObserver, and it
+// never hides anything already on screen. The hidden state is a class the
+// script adds, so a failure here cannot leave content invisible.
+function initReveal() {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (reduce.matches || !('IntersectionObserver' in window)) {
+    return;
+  }
+
+  const targets = document.querySelectorAll(
+    '.section-head, .role-desc, .project, .facts, .publication'
+  );
+  if (!targets.length) {
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries, seen) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+        entry.target.classList.add('reveal--in');
+        seen.unobserve(entry.target);
+      });
+    },
+    { rootMargin: '0px 0px -6% 0px', threshold: 0.01 }
+  );
+
+  const viewport = window.innerHeight || document.documentElement.clientHeight;
+
+  Array.prototype.forEach.call(targets, (el) => {
+    // Leave anything the reader can already see untouched: no flash, and no
+    // reliance on the observer for above-the-fold content.
+    if (el.getBoundingClientRect().top < viewport * 0.9) {
+      return;
+    }
+
+    // A minimal stagger across publication records, capped at one step so
+    // the reader never waits for the second record to become readable.
+    if (el.classList.contains('publication')) {
+      const records = Array.prototype.filter.call(
+        el.parentElement.children,
+        (child) => child.classList.contains('publication')
+      );
+      el.style.transitionDelay = Math.min(records.indexOf(el), 1) * 70 + 'ms';
+    }
+
+    el.classList.add('reveal');
+    observer.observe(el);
+  });
+
+  // If reduced motion is turned on while the page is open, stop hiding and
+  // bring whatever is left into view.
+  if (typeof reduce.addEventListener === 'function') {
+    reduce.addEventListener('change', () => {
+      if (!reduce.matches) {
+        return;
+      }
+      document.querySelectorAll('.reveal').forEach((el) => {
+        el.classList.add('reveal--in');
+      });
+    });
+  }
 }
