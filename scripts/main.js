@@ -1,134 +1,8 @@
 // ================= INITIALIZATION =================
 window.addEventListener('load', () => {
-  initRevealAnimations();
   initYear();
-  initLucideIcons();
-  initCarousels();
-  initGitHubStats();
+  initNavSpy();
 });
-
-// ================= GITHUB LANGUAGE STATS =================
-async function fetchGitHubStats(username) {
-  const languageBar = document.getElementById('language-bar');
-  const languageLogs = document.getElementById('language-logs');
-  const lastUpdated = document.getElementById('last-updated');
-
-  if (!languageBar || !languageLogs) return;
-
-  try {
-    const response = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`);
-    if (!response.ok) throw new Error('Failed to fetch repositories');
-
-    const repos = await response.json();
-    const languageBytes = {};
-    let totalBytes = 0;
-
-    for (const repo of repos) {
-      if (repo.language) {
-        const langResponse = await fetch(repo.languages_url);
-        if (langResponse.ok) {
-          const languages = await langResponse.json();
-          for (const [lang, bytes] of Object.entries(languages)) {
-            languageBytes[lang] = (languageBytes[lang] || 0) + bytes;
-            totalBytes += bytes;
-          }
-        }
-      }
-    }
-
-    const languagePercentages = [];
-    for (const [lang, bytes] of Object.entries(languageBytes)) {
-      const percentage = (bytes / totalBytes) * 100;
-      if (percentage >= 5) {
-        languagePercentages.push({
-          name: lang,
-          percentage: percentage.toFixed(1)
-        });
-      }
-    }
-
-    languagePercentages.sort((a, b) => b.percentage - a.percentage);
-
-    languageBar.innerHTML = '';
-    languageLogs.innerHTML = '';
-
-    languagePercentages.forEach((lang, index) => {
-      const segment = document.createElement('div');
-      segment.className = `lang-segment ${lang.name.toLowerCase()}`;
-      segment.style.width = `${lang.percentage}%`;
-      segment.style.backgroundColor = getLangColor(lang.name);
-      segment.setAttribute('data-lang', lang.name);
-      languageBar.appendChild(segment);
-
-      const logEntry = document.createElement('div');
-      logEntry.className = 'lang-log';
-      logEntry.innerHTML = `
-        <span class="lang-index">[ ${String(index + 1).padStart(2, '0')} ]</span>
-        <span class="lang-name">${lang.name.toUpperCase()}</span>
-        <span class="lang-percent">:: ${lang.percentage}%</span>
-        <span class="lang-status">[ STATUS: ${getLangStatus(lang.percentage)} ]</span>
-      `;
-      languageLogs.appendChild(logEntry);
-    });
-
-    if (lastUpdated) {
-      const now = new Date();
-      lastUpdated.textContent = `Last Updated: ${now.toLocaleTimeString()}`;
-    }
-
-  } catch (error) {
-    console.error('Error fetching GitHub stats:', error);
-    languageLogs.innerHTML = '<div class="lang-log"><span class="lang-status">[ ERROR: API UNAVAILABLE ]</span></div>';
-  }
-}
-
-function getLangColor(lang) {
-  const colors = {
-    'Python': '#3fb950',
-    'JavaScript': '#f0db4f',
-    'TypeScript': '#3178c6',
-    'Java': '#b07219',
-    'C++': '#f34b7d',
-    'C': '#555555',
-    'C#': '#178600',
-    'Go': '#00ADD8',
-    'Rust': '#dea584',
-    'Ruby': '#701516',
-    'PHP': '#4F5D95',
-    'Shell': '#6e7681',
-    'HTML': '#e34c26',
-    'CSS': '#563d7c',
-    'Vue': '#41b883',
-    'Jupyter Notebook': '#da5fc0',
-    'Solidity': '#AA6746'
-  };
-  return colors[lang] || '#6e7681';
-}
-
-function getLangStatus(percentage) {
-  if (percentage >= 50) return 'OPTIMIZED';
-  if (percentage >= 20) return 'OPERATIONAL';
-  return 'CORE';
-}
-
-function initGitHubStats() {
-  const languageBar = document.getElementById('language-bar');
-  if (languageBar) {
-    fetchGitHubStats('vasconcel');
-  }
-}
-
-// ================= LUCIDE ICONS =================
-function initLucideIcons() {
-  try {
-    if (typeof lucide !== 'undefined' && lucide.createIcons) {
-      lucide.createIcons();
-      console.log("Lucide icons initialized");
-    }
-  } catch (error) {
-    console.error("Error initializing Lucide icons:", error);
-  }
-}
 
 // ================= FOOTER YEAR =================
 function initYear() {
@@ -138,41 +12,74 @@ function initYear() {
   }
 }
 
-// ================= SCROLL REVEAL ANIMATIONS =================
-function initRevealAnimations() {
-  const revealElements = document.querySelectorAll('.reveal');
+// ================= NAV SCROLL SPY =================
+// Highlights the in-page anchor for the section currently in view.
+// Uses scroll position: the active section is the last one whose top
+// has crossed the viewport centre, but only once the first section has
+// reached the sticky navigation, so nothing is highlighted while the
+// hero is in view. Because the contact section sits at the end of the
+// page, a "bottom reached" check always activates it, which a plain
+// IntersectionObserver with a negative rootMargin would miss on short
+// final sections.
+function initNavSpy() {
+  const links = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+  if (!links.length) {
+    return;
+  }
 
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px 0px -50px 0px',
-    threshold: 0.1
+  const sections = links
+    .map((link) => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+
+  if (!sections.length) {
+    return;
+  }
+
+  const setActive = (id) => {
+    const target = id == null ? null : '#' + id;
+    links.forEach((link) => {
+      link.classList.toggle(
+        'active',
+        target !== null && link.getAttribute('href') === target
+      );
+    });
   };
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+  // Until the first section reaches the sticky navigation the reader is
+  // still in the hero, so no item is current. Past that gate the active
+  // item is the last section whose top has crossed the viewport centre.
+  // A centre probe alone marked Projects as current on load for tall
+  // viewports, where the first section's top sits above the centre line
+  // while the hero is still in view.
+  const nav = document.querySelector('.global-nav');
+  const gate = (nav ? nav.offsetHeight : 56) + 40;
+
+  const pick = () => {
+    const doc = document.documentElement;
+    const centre = window.innerHeight * 0.45;
+    const atBottom =
+      window.innerHeight + window.scrollY >= doc.scrollHeight - 8;
+
+    let active = null;
+    const tops = sections.map((section) => section.getBoundingClientRect().top);
+    if (tops[0] <= gate) {
+      for (let i = 0; i < sections.length; i += 1) {
+        if (tops[i] <= centre) {
+          active = sections[i];
+        }
       }
-    });
-  }, observerOptions);
-
-  revealElements.forEach((el) => {
-    observer.observe(el);
-  });
-}
-
-// ================= MULTIPLE CAROUSELS =================
-function initCarousels() {
-  document.querySelectorAll('.carousel-header').forEach(header => {
-    const section = header.closest('.section');
-    const track = section.querySelector('.carousel-track');
-    const prevBtn = header.querySelector('.prev');
-    const nextBtn = header.querySelector('.next');
-    
-    if (prevBtn && nextBtn && track) {
-      prevBtn.onclick = () => track.scrollBy({ left: -400, behavior: 'smooth' });
-      nextBtn.onclick = () => track.scrollBy({ left: 400, behavior: 'smooth' });
     }
-  });
+    if (atBottom) {
+      active = sections[sections.length - 1];
+    }
+    setActive(active ? active.id : null);
+  };
+
+  const onScroll = () => {
+    requestAnimationFrame(pick);
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  pick();
 }
