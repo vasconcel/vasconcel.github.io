@@ -16,8 +16,9 @@
      hover, and the closing address. It is never the colour of
      every link, heading or border.
    - Sections are compositions, not repeated cards: a cover, a
-     featured case study with a dark data band, an essay
-     section, a bibliography, a compact ledger, a closing page.
+     numbered research index, two differently built case studies,
+     a bibliography, a capability ledger, a compact record, and a
+     closing page.
    ============================================================ */
 
 :root {
@@ -58,11 +59,23 @@
   --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
-  /* Layout & rhythm */
-  --measure: 1160px;
+  /* Layout. --rail is the metadata column used by section heads,
+     research entries and capability groups, so those three compositions
+     share one vertical edge on wide screens. */
+  --measure: 1180px;
   --text: 64ch;
+  --rail: 10.5rem;
   --leading: 1.68;
-  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --gutter: clamp(1.15rem, 4vw, 2.75rem);
+  --section-space: clamp(3.25rem, 7.5vw, 6rem);
+  --block-space: clamp(1.5rem, 3.5vw, 2.5rem);
+
+  /* Type scale. The display sizes are fluid and deliberately fewer than
+     the old page: one cover scale, one section scale, one item scale. */
+  --display-xl: clamp(3rem, 9.5vw, 7rem);
+  --display-lg: clamp(2.2rem, 5vw, 3.7rem);
+  --display-md: clamp(1.35rem, 2.4vw, 1.8rem);
+  --kicker-size: 0.66rem;
 }
 
 *,
@@ -92,8 +105,9 @@ body {
   color: #ffffff;
 }
 
-/* The sticky masthead is about 4.25rem tall, and up to 5.4rem once its
-   links wrap on narrow screens; anchor targets clear it in both cases. */
+/* The sticky masthead is about 4.5rem tall, and a little under 4rem once
+   its links take a compact two-row grid on narrow screens; anchor targets
+   clear it in both cases. */
 section[id] {
   scroll-margin-top: 5.5rem;
 }
@@ -109,7 +123,9 @@ h4 {
 }
 
 img {
+  display: block;
   max-width: 100%;
+  height: auto;
 }
 
 /* ---------------- Layout ---------------- */
@@ -168,9 +184,8 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 0.6rem 1.5rem;
-  flex-wrap: wrap;
-  min-height: 4.25rem;
-  padding-block: 0.7rem;
+  min-height: 4.5rem;
+  padding-block: 0.8rem;
 }
 
 .nav-brand {
@@ -204,7 +219,7 @@ a {
 
 .nav-name {
   font-family: var(--sans);
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -215,15 +230,15 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  gap: 0.35rem 1.15rem;
+  gap: 0.35rem 1.05rem;
 }
 
 .nav-links a {
-  padding: 0.3rem 0;
+  padding: 0.35rem 0;
   font-family: var(--sans);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--on-dark-2);
   border-bottom: 2px solid transparent;
@@ -234,7 +249,8 @@ a {
   border-bottom-color: var(--rule-dark-strong);
 }
 
-.nav-links a.active {
+.nav-links a.active,
+.nav-links a[aria-current="location"] {
   color: var(--on-dark);
   border-bottom-color: var(--red);
 }
@@ -242,7 +258,7 @@ a {
 /* ---------------- Hero — the cover ---------------- */
 .hero {
   padding-top: clamp(3rem, 7vw, 5.5rem);
-  padding-bottom: clamp(2.5rem, 6vw, 4.5rem);
+  padding-bottom: clamp(2.75rem, 6vw, 5rem);
   background: var(--ink);
   color: var(--on-dark-2);
 }
@@ -264,8 +280,8 @@ a {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) clamp(210px, 20vw, 290px);
-  gap: clamp(1.75rem, 5vw, 3.75rem);
+  grid-template-columns: minmax(0, 1.45fr) minmax(240px, 0.75fr);
+  gap: clamp(2rem, 6vw, 5rem);
   align-items: start;
 }
 
@@ -279,13 +295,13 @@ a {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  margin: 0 0 clamp(1.1rem, 3vw, 1.75rem);
+  margin: 0 0 clamp(1.25rem, 3vw, 2rem);
   padding-top: 1.1rem;
   border-top: 1px solid var(--rule-dark);
   font-family: var(--mono);
-  font-size: 0.68rem;
+  font-size: var(--kicker-size);
   font-weight: 400;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--on-dark-3);
 }
@@ -301,9 +317,9 @@ a {
 .hero-title {
   margin: 0;
   font-family: var(--serif);
-  font-size: clamp(2.9rem, 9vw, 6.5rem);
+  font-size: var(--display-xl);
   font-weight: 700;
-  line-height: 0.96;
+  line-height: 0.94;
   letter-spacing: -0.025em;
   color: var(--on-dark);
   text-wrap: balance;
@@ -312,25 +328,57 @@ a {
 .hero-role {
   margin: 1.1rem 0 0;
   font-family: var(--mono);
-  font-size: 0.74rem;
-  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--on-dark-2);
+}
+
+.hero-statement {
+  margin: clamp(1.3rem, 3vw, 1.9rem) 0 0;
+  max-width: 56ch;
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  line-height: 1.7;
+  color: var(--on-dark-2);
+  text-wrap: pretty;
+}
+
+/* A scannable statement of the three areas the page develops. The small
+   red squares repeat the masthead motif rather than introducing a new
+   graphic language. */
+.hero-focus {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 1.35rem;
+  margin: clamp(1.5rem, 3vw, 2rem) 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--on-dark-3);
 }
 
-.hero-statement {
-  margin: clamp(1.2rem, 3vw, 1.75rem) 0 0;
-  max-width: 56ch;
-  font-size: clamp(1rem, 1.4vw, 1.09rem);
-  line-height: var(--leading);
-  color: var(--on-dark-2);
+.hero-focus li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero-focus li::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 0.38rem;
+  height: 0.38rem;
+  background: var(--red);
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem 1.9rem;
-  margin-top: clamp(1.6rem, 4vw, 2.4rem);
+  margin-top: clamp(1.75rem, 4vw, 2.5rem);
 }
 
 /* ---------------- Buttons & links ---------------- */
@@ -343,7 +391,7 @@ a {
   gap: 0.4rem;
   padding: 0 0 0.4rem;
   font-family: var(--mono);
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0.09em;
@@ -374,7 +422,7 @@ a {
 }
 
 .btn--sm {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
 }
 
 /* Auxiliary links: an underline that turns red on hover. */
@@ -384,7 +432,7 @@ a {
   gap: 0.3rem;
   padding-bottom: 2px;
   font-family: var(--mono);
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: inherit;
@@ -411,7 +459,7 @@ a {
 .hero-aside {
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
+  gap: 1.25rem;
   min-width: 0;
   animation: rise-in 0.45s cubic-bezier(0.22, 0.61, 0.36, 1) 0.06s backwards;
 }
@@ -434,13 +482,25 @@ a {
 /* The source is a 2048px square, so object-fit does the cropping and the
    file itself is never altered. */
 .portrait-img {
-  display: block;
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   object-position: center 24%;
   background: var(--paper-2);
   border: 1px solid var(--rule-dark-strong);
+}
+
+.portrait-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.65rem;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
 }
 
 /* The profile links as an index, ruled like a contents list. */
@@ -470,39 +530,66 @@ a {
 
 /* ---------------- Sections ---------------- */
 .section {
-  padding-block: clamp(3rem, 7vw, 5.25rem);
+  padding-block: var(--section-space);
+}
+
+/* The section head is a two-column masthead: a metadata rail and the
+   editorial argument. The rule belongs to the head, not to the section,
+   so spacing stays consistent from one section to the next. */
+.section-head {
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  column-gap: clamp(1.5rem, 4vw, 3.5rem);
+  row-gap: 0.85rem;
+  margin-bottom: clamp(2rem, 4vw, 3.25rem);
+  padding-top: 1.1rem;
   border-top: 1px solid var(--rule);
 }
 
-/* Projects follows the dark hero, so the surface change is its separator. */
-#project {
-  border-top: none;
+.section-kicker {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  margin: 0;
+  padding-top: 0.35rem;
+  font-family: var(--mono);
+  font-size: var(--kicker-size);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-ink);
 }
 
-.section-head {
-  margin-bottom: clamp(1.5rem, 3.5vw, 2.5rem);
-}
-
-.section-head--prose {
-  max-width: 68ch;
+.section-kicker::before {
+  content: "";
+  display: block;
+  width: 1.35rem;
+  height: 2px;
+  margin-bottom: 0.6rem;
+  background: var(--red);
 }
 
 .section-title {
+  grid-column: 2;
+  grid-row: 1;
   margin: 0;
   font-family: var(--serif);
-  font-size: clamp(2rem, 4.6vw, 3.15rem);
+  font-size: var(--display-lg);
   font-weight: 600;
-  line-height: 1.02;
-  letter-spacing: -0.02em;
+  line-height: 1;
+  letter-spacing: -0.025em;
   color: var(--ink);
+  text-wrap: balance;
 }
 
 .section-lead {
-  margin: clamp(1rem, 2vw, 1.4rem) 0 0;
-  max-width: var(--text);
-  font-size: clamp(1.05rem, 1.6vw, 1.22rem);
-  line-height: var(--leading);
+  grid-column: 2;
+  grid-row: 2;
+  margin: 0;
+  max-width: 62ch;
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  line-height: 1.65;
   color: var(--ink-2);
+  text-wrap: pretty;
 }
 
 /* A short statement of fact, set apart from the heading. */
@@ -510,16 +597,118 @@ a {
   margin: 0 0 1.9rem;
   max-width: var(--text);
   font-family: var(--mono);
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   line-height: 1.7;
   color: var(--gray-ink);
 }
 
-/* ---------------- Featured project — the case study ---------------- */
+/* ---------------- Research — the index ---------------- */
+#research .section-lead {
+  max-width: 56ch;
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.research-axes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 2px solid var(--rule-strong);
+}
+
+.research-axis {
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  column-gap: clamp(1.5rem, 4vw, 3.5rem);
+  padding-block: clamp(1.5rem, 3.2vw, 2.3rem);
+  border-bottom: 1px solid var(--rule);
+}
+
+.axis-index {
+  margin: 0;
+  padding-top: 0.35rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--gray-ink);
+}
+
+.axis-body {
+  min-width: 0;
+}
+
+.axis-title {
+  margin: 0 0 0.65rem;
+  font-size: var(--display-md);
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.axis-text {
+  margin: 0;
+  max-width: 64ch;
+  font-size: 1rem;
+  line-height: var(--leading);
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+
+.axis-evidence {
+  margin: 0.9rem 0 0;
+  max-width: 62ch;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  line-height: 1.6;
+  color: var(--gray-ink);
+}
+
+.axis-evidence span {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* Ongoing work is set apart from the three established axes, so a
+   manuscript in review is never read as a published result. */
+.research-note {
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  column-gap: clamp(1.5rem, 4vw, 3.5rem);
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--rule);
+}
+
+.research-note-label {
+  margin: 0;
+  padding-top: 0.2rem;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red-ink);
+}
+
+.research-note-text {
+  margin: 0;
+  max-width: 64ch;
+  font-family: var(--serif);
+  font-size: clamp(1.05rem, 1.5vw, 1.18rem);
+  line-height: 1.65;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+
+/* ---------------- Projects — case studies ---------------- */
 .project {
-  background: var(--paper-2);
-  border: 1px solid var(--rule-strong);
-  border-top: 3px solid var(--red);
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.project:first-of-type {
+  margin-top: 0;
 }
 
 .project-masthead {
@@ -527,31 +716,33 @@ a {
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 1.25rem;
-  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+  gap: 1.25rem 2rem;
+  padding: var(--block-space);
   padding-bottom: clamp(1.25rem, 3vw, 1.9rem);
   border-bottom: 1px solid var(--rule);
 }
 
 .project-id {
   min-width: 0;
+  flex: 1 1 26rem;
 }
 
-/* "Case study" is set as a labelled line, marked with a red rule. */
+/* "Case 01" is set as a labelled line, marked with a red rule. */
 .project-tag {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  margin: 0 0 0.85rem;
+  margin: 0 0 0.8rem;
   font-family: var(--mono);
-  font-size: 0.66rem;
-  letter-spacing: 0.16em;
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--gray-ink);
 }
 
 .project-tag::before {
   content: "";
+  flex: 0 0 auto;
   width: 1.4rem;
   height: 2px;
   background: var(--red);
@@ -560,17 +751,19 @@ a {
 .project-name {
   margin: 0;
   font-family: var(--serif);
-  font-size: clamp(2.2rem, 6vw, 3.75rem);
+  font-size: clamp(2.1rem, 5.5vw, 3.6rem);
   font-weight: 700;
   line-height: 0.98;
   letter-spacing: -0.025em;
   color: var(--ink);
+  text-wrap: balance;
+  overflow-wrap: break-word;
 }
 
 .project-repo {
   margin: 0.7rem 0 0;
   font-family: var(--mono);
-  font-size: 0.76rem;
+  font-size: 0.72rem;
   letter-spacing: 0.03em;
   color: var(--gray-ink);
 }
@@ -583,13 +776,106 @@ a {
   color: var(--ink);
 }
 
+/* Case 01 is a boxed platform study with a dark data band. */
+.project--datawashes {
+  background: var(--paper-2);
+  border: 1px solid var(--rule-strong);
+  border-top: 3px solid var(--red);
+}
+
+/* Case 02 is an unboxed paper dossier: the ink rule and the editorial
+   spread carry it, so the two projects do not read as repeated cards. */
+.project--paper {
+  padding-top: clamp(1.25rem, 3vw, 2rem);
+  border-top: 2px solid var(--ink);
+}
+
+.project--paper .project-masthead {
+  padding: 0 0 clamp(1.5rem, 3vw, 2.25rem);
+  border-bottom: 1px solid var(--rule-strong);
+}
+
+.project--paper .project-name {
+  max-width: 22ch;
+  font-size: clamp(1.9rem, 4.5vw, 3rem);
+}
+
+.project-body {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(1.5rem, 4vw, 3.25rem);
+  padding: var(--block-space);
+}
+
+.project--paper .project-body {
+  padding: clamp(1.5rem, 3vw, 2.25rem) 0 0;
+}
+
+.project-brief,
+.project-narrative {
+  min-width: 0;
+}
+
+.case-facts {
+  margin: 0;
+}
+
+.case-facts > div {
+  padding-block: 0.9rem;
+  border-top: 1px solid var(--rule);
+}
+
+.case-facts > div:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+
+.case-facts dt {
+  margin: 0 0 0.3rem;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--gray-ink);
+}
+
+.case-facts dd {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.62;
+  color: var(--ink-2);
+}
+
 .project-lede {
   margin: 0;
-  padding: clamp(1.5rem, 3.5vw, 2.5rem);
-  max-width: 72ch;
-  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  max-width: 66ch;
+  font-size: clamp(1.02rem, 1.4vw, 1.13rem);
   line-height: var(--leading);
   color: var(--ink-2);
+  text-wrap: pretty;
+}
+
+.project-attribution {
+  margin: 1.2rem 0 0;
+  max-width: 62ch;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  line-height: 1.6;
+  color: var(--gray-ink);
+}
+
+/* The study's central argument, set as a pull statement rather than a
+   quote: it is an editorial paraphrase, not a verbatim passage. */
+.project-pull {
+  margin: clamp(1.5rem, 3vw, 2rem) 0 0;
+  max-width: 24ch;
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+  line-height: 1.3;
+  color: var(--ink);
+  text-wrap: balance;
 }
 
 /* Metrics as a dark band inside the light case study: the one place
@@ -605,7 +891,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: 0.45rem;
-  padding: clamp(1.1rem, 2.8vw, 1.6rem) clamp(1.5rem, 3.5vw, 2.5rem);
+  padding: clamp(1.1rem, 2.8vw, 1.6rem) clamp(1.25rem, 3vw, 2.25rem);
 }
 
 .project-stats .stat + .stat {
@@ -616,31 +902,92 @@ a {
   order: -1;
   margin: 0;
   font-family: var(--serif);
-  font-size: clamp(1.5rem, 4vw, 2.4rem);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.02em;
   color: var(--on-dark);
+  font-variant-numeric: tabular-nums;
 }
 
 .project-stats dt {
   font-family: var(--mono);
-  font-size: 0.64rem;
+  font-size: 0.62rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--on-dark-3);
 }
 
+/* Case 02's figures sit on paper, between rules, so they read as a
+   different kind of evidence from the platform's dark data band. */
+.study-figures {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.study-figures .figure {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding-block: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+.study-figures .figure + .figure {
+  padding-left: clamp(1rem, 2.5vw, 1.75rem);
+  border-left: 1px solid var(--rule);
+}
+
+.study-figures .figure:not(:last-child) {
+  padding-right: clamp(1rem, 2.5vw, 1.75rem);
+}
+
+.study-figures dd {
+  order: -1;
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 6vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.study-figures dt {
+  max-width: 18ch;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  line-height: 1.45;
+  text-transform: uppercase;
+  color: var(--gray-ink);
+}
+
 /* Attribution — the project's own description and the author's individual
    contribution are set apart here, so the two are never conflated. */
 .project-role {
-  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+  padding: var(--block-space);
+}
+
+.project--paper .project-role {
+  padding: clamp(1.5rem, 3vw, 2.25rem) 0 0;
+  border-top: 1px solid var(--rule-strong);
+}
+
+.project-role-head {
+  display: grid;
+  grid-template-columns: minmax(0, 0.6fr) minmax(0, 1.4fr);
+  gap: 0.75rem clamp(1.5rem, 4vw, 3rem);
 }
 
 .project-role-label {
-  margin: 0 0 0.8rem;
+  margin: 0;
+  padding-top: 0.25rem;
   font-family: var(--mono);
-  font-size: 0.72rem;
+  font-size: 0.66rem;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -649,68 +996,95 @@ a {
 
 .project-role-text {
   margin: 0;
-  max-width: 60ch;
+  max-width: 64ch;
   font-size: 0.98rem;
   line-height: var(--leading);
   color: var(--ink-2);
+  text-wrap: pretty;
 }
 
 .contribution-list {
-  margin: 1.2rem 0 0;
-  padding: 0 0 0 1.15rem;
   list-style: none;
-  max-width: 62ch;
-  border-left: 1px solid var(--rule);
+  margin: 1.5rem 0 0;
+  padding: 0;
+  border-top: 1px solid var(--rule);
 }
 
 .contribution-list li {
-  margin-bottom: 1.15rem;
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding-block: 1.1rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.contribution-list li:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.contribution-index {
+  padding-top: 0.2rem;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  color: var(--gray-ink);
+}
+
+.contribution-title {
+  margin: 0 0 0.3rem;
+  font-family: var(--sans);
   font-size: 0.98rem;
-  line-height: var(--leading);
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--ink);
+}
+
+.contribution-list p {
+  margin: 0;
+  max-width: 64ch;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+
+.project-authors {
+  padding: var(--block-space);
+  border-top: 1px solid var(--rule);
+}
+
+.project--paper .project-authors {
+  padding: clamp(1.25rem, 3vw, 2rem) 0 0;
+}
+
+.project-authors-label {
+  margin: 0 0 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-ink);
+}
+
+.project-authors-list {
+  margin: 0;
+  max-width: 64ch;
+  font-size: 0.95rem;
+  line-height: 1.65;
   color: var(--ink-2);
 }
 
-/* The lead phrase of each item carries the hierarchy while the prose stays
-   secondary, so the list is scannable without extra graphics or cards. */
-.contribution-list strong {
+.project-authors-list strong {
   font-weight: 600;
   color: var(--ink);
 }
 
-.contribution-list li:last-child {
-  margin-bottom: 0;
-}
-
-/* ---------------- Research — the essay ---------------- */
-/* A reading layout: the same serif as the display type carries the
-   passages, in a narrow measure, offset from the left edge on wide
-   screens so the section is not a single flat column. */
-#research .section-head--prose {
-  max-width: 56ch;
-}
-
-#research .section-title {
-  font-size: clamp(1.5rem, 2.8vw, 2.1rem);
-}
-
-#research .section-lead {
-  max-width: 50ch;
-  font-family: var(--serif);
-  font-size: clamp(1.3rem, 2.4vw, 1.65rem);
-  font-weight: 400;
+.project-authors-note {
+  margin: 0.55rem 0 0;
+  font-family: var(--mono);
+  font-size: 0.66rem;
   line-height: 1.5;
-  color: var(--ink);
-}
-
-.role-desc {
-  margin: clamp(1.5rem, 3vw, 2.25rem) 0 0;
-  max-width: 62ch;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--rule);
-  font-family: var(--serif);
-  font-size: clamp(1.05rem, 1.5vw, 1.18rem);
-  line-height: 1.72;
-  color: var(--ink-2);
+  color: var(--gray-ink);
 }
 
 /* ---------------- Publications — the bibliography ---------------- */
@@ -747,7 +1121,7 @@ a {
   align-items: center;
   gap: 0.5rem;
   font-family: var(--mono);
-  font-size: 0.66rem;
+  font-size: 0.64rem;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -780,11 +1154,23 @@ a {
   background: var(--gray);
 }
 
+/* Under review is a hollow marker, so it reads as pending rather than
+   as a second, quieter form of acceptance. */
+.status--review {
+  color: var(--gray-ink);
+}
+
+.status--review::before {
+  background: transparent;
+  border: 1px solid currentColor;
+}
+
 .pub-year {
   font-family: var(--mono);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   letter-spacing: 0.06em;
   color: var(--gray-ink);
+  font-variant-numeric: tabular-nums;
 }
 
 .pub-title {
@@ -797,13 +1183,14 @@ a {
   letter-spacing: -0.015em;
   color: var(--ink);
   text-wrap: balance;
+  overflow-wrap: break-word;
 }
 
 .pub-venue {
   margin: 0 0 0.7rem;
   max-width: var(--text);
   font-family: var(--mono);
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   line-height: 1.6;
   color: var(--gray-ink);
 }
@@ -829,6 +1216,16 @@ a {
   font-size: 1rem;
   line-height: var(--leading);
   color: var(--ink-2);
+  text-wrap: pretty;
+}
+
+.pub-note {
+  margin: 0.9rem 0 0;
+  max-width: var(--text);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  line-height: 1.6;
+  color: var(--gray-ink);
 }
 
 .entry-links {
@@ -838,7 +1235,105 @@ a {
   margin: 1.1rem 0 0;
 }
 
-/* ---------------- Background — the ledger ---------------- */
+/* ---------------- Capabilities — the ledger ---------------- */
+.capability-list {
+  border-top: 2px solid var(--rule-strong);
+}
+
+.capability {
+  display: grid;
+  grid-template-columns: 12rem minmax(0, 1fr) minmax(0, 15rem);
+  column-gap: clamp(1.5rem, 4vw, 3rem);
+  padding-block: clamp(1.5rem, 3.2vw, 2.3rem);
+  border-bottom: 1px solid var(--rule);
+}
+
+.capability-head {
+  min-width: 0;
+}
+
+.capability-index {
+  margin: 0 0 0.4rem;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  color: var(--gray-ink);
+}
+
+.capability-title {
+  margin: 0;
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.capability-items {
+  display: grid;
+  gap: 0.45rem;
+  align-content: start;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.capability-items li {
+  position: relative;
+  padding-left: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+.capability-items li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 0.4rem;
+  height: 1px;
+  background: var(--gray);
+}
+
+.capability-evidence {
+  margin: 0;
+  padding-left: 1rem;
+  border-left: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  line-height: 1.6;
+  color: var(--gray-ink);
+}
+
+.capability-evidence span {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--ink);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.tools-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  margin: 1.5rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  line-height: 1.6;
+  color: var(--gray-ink);
+}
+
+.tools-line span {
+  color: var(--ink);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ---------------- Background — the record ---------------- */
 .facts {
   display: flex;
   flex-direction: column;
@@ -859,7 +1354,7 @@ a {
   gap: 0.6rem;
   margin: 0;
   font-family: var(--mono);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -918,7 +1413,18 @@ a {
   padding-block: clamp(3.5rem, 8vw, 6rem);
   background: var(--ink);
   color: var(--on-dark-2);
-  border-top: none;
+}
+
+.section--contact .section-head {
+  border-top-color: var(--rule-dark);
+}
+
+.section--contact .section-kicker {
+  color: var(--on-dark-3);
+}
+
+.section--contact .section-kicker::before {
+  background: var(--red-on-dark);
 }
 
 .section--contact .section-title {
@@ -929,15 +1435,50 @@ a {
   margin: 0 0 1.5rem;
   max-width: 58ch;
   font-family: var(--serif);
-  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
-  line-height: 1.55;
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  line-height: 1.5;
+  color: var(--on-dark-2);
+  text-wrap: pretty;
+}
+
+/* The four kinds of collaboration, set as a quiet index rather than a
+   services grid. The markers are neutral so the red address stays the
+   single point of emphasis. */
+.closing-scope {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem 2rem;
+  max-width: 56rem;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.closing-scope li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  text-transform: uppercase;
   color: var(--on-dark-2);
 }
 
+.closing-scope li::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 0.38rem;
+  height: 0.38rem;
+  background: var(--on-dark-3);
+}
+
 .closing-line--note {
+  margin-top: 1.75rem;
   max-width: 54ch;
   font-family: var(--sans);
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   line-height: var(--leading);
   color: var(--on-dark-3);
 }
@@ -992,13 +1533,14 @@ a {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
+  justify-content: space-between;
   gap: 0.5rem 1.5rem;
 }
 
 .site-footer p {
   margin: 0;
   font-family: var(--mono);
-  font-size: 0.72rem;
+  font-size: 0.66rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--on-dark-3);
@@ -1024,8 +1566,8 @@ a {
 /* ---------------- Responsive ---------------- */
 @media (max-width: 1024px) {
   .hero-grid {
-    grid-template-columns: minmax(0, 1fr) 220px;
-    gap: 2.25rem;
+    grid-template-columns: minmax(0, 1.35fr) minmax(220px, 0.65fr);
+    gap: clamp(1.75rem, 5vw, 3.5rem);
   }
 }
 
@@ -1053,13 +1595,38 @@ a {
     margin-bottom: 0.65rem;
   }
 
+  /* The caption cannot hold two columns at portrait size. */
+  .portrait-caption {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
   .profile-links {
     flex: 1 1 auto;
     min-width: 0;
   }
+
+  /* Capabilities keep their metadata rail but move the evidence under
+     the item list, where it stays readable at tablet widths. */
+  .capability {
+    grid-template-columns: 12rem minmax(0, 1fr);
+  }
+
+  .capability-evidence {
+    grid-column: 2;
+    padding-top: 0.8rem;
+    padding-left: 0;
+    border-top: 1px solid var(--rule);
+    border-left: none;
+  }
 }
 
 @media (max-width: 820px) {
+  /* The brand name goes before the links ever need to wrap. */
+  .nav-brand .nav-name {
+    display: none;
+  }
+
   /* Metrics fold to a two-by-two band. */
   .project-stats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1080,6 +1647,54 @@ a {
 }
 
 @media (max-width: 720px) {
+  .section-head,
+  .research-axis,
+  .research-note {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .section-kicker,
+  .section-title,
+  .section-lead,
+  .axis-index,
+  .research-note-label {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .section-kicker {
+    padding-top: 0;
+  }
+
+  .axis-index {
+    padding-top: 0;
+  }
+
+  .research-note-label {
+    padding-top: 0;
+  }
+
+  /* Case-study spreads stack: the brief, then the narrative. */
+  .project-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .project-role-head {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .project-role-label {
+    padding-top: 0;
+  }
+
+  .capability {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .capability-evidence {
+    grid-column: 1;
+  }
+
   /* Bibliographic records stack: metadata above the title. */
   .publication {
     grid-template-columns: minmax(0, 1fr);
@@ -1096,46 +1711,40 @@ a {
     grid-template-columns: minmax(0, 1fr);
     gap: 0.55rem;
   }
+
+  .closing-scope {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 @media (max-width: 620px) {
   :root {
     --gutter: 1.15rem;
+    --rail: 1fr;
   }
 
-  /* The links wrap to a second row here, so the masthead is taller and
-     anchors need a little more clearance. */
-  section[id] {
-    scroll-margin-top: 6.5rem;
-  }
-
-  /* The brand keeps its mark while the links take the rest of the row
-     and wrap inside it, so the masthead stays two rows tall. */
+  /* The links become a compact three-by-two index, so six destinations
+     never produce a third row or collide with the monogram. */
   .nav-inner {
-    flex-wrap: nowrap;
-    align-items: center;
-    gap: 0.6rem;
+    gap: 0.5rem;
     min-height: 0;
-  }
-
-  .nav-brand {
-    flex: 0 0 auto;
-  }
-
-  .nav-brand .nav-name {
-    display: none;
+    padding-block: 0.6rem;
   }
 
   .nav-links {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
     flex: 1 1 auto;
+    justify-content: end;
+    gap: 0.15rem 0.9rem;
     min-width: 0;
-    justify-content: flex-end;
-    gap: 0.3rem 0.9rem;
   }
 
   .nav-links a {
-    font-size: 0.67rem;
-    letter-spacing: 0.07em;
+    padding: 0.15rem 0;
+    font-size: 0.63rem;
+    letter-spacing: 0.05em;
+    border-bottom-width: 1px;
   }
 
   .hero-actions {
@@ -1146,6 +1755,28 @@ a {
     flex-direction: column;
     gap: 1.25rem;
   }
+
+  .study-figures {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .study-figures .figure {
+    padding-block: 1rem;
+  }
+
+  .study-figures .figure + .figure {
+    padding-left: 0;
+    border-top: 1px solid var(--rule);
+    border-left: none;
+  }
+
+  .study-figures .figure:not(:last-child) {
+    padding-right: 0;
+  }
+
+  .closing-line {
+    font-size: clamp(1.1rem, 4.5vw, 1.35rem);
+  }
 }
 
 @media (max-width: 480px) {
@@ -1154,32 +1785,37 @@ a {
   }
 
   .hero-actions .btn {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
   }
 
   .project-stats .stat {
     padding: 1rem 1.1rem;
   }
+
+  .email-link {
+    font-size: clamp(0.92rem, 4.4vw, 1.15rem);
+  }
 }
 
-/* The narrowest phones fit the five links on two rows only if the
+/* The narrowest phones fit the six links in the two-row grid only if the
    labels tighten once more. */
 @media (max-width: 400px) {
   .nav-links {
-    gap: 0.2rem 0.7rem;
+    gap: 0.12rem 0.7rem;
   }
 
   .nav-links a {
-    font-size: 0.63rem;
-    letter-spacing: 0.04em;
+    font-size: 0.6rem;
+    letter-spacing: 0.02em;
   }
 }
 
-/* A deliberate editorial offset on wide screens: the research essay
+/* A deliberate editorial offset on wide screens: the research index
    steps in from the left, so the section is not a flat column. */
 @media (min-width: 1024px) {
-  .role-desc {
-    margin-left: clamp(0px, 12vw, 10rem);
+  .axis-body,
+  .research-note-text {
+    margin-left: clamp(0px, 6vw, 5rem);
   }
 }
 

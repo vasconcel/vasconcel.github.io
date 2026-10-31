@@ -44,10 +44,13 @@ function initNavSpy() {
   const setActive = (id) => {
     const target = id == null ? null : '#' + id;
     links.forEach((link) => {
-      link.classList.toggle(
-        'active',
-        target !== null && link.getAttribute('href') === target
-      );
+      const current = target !== null && link.getAttribute('href') === target;
+      link.classList.toggle('active', current);
+      if (current) {
+        link.setAttribute('aria-current', 'location');
+      } else {
+        link.removeAttribute('aria-current');
+      }
     });
   };
 
@@ -103,7 +106,16 @@ function initReveal() {
   }
 
   const targets = document.querySelectorAll(
-    '.section-head, .role-desc, .project, .facts, .publication'
+    [
+      '.section-head',
+      '.research-axis',
+      '.research-note',
+      '.project',
+      '.publication',
+      '.capability',
+      '.tools-line',
+      '.facts',
+    ].join(', ')
   );
   if (!targets.length) {
     return;
