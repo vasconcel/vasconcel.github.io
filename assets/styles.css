@@ -1,77 +1,60 @@
 /* ============================================================
    Gabriel V. Silva — Portfolio
-   Critical editorial — a research publication, set in paper
+   Archive interface — a research record inside a system
    ------------------------------------------------------------
    Concept
-   - The page reads as an independent research publication
-     rather than a console: a dark masthead cover, a light
-     reading body, a dark closing page. Dark and light surfaces
-     alternate on purpose instead of one flat dark theme.
-   - Type carries the hierarchy. An editorial serif sets the
-     display headings and the research passages; a neutral sans
-     sets the body and interface; a monospaced face is kept
-     strictly for metadata, labels and identifiers.
-   - One accent, a muted vermilion, is rationed to meaning: the
-     masthead marker, the accepted status, link and control
-     hover, and the closing address. It is never the colour of
-     every link, heading or border.
-   - Sections are compositions, not repeated cards: a cover, a
-     numbered research index, two differently built case studies,
-     a bibliography, a capability ledger, a compact record, and a
-     closing page.
+   - The page reads as a research archive running in a terminal
+     environment: a near-black field, thin phosphor-green signals
+     and monospaced system metadata. Colour is a signal, not a
+     surface treatment.
+   - Type carries the hierarchy. An editorial serif sets display
+     headings and research passages; Inter sets body text; IBM
+     Plex Mono is reserved for navigation, metadata, identifiers
+     and status.
+   - The green accent is rationed: focus, active navigation,
+     markers, data figures and the contact address. Body text,
+     headings and rules stay in neutral off-white and green-grey.
+   - Sections are compositions, not cards: a cover, a research
+     index, two differently built case studies, a bibliography,
+     a capability ledger, a compact record and a closing page.
    ============================================================ */
 
 :root {
-  /* --- Paper & ink --------------------------------------------------- */
-  --paper: #F0EEE8;
-  --paper-2: #E6E3DB;
-  --ink: #111111;
-  --ink-2: #3A3C37;
+  /* --- Palette: deep system surfaces and phosphor signals ---------- */
+  --bg: #050806;
+  --surface-1: #0b1510;
+  --surface-2: #101c14;
+  --surface-3: #173321;
 
-  /* Neutral gray. The brief's #777A76 sits at 3.75:1 on paper, which
-     clears the 3:1 bar for large type and rules but not the 4.5:1 bar
-     for small text, so it is kept for surfaces and ornament and a
-     darker --gray-ink carries metadata. */
-  --gray: #777A76;
-  --gray-ink: #5C5F5A;
+  --green: #63ff83;
+  --green-2: #35b85b;
 
-  /* Vermilion. The brief's #C84B3A is 4.0:1 on paper and 4.07:1 on ink:
-     correct for rules, large type and the accepted status, but short of
-     4.5:1 for small text, so --red-ink and --red-on-dark do that job. */
-  --red: #C84B3A;
-  --red-ink: #9E3326;
-  --red-on-dark: #D2593F;
+  --text: #d7e9d9;
+  --text-2: #a9bbaa;
+  --text-3: #78927e;
 
-  /* Text on the dark bands */
-  --on-dark: #F0EEE8;
-  --on-dark-2: #B9B7AF;
-  --on-dark-3: #9A988F;
+  /* Rules and texture. Hairlines are decorative; link underlines use
+     --text-3 so they stay visible at 1px. */
+  --line: rgba(169, 187, 170, 0.18);
+  --line-strong: rgba(169, 187, 170, 0.36);
+  --grid: rgba(99, 255, 131, 0.035);
+  --scan: rgba(99, 255, 131, 0.03);
 
-  /* Rules — hairlines on paper, hairlines on ink */
-  --rule: rgba(17, 17, 17, 0.16);
-  --rule-strong: rgba(17, 17, 17, 0.44);
-  --rule-dark: rgba(240, 238, 232, 0.20);
-  --rule-dark-strong: rgba(240, 238, 232, 0.46);
-
-  /* Type roles — serif for display and reading, sans for body and
-     interface, mono for metadata only. */
+  /* --- Type roles ------------------------------------------------- */
   --serif: 'Source Serif 4', 'Source Serif Pro', Georgia, 'Times New Roman', serif;
   --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
-  /* Layout. --rail is the metadata column used by section heads,
-     research entries and capability groups, so those three compositions
-     share one vertical edge on wide screens. */
+  /* --- Layout ----------------------------------------------------- */
   --measure: 1180px;
-  --text: 64ch;
+  --text-width: 64ch;
   --rail: 10.5rem;
-  --leading: 1.68;
+  --leading: 1.7;
   --gutter: clamp(1.15rem, 4vw, 2.75rem);
   --section-space: clamp(3.25rem, 7.5vw, 6rem);
   --block-space: clamp(1.5rem, 3.5vw, 2.5rem);
 
-  /* Type scale. The display sizes are fluid and deliberately fewer than
-     the old page: one cover scale, one section scale, one item scale. */
+  /* --- Type scale ------------------------------------------------- */
   --display-xl: clamp(3rem, 9.5vw, 7rem);
   --display-lg: clamp(2.2rem, 5vw, 3.7rem);
   --display-md: clamp(1.35rem, 2.4vw, 1.8rem);
@@ -91,8 +74,8 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: var(--paper);
-  color: var(--ink-2);
+  background-color: var(--bg);
+  color: var(--text-2);
   font-family: var(--sans);
   font-size: 1rem;
   line-height: 1.65;
@@ -101,13 +84,13 @@ body {
 }
 
 ::selection {
-  background: var(--red);
-  color: #ffffff;
+  background: var(--green);
+  color: var(--bg);
 }
 
-/* The sticky masthead is about 4.5rem tall, and a little under 4rem once
-   its links take a compact two-row grid on narrow screens; anchor targets
-   clear it in both cases. */
+/* The sticky masthead stays around 4.5rem tall, with its links taking a
+   compact two-row grid on narrow screens; anchor targets clear it in
+   both cases. */
 section[id] {
   scroll-margin-top: 5.5rem;
 }
@@ -118,7 +101,7 @@ h3,
 h4 {
   font-family: var(--serif);
   font-weight: 600;
-  color: var(--ink);
+  color: var(--text);
   letter-spacing: -0.01em;
 }
 
@@ -145,9 +128,9 @@ a {
     background-color 0.15s ease, opacity 0.15s ease;
 }
 
-/* A single red ring that holds on paper and on ink alike. */
+/* A single phosphor ring, legible on every surface in the palette. */
 :focus-visible {
-  outline: 2.5px solid var(--red);
+  outline: 2.5px solid var(--green);
   outline-offset: 3px;
 }
 
@@ -162,8 +145,8 @@ a {
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #ffffff;
-  background: var(--red);
+  color: var(--bg);
+  background: var(--green);
 }
 
 .skip-link:focus {
@@ -175,8 +158,8 @@ a {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: var(--ink);
-  border-bottom: 1px solid var(--rule-dark);
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
 }
 
 .nav-inner {
@@ -195,8 +178,8 @@ a {
   white-space: nowrap;
 }
 
-/* The monogram, set in the serif and marked with a red rule rather than
-   a filled block, so the masthead stays typographic. */
+/* The monogram, set in the serif and marked with a phosphor rule rather
+   than a filled block, so the masthead stays typographic. */
 .nav-mark {
   position: relative;
   padding-left: 0.85rem;
@@ -204,7 +187,7 @@ a {
   font-size: 1.15rem;
   font-weight: 700;
   letter-spacing: 0.01em;
-  color: var(--on-dark);
+  color: var(--text);
 }
 
 .nav-mark::before {
@@ -214,16 +197,16 @@ a {
   top: 0.12em;
   width: 3px;
   height: 0.95em;
-  background: var(--red);
+  background: var(--green);
 }
 
 .nav-name {
-  font-family: var(--sans);
-  font-size: 0.72rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--on-dark-2);
+  color: var(--text-2);
 }
 
 .nav-links {
@@ -235,32 +218,34 @@ a {
 
 .nav-links a {
   padding: 0.35rem 0;
-  font-family: var(--sans);
+  font-family: var(--mono);
   font-size: 0.68rem;
   font-weight: 500;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--on-dark-2);
+  color: var(--text-2);
   border-bottom: 2px solid transparent;
 }
 
 .nav-links a:hover {
-  color: var(--on-dark);
-  border-bottom-color: var(--rule-dark-strong);
+  color: var(--text);
+  border-bottom-color: var(--line-strong);
 }
 
 .nav-links a.active,
 .nav-links a[aria-current="location"] {
-  color: var(--on-dark);
-  border-bottom-color: var(--red);
+  color: var(--text);
+  border-bottom-color: var(--green);
 }
 
 /* ---------------- Hero — the cover ---------------- */
+/* Layout, spacing and type values are preserved from the approved cover;
+   only the palette tokens are mapped to the archive environment. */
 .hero {
   padding-top: clamp(3rem, 7vw, 5.5rem);
   padding-bottom: clamp(2.75rem, 6vw, 5rem);
-  background: var(--ink);
-  color: var(--on-dark-2);
+  background: var(--bg);
+  color: var(--text-2);
 }
 
 /* A short entrance for the cover, as a CSS animation rather than the
@@ -290,20 +275,20 @@ a {
   animation: rise-in 0.45s cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
 }
 
-/* The running head above the name, marked with a red square. */
+/* The running head above the name, marked with a phosphor square. */
 .kicker {
   display: flex;
   align-items: center;
   gap: 0.6rem;
   margin: 0 0 clamp(1.25rem, 3vw, 2rem);
   padding-top: 1.1rem;
-  border-top: 1px solid var(--rule-dark);
+  border-top: 1px solid var(--line);
   font-family: var(--mono);
   font-size: var(--kicker-size);
   font-weight: 400;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--on-dark-3);
+  color: var(--text-3);
 }
 
 .kicker::before {
@@ -311,7 +296,7 @@ a {
   flex: 0 0 auto;
   width: 0.5rem;
   height: 0.5rem;
-  background: var(--red);
+  background: var(--green);
 }
 
 .hero-title {
@@ -321,7 +306,7 @@ a {
   font-weight: 700;
   line-height: 0.94;
   letter-spacing: -0.025em;
-  color: var(--on-dark);
+  color: var(--text);
   text-wrap: balance;
 }
 
@@ -331,7 +316,7 @@ a {
   font-size: 0.72rem;
   letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: var(--on-dark-2);
+  color: var(--text-2);
 }
 
 .hero-statement {
@@ -339,13 +324,13 @@ a {
   max-width: 56ch;
   font-size: clamp(1rem, 1.3vw, 1.1rem);
   line-height: 1.7;
-  color: var(--on-dark-2);
+  color: var(--text-2);
   text-wrap: pretty;
 }
 
 /* A scannable statement of the three areas the page develops. The small
-   red squares repeat the masthead motif rather than introducing a new
-   graphic language. */
+   phosphor squares repeat the masthead motif rather than introducing a
+   new graphic language. */
 .hero-focus {
   display: flex;
   flex-wrap: wrap;
@@ -357,7 +342,7 @@ a {
   font-size: 0.66rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--on-dark-3);
+  color: var(--text-3);
 }
 
 .hero-focus li {
@@ -371,7 +356,7 @@ a {
   flex: 0 0 auto;
   width: 0.38rem;
   height: 0.38rem;
-  background: var(--red);
+  background: var(--green);
 }
 
 .hero-actions {
@@ -382,9 +367,8 @@ a {
 }
 
 /* ---------------- Buttons & links ---------------- */
-/* Buttons are set as ruled editorial links, not filled boxes, so they
-   read as part of the page rather than a call-to-action panel. The base
-   inherits colour from its surface and the red marks the primary. */
+/* Buttons are set as ruled terminal links, not filled boxes, so they read
+   as part of the page rather than a call-to-action panel. */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -399,33 +383,33 @@ a {
   color: inherit;
   background: none;
   border: none;
-  border-bottom: 2px solid var(--rule-dark-strong);
+  border-bottom: 2px solid var(--text-3);
 }
 
 .btn:hover {
-  border-bottom-color: var(--red);
+  border-bottom-color: var(--green);
 }
 
 .btn--primary {
-  border-bottom-color: var(--red);
+  border-bottom-color: var(--green);
 }
 
 .btn--primary:hover {
-  border-bottom-color: var(--on-dark);
+  border-bottom-color: var(--text);
 }
 
-/* The secondary control stays quiet: a neutral rule that reddens on
-   hover, so only the primary carries colour at rest. */
+/* The secondary control stays quiet: a neutral rule, so only the primary
+   carries colour at rest. */
 .btn--secondary {
-  color: var(--on-dark-2);
-  border-bottom-color: var(--rule-dark-strong);
+  color: var(--text-2);
+  border-bottom-color: var(--text-3);
 }
 
 .btn--sm {
   font-size: 0.7rem;
 }
 
-/* Auxiliary links: an underline that turns red on hover. */
+/* Auxiliary links: a visible underline that turns phosphor on hover. */
 .link-arrow {
   display: inline-flex;
   align-items: center;
@@ -436,23 +420,12 @@ a {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: inherit;
-  border-bottom: 1px solid var(--rule-strong);
+  border-bottom: 1px solid var(--text-3);
 }
 
 .link-arrow:hover {
-  color: var(--red-ink);
-  border-bottom-color: var(--red);
-}
-
-.hero .link-arrow,
-.section--contact .link-arrow {
-  border-bottom-color: var(--rule-dark-strong);
-}
-
-.hero .link-arrow:hover,
-.section--contact .link-arrow:hover {
-  color: var(--red-on-dark);
-  border-bottom-color: var(--red-on-dark);
+  color: var(--green);
+  border-bottom-color: var(--green);
 }
 
 /* ---------------- Hero portrait & profile index ---------------- */
@@ -469,14 +442,14 @@ a {
   margin: 0;
 }
 
-/* A red rule caps the portrait, echoing the masthead marker. */
+/* A phosphor rule caps the portrait, echoing the masthead marker. */
 .portrait::before {
   content: "";
   display: block;
   width: 2.5rem;
   height: 3px;
   margin-bottom: 0.9rem;
-  background: var(--red);
+  background: var(--green);
 }
 
 /* The source is a 2048px square, so object-fit does the cropping and the
@@ -486,8 +459,8 @@ a {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   object-position: center 24%;
-  background: var(--paper-2);
-  border: 1px solid var(--rule-dark-strong);
+  background: var(--surface-2);
+  border: 1px solid var(--line-strong);
 }
 
 .portrait-caption {
@@ -500,14 +473,14 @@ a {
   letter-spacing: 0.08em;
   line-height: 1.4;
   text-transform: uppercase;
-  color: var(--on-dark-3);
+  color: var(--text-3);
 }
 
 /* The profile links as an index, ruled like a contents list. */
 .profile-links {
   display: flex;
   flex-direction: column;
-  border-top: 1px solid var(--rule-dark);
+  border-top: 1px solid var(--line);
 }
 
 .profile-links a {
@@ -520,17 +493,23 @@ a {
   font-size: 0.7rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--on-dark-2);
-  border-bottom: 1px solid var(--rule-dark);
+  color: var(--text-2);
+  border-bottom: 1px solid var(--line);
 }
 
 .profile-links a:hover {
-  color: var(--red-on-dark);
+  color: var(--green);
 }
 
 /* ---------------- Sections ---------------- */
 .section {
   padding-block: var(--section-space);
+}
+
+#project,
+#capabilities {
+  background: var(--surface-1);
+  border-block: 1px solid var(--line);
 }
 
 /* The section head is a two-column masthead: a metadata rail and the
@@ -543,7 +522,7 @@ a {
   row-gap: 0.85rem;
   margin-bottom: clamp(2rem, 4vw, 3.25rem);
   padding-top: 1.1rem;
-  border-top: 1px solid var(--rule);
+  border-top: 1px solid var(--line);
 }
 
 .section-kicker {
@@ -556,7 +535,7 @@ a {
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--gray-ink);
+  color: var(--text-3);
 }
 
 .section-kicker::before {
@@ -565,7 +544,7 @@ a {
   width: 1.35rem;
   height: 2px;
   margin-bottom: 0.6rem;
-  background: var(--red);
+  background: var(--green);
 }
 
 .section-title {
@@ -577,7 +556,7 @@ a {
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.025em;
-  color: var(--ink);
+  color: var(--text);
   text-wrap: balance;
 }
 
@@ -588,117 +567,75 @@ a {
   max-width: 62ch;
   font-size: clamp(1.05rem, 1.5vw, 1.2rem);
   line-height: 1.65;
-  color: var(--ink-2);
+  color: var(--text-2);
   text-wrap: pretty;
 }
 
 /* A short statement of fact, set apart from the heading. */
 .section-note {
   margin: 0 0 1.9rem;
-  max-width: var(--text);
+  max-width: var(--text-width);
   font-family: var(--mono);
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   line-height: 1.7;
-  color: var(--gray-ink);
+  color: var(--text-3);
 }
 
 /* ---------------- Research — the index ---------------- */
 #research .section-lead {
-  max-width: 56ch;
+  max-width: 54ch;
   font-family: var(--serif);
-  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
   font-weight: 400;
-  line-height: 1.45;
-  color: var(--ink);
+  line-height: 1.5;
+  color: var(--text);
 }
 
-.research-axes {
+.research-index {
   list-style: none;
+  counter-reset: research;
   margin: 0;
   padding: 0;
-  border-top: 2px solid var(--rule-strong);
+  border-top: 1px solid var(--line-strong);
 }
 
-.research-axis {
+.research-index li {
+  counter-increment: research;
   display: grid;
   grid-template-columns: var(--rail) minmax(0, 1fr);
   column-gap: clamp(1.5rem, 4vw, 3.5rem);
-  padding-block: clamp(1.5rem, 3.2vw, 2.3rem);
-  border-bottom: 1px solid var(--rule);
+  padding-block: clamp(1.1rem, 2.6vw, 1.55rem);
+  border-bottom: 1px solid var(--line);
 }
 
-.axis-index {
-  margin: 0;
-  padding-top: 0.35rem;
+.research-index li::before {
+  content: "0" counter(research);
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  padding-top: 0.3rem;
   font-family: var(--mono);
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   letter-spacing: 0.1em;
-  color: var(--gray-ink);
+  color: var(--text-3);
 }
 
-.axis-body {
-  min-width: 0;
-}
-
-.axis-title {
-  margin: 0 0 0.65rem;
+.index-title {
+  grid-column: 2;
+  margin: 0;
+  font-family: var(--serif);
   font-size: var(--display-md);
   line-height: 1.2;
+  color: var(--text);
   text-wrap: balance;
 }
 
-.axis-text {
-  margin: 0;
-  max-width: 64ch;
-  font-size: 1rem;
+.index-text {
+  grid-column: 2;
+  margin: 0.35rem 0 0;
+  max-width: 60ch;
+  font-size: 0.97rem;
   line-height: var(--leading);
-  color: var(--ink-2);
-  text-wrap: pretty;
-}
-
-.axis-evidence {
-  margin: 0.9rem 0 0;
-  max-width: 62ch;
-  font-family: var(--mono);
-  font-size: 0.7rem;
-  line-height: 1.6;
-  color: var(--gray-ink);
-}
-
-.axis-evidence span {
-  color: var(--ink);
-  font-weight: 500;
-}
-
-/* Ongoing work is set apart from the three established axes, so a
-   manuscript in review is never read as a published result. */
-.research-note {
-  display: grid;
-  grid-template-columns: var(--rail) minmax(0, 1fr);
-  column-gap: clamp(1.5rem, 4vw, 3.5rem);
-  margin-top: clamp(2rem, 4vw, 3rem);
-  padding-top: 1.2rem;
-  border-top: 1px solid var(--rule);
-}
-
-.research-note-label {
-  margin: 0;
-  padding-top: 0.2rem;
-  font-family: var(--mono);
-  font-size: 0.66rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--red-ink);
-}
-
-.research-note-text {
-  margin: 0;
-  max-width: 64ch;
-  font-family: var(--serif);
-  font-size: clamp(1.05rem, 1.5vw, 1.18rem);
-  line-height: 1.65;
-  color: var(--ink-2);
+  color: var(--text-2);
   text-wrap: pretty;
 }
 
@@ -719,7 +656,7 @@ a {
   gap: 1.25rem 2rem;
   padding: var(--block-space);
   padding-bottom: clamp(1.25rem, 3vw, 1.9rem);
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 1px solid var(--line);
 }
 
 .project-id {
@@ -727,17 +664,17 @@ a {
   flex: 1 1 26rem;
 }
 
-/* "Case 01" is set as a labelled line, marked with a red rule. */
+/* "Case 01" is set as a labelled line, marked with a phosphor rule. */
 .project-tag {
   display: flex;
   align-items: center;
   gap: 0.6rem;
   margin: 0 0 0.8rem;
   font-family: var(--mono);
-  font-size: 0.64rem;
-  letter-spacing: 0.14em;
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--gray-ink);
+  color: var(--text-3);
 }
 
 .project-tag::before {
@@ -745,7 +682,7 @@ a {
   flex: 0 0 auto;
   width: 1.4rem;
   height: 2px;
-  background: var(--red);
+  background: var(--green);
 }
 
 .project-name {
@@ -755,7 +692,7 @@ a {
   font-weight: 700;
   line-height: 0.98;
   letter-spacing: -0.025em;
-  color: var(--ink);
+  color: var(--text);
   text-wrap: balance;
   overflow-wrap: break-word;
 }
@@ -763,9 +700,9 @@ a {
 .project-repo {
   margin: 0.7rem 0 0;
   font-family: var(--mono);
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   letter-spacing: 0.03em;
-  color: var(--gray-ink);
+  color: var(--text-3);
 }
 
 .project-actions {
@@ -773,26 +710,34 @@ a {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.8rem 1.4rem;
-  color: var(--ink);
+  color: var(--text);
 }
 
-/* Case 01 is a boxed platform study with a dark data band. */
+/* Case 01 is a boxed platform study with a gridded masthead and a green
+   data band. The grid stays inside the masthead so it never crosses text. */
 .project--datawashes {
-  background: var(--paper-2);
-  border: 1px solid var(--rule-strong);
-  border-top: 3px solid var(--red);
+  background-color: var(--surface-2);
+  border: 1px solid var(--line-strong);
+  border-top: 2px solid var(--green-2);
 }
 
-/* Case 02 is an unboxed paper dossier: the ink rule and the editorial
-   spread carry it, so the two projects do not read as repeated cards. */
+.project--datawashes .project-masthead {
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 1.5rem 1.5rem;
+}
+
+/* Case 02 is an unboxed paper dossier: the rule and the editorial spread
+   carry it, so the two projects do not read as repeated cards. */
 .project--paper {
   padding-top: clamp(1.25rem, 3vw, 2rem);
-  border-top: 2px solid var(--ink);
+  border-top: 2px solid var(--line-strong);
 }
 
 .project--paper .project-masthead {
   padding: 0 0 clamp(1.5rem, 3vw, 2.25rem);
-  border-bottom: 1px solid var(--rule-strong);
+  border-bottom: 1px solid var(--line-strong);
 }
 
 .project--paper .project-name {
@@ -801,9 +746,6 @@ a {
 }
 
 .project-body {
-  display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-  gap: clamp(1.5rem, 4vw, 3.25rem);
   padding: var(--block-space);
 }
 
@@ -811,47 +753,23 @@ a {
   padding: clamp(1.5rem, 3vw, 2.25rem) 0 0;
 }
 
-.project-brief,
-.project-narrative {
-  min-width: 0;
-}
-
-.case-facts {
-  margin: 0;
-}
-
-.case-facts > div {
-  padding-block: 0.9rem;
-  border-top: 1px solid var(--rule);
-}
-
-.case-facts > div:first-child {
-  padding-top: 0;
-  border-top: none;
-}
-
-.case-facts dt {
-  margin: 0 0 0.3rem;
-  font-family: var(--mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-  color: var(--gray-ink);
-}
-
-.case-facts dd {
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.62;
-  color: var(--ink-2);
-}
-
 .project-lede {
   margin: 0;
-  max-width: 66ch;
-  font-size: clamp(1.02rem, 1.4vw, 1.13rem);
+  max-width: 68ch;
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
   line-height: var(--leading);
-  color: var(--ink-2);
+  color: var(--text-2);
+  text-wrap: pretty;
+}
+
+/* Project-level pipeline note: collective maintenance, kept in body text
+   so it is not mistaken for the author's individual contribution. */
+.project-pipeline {
+  margin: 1.1rem 0 0;
+  max-width: 68ch;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-2);
   text-wrap: pretty;
 }
 
@@ -859,32 +777,21 @@ a {
   margin: 1.2rem 0 0;
   max-width: 62ch;
   padding-top: 1rem;
-  border-top: 1px solid var(--rule);
+  border-top: 1px solid var(--line);
   font-family: var(--mono);
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   line-height: 1.6;
-  color: var(--gray-ink);
+  color: var(--text-3);
 }
 
-/* The study's central argument, set as a pull statement rather than a
-   quote: it is an editorial paraphrase, not a verbatim passage. */
-.project-pull {
-  margin: clamp(1.5rem, 3vw, 2rem) 0 0;
-  max-width: 24ch;
-  font-family: var(--serif);
-  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
-  line-height: 1.3;
-  color: var(--ink);
-  text-wrap: balance;
-}
-
-/* Metrics as a dark band inside the light case study: the one place
-   where data is allowed to shout, and not styled as analytics cards. */
+/* Metrics as an elevated green band: the one place where data is allowed
+   to be the loudest element, and not styled as analytics cards. */
 .project-stats {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   margin: 0;
-  background: var(--ink);
+  background: var(--surface-3);
+  border-block: 1px solid var(--line-strong);
 }
 
 .project-stats .stat {
@@ -895,37 +802,37 @@ a {
 }
 
 .project-stats .stat + .stat {
-  border-left: 1px solid var(--rule-dark);
+  border-left: 1px solid var(--line-strong);
 }
 
 .project-stats dd {
   order: -1;
   margin: 0;
   font-family: var(--serif);
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.02em;
-  color: var(--on-dark);
+  color: var(--green);
   font-variant-numeric: tabular-nums;
 }
 
 .project-stats dt {
   font-family: var(--mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.14em;
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--on-dark-3);
+  color: var(--text-2);
 }
 
-/* Case 02's figures sit on paper, between rules, so they read as a
-   different kind of evidence from the platform's dark data band. */
+/* Case 02's figures sit between rules on the section surface, so they read
+   as a different kind of evidence from the platform's green data band. */
 .study-figures {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin: 0;
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
+  border-top: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line-strong);
 }
 
 .study-figures .figure {
@@ -937,7 +844,7 @@ a {
 
 .study-figures .figure + .figure {
   padding-left: clamp(1rem, 2.5vw, 1.75rem);
-  border-left: 1px solid var(--rule);
+  border-left: 1px solid var(--line);
 }
 
 .study-figures .figure:not(:last-child) {
@@ -952,18 +859,18 @@ a {
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.02em;
-  color: var(--ink);
+  color: var(--green-2);
   font-variant-numeric: tabular-nums;
 }
 
 .study-figures dt {
   max-width: 18ch;
   font-family: var(--mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.12em;
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
   line-height: 1.45;
   text-transform: uppercase;
-  color: var(--gray-ink);
+  color: var(--text-3);
 }
 
 /* Attribution — the project's own description and the author's individual
@@ -974,7 +881,7 @@ a {
 
 .project--paper .project-role {
   padding: clamp(1.5rem, 3vw, 2.25rem) 0 0;
-  border-top: 1px solid var(--rule-strong);
+  border-top: 1px solid var(--line);
 }
 
 .project-role-head {
@@ -987,11 +894,11 @@ a {
   margin: 0;
   padding-top: 0.25rem;
   font-family: var(--mono);
-  font-size: 0.66rem;
+  font-size: 0.68rem;
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink);
+  color: var(--green-2);
 }
 
 .project-role-text {
@@ -999,7 +906,7 @@ a {
   max-width: 64ch;
   font-size: 0.98rem;
   line-height: var(--leading);
-  color: var(--ink-2);
+  color: var(--text-2);
   text-wrap: pretty;
 }
 
@@ -1007,7 +914,7 @@ a {
   list-style: none;
   margin: 1.5rem 0 0;
   padding: 0;
-  border-top: 1px solid var(--rule);
+  border-top: 1px solid var(--line);
 }
 
 .contribution-list li {
@@ -1015,7 +922,7 @@ a {
   grid-template-columns: 2.5rem minmax(0, 1fr);
   gap: 1rem;
   padding-block: 1.1rem;
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 1px solid var(--line);
 }
 
 .contribution-list li:last-child {
@@ -1026,8 +933,8 @@ a {
 .contribution-index {
   padding-top: 0.2rem;
   font-family: var(--mono);
-  font-size: 0.66rem;
-  color: var(--gray-ink);
+  font-size: 0.7rem;
+  color: var(--text-3);
 }
 
 .contribution-title {
@@ -1036,7 +943,7 @@ a {
   font-size: 0.98rem;
   font-weight: 600;
   letter-spacing: 0;
-  color: var(--ink);
+  color: var(--text);
 }
 
 .contribution-list p {
@@ -1044,47 +951,8 @@ a {
   max-width: 64ch;
   font-size: 0.95rem;
   line-height: 1.65;
-  color: var(--ink-2);
+  color: var(--text-2);
   text-wrap: pretty;
-}
-
-.project-authors {
-  padding: var(--block-space);
-  border-top: 1px solid var(--rule);
-}
-
-.project--paper .project-authors {
-  padding: clamp(1.25rem, 3vw, 2rem) 0 0;
-}
-
-.project-authors-label {
-  margin: 0 0 0.5rem;
-  font-family: var(--mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--gray-ink);
-}
-
-.project-authors-list {
-  margin: 0;
-  max-width: 64ch;
-  font-size: 0.95rem;
-  line-height: 1.65;
-  color: var(--ink-2);
-}
-
-.project-authors-list strong {
-  font-weight: 600;
-  color: var(--ink);
-}
-
-.project-authors-note {
-  margin: 0.55rem 0 0;
-  font-family: var(--mono);
-  font-size: 0.66rem;
-  line-height: 1.5;
-  color: var(--gray-ink);
 }
 
 /* ---------------- Publications — the bibliography ---------------- */
@@ -1092,7 +960,7 @@ a {
   list-style: none;
   margin: 0;
   padding: 0;
-  border-top: 2px solid var(--rule-strong);
+  border-top: 1px solid var(--line-strong);
 }
 
 .publication {
@@ -1100,7 +968,7 @@ a {
   grid-template-columns: minmax(0, 9.5rem) minmax(0, 1fr);
   gap: clamp(1rem, 3vw, 2.5rem);
   padding-block: clamp(1.6rem, 3.5vw, 2.4rem);
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 1px solid var(--line);
 }
 
 .pub-rail,
@@ -1115,15 +983,15 @@ a {
   gap: 0.7rem;
 }
 
-/* Status is a labelled dot, never colour alone. */
+/* Status is a labelled marker, never colour alone. */
 .status {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   font-family: var(--mono);
-  font-size: 0.64rem;
+  font-size: 0.66rem;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -1135,29 +1003,18 @@ a {
   background: currentColor;
 }
 
-.status--accepted {
-  color: var(--red-ink);
-}
-
-.status--accepted::before {
-  background: var(--red);
-}
-
 .status--published {
-  color: var(--gray-ink);
+  color: var(--text-2);
 }
 
-/* The neutral marker can use the palette's mid gray: at 3.75:1 on paper
-   it clears the 3:1 bar for a non-text indicator, while the label itself
-   stays on the darker gray for readable small text. */
 .status--published::before {
-  background: var(--gray);
+  background: var(--green-2);
 }
 
-/* Under review is a hollow marker, so it reads as pending rather than
-   as a second, quieter form of acceptance. */
+/* Under review is a hollow marker, so it reads as pending rather than as
+   a second, quieter form of publication. */
 .status--review {
-  color: var(--gray-ink);
+  color: var(--text-3);
 }
 
 .status--review::before {
@@ -1167,9 +1024,9 @@ a {
 
 .pub-year {
   font-family: var(--mono);
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   letter-spacing: 0.06em;
-  color: var(--gray-ink);
+  color: var(--text-3);
   font-variant-numeric: tabular-nums;
 }
 
@@ -1181,51 +1038,51 @@ a {
   font-weight: 600;
   line-height: 1.24;
   letter-spacing: -0.015em;
-  color: var(--ink);
+  color: var(--text);
   text-wrap: balance;
   overflow-wrap: break-word;
 }
 
 .pub-venue {
   margin: 0 0 0.7rem;
-  max-width: var(--text);
+  max-width: var(--text-width);
   font-family: var(--mono);
   font-size: 0.74rem;
   line-height: 1.6;
-  color: var(--gray-ink);
+  color: var(--text-3);
 }
 
-/* The author list is printed so collaborative work is never read as
-   sole authorship. */
+/* The author list is printed so collaborative work is never read as sole
+   authorship. */
 .pub-authors {
   margin: 0 0 0.9rem;
-  max-width: var(--text);
+  max-width: var(--text-width);
   font-size: 0.9rem;
   line-height: 1.6;
-  color: var(--gray-ink);
+  color: var(--text-3);
 }
 
 .pub-authors strong {
   font-weight: 600;
-  color: var(--ink);
+  color: var(--text);
 }
 
 .pub-abstract {
   margin: 0;
-  max-width: var(--text);
+  max-width: var(--text-width);
   font-size: 1rem;
   line-height: var(--leading);
-  color: var(--ink-2);
+  color: var(--text-2);
   text-wrap: pretty;
 }
 
 .pub-note {
   margin: 0.9rem 0 0;
-  max-width: var(--text);
+  max-width: var(--text-width);
   font-family: var(--mono);
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   line-height: 1.6;
-  color: var(--gray-ink);
+  color: var(--text-3);
 }
 
 .entry-links {
@@ -1237,7 +1094,7 @@ a {
 
 /* ---------------- Capabilities — the ledger ---------------- */
 .capability-list {
-  border-top: 2px solid var(--rule-strong);
+  border-top: 1px solid var(--line-strong);
 }
 
 .capability {
@@ -1245,7 +1102,7 @@ a {
   grid-template-columns: 12rem minmax(0, 1fr) minmax(0, 15rem);
   column-gap: clamp(1.5rem, 4vw, 3rem);
   padding-block: clamp(1.5rem, 3.2vw, 2.3rem);
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 1px solid var(--line);
 }
 
 .capability-head {
@@ -1255,15 +1112,16 @@ a {
 .capability-index {
   margin: 0 0 0.4rem;
   font-family: var(--mono);
-  font-size: 0.66rem;
+  font-size: 0.7rem;
   letter-spacing: 0.1em;
-  color: var(--gray-ink);
+  color: var(--text-3);
 }
 
 .capability-title {
   margin: 0;
-  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
   line-height: 1.2;
+  color: var(--text);
   text-wrap: balance;
 }
 
@@ -1281,7 +1139,7 @@ a {
   padding-left: 1rem;
   font-size: 0.95rem;
   line-height: 1.55;
-  color: var(--ink-2);
+  color: var(--text-2);
 }
 
 .capability-items li::before {
@@ -1291,23 +1149,23 @@ a {
   top: 0.72em;
   width: 0.4rem;
   height: 1px;
-  background: var(--gray);
+  background: var(--text-3);
 }
 
 .capability-evidence {
   margin: 0;
   padding-left: 1rem;
-  border-left: 1px solid var(--rule);
+  border-left: 1px solid var(--line);
   font-family: var(--mono);
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   line-height: 1.6;
-  color: var(--gray-ink);
+  color: var(--text-3);
 }
 
 .capability-evidence span {
   display: block;
   margin-bottom: 0.35rem;
-  color: var(--ink);
+  color: var(--text-2);
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1319,15 +1177,15 @@ a {
   gap: 0.4rem 1rem;
   margin: 1.5rem 0 0;
   padding-top: 1rem;
-  border-top: 1px solid var(--rule);
+  border-top: 1px solid var(--line);
   font-family: var(--mono);
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   line-height: 1.6;
-  color: var(--gray-ink);
+  color: var(--text-3);
 }
 
 .tools-line span {
-  color: var(--ink);
+  color: var(--text-2);
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1337,7 +1195,7 @@ a {
 .facts {
   display: flex;
   flex-direction: column;
-  border-top: 2px solid var(--rule-strong);
+  border-top: 1px solid var(--line-strong);
 }
 
 .fact {
@@ -1345,7 +1203,7 @@ a {
   grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
   gap: 0.4rem 2.5rem;
   padding-block: clamp(1.15rem, 2.6vw, 1.6rem);
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 1px solid var(--line);
 }
 
 .fact-label {
@@ -1354,11 +1212,11 @@ a {
   gap: 0.6rem;
   margin: 0;
   font-family: var(--mono);
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink);
+  color: var(--text);
 }
 
 .fact-label::before {
@@ -1366,42 +1224,42 @@ a {
   flex: 0 0 auto;
   width: 1.1rem;
   height: 2px;
-  background: var(--red);
+  background: var(--green);
 }
 
 .fact-value {
   margin: 0;
-  max-width: var(--text);
+  max-width: var(--text-width);
   font-size: 1rem;
   line-height: var(--leading);
-  color: var(--ink-2);
+  color: var(--text-2);
 }
 
 .fact-note {
-  color: var(--gray-ink);
+  color: var(--text-3);
 }
 
 .fact-link,
 .fact-list a {
-  color: var(--ink);
-  border-bottom: 1px solid var(--rule-strong);
+  color: var(--text);
+  border-bottom: 1px solid var(--text-3);
   padding-bottom: 1px;
 }
 
 .fact-link:hover,
 .fact-list a:hover {
-  color: var(--red-ink);
-  border-bottom-color: var(--red);
+  color: var(--green);
+  border-bottom-color: var(--green);
 }
 
 .fact-list {
   list-style: none;
   margin: 0;
   padding: 0;
-  max-width: var(--text);
+  max-width: var(--text-width);
   font-size: 1rem;
   line-height: var(--leading);
-  color: var(--ink-2);
+  color: var(--text-2);
 }
 
 .fact-list li + li {
@@ -1411,24 +1269,13 @@ a {
 /* ---------------- Contact — the closing page ---------------- */
 .section--contact {
   padding-block: clamp(3.5rem, 8vw, 6rem);
-  background: var(--ink);
-  color: var(--on-dark-2);
-}
-
-.section--contact .section-head {
-  border-top-color: var(--rule-dark);
-}
-
-.section--contact .section-kicker {
-  color: var(--on-dark-3);
-}
-
-.section--contact .section-kicker::before {
-  background: var(--red-on-dark);
-}
-
-.section--contact .section-title {
-  color: var(--on-dark);
+  background-color: var(--surface-2);
+  background-image: repeating-linear-gradient(
+    0deg,
+    var(--scan) 0 1px,
+    transparent 1px 5px
+  );
+  border-top: 1px solid var(--line-strong);
 }
 
 .closing-line {
@@ -1437,58 +1284,16 @@ a {
   font-family: var(--serif);
   font-size: clamp(1.2rem, 2vw, 1.55rem);
   line-height: 1.5;
-  color: var(--on-dark-2);
+  color: var(--text);
   text-wrap: pretty;
-}
-
-/* The four kinds of collaboration, set as a quiet index rather than a
-   services grid. The markers are neutral so the red address stays the
-   single point of emphasis. */
-.closing-scope {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.6rem 2rem;
-  max-width: 56rem;
-  margin: 1.75rem 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.closing-scope li {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.06em;
-  line-height: 1.5;
-  text-transform: uppercase;
-  color: var(--on-dark-2);
-}
-
-.closing-scope li::before {
-  content: "";
-  flex: 0 0 auto;
-  width: 0.38rem;
-  height: 0.38rem;
-  background: var(--on-dark-3);
-}
-
-.closing-line--note {
-  margin-top: 1.75rem;
-  max-width: 54ch;
-  font-family: var(--sans);
-  font-size: 0.95rem;
-  line-height: var(--leading);
-  color: var(--on-dark-3);
 }
 
 .closing-email {
   margin: clamp(2rem, 4vw, 2.75rem) 0;
 }
 
-/* The address is the loudest element on the page, set as an address
-   stamp rather than a filled call-to-action button. */
+/* The address is the loudest element on the page, set as a terminal stamp
+   rather than a filled call-to-action button. */
 .email-link {
   display: inline-flex;
   align-items: baseline;
@@ -1498,14 +1303,14 @@ a {
   font-size: clamp(1rem, 3vw, 1.85rem);
   font-weight: 500;
   letter-spacing: -0.01em;
-  color: var(--on-dark);
-  border-bottom: 2px solid var(--red);
+  color: var(--green);
+  border-bottom: 2px solid var(--green-2);
   overflow-wrap: anywhere;
 }
 
 .email-link:hover {
-  color: var(--red-on-dark);
-  border-bottom-color: var(--red-on-dark);
+  color: var(--text);
+  border-bottom-color: var(--green);
 }
 
 .email-link-icon {
@@ -1525,8 +1330,8 @@ a {
 /* ---------------- Footer ---------------- */
 .site-footer {
   padding: 1.7rem 0 2.2rem;
-  background: var(--ink);
-  border-top: 1px solid var(--rule-dark);
+  background: var(--bg);
+  border-top: 1px solid var(--line);
 }
 
 .footer-inner {
@@ -1540,10 +1345,24 @@ a {
 .site-footer p {
   margin: 0;
   font-family: var(--mono);
-  font-size: 0.66rem;
-  letter-spacing: 0.1em;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--on-dark-3);
+  color: var(--text-3);
+}
+
+.footer-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-2);
+}
+
+.footer-status span {
+  width: 0.42rem;
+  height: 0.42rem;
+  flex: 0 0 auto;
+  background: var(--green-2);
 }
 
 /* ---------------- Entrance reveal ----------------
@@ -1616,7 +1435,7 @@ a {
     grid-column: 2;
     padding-top: 0.8rem;
     padding-left: 0;
-    border-top: 1px solid var(--rule);
+    border-top: 1px solid var(--line);
     border-left: none;
   }
 }
@@ -1626,38 +1445,19 @@ a {
   .nav-brand .nav-name {
     display: none;
   }
-
-  /* Metrics fold to a two-by-two band. */
-  .project-stats {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .project-stats .stat {
-    border-left: none;
-    border-top: 1px solid var(--rule-dark);
-  }
-
-  .project-stats .stat:nth-child(even) {
-    border-left: 1px solid var(--rule-dark);
-  }
-
-  .project-stats .stat:nth-child(-n + 2) {
-    border-top: none;
-  }
 }
 
 @media (max-width: 720px) {
   .section-head,
-  .research-axis,
-  .research-note {
+  .research-index li {
     grid-template-columns: minmax(0, 1fr);
   }
 
   .section-kicker,
   .section-title,
   .section-lead,
-  .axis-index,
-  .research-note-label {
+  .index-title,
+  .index-text {
     grid-column: 1;
     grid-row: auto;
   }
@@ -1666,19 +1466,14 @@ a {
     padding-top: 0;
   }
 
-  .axis-index {
+  .research-index li::before {
+    grid-column: 1;
+    grid-row: auto;
     padding-top: 0;
+    padding-bottom: 0.35rem;
   }
 
-  .research-note-label {
-    padding-top: 0;
-  }
-
-  /* Case-study spreads stack: the brief, then the narrative. */
-  .project-body {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
+  /* Case-study interiors stack: the narrative, then metrics, then role. */
   .project-role-head {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -1711,10 +1506,6 @@ a {
     grid-template-columns: minmax(0, 1fr);
     gap: 0.55rem;
   }
-
-  .closing-scope {
-    grid-template-columns: minmax(0, 1fr);
-  }
 }
 
 @media (max-width: 620px) {
@@ -1741,9 +1532,9 @@ a {
   }
 
   .nav-links a {
-    padding: 0.15rem 0;
-    font-size: 0.63rem;
-    letter-spacing: 0.05em;
+    padding: 0.2rem 0;
+    font-size: 0.64rem;
+    letter-spacing: 0.04em;
     border-bottom-width: 1px;
   }
 
@@ -1756,6 +1547,29 @@ a {
     gap: 1.25rem;
   }
 
+  /* Metrics fold into compact rows: value and label on one line. */
+  .project-stats {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .project-stats .stat {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.9rem 1.15rem;
+    border-left: none;
+    border-top: 1px solid var(--line-strong);
+  }
+
+  .project-stats .stat:first-child {
+    border-top: none;
+  }
+
+  .project-stats dd {
+    font-size: 1.6rem;
+  }
+
   .study-figures {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -1766,7 +1580,7 @@ a {
 
   .study-figures .figure + .figure {
     padding-left: 0;
-    border-top: 1px solid var(--rule);
+    border-top: 1px solid var(--line);
     border-left: none;
   }
 
@@ -1789,7 +1603,7 @@ a {
   }
 
   .project-stats .stat {
-    padding: 1rem 1.1rem;
+    padding: 0.8rem 1rem;
   }
 
   .email-link {
@@ -1798,24 +1612,14 @@ a {
 }
 
 /* The narrowest phones fit the six links in the two-row grid only if the
-   labels tighten once more. */
+   labels tighten their spacing once more. */
 @media (max-width: 400px) {
   .nav-links {
     gap: 0.12rem 0.7rem;
   }
 
   .nav-links a {
-    font-size: 0.6rem;
-    letter-spacing: 0.02em;
-  }
-}
-
-/* A deliberate editorial offset on wide screens: the research index
-   steps in from the left, so the section is not a flat column. */
-@media (min-width: 1024px) {
-  .axis-body,
-  .research-note-text {
-    margin-left: clamp(0px, 6vw, 5rem);
+    letter-spacing: 0.01em;
   }
 }
 

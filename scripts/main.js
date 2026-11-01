@@ -108,8 +108,7 @@ function initReveal() {
   const targets = document.querySelectorAll(
     [
       '.section-head',
-      '.research-axis',
-      '.research-note',
+      '.research-index',
       '.project',
       '.publication',
       '.capability',
