@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+  <title>Gabriel V. Silva</title>
+  <style>
+    svg { color: #1a1a1a; }
+    @media (prefers-color-scheme: dark) { svg { color: #e8e8e6; } }
+  </style>
+  <path d="M9 6H5v20h4"/>
+  <path d="M23 6h4v20h-4"/>
+  <path d="M11.5 14 16 23l4.5-9"/>
+  <circle cx="16" cy="8.5" r="2.4" fill="currentColor" stroke="none"/>
+</svg>
