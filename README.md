@@ -3,18 +3,23 @@
 Personal portfolio of Gabriel V. Silva, published with GitHub Pages at
 <https://vasconcel.github.io/>.
 
-It is a single page presenting his work across empirical software engineering,
-qualitative research and research data, with in-page navigation between the
-Research, Projects, Publications, Capabilities, Background and Contact sections.
+It presents his work across empirical software engineering, qualitative research
+and research data, with in-page navigation between the Research, Projects,
+Publications, Capabilities, Background and Contact sections. The English version
+is served at the root and the Portuguese version at `/pt/`; each page links to
+the other in the navigation bar.
 
 ## Structure
 
 ```
 .
-├── index.html          # the portfolio (single page)
+├── index.html          # the portfolio, English (default)
+├── pt/
+│   └── index.html      # the portfolio, Portuguese
 ├── engineering.html    # legacy redirect to index.html
 ├── assets/
 │   ├── styles.css      # stylesheet
+│   ├── favicon.svg     # site icon
 │   ├── profile.jpg     # portrait used on the page
 │   └── profile2.jpg    # alternate portrait, kept but not referenced
 ├── scripts/
@@ -26,7 +31,7 @@ Research, Projects, Publications, Capabilities, Background and Contact sections.
 
 - Plain HTML, CSS and vanilla JavaScript.
 - No build step, bundler, framework or package manager; the files are served as they are.
-- The only external resource is Google Fonts (Source Serif 4, Inter and IBM Plex Mono).
+- No external resources: fonts are the system stack declared in `assets/styles.css`.
 
 ## Previewing locally
 

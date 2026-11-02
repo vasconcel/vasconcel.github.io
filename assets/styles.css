@@ -5,7 +5,9 @@
    Princípios (herdados da discussão sobre soberania digital):
    - Nenhuma requisição externa: fontes do sistema, sem webfonts.
    - Uma coluna de leitura, medida confortável, hierarquia por tipografia.
-   - Uma única cor de destaque. Sem gradiente, sombra, blur ou animação.
+   - Monocromático: sem cor de destaque. Links se distinguem pelo
+     sublinhado; hierarquia vem da tipografia. Sem gradiente, sombra,
+     blur ou animação.
    - Tema claro/escuro pelo sistema (prefers-color-scheme). O atributo
      data-theme continua funcionando se o botão de tema for mantido.
    - Pesado só o que precisa: este arquivo cabe em poucos KB.
@@ -37,11 +39,11 @@
   --text: #1a1a1a;
   --text-muted: #555555;
   --border: #cfcfcb;
-  --accent: #0b5cad;
-  --accent-hover: #084585;
-  --btn-bg: #0b5cad;
+  --accent: #1a1a1a;
+  --accent-hover: #000000;
+  --btn-bg: #1a1a1a;
   --btn-fg: #ffffff;
-  --success: #1a7f37;
+  --success: #1a1a1a;
 
   --font-text: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
   --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -67,11 +69,11 @@
     --text: #e8e8e6;
     --text-muted: #a3a3a0;
     --border: #3a3a38;
-    --accent: #7ab7ff;
-    --accent-hover: #a5cfff;
-    --btn-bg: #7ab7ff;
+    --accent: #e8e8e6;
+    --accent-hover: #ffffff;
+    --btn-bg: #e8e8e6;
     --btn-fg: #101010;
-    --success: #3fb950;
+    --success: #e8e8e6;
   }
 }
 
@@ -82,11 +84,11 @@
   --text: #e8e8e6;
   --text-muted: #a3a3a0;
   --border: #3a3a38;
-  --accent: #7ab7ff;
-  --accent-hover: #a5cfff;
-  --btn-bg: #7ab7ff;
+  --accent: #e8e8e6;
+  --accent-hover: #ffffff;
+  --btn-bg: #e8e8e6;
   --btn-fg: #101010;
-  --success: #3fb950;
+  --success: #e8e8e6;
 }
 
 :root[data-theme="light"] { color-scheme: light; }
@@ -122,7 +124,10 @@ a {
   text-decoration: underline;
   text-underline-offset: 0.18em;
 }
-a:hover { color: var(--accent-hover); }
+a:hover {
+  color: var(--accent-hover);
+  text-decoration-thickness: 2px;
+}
 
 :focus-visible {
   outline: 2px solid var(--accent);
@@ -207,15 +212,11 @@ a:hover { color: var(--accent-hover); }
   font-weight: 650;
 }
 .nav-brand:hover { color: var(--text); text-decoration: underline; }
-.nav-mark {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 0.1rem 0.4rem;
-  border: 1px solid var(--text);
-  border-radius: var(--radius);
-}
+.nav-brand { order: 1; }
+.nav-mark { display: inline-flex; color: var(--text); }
+.nav-mark svg { width: 2rem; height: 2rem; }
 .nav-links {
+  order: 3;
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-1) var(--space-4);
@@ -239,8 +240,26 @@ a:hover { color: var(--accent-hover); }
 }
 .theme-toggle:hover { color: var(--text); border-color: var(--text-muted); }
 
+/* Idioma + tema, agrupados à direita */
+.nav-tools {
+  order: 2;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.lang-link {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.lang-link:hover { color: var(--text); text-decoration: underline; }
+
 @media (min-width: 640px) {
-  .nav-links { width: auto; }
+  .nav-links { order: 2; width: auto; }
+  .nav-tools { order: 3; }
 }
 
 /* 05. BOTÕES E LINKS DE REGISTRO ---------------------------------------- */
