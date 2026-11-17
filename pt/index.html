@@ -3,9 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#101010">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#050805">
   <meta name="description" content="Gabriel V. Silva é pesquisador de iniciação científica na Universidade Federal do Cariri, com trabalho em engenharia de software empírica, aspectos humanos, métodos qualitativos e software de pesquisa.">
 
   <meta property="og:type" content="website">
@@ -28,8 +27,10 @@
   <!-- Aplica o tema salvo antes da pintura (evita "piscar" ao trocar de tema) -->
   <script>
     try {
-      var t = localStorage.getItem("theme");
-      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+      if (localStorage.getItem("theme") === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+        document.querySelector('meta[name="theme-color"]').content = "#F2F5F0";
+      }
     } catch (e) {}
   </script>
 
@@ -91,11 +92,11 @@
         </span>
       </a>
       <div class="nav-links">
-        <a href="#research">Pesquisa</a>
+        <a href="#research">Abordagem</a>
         <a href="#project">Trabalhos</a>
         <a href="#publications">Publicações</a>
         <a href="#capabilities">Métodos</a>
-        <a href="#background">Formação</a>
+        <a href="#background">Sobre</a>
         <a href="#contact">Contato</a>
       </div>
       <div class="nav-tools">
@@ -108,11 +109,11 @@
   <header class="hero" id="top">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <p class="kicker">Registro de pesquisa <span aria-hidden="true">/</span> Brasil</p>
+        <p class="kicker">Pesquisador <span aria-hidden="true">/</span> Brasil</p>
         <h1 class="hero-title">Gabriel<br>V. Silva</h1>
-        <p class="hero-role">Pesquisador de iniciação científica · Engenharia de Software Empírica</p>
+        <p class="hero-role">Pesquisador · Engenharia de Software Empírica</p>
         <p class="hero-statement">
-          Estudo a engenharia de software como prática humana e sociotécnica. Meu trabalho reúne investigação empírica, análise qualitativa e ferramentas de software que ajudam pesquisadores a organizar e examinar evidências.
+          Transformo entrevistas e registros de pesquisa dispersos em evidências que equipes podem usar — com análise qualitativa, fluxos de dados reproduzíveis e software de pesquisa para uma engenharia de software mais humana.
         </p>
         <ul class="hero-focus" aria-label="Áreas de pesquisa">
           <li>Aspectos humanos</li>
@@ -121,7 +122,7 @@
         </ul>
         <div class="hero-actions">
           <a class="btn btn--primary" href="#project">Ver trabalhos selecionados <span aria-hidden="true">↘</span></a>
-          <a class="btn btn--secondary" href="#publications">Ler publicação <span aria-hidden="true">↗</span></a>
+          <a class="btn btn--secondary" href="mailto:gabriel.vasconcel@outlook.com">Fale comigo <span aria-hidden="true">↗</span></a>
           <!-- PLACEHOLDER: coloque o PDF do currículo em assets/cv.pdf -->
           <!--<a class="btn btn--ghost" href="../assets/cv.pdf" download>Baixar currículo (PDF) <span aria-hidden="true">↓</span></a> -->
         </div>
@@ -150,7 +151,11 @@
     <div class="proof" role="region" aria-label="Destaques">
       <div class="container">
         <ul class="proof-list">
-          <li><strong>CHASE 2026</strong><span>Artigo completo da trilha de pesquisa, realizado junto ao ICSE. Segundo autor. 22 entrevistas sobre mais de 470 experiências de contratação, que resultaram em 22 padrões construtivos.</span></li>
+          <li>
+            <strong>CHASE 2026</strong>
+            <span>Artigo completo da trilha de pesquisa, realizado junto ao ICSE. Segundo autor. 22 entrevistas sobre mais de 470 experiências de contratação, que resultaram em 22 padrões construtivos.</span>
+            <a class="link-arrow" href="https://doi.org/10.1145/3794860.3794899" target="_blank" rel="noopener noreferrer">Ler artigo ↗</a>
+          </li>
           <li><strong>dataWASHES</strong><span>Plataforma e painel abertos que organizam os registros bibliográficos do WASHES, 2016–2025. Mantido pelo GESID; atuei em processamento de dados, testes e implantação.</span></li>
         </ul>
       </div>
@@ -159,7 +164,7 @@
     <section class="section" id="research" aria-labelledby="research-title">
       <div class="container">
         <header class="section-head">
-          <p class="section-kicker">01 / Investigação</p>
+          <p class="section-kicker">01 / Abordagem</p>
           <h2 class="section-title" id="research-title">Interesses de pesquisa</h2>
           <p class="section-lead">Entender as pessoas, as práticas e as condições por trás do trabalho em engenharia de software.</p>
         </header>
@@ -184,7 +189,7 @@
     <section class="section" id="project" aria-labelledby="work-title">
       <div class="container">
         <header class="section-head">
-          <p class="section-kicker">02 / Trabalhos selecionados</p>
+          <p class="section-kicker">02 / Trabalhos</p>
           <h2 class="section-title" id="work-title">Pesquisa na prática</h2>
           <p class="section-lead">Uma seleção de trabalhos colaborativos de pesquisa e infraestrutura que ligam perguntas empíricas a artefatos práticos.</p>
         </header>
@@ -260,7 +265,7 @@
     <section class="section" id="publications" aria-labelledby="publications-title">
       <div class="container">
         <header class="section-head">
-          <p class="section-kicker">03 / Bibliografia</p>
+          <p class="section-kicker">03 / Publicações</p>
           <h2 class="section-title" id="publications-title">Publicação selecionada</h2>
           <p class="section-lead">Pesquisa publicada, desenvolvida em colaboração com colegas de engenharia de software empírica.</p>
         </header>
@@ -284,14 +289,14 @@
             </div>
           </li>
         </ol>
-        <p class="pub-note">Esta lista inclui apenas trabalhos publicados. A autoria colaborativa e a posição do autor estão indicadas explicitamente.</p>
+        <p class="pub-note">Esta lista inclui apenas trabalhos publicados. A autoria colaborativa e a posição do autor estão indicadas explicitamente. Meu nome aparece na lista de autores como G. Vasconcelos.</p>
       </div>
     </section>
 
     <section class="section" id="capabilities" aria-labelledby="capabilities-title">
       <div class="container">
         <header class="section-head">
-          <p class="section-kicker">04 / Prática</p>
+          <p class="section-kicker">04 / Métodos</p>
           <h2 class="section-title" id="capabilities-title">Métodos e ferramentas</h2>
           <p class="section-lead">Um repertório voltado à pesquisa, que cobre investigação empírica, interpretação qualitativa e trabalho com evidências apoiado por software.</p>
         </header>
@@ -344,7 +349,7 @@
     <section class="section" id="background" aria-labelledby="background-title">
       <div class="container">
         <header class="section-head">
-          <p class="section-kicker">05 / Registro</p>
+          <p class="section-kicker">05 / Sobre</p>
           <h2 class="section-title" id="background-title">Formação</h2>
           <p class="section-lead">Formação acadêmica e vínculos de pesquisa que orientam meu trabalho em engenharia de software e nas dimensões sociais da tecnologia.</p>
         </header>
@@ -377,7 +382,7 @@
     <section class="section section--contact" id="contact" aria-labelledby="contact-title">
       <div class="container">
         <header class="section-head">
-          <p class="section-kicker">06 / Correspondência</p>
+          <p class="section-kicker">06 / Contato</p>
           <h2 class="section-title" id="contact-title">Contato</h2>
           <p class="section-lead">Para colaborações de pesquisa, troca acadêmica e conversas sobre engenharia de software empírica ou infraestrutura de pesquisa.</p>
         </header>
@@ -398,7 +403,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <p>© <span id="year">2026</span> Gabriel V. Silva</p>
-      <p class="footer-status"><span aria-hidden="true"></span> Registro de pesquisa independente · UFCA</p>
+      <p class="footer-status"><span aria-hidden="true"></span> Pesquisador independente · UFCA</p>
     </div>
   </footer>
 

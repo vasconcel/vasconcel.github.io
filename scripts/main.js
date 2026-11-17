@@ -1,14 +1,6 @@
 /* ==========================================================================
-   Gabriel V. Silva — Research & Software
+   Gabriel V. Silva
    Melhoria progressiva: a página funciona integralmente sem este script.
-
-   Recursos
-   1. Ano do rodapé
-   2. Alternador de tema (claro/escuro) com persistência
-   3. Navegação: estado ao rolar e seção ativa
-   4. Rolagem suave para âncoras, com foco acessível
-   5. Revelação ao rolar (respeita prefers-reduced-motion)
-   6. Fallback do retrato
    ========================================================================== */
 (function () {
   "use strict";
@@ -22,13 +14,10 @@
 
   /* ---------- 2. Tema ---------- */
   var toggle = document.querySelector(".theme-toggle");
-  var darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
-  var THEME_COLORS = { light: "#FFFFFF", dark: "#0D1117" };
+  var THEME_COLORS = { light: "#f4f5f2", dark: "#090b0a" };
 
   function currentTheme() {
-    var t = root.getAttribute("data-theme");
-    if (t === "light" || t === "dark") return t;
-    return darkQuery.matches ? "dark" : "light";
+    return root.getAttribute("data-theme") === "light" ? "light" : "dark";
   }
 
   function syncThemeUI() {
@@ -38,19 +27,17 @@
         "aria-label",
         theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
       );
+      toggle.setAttribute("aria-pressed", theme === "light" ? "true" : "false");
     }
-    document.querySelectorAll('meta[name="theme-color"]').forEach(function (m) {
-      m.setAttribute("content", THEME_COLORS[theme]);
-    });
+    var themeColor = document.querySelector('meta[name="theme-color"]');
+    if (themeColor) themeColor.setAttribute("content", THEME_COLORS[theme]);
   }
 
   function setTheme(theme) {
     root.setAttribute("data-theme", theme);
     try {
       localStorage.setItem("theme", theme);
-    } catch (e) {
-      /* armazenamento indisponível: o tema vale só nesta visita */
-    }
+    } catch (e) {}
     syncThemeUI();
   }
 
@@ -58,9 +45,6 @@
     toggle.addEventListener("click", function () {
       setTheme(currentTheme() === "dark" ? "light" : "dark");
     });
-  }
-  if (darkQuery.addEventListener) {
-    darkQuery.addEventListener("change", syncThemeUI);
   }
   syncThemeUI();
 
@@ -83,6 +67,12 @@
       { passive: true }
     );
     updateNav();
+
+    var syncNavOffset = function () {
+      root.style.setProperty("--nav-offset", nav.offsetHeight + 8 + "px");
+    };
+    syncNavOffset();
+    window.addEventListener("resize", syncNavOffset);
   }
 
   /* ---------- 3b. Navegação: seção ativa ---------- */
@@ -97,7 +87,7 @@
     links.forEach(function (a) {
       var active = a.getAttribute("href") === "#" + id;
       a.classList.toggle("is-active", active);
-      if (active) a.setAttribute("aria-current", "true");
+      if (active) a.setAttribute("aria-current", "location");
       else a.removeAttribute("aria-current");
     });
   }
@@ -124,6 +114,12 @@
   }
 
   /* ---------- 4. Rolagem suave para âncoras ---------- */
+  function goTo(target) {
+    target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
+    target.focus({ preventScroll: true });
+  }
+
   document.addEventListener("click", function (e) {
     var a = e.target.closest && e.target.closest("a[href^='#']");
     if (!a) return;
@@ -132,73 +128,18 @@
     var target = document.getElementById(hash.slice(1));
     if (!target) return;
     e.preventDefault();
-    target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
-    if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
-    target.focus({ preventScroll: true });
+    goTo(target);
     if (history.pushState) history.pushState(null, "", hash);
   });
 
-  /* ---------- 5. Revelação ao rolar ---------- */
-  if ("IntersectionObserver" in window && !reduceMotion) {
-    root.classList.add("js");
+  window.addEventListener("popstate", function () {
+    var id = window.location.hash.slice(1);
+    var target = id ? document.getElementById(id) : null;
+    if (target) goTo(target);
+    else window.scrollTo(0, 0);
+  });
 
-    var singles = [
-      ".section-head",
-      ".project",
-      ".publication",
-      ".pub-note",
-      ".tools-line",
-      ".closing-line",
-      ".closing-email",
-      ".closing-links"
-    ];
-    var staggered = [
-      ".proof-list li",
-      ".research-index li",
-      ".capability",
-      ".fact",
-      ".stat, .figure"
-    ];
-
-    var targets = [];
-    singles.forEach(function (sel) {
-      document.querySelectorAll(sel).forEach(function (el) {
-        targets.push(el);
-      });
-    });
-    staggered.forEach(function (sel) {
-      document.querySelectorAll(sel).forEach(function (el, i) {
-        el.style.setProperty("--reveal-delay", (i % 4) * 80 + "ms");
-        targets.push(el);
-      });
-    });
-
-    var reveal = new IntersectionObserver(
-      function (entries, obs) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
-    );
-
-    targets.forEach(function (el) {
-      el.classList.add("reveal");
-      reveal.observe(el);
-    });
-
-    /* Rede de segurança: nunca deixa conteúdo escondido se algo falhar */
-    window.setTimeout(function () {
-      targets.forEach(function (el) {
-        el.classList.add("is-visible");
-      });
-    }, 4000);
-  }
-
-  /* ---------- 6. Fallback do retrato ---------- */
+  /* ---------- 5. Fallback do retrato ---------- */
   var portrait = document.querySelector(".portrait-img");
   if (portrait) {
     portrait.addEventListener("error", function () {
