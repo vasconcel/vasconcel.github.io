@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="{{html_lang}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#09090b">
+  <meta name="description" content="{{meta_description}}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="{{og_locale}}">
+  <meta property="og:title" content="{{name}}">
+  <meta property="og:description" content="{{og_description}}">
+  <meta property="og:url" content="{{canonical_url}}">
+  <meta property="og:image" content="https://vasconcel.github.io/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{page_title}}">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="canonical" href="{{canonical_url}}">
+  <link rel="alternate" hreflang="en" href="https://vasconcel.github.io/">
+  <link rel="alternate" hreflang="pt-BR" href="https://vasconcel.github.io/pt/">
+  <link rel="alternate" hreflang="x-default" href="https://vasconcel.github.io/">
+  <link rel="icon" href="{{asset_prefix}}assets/favicon.svg" type="image/svg+xml">
+
+  <script>
+    try {
+      if (localStorage.getItem("theme") === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+        document.querySelector('meta[name="theme-color"]').content = "#fafafa";
+      }
+    } catch (e) {}
+  </script>
+
+  <link rel="stylesheet" href="{{asset_prefix}}assets/styles.css">
+  <title>{{page_title}}</title>
+
+  <script type="application/ld+json">
+{{json_ld}}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">{{skip_link}}</a>
+
+  <nav class="global-nav" aria-label="{{nav_aria_label}}">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="#top" aria-label="{{nav_brand_aria}}">
+        <span class="nav-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M9 6H5v20h4"/><path d="M23 6h4v20h-4"/><path d="M11.5 14 16 23l4.5-9"/><circle cx="16" cy="8.5" r="2.4" fill="currentColor" stroke="none"/></svg>
+        </span>
+        <span class="nav-name">{{handle}}</span>
+      </a>
+      <div class="nav-links">
+        {{nav_links}}
+      </div>
+      <div class="nav-tools">
+        <a class="lang-link" href="{{lang_switch_href}}" hreflang="{{lang_hreflang}}" lang="{{lang_hreflang}}" aria-label="{{lang_aria}}" title="{{lang_title}}">{{lang_label}}</a>
+        <button class="theme-toggle" type="button" aria-label="{{theme_aria}}" aria-pressed="false"><span aria-hidden="true">◐</span></button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="kicker">{{hero_kicker}}</p>
+        <h1 class="hero-title">{{name}}</h1>
+        <p class="hero-role">{{hero_role}}</p>
+        <p class="hero-statement">{{hero_statement}}</p>
+        <ul class="hero-focus" aria-label="{{hero_focus_aria}}">
+          {{hero_focus_items}}
+        </ul>
+        <div class="hero-actions">
+          <a class="btn btn--primary" href="#publications">{{hero_cta_primary}} <span aria-hidden="true">↘</span></a>
+          <a class="btn btn--secondary" href="mailto:{{email}}">{{hero_cta_secondary}} <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <aside class="hero-aside" aria-label="{{hero_aside_aria}}">
+        <figure class="portrait">
+          <img class="portrait-img" src="{{asset_prefix}}assets/profile.jpg" alt="{{portrait_alt}}" width="720" height="720">
+          <figcaption class="portrait-caption">
+            <span>{{caption_line1}}</span>
+            <span>{{caption_line2}}</span>
+          </figcaption>
+        </figure>
+        <div class="profile-links" aria-label="{{profiles_aria}}">
+          {{profile_links}}
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="proof" role="region" aria-label="{{proof_aria_label}}">
+      <div class="container">
+        <ul class="proof-list">
+          {{proof_items}}
+        </ul>
+      </div>
+    </div>
+
+    <section class="section" id="research" aria-labelledby="research-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-kicker">{{approach_kicker}}</p>
+          <h2 class="section-title" id="research-title">{{approach_title}}</h2>
+          <p class="section-lead">{{approach_lead}}</p>
+        </header>
+        <ol class="research-index">
+          {{approach_items}}
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="publications" aria-labelledby="publications-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-kicker">{{publications_kicker}}</p>
+          <h2 class="section-title" id="publications-title">{{publications_title}}</h2>
+          <p class="section-lead">{{publications_lead}}</p>
+        </header>
+        <ol class="publication-list">
+          {{publication_items}}
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="project" aria-labelledby="work-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-kicker">{{software_kicker}}</p>
+          <h2 class="section-title" id="work-title">{{software_title}}</h2>
+          <p class="section-lead">{{software_lead}}</p>
+        </header>
+        {{project_items}}
+      </div>
+    </section>
+
+    <section class="section" id="capabilities" aria-labelledby="capabilities-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-kicker">{{methods_kicker}}</p>
+          <h2 class="section-title" id="capabilities-title">{{methods_title}}</h2>
+          <p class="section-lead">{{methods_lead}}</p>
+        </header>
+        <div class="capability-list">
+          {{capability_items}}
+        </div>
+        <div class="tools-line">
+          {{tools_rows}}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="background" aria-labelledby="background-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-kicker">{{background_kicker}}</p>
+          <h2 class="section-title" id="background-title">{{background_title}}</h2>
+          <p class="section-lead">{{background_lead}}</p>
+        </header>
+        <div class="facts">
+          {{fact_items}}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--contact" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-kicker">{{contact_kicker}}</p>
+          <h2 class="section-title" id="contact-title">{{contact_title}}</h2>
+          <p class="section-lead">{{contact_lead}}</p>
+        </header>
+        <p class="closing-email"><a class="email-link" href="mailto:{{email}}">{{email}} <span class="email-link-icon" aria-hidden="true">↗</span></a></p>
+        <div class="closing-links" aria-label="{{contact_links_aria}}">
+          {{closing_links}}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year">2026</span> {{name}}</p>
+      <p class="footer-status"><span aria-hidden="true"></span> {{footer_status}}</p>
+    </div>
+  </footer>
+
+  <script src="{{asset_prefix}}scripts/main.js"></script>
+</body>
+</html>

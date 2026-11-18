@@ -1,0 +1,92 @@
+{
+  "url": "https://vasconcel.github.io/",
+  "email": "gabriel.vasconcel@outlook.com",
+  "name": "Gabriel V. Silva",
+  "handle": "vasconcel",
+  "alternate_names": [
+    "Gabriel Vasconcelos",
+    "G. Vasconcelos",
+    "Gabriel Vasconcelos Andrade da Silva"
+  ],
+  "profiles": [
+    { "label": "GitHub", "url": "https://github.com/vasconcel", "rel": "me noopener noreferrer" },
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/vasconcel/", "rel": "me noopener noreferrer" },
+    { "label": "ORCID", "url": "https://orcid.org/0009-0005-1736-354X", "rel": "me noopener noreferrer" },
+    { "label": "Lattes", "url": "http://lattes.cnpq.br/7193014410256740", "rel": "noopener noreferrer" },
+    { "label": "Mastodon", "url": "https://mastodon.com.br/@vasconcel", "rel": "me noopener noreferrer" }
+  ],
+  "proof": [
+    {
+      "id": "chase",
+      "title": "CHASE 2026",
+      "url": "https://doi.org/10.1145/3794860.3794899"
+    },
+    {
+      "id": "emse",
+      "url": "https://doi.org/10.5281/zenodo.17552394"
+    },
+    {
+      "id": "datawashes",
+      "title": "dataWASHES",
+      "url": "https://github.com/gesid/dataWASHES"
+    }
+  ],
+  "publications": [
+    {
+      "id": "chase2026",
+      "status_type": "published",
+      "year": "2026",
+      "title": "Constructive Patterns for Human-Centered Tech Hiring",
+      "url": "https://doi.org/10.1145/3794860.3794899",
+      "authors_html": "A. A. Araújo, <strong>G. Vasconcelos</strong>, M. Wyrich, M. T. Baldassarre, P. Guenes, and M. Kalinowski.",
+      "links": [
+        { "key": "doi", "url": "https://doi.org/10.1145/3794860.3794899" },
+        { "key": "arxiv", "url": "https://arxiv.org/abs/2602.13845" },
+        { "key": "study_page", "url": "https://gesid.github.io/papers/swe-cps-hiring/" }
+      ]
+    },
+    {
+      "id": "emse2026",
+      "status_type": "revision",
+      "year": "2026",
+      "title": "Anti-patterns in Online Recruitment and Selection Experienced by Early-Career Software Engineers",
+      "url": "https://gesid.github.io/papers/swe-aps-hiring",
+      "authors_html": "<strong>G. Vasconcelos</strong>, A. A. Araújo, M. Wyrich, and M. Kalinowski.",
+      "links": [
+        { "key": "zenodo", "url": "https://doi.org/10.5281/zenodo.17552394" },
+        { "key": "project_page", "url": "https://gesid.github.io/papers/swe-aps-hiring" }
+      ]
+    },
+    {
+      "id": "mlr2026",
+      "status_type": "progress",
+      "year": "2026",
+      "url": "",
+      "authors_html": "",
+      "links": []
+    }
+  ],
+  "projects": [
+    {
+      "id": "datawashes",
+      "name": "dataWASHES",
+      "actions": [
+        { "key": "overview", "url": "https://gesid.github.io/dataWASHES" },
+        { "key": "api", "url": "https://datawashes.pythonanywhere.com/" },
+        { "key": "dashboard", "url": "https://datawashes.pythonanywhere.com/dashboard" },
+        { "key": "source", "url": "https://github.com/gesid/dataWASHES" }
+      ],
+      "stats": [
+        { "key": "coverage", "value": "2016–26" },
+        { "key": "editions", "value": "11" },
+        { "key": "papers", "value": "138" },
+        { "key": "authors", "value": "430+" }
+      ]
+    }
+  ],
+  "links": {
+    "gesid": "https://gesid.github.io/",
+    "padim": "http://dgp.cnpq.br/dgp/espelhogrupo/790337",
+    "aws_badge": "https://www.credly.com/badges/2e2439c9-6cc6-4401-9c5e-c247107fe72a/public_url"
+  }
+}

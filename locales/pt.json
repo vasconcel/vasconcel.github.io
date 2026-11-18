@@ -1,0 +1,225 @@
+{
+  "html_lang": "pt-BR",
+  "og_locale": "pt_BR",
+  "page_title": "Gabriel V. Silva | Engenharia de Software Empírica",
+  "meta_description": "Gabriel V. Silva é bolsista de iniciação científica (PIBIC/CNPq) na UFCA, atuando em Engenharia de Software Empírica, métodos qualitativos de pesquisa, síntese de evidências e software aberto de pesquisa.",
+  "og_description": "Engenharia de Software Empírica · Métodos Qualitativos · Síntese de Evidências · Ciência Aberta · Software de Pesquisa",
+  "jsonld_job_title": "Bolsista de Iniciação Científica (PIBIC/CNPq)",
+  "jsonld_description": "Graduando e pesquisador PIBIC/CNPq na UFCA com atuação em Engenharia de Software Empírica, métodos qualitativos, síntese de evidências e software de apoio à pesquisa.",
+  "jsonld_affiliation": "Universidade Federal do Cariri (UFCA)",
+  "skip_link": "Ir para o conteúdo",
+  "nav": {
+    "aria_label": "Navegação principal",
+    "brand_aria": "Gabriel V. Silva, voltar ao topo",
+    "links": [
+      { "href": "#research", "label": "Abordagem" },
+      { "href": "#publications", "label": "Publicações" },
+      { "href": "#project", "label": "Software" },
+      { "href": "#capabilities", "label": "Métodos" },
+      { "href": "#background", "label": "Sobre" },
+      { "href": "#contact", "label": "Contato" }
+    ],
+    "lang_label": "EN",
+    "lang_aria": "Read in English",
+    "lang_title": "English",
+    "lang_hreflang": "en",
+    "theme_aria": "Alternar tema de cores"
+  },
+  "hero": {
+    "kicker": "Pesquisador / Brasil",
+    "role": "Bolsista PIBIC/CNPq · Engenharia de Software Empírica",
+    "statement": "Investigo como métodos empíricos e qualitativos produzem conhecimento fundamentado sobre Engenharia de Software. Meu trabalho combina estudos baseados em entrevistas, síntese de evidências e software automatizado de pesquisa.",
+    "focus_aria": "Áreas centrais",
+    "focus": [
+      "Métodos empíricos e qualitativos",
+      "Síntese de evidências e Ciência Aberta",
+      "Software de pesquisa e sistemas Linux"
+    ],
+    "cta_primary": "Publicações",
+    "cta_secondary": "E-mail",
+    "aside_aria": "Perfil e registros externos",
+    "portrait_alt": "Retrato de Gabriel V. Silva",
+    "caption_line1": "UFCA · Brasil",
+    "caption_line2": "PADIM Lab · GESID",
+    "profiles_aria": "Perfis acadêmicos e técnicos"
+  },
+  "proof": {
+    "aria_label": "Destaques recentes",
+    "items": {
+      "chase": {
+        "title": "CHASE 2026",
+        "text": "Artigo publicado em evento co-localizado ao ICSE 2026. Segundo autor em estudo qualitativo com entrevistas.",
+        "link_label": "DOI"
+      },
+      "emse": {
+        "title": "EMSE (Minor revision)",
+        "text": "Manuscrito em segunda rodada de revisão como primeiro autor, com artefatos abertos no Zenodo.",
+        "link_label": "Zenodo"
+      },
+      "datawashes": {
+        "title": "dataWASHES",
+        "text": "API aberta e pipeline automatizado indexando 138 artigos do WASHES entre 2016 e 2026.",
+        "link_label": "Repositório"
+      }
+    }
+  },
+  "approach": {
+    "kicker": "[01] Abordagem",
+    "title": "Orientação de pesquisa",
+    "lead": "Compreender como escolhas metodológicas moldam o que conseguimos observar, interpretar e afirmar sobre fenômenos de Engenharia de Software.",
+    "items": [
+      {
+        "title": "Metodologia qualitativa e empírica",
+        "text": "Meu foco principal está nos métodos de investigação, especialmente pesquisa qualitativa, Reflexive Thematic Analysis e pressupostos epistemológicos da evidência empírica. Interessa-me como procedimentos analíticos revelam padrões e mecanismos em contextos reais."
+      },
+      {
+        "title": "Síntese de evidências e Ciência Aberta",
+        "text": "Condução de Revisões Multivocais da Literatura combinando literatura acadêmica e cinza sob protocolos auditáveis. Estruturo conjuntos de dados rastreáveis e codebooks abertos para manter decisões analíticas verificáveis."
+      },
+      {
+        "title": "Agenda interdisciplinar em aberto",
+        "text": "Estudos recentes investigaram recrutamento em tecnologia como domínio empírico inicial, não como limite temático fixo. Minha agenda permanece aberta a questões sociotécnicas em práticas de desenvolvimento, impactos da IA, educação em computação, saúde e software livre."
+      }
+    ]
+  },
+  "publications": {
+    "kicker": "[02] Publicações",
+    "title": "Publicações e manuscritos",
+    "lead": "Artigos revisados por pares, manuscritos em avaliação e estudos secundários em andamento.",
+    "status_labels": {
+      "published": "Publicado",
+      "revision": "Minor revision",
+      "progress": "Em andamento"
+    },
+    "link_labels": {
+      "doi": "DOI",
+      "arxiv": "arXiv",
+      "study_page": "Página do estudo",
+      "zenodo": "Dados no Zenodo",
+      "project_page": "Página do projeto"
+    },
+    "items": {
+      "chase2026": {
+        "venue": "Anais da 19th International Conference on Cooperative and Human Aspects of Software Engineering (CHASE 2026), co-localizada ao ICSE 2026.",
+        "abstract": "Estudo qualitativo com 22 engenheiros de software em início de carreira examinando mais de 470 experiências de seleção online sob a lente da Applicant Attribution-Reaction Theory (AART), sistematizando 22 padrões construtivos para processos mais centrados no candidato."
+      },
+      "emse2026": {
+        "venue": "Em segunda rodada de revisão no periódico Empirical Software Engineering (EMSE-D-25-00839R1).",
+        "abstract": "Investigação qualitativa sobre experiências negativas de recrutamento e seleção online relatadas por 22 profissionais brasileiros em início de carreira, identificando 25 anti-padrões em 10 temas analíticos via Reflexive Thematic Analysis e AART, com codebook aberto e painel interativo."
+      },
+      "mlr2026": {
+        "title": "Revisão Multivocal da Literatura sobre Recrutamento e Seleção em Engenharia de Software",
+        "venue": "Estudo secundário em andamento combinando literatura científica e cinza.",
+        "abstract": "Síntese multifonte voltada a mapear evidências acadêmicas e da prática profissional sobre contratação em Engenharia de Software, atualmente em verificação de triagem e auditoria metodológica do protocolo."
+      }
+    }
+  },
+  "software": {
+    "kicker": "[03] Software",
+    "title": "Software de pesquisa",
+    "lead": "Infraestrutura aberta de pesquisa e pipelines automatizados voltados à reprodutibilidade e ao acesso da comunidade.",
+    "action_labels": {
+      "overview": "Visão geral",
+      "api": "API",
+      "dashboard": "Dashboard",
+      "source": "Código-fonte"
+    },
+    "stat_labels": {
+      "coverage": "Cobertura",
+      "editions": "Edições",
+      "papers": "Artigos",
+      "authors": "Autores"
+    },
+    "items": {
+      "datawashes": {
+        "tag": "Infraestrutura aberta · Licença MIT",
+        "subtitle": "GESID / API aberta, pipeline automatizado e dashboard",
+        "stats_aria": "Cobertura da base",
+        "lede": "API pública de código aberto e painel web mantidos pelo GESID para acesso programático aos anais do Workshop sobre Aspectos Sociais, Humanos e Econômicos de Software (WASHES). Seu pipeline mensal coleta registros da SOL SBC, classifica resumos, atualiza citações e realiza o deploy automaticamente.",
+        "attribution": "Titularidade institucional do GESID. Os resultados da plataforma são fruto de trabalho colaborativo.",
+        "role_label": "Contribuições",
+        "role_text": "Construí rotas da API em Flask e testes unitários com pytest durante o projeto de extensão na UFCA. Retornei voluntariamente um ano depois para refatorar o frontend e otimizar o dashboard usando a paleta oficial do WASHES, adaptar o CitationMiner para Python e automatizar a atualização mensal de dados e o deploy, eliminando manutenção manual."
+      }
+    }
+  },
+  "methods": {
+    "kicker": "[04] Métodos",
+    "title": "Métodos e stack técnica",
+    "lead": "Metodologias empíricas aplicadas em pesquisa aliadas a competências técnicas para automação de dados e operação em Linux.",
+    "applied_label": "Aplicado em",
+    "cards": [
+      {
+        "index": "01 / Metodologia",
+        "title": "Investigação empírica",
+        "items": [
+          "Análise Temática e Reflexive Thematic Analysis",
+          "Entrevistas semiestruturadas e verificação verbatim",
+          "Revisões Multivocais da Literatura (MLR)"
+        ],
+        "evidence": "CHASE 2026 · Submissão EMSE · MLR em andamento"
+      },
+      {
+        "index": "02 / Operação",
+        "title": "Fluxos de pesquisa",
+        "items": [
+          "Estruturação e rastreabilidade de codebooks qualitativos",
+          "Ingestão automatizada de dados e pipelines CI/CD",
+          "Publicação de artefatos de Ciência Aberta no Zenodo",
+          "Redação e diagramação científica em LaTeX"
+        ],
+        "evidence": "dataWASHES · Conjuntos no Zenodo · Auditoria MLR"
+      },
+      {
+        "index": "03 / Sistemas",
+        "title": "Software e Linux",
+        "items": [
+          "Python (Flask, pytest, scripts) e Node.js",
+          "Administração Debian, SSH e regras de firewall",
+          "Stacks de serviços com Docker e Docker Compose",
+          "Git autohospedado e redes privadas com Tailscale"
+        ],
+        "evidence": "dataWASHES · Infraestrutura Linux pessoal"
+      }
+    ],
+    "tools": [
+      { "label": "Stack principal", "value": "Python · Linux (Debian) · Docker · Git · LaTeX" },
+      { "label": "Conhecimento de uso", "value": "JavaScript / Node.js · HTML / CSS · GitHub Actions · AWS · Tailscale" }
+    ]
+  },
+  "background": {
+    "kicker": "[05] Sobre",
+    "title": "Formação acadêmica",
+    "lead": "Graduação tecnológica, vínculos em grupos de pesquisa e preparação para pós-graduação stricto sensu em Ciência da Computação e Engenharia de Software.",
+    "facts": [
+      {
+        "label": "Formação",
+        "value_html": "Tecnólogo em Análise e Desenvolvimento de Sistemas (ADS), Universidade Federal do Cariri (UFCA). <span class=\"fact-note\">Conclusão prevista para o início de 2027 (CR ~8,5/10). Em preparação para mestrado na UFC, IFCE ou UECE.</span>"
+      },
+      {
+        "label": "Grupos de pesquisa",
+        "value_html": "<a class=\"fact-link\" href=\"{{gesid}}\" target=\"_blank\" rel=\"noopener noreferrer\">GESID</a> e <a class=\"fact-link\" href=\"{{padim}}\" target=\"_blank\" rel=\"noopener noreferrer\">PADIM Lab</a>, na UFCA."
+      },
+      {
+        "label": "Bolsa",
+        "value_html": "Bolsista de iniciação científica (PIBIC/CNPq) conduzindo estudos empíricos em Engenharia de Software."
+      },
+      {
+        "label": "Certificação",
+        "value_html": "<a class=\"fact-link\" href=\"{{aws_badge}}\" target=\"_blank\" rel=\"noopener noreferrer\">AWS Certified Cloud Practitioner</a>. <span class=\"fact-note\">Emitida em 2025 · Válida até 2028.</span>"
+      },
+      {
+        "label": "Interesses",
+        "value_html": "Engenharia de Software Empírica · Métodos Qualitativos de Pesquisa · Síntese de Evidências · Ciência Aberta · Soberania Digital."
+      }
+    ]
+  },
+  "contact": {
+    "kicker": "[06] Contato",
+    "title": "Entre em contato",
+    "lead": "Disponível para colaborações em pesquisa, contato com programas de pós-graduação e apoio técnico em revisões de literatura, fluxos de pesquisa e organização de dados.",
+    "links_aria": "Perfis externos"
+  },
+  "footer": {
+    "status": "Pesquisador PIBIC/CNPq · UFCA"
+  }
+}

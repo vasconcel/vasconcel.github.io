@@ -1,0 +1,13 @@
+# Python / build artifacts
+__pycache__/
+*.py[cod]
+
+# OS / editor artifacts
+.DS_Store
+Thumbs.db
+
+# Local virtual environments
+.venv/
+
+# Internal project context (local only)
+.ai/

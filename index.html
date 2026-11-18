@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark light">
-  <meta name="theme-color" content="#090b0a">
+  <meta name="theme-color" content="#09090b">
   <meta name="description" content="Gabriel V. Silva is a PIBIC/CNPq undergraduate researcher at UFCA focused on empirical software engineering, qualitative research methods, evidence synthesis, and open research software.">
 
   <meta property="og:type" content="website">
@@ -28,13 +28,13 @@
     try {
       if (localStorage.getItem("theme") === "light") {
         document.documentElement.setAttribute("data-theme", "light");
-        document.querySelector('meta[name="theme-color"]').content = "#f4f5f2";
+        document.querySelector('meta[name="theme-color"]').content = "#fafafa";
       }
     } catch (e) {}
   </script>
 
   <link rel="stylesheet" href="assets/styles.css">
-  <title>Gabriel V. Silva</title>
+  <title>Gabriel V. Silva | Empirical Software Engineering</title>
 
   <script type="application/ld+json">
   {
@@ -81,15 +81,34 @@
         "datePublished": "2026",
         "inLanguage": "en",
         "url": "https://doi.org/10.1145/3794860.3794899",
-        "sameAs": ["https://arxiv.org/abs/2602.13845"],
+        "sameAs": [
+          "https://arxiv.org/abs/2602.13845"
+        ],
         "isPartOf": "Proceedings of the 19th International Conference on Cooperative and Human Aspects of Software Engineering (CHASE 2026)",
         "author": [
-          { "@type": "Person", "name": "Allysson Allex Araújo" },
-          { "@id": "https://vasconcel.github.io/#person" },
-          { "@type": "Person", "name": "Marvin Wyrich" },
-          { "@type": "Person", "name": "Maria Teresa Baldassarre" },
-          { "@type": "Person", "name": "Paloma Guenes" },
-          { "@type": "Person", "name": "Marcos Kalinowski" }
+          {
+            "@type": "Person",
+            "name": "Allysson Allex Araújo"
+          },
+          {
+            "@id": "https://vasconcel.github.io/#person"
+          },
+          {
+            "@type": "Person",
+            "name": "Marvin Wyrich"
+          },
+          {
+            "@type": "Person",
+            "name": "Maria Teresa Baldassarre"
+          },
+          {
+            "@type": "Person",
+            "name": "Paloma Guenes"
+          },
+          {
+            "@type": "Person",
+            "name": "Marcos Kalinowski"
+          }
         ]
       }
     ]
@@ -128,9 +147,7 @@
         <p class="kicker">Researcher / Brazil</p>
         <h1 class="hero-title">Gabriel V. Silva</h1>
         <p class="hero-role">PIBIC/CNPq Undergraduate Researcher · Empirical Software Engineering</p>
-        <p class="hero-statement">
-          I study how empirical and qualitative methods produce grounded knowledge about software engineering. My work combines interview-based inquiry, literature synthesis, and automated research software.
-        </p>
+        <p class="hero-statement">I study how empirical and qualitative methods produce grounded knowledge about software engineering. My work combines interview-based inquiry, literature synthesis, and automated research software.</p>
         <ul class="hero-focus" aria-label="Core areas">
           <li>Empirical and qualitative methods</li>
           <li>Evidence synthesis and Open Science</li>
@@ -191,7 +208,6 @@
           <h2 class="section-title" id="research-title">Research orientation</h2>
           <p class="section-lead">Understanding how methodological choices shape what we observe, interpret, and claim about software engineering phenomena.</p>
         </header>
-
         <ol class="research-index">
           <li>
             <h3 class="index-title">Qualitative and empirical methodology</h3>
@@ -216,7 +232,6 @@
           <h2 class="section-title" id="publications-title">Publications and manuscripts</h2>
           <p class="section-lead">Peer-reviewed publications, manuscripts under revision, and ongoing secondary studies.</p>
         </header>
-
         <ol class="publication-list">
           <li class="publication">
             <div class="pub-rail">
@@ -235,7 +250,6 @@
               </div>
             </div>
           </li>
-
           <li class="publication">
             <div class="pub-rail">
               <span class="status status--revision">Minor revision</span>
@@ -252,7 +266,6 @@
               </div>
             </div>
           </li>
-
           <li class="publication">
             <div class="pub-rail">
               <span class="status status--progress">In progress</span>
@@ -275,7 +288,6 @@
           <h2 class="section-title" id="work-title">Research software</h2>
           <p class="section-lead">Open research infrastructure and automated data pipelines built for reproducibility and community access.</p>
         </header>
-
         <article class="project" aria-labelledby="datawashes-title">
           <header class="project-masthead">
             <div class="project-id">
@@ -291,9 +303,7 @@
             </div>
           </header>
           <div class="project-body">
-            <p class="project-lede">
-              Public open-source API and web dashboard maintained by GESID for programmatic access to proceedings from the Workshop on Social, Human, and Economic Aspects of Software (WASHES). Its monthly pipeline scrapes SOL SBC records, classifies abstracts, updates citation counts, and deploys automatically.
-            </p>
+            <p class="project-lede">Public open-source API and web dashboard maintained by GESID for programmatic access to proceedings from the Workshop on Social, Human, and Economic Aspects of Software (WASHES). Its monthly pipeline scrapes SOL SBC records, classifies abstracts, updates citation counts, and deploys automatically.</p>
             <p class="project-attribution">Institutional ownership belongs to GESID. Platform outputs are collaborative.</p>
           </div>
           <dl class="project-stats" aria-label="Dataset coverage">
@@ -317,7 +327,6 @@
           <h2 class="section-title" id="capabilities-title">Methods and technical stack</h2>
           <p class="section-lead">Empirical methodologies applied in research alongside technical capabilities used to automate data pipelines and operate Linux environments.</p>
         </header>
-
         <div class="capability-list">
           <article class="capability">
             <div class="capability-head">
@@ -331,7 +340,6 @@
             </ul>
             <p class="capability-evidence"><span>Applied in</span>CHASE 2026 · EMSE submission · Ongoing MLR</p>
           </article>
-
           <article class="capability">
             <div class="capability-head">
               <p class="capability-index">02 / Operations</p>
@@ -345,7 +353,6 @@
             </ul>
             <p class="capability-evidence"><span>Applied in</span>dataWASHES · Zenodo datasets · MLR audit</p>
           </article>
-
           <article class="capability">
             <div class="capability-head">
               <p class="capability-index">03 / Systems</p>
@@ -360,7 +367,6 @@
             <p class="capability-evidence"><span>Applied in</span>dataWASHES · Personal Linux infrastructure</p>
           </article>
         </div>
-
         <div class="tools-line">
           <p><span>Primary stack</span> Python · Linux (Debian) · Docker · Git · LaTeX</p>
           <p><span>Working knowledge</span> JavaScript / Node.js · HTML / CSS · GitHub Actions · AWS · Tailscale</p>
@@ -375,7 +381,6 @@
           <h2 class="section-title" id="background-title">Academic background</h2>
           <p class="section-lead">Undergraduate training, research groups, and preparation for graduate research in Computer Science and Software Engineering.</p>
         </header>
-
         <div class="facts">
           <div class="fact">
             <h3 class="fact-label">Education</h3>
@@ -406,9 +411,8 @@
         <header class="section-head">
           <p class="section-kicker">[06] Contact</p>
           <h2 class="section-title" id="contact-title">Get in touch</h2>
-          <p class="section-lead">Available for research collaborations, graduate program inquiries, and technical support on literature reviews, research workflows, and data documentation.</p>
+          <p class="section-lead">Open to research collaborations, graduate program inquiries, and technical assistance on literature reviews, research workflows, and data documentation.</p>
         </header>
-        <p class="closing-line">Send an email for research exchange or technical assistance on academic projects.</p>
         <p class="closing-email"><a class="email-link" href="mailto:gabriel.vasconcel@outlook.com">gabriel.vasconcel@outlook.com <span class="email-link-icon" aria-hidden="true">↗</span></a></p>
         <div class="closing-links" aria-label="External profiles">
           <a class="link-arrow" href="https://github.com/vasconcel" target="_blank" rel="me noopener noreferrer">GitHub ↗</a>

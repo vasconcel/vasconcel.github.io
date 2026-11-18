@@ -1,0 +1,225 @@
+{
+  "html_lang": "en",
+  "og_locale": "en_US",
+  "page_title": "Gabriel V. Silva | Empirical Software Engineering",
+  "meta_description": "Gabriel V. Silva is a PIBIC/CNPq undergraduate researcher at UFCA focused on empirical software engineering, qualitative research methods, evidence synthesis, and open research software.",
+  "og_description": "Empirical Software Engineering · Qualitative Methods · Evidence Synthesis · Open Science · Research Software",
+  "jsonld_job_title": "PIBIC/CNPq Undergraduate Researcher",
+  "jsonld_description": "PIBIC/CNPq undergraduate researcher at UFCA studying empirical software engineering, qualitative methods, evidence synthesis, and open research software.",
+  "jsonld_affiliation": "Federal University of Cariri (UFCA)",
+  "skip_link": "Skip to content",
+  "nav": {
+    "aria_label": "Main navigation",
+    "brand_aria": "Gabriel V. Silva, back to top",
+    "links": [
+      { "href": "#research", "label": "Approach" },
+      { "href": "#publications", "label": "Publications" },
+      { "href": "#project", "label": "Software" },
+      { "href": "#capabilities", "label": "Methods" },
+      { "href": "#background", "label": "About" },
+      { "href": "#contact", "label": "Contact" }
+    ],
+    "lang_label": "PT",
+    "lang_aria": "Ler em português",
+    "lang_title": "Português",
+    "lang_hreflang": "pt-BR",
+    "theme_aria": "Switch color theme"
+  },
+  "hero": {
+    "kicker": "Researcher / Brazil",
+    "role": "PIBIC/CNPq Undergraduate Researcher · Empirical Software Engineering",
+    "statement": "I study how empirical and qualitative methods produce grounded knowledge about software engineering. My work combines interview-based inquiry, literature synthesis, and automated research software.",
+    "focus_aria": "Core areas",
+    "focus": [
+      "Empirical and qualitative methods",
+      "Evidence synthesis and Open Science",
+      "Research software and Linux systems"
+    ],
+    "cta_primary": "Publications",
+    "cta_secondary": "Email",
+    "aside_aria": "Profile and external records",
+    "portrait_alt": "Portrait of Gabriel V. Silva",
+    "caption_line1": "UFCA · Brazil",
+    "caption_line2": "PADIM Lab · GESID",
+    "profiles_aria": "Academic and technical profiles"
+  },
+  "proof": {
+    "aria_label": "Summary highlights",
+    "items": {
+      "chase": {
+        "title": "CHASE 2026",
+        "text": "Published paper co-located with ICSE 2026. Second author in a qualitative interview study.",
+        "link_label": "DOI"
+      },
+      "emse": {
+        "title": "EMSE (Minor revision)",
+        "text": "First-author manuscript in second-round review, with open study artifacts on Zenodo.",
+        "link_label": "Zenodo"
+      },
+      "datawashes": {
+        "title": "dataWASHES",
+        "text": "Open API and automated pipeline indexing 138 WASHES papers from 2016 to 2026.",
+        "link_label": "Repository"
+      }
+    }
+  },
+  "approach": {
+    "kicker": "[01] Approach",
+    "title": "Research orientation",
+    "lead": "Understanding how methodological choices shape what we observe, interpret, and claim about software engineering phenomena.",
+    "items": [
+      {
+        "title": "Qualitative and empirical methodology",
+        "text": "My primary focus lies in research methods, especially qualitative inquiry, Reflexive Thematic Analysis, and the epistemological commitments behind empirical evidence. I am interested in how structured analytical procedures uncover patterns and mechanisms across real contexts."
+      },
+      {
+        "title": "Evidence synthesis and Open Science",
+        "text": "Conducting Multivocal Literature Reviews that combine academic and grey literature under auditable protocols. I organize traceable datasets and open codebooks so analytical decisions remain inspectable."
+      },
+      {
+        "title": "Open interdisciplinary agenda",
+        "text": "Recent studies examined tech recruitment as an initial empirical domain rather than a fixed thematic boundary. My agenda remains open to sociotechnical questions across developer practices, AI consequences, computing education, health systems, and open source communities."
+      }
+    ]
+  },
+  "publications": {
+    "kicker": "[02] Publications",
+    "title": "Publications and manuscripts",
+    "lead": "Peer-reviewed publications, manuscripts under revision, and ongoing secondary studies.",
+    "status_labels": {
+      "published": "Published",
+      "revision": "Minor revision",
+      "progress": "In progress"
+    },
+    "link_labels": {
+      "doi": "DOI",
+      "arxiv": "arXiv",
+      "study_page": "Study page",
+      "zenodo": "Zenodo dataset",
+      "project_page": "Project page"
+    },
+    "items": {
+      "chase2026": {
+        "venue": "Proceedings of the 19th International Conference on Cooperative and Human Aspects of Software Engineering (CHASE 2026), co-located with ICSE 2026.",
+        "abstract": "Qualitative interview study with 22 early-career software engineers examining over 470 online hiring experiences through Applicant Attribution-Reaction Theory (AART), synthesizing 22 constructive patterns for human-centered recruitment practices."
+      },
+      "emse2026": {
+        "venue": "Under second-round review at Empirical Software Engineering (EMSE-D-25-00839R1).",
+        "abstract": "Qualitative investigation of negative online hiring experiences reported by 22 early-career Brazilian software engineers, identifying 25 anti-patterns across 10 analytical themes through Reflexive Thematic Analysis and AART, accompanied by an open codebook and interactive web panel."
+      },
+      "mlr2026": {
+        "title": "Multivocal Literature Review on Recruitment and Selection in Software Engineering",
+        "venue": "Ongoing secondary study combining academic and grey literature.",
+        "abstract": "Multi-source evidence synthesis mapping empirical and practitioner literature on software engineering recruitment and selection, currently undergoing screening verification and protocol auditing."
+      }
+    }
+  },
+  "software": {
+    "kicker": "[03] Software",
+    "title": "Research software",
+    "lead": "Open research infrastructure and automated data pipelines built for reproducibility and community access.",
+    "action_labels": {
+      "overview": "Overview",
+      "api": "API",
+      "dashboard": "Dashboard",
+      "source": "Source"
+    },
+    "stat_labels": {
+      "coverage": "Coverage",
+      "editions": "Editions",
+      "papers": "Papers",
+      "authors": "Authors"
+    },
+    "items": {
+      "datawashes": {
+        "tag": "Open infrastructure · MIT License",
+        "subtitle": "GESID / Open API, automated pipeline, and dashboard",
+        "stats_aria": "Dataset coverage",
+        "lede": "Public open-source API and web dashboard maintained by GESID for programmatic access to proceedings from the Workshop on Social, Human, and Economic Aspects of Software (WASHES). Its monthly pipeline scrapes SOL SBC records, classifies abstracts, updates citation counts, and deploys automatically.",
+        "attribution": "Institutional ownership belongs to GESID. Platform outputs are collaborative.",
+        "role_label": "Contributions",
+        "role_text": "Built Flask API routes and pytest unit tests during the UFCA extension project. Returned voluntarily one year later to refactor the frontend and optimize the dashboard using the official WASHES color palette, adapt CitationMiner to Python, and automate both monthly data updates and deployment to eliminate manual maintenance."
+      }
+    }
+  },
+  "methods": {
+    "kicker": "[04] Methods",
+    "title": "Methods and technical stack",
+    "lead": "Empirical methodologies applied in research alongside technical capabilities used to automate data pipelines and operate Linux environments.",
+    "applied_label": "Applied in",
+    "cards": [
+      {
+        "index": "01 / Methodology",
+        "title": "Empirical inquiry",
+        "items": [
+          "Thematic Analysis and Reflexive Thematic Analysis",
+          "Semi-structured interviews and verbatim verification",
+          "Multivocal Literature Reviews (MLR)"
+        ],
+        "evidence": "CHASE 2026 · EMSE submission · Ongoing MLR"
+      },
+      {
+        "index": "02 / Operations",
+        "title": "Research workflows",
+        "items": [
+          "Qualitative codebook structuring and traceability",
+          "Automated data ingestion and CI/CD pipelines",
+          "Open Science artifact packaging on Zenodo",
+          "Academic writing and typesetting in LaTeX"
+        ],
+        "evidence": "dataWASHES · Zenodo datasets · MLR audit"
+      },
+      {
+        "index": "03 / Systems",
+        "title": "Software and Linux",
+        "items": [
+          "Python (Flask, pytest, scripting) and Node.js",
+          "Debian administration, SSH, and firewalls",
+          "Docker and Docker Compose service stacks",
+          "Self-hosted Git and Tailscale networking"
+        ],
+        "evidence": "dataWASHES · Personal Linux infrastructure"
+      }
+    ],
+    "tools": [
+      { "label": "Primary stack", "value": "Python · Linux (Debian) · Docker · Git · LaTeX" },
+      { "label": "Working knowledge", "value": "JavaScript / Node.js · HTML / CSS · GitHub Actions · AWS · Tailscale" }
+    ]
+  },
+  "background": {
+    "kicker": "[05] About",
+    "title": "Academic background",
+    "lead": "Undergraduate training, research groups, and preparation for graduate research in Computer Science and Software Engineering.",
+    "facts": [
+      {
+        "label": "Education",
+        "value_html": "Technologist Degree in Systems Analysis and Development (ADS), Federal University of Cariri (UFCA). <span class=\"fact-note\">Expected completion in early 2027 (GPA ~8.5/10). Preparing for M.Sc. admission at UFC, IFCE, or UECE.</span>"
+      },
+      {
+        "label": "Research groups",
+        "value_html": "<a class=\"fact-link\" href=\"{{gesid}}\" target=\"_blank\" rel=\"noopener noreferrer\">GESID</a> and <a class=\"fact-link\" href=\"{{padim}}\" target=\"_blank\" rel=\"noopener noreferrer\">PADIM Lab</a>, at UFCA."
+      },
+      {
+        "label": "Scholarship",
+        "value_html": "PIBIC/CNPq undergraduate research scholar conducting empirical software engineering studies."
+      },
+      {
+        "label": "Certification",
+        "value_html": "<a class=\"fact-link\" href=\"{{aws_badge}}\" target=\"_blank\" rel=\"noopener noreferrer\">AWS Certified Cloud Practitioner</a>. <span class=\"fact-note\">Issued 2025 · Valid through 2028.</span>"
+      },
+      {
+        "label": "Interests",
+        "value_html": "Empirical Software Engineering · Qualitative Research Methods · Evidence Synthesis · Open Science · Digital Sovereignty."
+      }
+    ]
+  },
+  "contact": {
+    "kicker": "[06] Contact",
+    "title": "Get in touch",
+    "lead": "Open to research collaborations, graduate program inquiries, and technical assistance on literature reviews, research workflows, and data documentation.",
+    "links_aria": "External profiles"
+  },
+  "footer": {
+    "status": "PIBIC/CNPq Researcher · UFCA"
+  }
+}

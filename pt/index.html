@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark light">
-  <meta name="theme-color" content="#050805">
-  <meta name="description" content="Gabriel V. Silva é pesquisador de iniciação científica na Universidade Federal do Cariri, com trabalho em engenharia de software empírica, aspectos humanos, métodos qualitativos e software de pesquisa.">
+  <meta name="theme-color" content="#09090b">
+  <meta name="description" content="Gabriel V. Silva é bolsista de iniciação científica (PIBIC/CNPq) na UFCA, atuando em Engenharia de Software Empírica, métodos qualitativos de pesquisa, síntese de evidências e software aberto de pesquisa.">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="Gabriel V. Silva">
-  <meta property="og:description" content="Engenharia de Software Empírica · Aspectos Humanos · Software de Pesquisa · Ciência Aberta">
+  <meta property="og:description" content="Engenharia de Software Empírica · Métodos Qualitativos · Síntese de Evidências · Ciência Aberta · Software de Pesquisa">
   <meta property="og:url" content="https://vasconcel.github.io/pt/">
   <meta property="og:image" content="https://vasconcel.github.io/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Gabriel V. Silva — Pesquisa e Software">
+  <meta property="og:image:alt" content="Gabriel V. Silva | Engenharia de Software Empírica">
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="canonical" href="https://vasconcel.github.io/pt/">
@@ -24,18 +24,17 @@
   <link rel="alternate" hreflang="x-default" href="https://vasconcel.github.io/">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 
-  <!-- Aplica o tema salvo antes da pintura (evita "piscar" ao trocar de tema) -->
   <script>
     try {
       if (localStorage.getItem("theme") === "light") {
         document.documentElement.setAttribute("data-theme", "light");
-        document.querySelector('meta[name="theme-color"]').content = "#F2F5F0";
+        document.querySelector('meta[name="theme-color"]').content = "#fafafa";
       }
     } catch (e) {}
   </script>
 
   <link rel="stylesheet" href="../assets/styles.css">
-  <title>Gabriel V. Silva</title>
+  <title>Gabriel V. Silva | Engenharia de Software Empírica</title>
 
   <script type="application/ld+json">
   {
@@ -45,13 +44,29 @@
         "@type": "Person",
         "@id": "https://vasconcel.github.io/#person",
         "name": "Gabriel V. Silva",
-        "alternateName": "G. Vasconcelos",
-        "url": "https://vasconcel.github.io/pt/",
+        "alternateName": [
+          "Gabriel Vasconcelos",
+          "G. Vasconcelos",
+          "Gabriel Vasconcelos Andrade da Silva"
+        ],
+        "url": "https://vasconcel.github.io/",
         "email": "mailto:gabriel.vasconcel@outlook.com",
-        "jobTitle": "Pesquisador de iniciação científica",
-        "description": "Pesquisador de iniciação científica em engenharia de software empírica, aspectos humanos, métodos qualitativos e software de pesquisa.",
-        "affiliation": { "@type": "CollegeOrUniversity", "name": "Universidade Federal do Cariri (UFCA)" },
-        "knowsAbout": ["Engenharia de Software Empírica", "Aspectos Humanos da Engenharia de Software", "Pesquisa Qualitativa", "Ciência Aberta", "Software de Pesquisa"],
+        "jobTitle": "Bolsista de Iniciação Científica (PIBIC/CNPq)",
+        "description": "Graduando e pesquisador PIBIC/CNPq na UFCA com atuação em Engenharia de Software Empírica, métodos qualitativos, síntese de evidências e software de apoio à pesquisa.",
+        "affiliation": {
+          "@type": "CollegeOrUniversity",
+          "name": "Universidade Federal do Cariri (UFCA)"
+        },
+        "knowsAbout": [
+          "Empirical Software Engineering",
+          "Qualitative Research",
+          "Reflexive Thematic Analysis",
+          "Multivocal Literature Review",
+          "Evidence Synthesis",
+          "Open Science",
+          "Research Software",
+          "Linux Systems Administration"
+        ],
         "sameAs": [
           "https://github.com/vasconcel",
           "https://www.linkedin.com/in/vasconcel/",
@@ -66,15 +81,34 @@
         "datePublished": "2026",
         "inLanguage": "en",
         "url": "https://doi.org/10.1145/3794860.3794899",
-        "sameAs": ["https://arxiv.org/abs/2602.13845"],
-        "isPartOf": "Proceedings of the 4th International Workshop on Human-Centred Software Engineering for Changing Contexts (CHASE 2026)",
+        "sameAs": [
+          "https://arxiv.org/abs/2602.13845"
+        ],
+        "isPartOf": "Proceedings of the 19th International Conference on Cooperative and Human Aspects of Software Engineering (CHASE 2026)",
         "author": [
-          { "@type": "Person", "name": "A. A. Araújo" },
-          { "@id": "https://vasconcel.github.io/#person" },
-          { "@type": "Person", "name": "M. Wyrich" },
-          { "@type": "Person", "name": "M. T. Baldassarre" },
-          { "@type": "Person", "name": "P. Guenes" },
-          { "@type": "Person", "name": "M. Kalinowski" }
+          {
+            "@type": "Person",
+            "name": "Allysson Allex Araújo"
+          },
+          {
+            "@id": "https://vasconcel.github.io/#person"
+          },
+          {
+            "@type": "Person",
+            "name": "Marvin Wyrich"
+          },
+          {
+            "@type": "Person",
+            "name": "Maria Teresa Baldassarre"
+          },
+          {
+            "@type": "Person",
+            "name": "Paloma Guenes"
+          },
+          {
+            "@type": "Person",
+            "name": "Marcos Kalinowski"
+          }
         ]
       }
     ]
@@ -88,20 +122,21 @@
     <div class="container nav-inner">
       <a class="nav-brand" href="#top" aria-label="Gabriel V. Silva, voltar ao topo">
         <span class="nav-mark" aria-hidden="true">
-          <svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M9 6H5v20h4"/><path d="M23 6h4v20h-4"/><path d="M11.5 14 16 23l4.5-9"/><circle cx="16" cy="8.5" r="2.4" fill="currentColor" stroke="none"/></svg>
+          <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M9 6H5v20h4"/><path d="M23 6h4v20h-4"/><path d="M11.5 14 16 23l4.5-9"/><circle cx="16" cy="8.5" r="2.4" fill="currentColor" stroke="none"/></svg>
         </span>
+        <span class="nav-name">vasconcel</span>
       </a>
       <div class="nav-links">
         <a href="#research">Abordagem</a>
-        <a href="#project">Trabalhos</a>
         <a href="#publications">Publicações</a>
+        <a href="#project">Software</a>
         <a href="#capabilities">Métodos</a>
         <a href="#background">Sobre</a>
         <a href="#contact">Contato</a>
       </div>
       <div class="nav-tools">
         <a class="lang-link" href="../" hreflang="en" lang="en" aria-label="Read in English" title="English">EN</a>
-        <button class="theme-toggle" type="button" aria-label="Alternar tema de cores"><span aria-hidden="true">◐</span></button>
+        <button class="theme-toggle" type="button" aria-label="Alternar tema de cores" aria-pressed="false"><span aria-hidden="true">◐</span></button>
       </div>
     </div>
   </nav>
@@ -109,22 +144,18 @@
   <header class="hero" id="top">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <p class="kicker">Pesquisador <span aria-hidden="true">/</span> Brasil</p>
-        <h1 class="hero-title">Gabriel<br>V. Silva</h1>
-        <p class="hero-role">Pesquisador · Engenharia de Software Empírica</p>
-        <p class="hero-statement">
-          Transformo entrevistas e registros de pesquisa dispersos em evidências que equipes podem usar — com análise qualitativa, fluxos de dados reproduzíveis e software de pesquisa para uma engenharia de software mais humana.
-        </p>
-        <ul class="hero-focus" aria-label="Áreas de pesquisa">
-          <li>Aspectos humanos</li>
-          <li>Métodos qualitativos</li>
-          <li>Software de pesquisa</li>
+        <p class="kicker">Pesquisador / Brasil</p>
+        <h1 class="hero-title">Gabriel V. Silva</h1>
+        <p class="hero-role">Bolsista PIBIC/CNPq · Engenharia de Software Empírica</p>
+        <p class="hero-statement">Investigo como métodos empíricos e qualitativos produzem conhecimento fundamentado sobre Engenharia de Software. Meu trabalho combina estudos baseados em entrevistas, síntese de evidências e software automatizado de pesquisa.</p>
+        <ul class="hero-focus" aria-label="Áreas centrais">
+          <li>Métodos empíricos e qualitativos</li>
+          <li>Síntese de evidências e Ciência Aberta</li>
+          <li>Software de pesquisa e sistemas Linux</li>
         </ul>
         <div class="hero-actions">
-          <a class="btn btn--primary" href="#project">Ver trabalhos selecionados <span aria-hidden="true">↘</span></a>
-          <a class="btn btn--secondary" href="mailto:gabriel.vasconcel@outlook.com">Fale comigo <span aria-hidden="true">↗</span></a>
-          <!-- PLACEHOLDER: coloque o PDF do currículo em assets/cv.pdf -->
-          <!--<a class="btn btn--ghost" href="../assets/cv.pdf" download>Baixar currículo (PDF) <span aria-hidden="true">↓</span></a> -->
+          <a class="btn btn--primary" href="#publications">Publicações <span aria-hidden="true">↘</span></a>
+          <a class="btn btn--secondary" href="mailto:gabriel.vasconcel@outlook.com">E-mail <span aria-hidden="true">↗</span></a>
         </div>
       </div>
 
@@ -132,31 +163,40 @@
         <figure class="portrait">
           <img class="portrait-img" src="../assets/profile.jpg" alt="Retrato de Gabriel V. Silva" width="720" height="720">
           <figcaption class="portrait-caption">
-            <span>Perfil de pesquisador</span>
             <span>UFCA · Brasil</span>
+            <span>PADIM Lab · GESID</span>
           </figcaption>
         </figure>
-        <div class="profile-links" aria-label="Perfis acadêmicos e profissionais">
-          <a href="https://github.com/vasconcel" target="_blank" rel="me noopener noreferrer"><span>GitHub</span><span aria-hidden="true">↗</span></a>
-          <a href="https://www.linkedin.com/in/vasconcel/" target="_blank" rel="me noopener noreferrer"><span>LinkedIn</span><span aria-hidden="true">↗</span></a>
-          <a href="http://lattes.cnpq.br/7193014410256740" target="_blank" rel="noopener noreferrer"><span>Lattes</span><span aria-hidden="true">↗</span></a>
-          <a href="https://orcid.org/0009-0005-1736-354X" target="_blank" rel="me noopener noreferrer"><span>ORCID</span><span aria-hidden="true">↗</span></a>
-          <a href="https://mastodon.com.br/@vasconcel" target="_blank" rel="me noopener noreferrer"><span>Mastodon</span><span aria-hidden="true">↗</span></a>
+        <div class="profile-links" aria-label="Perfis acadêmicos e técnicos">
+          <a href="https://github.com/vasconcel" target="_blank" rel="me noopener noreferrer">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/vasconcel/" target="_blank" rel="me noopener noreferrer">LinkedIn ↗</a>
+          <a href="https://orcid.org/0009-0005-1736-354X" target="_blank" rel="me noopener noreferrer">ORCID ↗</a>
+          <a href="http://lattes.cnpq.br/7193014410256740" target="_blank" rel="noopener noreferrer">Lattes ↗</a>
+          <a href="https://mastodon.com.br/@vasconcel" target="_blank" rel="me noopener noreferrer">Mastodon ↗</a>
         </div>
       </aside>
     </div>
   </header>
 
   <main id="main">
-    <div class="proof" role="region" aria-label="Destaques">
+    <div class="proof" role="region" aria-label="Destaques recentes">
       <div class="container">
         <ul class="proof-list">
           <li>
             <strong>CHASE 2026</strong>
-            <span>Artigo completo da trilha de pesquisa, realizado junto ao ICSE. Segundo autor. 22 entrevistas sobre mais de 470 experiências de contratação, que resultaram em 22 padrões construtivos.</span>
-            <a class="link-arrow" href="https://doi.org/10.1145/3794860.3794899" target="_blank" rel="noopener noreferrer">Ler artigo ↗</a>
+            <span>Artigo publicado em evento co-localizado ao ICSE 2026. Segundo autor em estudo qualitativo com entrevistas.</span>
+            <a class="link-arrow" href="https://doi.org/10.1145/3794860.3794899" target="_blank" rel="noopener noreferrer">DOI ↗</a>
           </li>
-          <li><strong>dataWASHES</strong><span>Plataforma e painel abertos que organizam os registros bibliográficos do WASHES, 2016–2025. Mantido pelo GESID; atuei em processamento de dados, testes e implantação.</span></li>
+          <li>
+            <strong>EMSE (Minor revision)</strong>
+            <span>Manuscrito em segunda rodada de revisão como primeiro autor, com artefatos abertos no Zenodo.</span>
+            <a class="link-arrow" href="https://doi.org/10.5281/zenodo.17552394" target="_blank" rel="noopener noreferrer">Zenodo ↗</a>
+          </li>
+          <li>
+            <strong>dataWASHES</strong>
+            <span>API aberta e pipeline automatizado indexando 138 artigos do WASHES entre 2016 e 2026.</span>
+            <a class="link-arrow" href="https://github.com/gesid/dataWASHES" target="_blank" rel="noopener noreferrer">Repositório ↗</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -164,23 +204,78 @@
     <section class="section" id="research" aria-labelledby="research-title">
       <div class="container">
         <header class="section-head">
-          <p class="section-kicker">01 / Abordagem</p>
-          <h2 class="section-title" id="research-title">Interesses de pesquisa</h2>
-          <p class="section-lead">Entender as pessoas, as práticas e as condições por trás do trabalho em engenharia de software.</p>
+          <p class="section-kicker">[01] Abordagem</p>
+          <h2 class="section-title" id="research-title">Orientação de pesquisa</h2>
+          <p class="section-lead">Compreender como escolhas metodológicas moldam o que conseguimos observar, interpretar e afirmar sobre fenômenos de Engenharia de Software.</p>
         </header>
-
         <ol class="research-index">
           <li>
-            <h3 class="index-title">Aspectos humanos da engenharia de software</h3>
-            <p class="index-text">Como desenvolvedores, candidatos, recrutadores e organizações interagem ao longo do trabalho com software, com atenção às condições sociais que moldam as carreiras técnicas.</p>
+            <h3 class="index-title">Metodologia qualitativa e empírica</h3>
+            <p class="index-text">Meu foco principal está nos métodos de investigação, especialmente pesquisa qualitativa, Reflexive Thematic Analysis e pressupostos epistemológicos da evidência empírica. Interessa-me como procedimentos analíticos revelam padrões e mecanismos em contextos reais.</p>
           </li>
           <li>
-            <h3 class="index-title">Métodos empíricos e qualitativos</h3>
-            <p class="index-text">Investigar experiências vividas e práticas organizacionais por meio de entrevistas, análise qualitativa, abordagens temáticas e desenho de pesquisa orientado a evidências.</p>
+            <h3 class="index-title">Síntese de evidências e Ciência Aberta</h3>
+            <p class="index-text">Condução de Revisões Multivocais da Literatura combinando literatura acadêmica e cinza sob protocolos auditáveis. Estruturo conjuntos de dados rastreáveis e codebooks abertos para manter decisões analíticas verificáveis.</p>
           </li>
           <li>
-            <h3 class="index-title">Infraestrutura de pesquisa e ciência aberta</h3>
-            <p class="index-text">Construir e melhorar ferramentas, fluxos de dados e recursos reprodutíveis que facilitem coletar, inspecionar e reutilizar evidências de pesquisa dispersas.</p>
+            <h3 class="index-title">Agenda interdisciplinar em aberto</h3>
+            <p class="index-text">Estudos recentes investigaram recrutamento em tecnologia como domínio empírico inicial, não como limite temático fixo. Minha agenda permanece aberta a questões sociotécnicas em práticas de desenvolvimento, impactos da IA, educação em computação, saúde e software livre.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="publications" aria-labelledby="publications-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-kicker">[02] Publicações</p>
+          <h2 class="section-title" id="publications-title">Publicações e manuscritos</h2>
+          <p class="section-lead">Artigos revisados por pares, manuscritos em avaliação e estudos secundários em andamento.</p>
+        </header>
+        <ol class="publication-list">
+          <li class="publication">
+            <div class="pub-rail">
+              <span class="status status--published">Publicado</span>
+              <span class="pub-year">2026</span>
+            </div>
+            <div class="pub-main">
+              <h3 class="pub-title"><a href="https://doi.org/10.1145/3794860.3794899" target="_blank" rel="noopener noreferrer">Constructive Patterns for Human-Centered Tech Hiring</a></h3>
+              <p class="pub-venue">Anais da 19th International Conference on Cooperative and Human Aspects of Software Engineering (CHASE 2026), co-localizada ao ICSE 2026.</p>
+              <p class="pub-authors">A. A. Araújo, <strong>G. Vasconcelos</strong>, M. Wyrich, M. T. Baldassarre, P. Guenes, and M. Kalinowski.</p>
+              <p class="pub-abstract">Estudo qualitativo com 22 engenheiros de software em início de carreira examinando mais de 470 experiências de seleção online sob a lente da Applicant Attribution-Reaction Theory (AART), sistematizando 22 padrões construtivos para processos mais centrados no candidato.</p>
+              <div class="entry-links">
+                <a class="link-arrow" href="https://doi.org/10.1145/3794860.3794899" target="_blank" rel="noopener noreferrer">DOI ↗</a>
+                <a class="link-arrow" href="https://arxiv.org/abs/2602.13845" target="_blank" rel="noopener noreferrer">arXiv ↗</a>
+                <a class="link-arrow" href="https://gesid.github.io/papers/swe-cps-hiring/" target="_blank" rel="noopener noreferrer">Página do estudo ↗</a>
+              </div>
+            </div>
+          </li>
+          <li class="publication">
+            <div class="pub-rail">
+              <span class="status status--revision">Minor revision</span>
+              <span class="pub-year">2026</span>
+            </div>
+            <div class="pub-main">
+              <h3 class="pub-title"><a href="https://gesid.github.io/papers/swe-aps-hiring" target="_blank" rel="noopener noreferrer">Anti-patterns in Online Recruitment and Selection Experienced by Early-Career Software Engineers</a></h3>
+              <p class="pub-venue">Em segunda rodada de revisão no periódico Empirical Software Engineering (EMSE-D-25-00839R1).</p>
+              <p class="pub-authors"><strong>G. Vasconcelos</strong>, A. A. Araújo, M. Wyrich, and M. Kalinowski.</p>
+              <p class="pub-abstract">Investigação qualitativa sobre experiências negativas de recrutamento e seleção online relatadas por 22 profissionais brasileiros em início de carreira, identificando 25 anti-padrões em 10 temas analíticos via Reflexive Thematic Analysis e AART, com codebook aberto e painel interativo.</p>
+              <div class="entry-links">
+                <a class="link-arrow" href="https://doi.org/10.5281/zenodo.17552394" target="_blank" rel="noopener noreferrer">Dados no Zenodo ↗</a>
+                <a class="link-arrow" href="https://gesid.github.io/papers/swe-aps-hiring" target="_blank" rel="noopener noreferrer">Página do projeto ↗</a>
+              </div>
+            </div>
+          </li>
+          <li class="publication">
+            <div class="pub-rail">
+              <span class="status status--progress">Em andamento</span>
+              <span class="pub-year">2026</span>
+            </div>
+            <div class="pub-main">
+              <h3 class="pub-title">Revisão Multivocal da Literatura sobre Recrutamento e Seleção em Engenharia de Software</h3>
+              <p class="pub-venue">Estudo secundário em andamento combinando literatura científica e cinza.</p>
+              <p class="pub-abstract">Síntese multifonte voltada a mapear evidências acadêmicas e da prática profissional sobre contratação em Engenharia de Software, atualmente em verificação de triagem e auditoria metodológica do protocolo.</p>
+            </div>
           </li>
         </ol>
       </div>
@@ -189,175 +284,107 @@
     <section class="section" id="project" aria-labelledby="work-title">
       <div class="container">
         <header class="section-head">
-          <p class="section-kicker">02 / Trabalhos</p>
-          <h2 class="section-title" id="work-title">Pesquisa na prática</h2>
-          <p class="section-lead">Uma seleção de trabalhos colaborativos de pesquisa e infraestrutura que ligam perguntas empíricas a artefatos práticos.</p>
+          <p class="section-kicker">[03] Software</p>
+          <h2 class="section-title" id="work-title">Software de pesquisa</h2>
+          <p class="section-lead">Infraestrutura aberta de pesquisa e pipelines automatizados voltados à reprodutibilidade e ao acesso da comunidade.</p>
         </header>
-
-        <article class="project project--datawashes" aria-labelledby="datawashes-title">
+        <article class="project" aria-labelledby="datawashes-title">
           <header class="project-masthead">
             <div class="project-id">
-              <p class="project-tag">Caso 01 · Infraestrutura de pesquisa</p>
+              <p class="project-tag">Infraestrutura aberta · Licença MIT</p>
               <h3 class="project-name" id="datawashes-title">dataWASHES</h3>
-              <p class="project-repo">GESID / infraestrutura aberta de pesquisa</p>
+              <p class="project-repo">GESID / API aberta, pipeline automatizado e dashboard</p>
             </div>
             <div class="project-actions">
-              <a class="link-arrow" href="https://datawashes.pythonanywhere.com/" target="_blank" rel="noopener noreferrer">Plataforma ↗</a>
-              <a class="link-arrow" href="https://datawashes.pythonanywhere.com/dashboard" target="_blank" rel="noopener noreferrer">Painel ↗</a>
-              <a class="link-arrow" href="https://github.com/gesid/dataWASHES" target="_blank" rel="noopener noreferrer">Código ↗</a>
+              <a class="link-arrow" href="https://gesid.github.io/dataWASHES" target="_blank" rel="noopener noreferrer">Visão geral ↗</a>
+              <a class="link-arrow" href="https://datawashes.pythonanywhere.com/" target="_blank" rel="noopener noreferrer">API ↗</a>
+              <a class="link-arrow" href="https://datawashes.pythonanywhere.com/dashboard" target="_blank" rel="noopener noreferrer">Dashboard ↗</a>
+              <a class="link-arrow" href="https://github.com/gesid/dataWASHES" target="_blank" rel="noopener noreferrer">Código-fonte ↗</a>
             </div>
           </header>
           <div class="project-body">
-            <p class="project-lede">
-              O dataWASHES é uma iniciativa de infraestrutura de pesquisa mantida pelo GESID para organizar e dar acesso às informações bibliográficas do Workshop on Social, Human and Economic Aspects of Software (WASHES). Reúne registros das edições de 2016 a 2025 em uma plataforma pública e um painel.
-            </p>
-            <p class="project-pipeline">
-              O trabalho envolve um fluxo colaborativo de coleta, processamento, validação e apresentação de dados bibliográficos, que apoia o acesso ao histórico de publicações de uma comunidade de pesquisa.
-            </p>
-            <p class="project-attribution">Titularidade institucional: GESID. A plataforma e seus dados são produtos colaborativos; a contribuição descrita abaixo refere-se ao meu trabalho.</p>
+            <p class="project-lede">API pública de código aberto e painel web mantidos pelo GESID para acesso programático aos anais do Workshop sobre Aspectos Sociais, Humanos e Econômicos de Software (WASHES). Seu pipeline mensal coleta registros da SOL SBC, classifica resumos, atualiza citações e realiza o deploy automaticamente.</p>
+            <p class="project-attribution">Titularidade institucional do GESID. Os resultados da plataforma são fruto de trabalho colaborativo.</p>
           </div>
-          <dl class="project-stats" aria-label="Cobertura do projeto">
-            <div class="stat"><dt>Cobertura</dt><dd>2016–25</dd></div>
-            <div class="stat"><dt>Edições do workshop</dt><dd>10</dd></div>
-            <div class="stat"><dt>Acesso público</dt><dd>Aberto</dd></div>
+          <dl class="project-stats" aria-label="Cobertura da base">
+            <div class="stat"><dt>Cobertura</dt><dd>2016–26</dd></div>
+            <div class="stat"><dt>Edições</dt><dd>11</dd></div>
+            <div class="stat"><dt>Artigos</dt><dd>138</dd></div>
+            <div class="stat"><dt>Autores</dt><dd>430+</dd></div>
           </dl>
           <div class="project-role">
-            <div class="project-role-head">
-              <p class="project-role-label">Minha contribuição</p>
-              <p class="project-role-text">Contribuí com o fluxo de dados de pesquisa e a infraestrutura de software, incluindo a adaptação em Python da função de mineração de citações, a automação do processamento de dados, testes, implantação e desenvolvimento ligado ao painel.</p>
-            </div>
+            <p class="project-role-label">Contribuições</p>
+            <p class="project-role-text">Construí rotas da API em Flask e testes unitários com pytest durante o projeto de extensão na UFCA. Retornei voluntariamente um ano depois para refatorar o frontend e otimizar o dashboard usando a paleta oficial do WASHES, adaptar o CitationMiner para Python e automatizar a atualização mensal de dados e o deploy, eliminando manutenção manual.</p>
           </div>
         </article>
-
-        <article class="project project--paper" aria-labelledby="chase-title">
-          <header class="project-masthead">
-            <div class="project-id">
-              <p class="project-tag">Caso 02 · Estudo empírico</p>
-              <h3 class="project-name" id="chase-title">Constructive Patterns for Human-Centered Tech Hiring</h3>
-              <p class="project-repo">CHASE 2026 · Realizado junto ao ICSE</p>
-            </div>
-            <div class="project-actions">
-              <a class="link-arrow" href="https://doi.org/10.1145/3794860.3794899" target="_blank" rel="noopener noreferrer">Anais ↗</a>
-              <a class="link-arrow" href="https://arxiv.org/abs/2602.13845" target="_blank" rel="noopener noreferrer">Preprint ↗</a>
-              <a class="link-arrow" href="https://gesid.github.io/papers/swe-cps-hiring/" target="_blank" rel="noopener noreferrer">Página do estudo ↗</a>
-            </div>
-          </header>
-          <div class="project-body">
-            <p class="project-lede">
-              Este estudo investiga como profissionais de software em início de carreira vivem os processos online de recrutamento e seleção. A partir de entrevistas e de experiências de recrutamento relatadas, a pesquisa identifica padrões construtivos que podem orientar práticas de contratação mais centradas nas pessoas. O artigo está em inglês.
-            </p>
-            <dl class="study-figures" aria-label="Visão geral do estudo">
-              <div class="figure"><dt>Pessoas entrevistadas</dt><dd>22</dd></div>
-              <div class="figure"><dt>Experiências relatadas</dt><dd>470+</dd></div>
-              <div class="figure"><dt>Padrões construtivos</dt><dd>22</dd></div>
-            </dl>
-          </div>
-          <div class="project-role">
-            <div class="project-role-head">
-              <p class="project-role-label">Minha contribuição</p>
-              <p class="project-role-text">Segundo autor. Contribuí com o trabalho empírico, incluindo entrevistas, codificação qualitativa e o desenvolvimento do artefato de pesquisa do estudo, em colaboração com os coautores.</p>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="publications" aria-labelledby="publications-title">
-      <div class="container">
-        <header class="section-head">
-          <p class="section-kicker">03 / Publicações</p>
-          <h2 class="section-title" id="publications-title">Publicação selecionada</h2>
-          <p class="section-lead">Pesquisa publicada, desenvolvida em colaboração com colegas de engenharia de software empírica.</p>
-        </header>
-
-        <ol class="publication-list">
-          <li class="publication">
-            <div class="pub-rail">
-              <span class="status status--published">Publicado</span>
-              <span class="pub-year">2026</span>
-            </div>
-            <div class="pub-main">
-              <h3 class="pub-title"><a href="https://doi.org/10.1145/3794860.3794899" target="_blank" rel="noopener noreferrer" hreflang="en" lang="en">Constructive Patterns for Human-Centered Tech Hiring</a></h3>
-              <p class="pub-venue" lang="en">Proceedings of the 4th International Workshop on Human-Centred Software Engineering for Changing Contexts (CHASE 2026), co-located with ICSE.</p>
-              <p class="pub-authors">A. A. Araújo, <strong>G. Vasconcelos</strong>, M. Wyrich, M. T. Baldassarre, P. Guenes e M. Kalinowski.</p>
-              <p class="pub-abstract">Estudo baseado em entrevistas sobre as experiências de recrutamento online de profissionais de software em início de carreira, que apresenta padrões construtivos para práticas de recrutamento e seleção mais centradas nas pessoas.</p>
-              <div class="entry-links">
-                <a class="link-arrow" href="https://doi.org/10.1145/3794860.3794899" target="_blank" rel="noopener noreferrer">DOI ↗</a>
-                <a class="link-arrow" href="https://arxiv.org/abs/2602.13845" target="_blank" rel="noopener noreferrer">arXiv ↗</a>
-                <a class="link-arrow" href="https://gesid.github.io/papers/swe-cps-hiring/" target="_blank" rel="noopener noreferrer">Artefato de pesquisa ↗</a>
-              </div>
-            </div>
-          </li>
-        </ol>
-        <p class="pub-note">Esta lista inclui apenas trabalhos publicados. A autoria colaborativa e a posição do autor estão indicadas explicitamente. Meu nome aparece na lista de autores como G. Vasconcelos.</p>
       </div>
     </section>
 
     <section class="section" id="capabilities" aria-labelledby="capabilities-title">
       <div class="container">
         <header class="section-head">
-          <p class="section-kicker">04 / Métodos</p>
-          <h2 class="section-title" id="capabilities-title">Métodos e ferramentas</h2>
-          <p class="section-lead">Um repertório voltado à pesquisa, que cobre investigação empírica, interpretação qualitativa e trabalho com evidências apoiado por software.</p>
+          <p class="section-kicker">[04] Métodos</p>
+          <h2 class="section-title" id="capabilities-title">Métodos e stack técnica</h2>
+          <p class="section-lead">Metodologias empíricas aplicadas em pesquisa aliadas a competências técnicas para automação de dados e operação em Linux.</p>
         </header>
-
         <div class="capability-list">
           <article class="capability">
             <div class="capability-head">
-              <p class="capability-index">01 / Pesquisa</p>
+              <p class="capability-index">01 / Metodologia</p>
               <h3 class="capability-title">Investigação empírica</h3>
             </div>
             <ul class="capability-items">
-              <li>Desenho de pesquisa e desenvolvimento de protocolo</li>
-              <li>Estudos baseados em entrevistas</li>
-              <li>Síntese de evidências e revisões de literatura</li>
+              <li>Análise Temática e Reflexive Thematic Analysis</li>
+              <li>Entrevistas semiestruturadas e verificação verbatim</li>
+              <li>Revisões Multivocais da Literatura (MLR)</li>
             </ul>
-            <p class="capability-evidence"><span>Na prática</span>CHASE 2026 · Aspectos humanos da engenharia de software</p>
+            <p class="capability-evidence"><span>Aplicado em</span>CHASE 2026 · Submissão EMSE · MLR em andamento</p>
           </article>
-
           <article class="capability">
             <div class="capability-head">
-              <p class="capability-index">02 / Análise</p>
-              <h3 class="capability-title">Métodos qualitativos</h3>
+              <p class="capability-index">02 / Operação</p>
+              <h3 class="capability-title">Fluxos de pesquisa</h3>
             </div>
             <ul class="capability-items">
-              <li>Análise temática</li>
-              <li>Fundamentos de Grounded Theory</li>
-              <li>Codificação e interpretação qualitativa</li>
+              <li>Estruturação e rastreabilidade de codebooks qualitativos</li>
+              <li>Ingestão automatizada de dados e pipelines CI/CD</li>
+              <li>Publicação de artefatos de Ciência Aberta no Zenodo</li>
+              <li>Redação e diagramação científica em LaTeX</li>
             </ul>
-            <p class="capability-evidence"><span>Na prática</span>Análise de entrevistas · Desenvolvimento de padrões</p>
+            <p class="capability-evidence"><span>Aplicado em</span>dataWASHES · Conjuntos no Zenodo · Auditoria MLR</p>
           </article>
-
           <article class="capability">
             <div class="capability-head">
-              <p class="capability-index">03 / Engenharia</p>
-              <h3 class="capability-title">Software de pesquisa</h3>
+              <p class="capability-index">03 / Sistemas</p>
+              <h3 class="capability-title">Software e Linux</h3>
             </div>
             <ul class="capability-items">
-              <li>Processamento de dados e automação</li>
-              <li>APIs, testes e fluxos de implantação</li>
-              <li>Dados abertos de pesquisa e reprodutibilidade</li>
+              <li>Python (Flask, pytest, scripts) e Node.js</li>
+              <li>Administração Debian, SSH e regras de firewall</li>
+              <li>Stacks de serviços com Docker e Docker Compose</li>
+              <li>Git autohospedado e redes privadas com Tailscale</li>
             </ul>
-            <p class="capability-evidence"><span>Na prática</span>dataWASHES · Infraestrutura de pesquisa do GESID</p>
+            <p class="capability-evidence"><span>Aplicado em</span>dataWASHES · Infraestrutura Linux pessoal</p>
           </article>
         </div>
-
-        <p class="tools-line"><span>Tecnologias</span> Python · JavaScript / Node.js · Solidity · AWS · Git · HTML / CSS</p>
+        <div class="tools-line">
+          <p><span>Stack principal</span> Python · Linux (Debian) · Docker · Git · LaTeX</p>
+          <p><span>Conhecimento de uso</span> JavaScript / Node.js · HTML / CSS · GitHub Actions · AWS · Tailscale</p>
+        </div>
       </div>
     </section>
 
     <section class="section" id="background" aria-labelledby="background-title">
       <div class="container">
         <header class="section-head">
-          <p class="section-kicker">05 / Sobre</p>
-          <h2 class="section-title" id="background-title">Formação</h2>
-          <p class="section-lead">Formação acadêmica e vínculos de pesquisa que orientam meu trabalho em engenharia de software e nas dimensões sociais da tecnologia.</p>
+          <p class="section-kicker">[05] Sobre</p>
+          <h2 class="section-title" id="background-title">Formação acadêmica</h2>
+          <p class="section-lead">Graduação tecnológica, vínculos em grupos de pesquisa e preparação para pós-graduação stricto sensu em Ciência da Computação e Engenharia de Software.</p>
         </header>
-
         <div class="facts">
           <div class="fact">
-            <h3 class="fact-label">Educação</h3>
-            <p class="fact-value">Tecnólogo em Análise e Desenvolvimento de Sistemas, Universidade Federal do Cariri (UFCA). <span class="fact-note">Graduação em andamento.</span></p>
+            <h3 class="fact-label">Formação</h3>
+            <p class="fact-value">Tecnólogo em Análise e Desenvolvimento de Sistemas (ADS), Universidade Federal do Cariri (UFCA). <span class="fact-note">Conclusão prevista para o início de 2027 (CR ~8,5/10). Em preparação para mestrado na UFC, IFCE ou UECE.</span></p>
           </div>
           <div class="fact">
             <h3 class="fact-label">Grupos de pesquisa</h3>
@@ -365,15 +392,15 @@
           </div>
           <div class="fact">
             <h3 class="fact-label">Bolsa</h3>
-            <p class="fact-value">Bolsa de iniciação científica (PIBIC), que apoia atividades de pesquisa na UFCA.</p>
+            <p class="fact-value">Bolsista de iniciação científica (PIBIC/CNPq) conduzindo estudos empíricos em Engenharia de Software.</p>
           </div>
           <div class="fact">
             <h3 class="fact-label">Certificação</h3>
             <p class="fact-value"><a class="fact-link" href="https://www.credly.com/badges/2e2439c9-6cc6-4401-9c5e-c247107fe72a/public_url" target="_blank" rel="noopener noreferrer">AWS Certified Cloud Practitioner</a>. <span class="fact-note">Emitida em 2025 · Válida até 2028.</span></p>
           </div>
           <div class="fact">
-            <h3 class="fact-label">Identidade de pesquisa</h3>
-            <p class="fact-value">Engenharia de Software Empírica · Aspectos Humanos · Pesquisa Qualitativa · Ciência Aberta · Software de Pesquisa.</p>
+            <h3 class="fact-label">Interesses</h3>
+            <p class="fact-value">Engenharia de Software Empírica · Métodos Qualitativos de Pesquisa · Síntese de Evidências · Ciência Aberta · Soberania Digital.</p>
           </div>
         </div>
       </div>
@@ -382,19 +409,17 @@
     <section class="section section--contact" id="contact" aria-labelledby="contact-title">
       <div class="container">
         <header class="section-head">
-          <p class="section-kicker">06 / Contato</p>
-          <h2 class="section-title" id="contact-title">Contato</h2>
-          <p class="section-lead">Para colaborações de pesquisa, troca acadêmica e conversas sobre engenharia de software empírica ou infraestrutura de pesquisa.</p>
+          <p class="section-kicker">[06] Contato</p>
+          <h2 class="section-title" id="contact-title">Entre em contato</h2>
+          <p class="section-lead">Disponível para colaborações em pesquisa, contato com programas de pós-graduação e apoio técnico em revisões de literatura, fluxos de pesquisa e organização de dados.</p>
         </header>
-        <p class="closing-line">Sempre aberto a conversas cuidadosas com pesquisadores, estudantes e pessoas que constroem ferramentas e práticas para uma engenharia de software mais centrada nas pessoas.</p>
         <p class="closing-email"><a class="email-link" href="mailto:gabriel.vasconcel@outlook.com">gabriel.vasconcel@outlook.com <span class="email-link-icon" aria-hidden="true">↗</span></a></p>
-        <div class="closing-links" aria-label="Outros perfis">
+        <div class="closing-links" aria-label="Perfis externos">
           <a class="link-arrow" href="https://github.com/vasconcel" target="_blank" rel="me noopener noreferrer">GitHub ↗</a>
           <a class="link-arrow" href="https://www.linkedin.com/in/vasconcel/" target="_blank" rel="me noopener noreferrer">LinkedIn ↗</a>
           <a class="link-arrow" href="https://orcid.org/0009-0005-1736-354X" target="_blank" rel="me noopener noreferrer">ORCID ↗</a>
           <a class="link-arrow" href="http://lattes.cnpq.br/7193014410256740" target="_blank" rel="noopener noreferrer">Lattes ↗</a>
           <a class="link-arrow" href="https://mastodon.com.br/@vasconcel" target="_blank" rel="me noopener noreferrer">Mastodon ↗</a>
-          <a class="link-arrow" href="../assets/cv.pdf" download>Currículo ↓</a>
         </div>
       </div>
     </section>
@@ -403,7 +428,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <p>© <span id="year">2026</span> Gabriel V. Silva</p>
-      <p class="footer-status"><span aria-hidden="true"></span> Pesquisador independente · UFCA</p>
+      <p class="footer-status"><span aria-hidden="true"></span> Pesquisador PIBIC/CNPq · UFCA</p>
     </div>
   </footer>
 

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Gabriel V. Silva
+   Gabriel V. Silva | Empirical Software Engineering
    Melhoria progressiva: a página funciona integralmente sem este script.
    ========================================================================== */
 (function () {
@@ -14,7 +14,7 @@
 
   /* ---------- 2. Tema ---------- */
   var toggle = document.querySelector(".theme-toggle");
-  var THEME_COLORS = { light: "#f4f5f2", dark: "#090b0a" };
+  var THEME_COLORS = { light: "#fafafa", dark: "#09090b" };
 
   function currentTheme() {
     return root.getAttribute("data-theme") === "light" ? "light" : "dark";
