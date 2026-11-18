@@ -15,6 +15,55 @@ def esc(value: str) -> str:
     return html.escape(value, quote=True)
 
 
+SVG_ATTRS = (
+    'width="14" height="14" viewBox="0 0 24 24" fill="none" '
+    'stroke="currentColor" stroke-width="1.8" stroke-linecap="round" '
+    'stroke-linejoin="round" aria-hidden="true" focusable="false"'
+)
+
+PROFILE_ICONS = {
+    "GitHub": (
+        '<path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.1-1.2-.3-2.5-1-3.5.3-1.2.3-2.4 0-3.5 0 0-1 0-3 1.5a12 12 0 0 0-8 0C5 2.5 4 2.5 4 2.5c-.3 1.1-.3 2.3 0 3.5A5.4 5.4 0 0 0 3 9.5c0 3.5 3 5.5 6 5.5a4.8 4.8 0 0 0-1 3.5v4"/>'
+        '<path d="M9 18c-4.5 2-5-2-7-2"/>'
+    ),
+    "LinkedIn": (
+        '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>'
+        '<rect width="4" height="12" x="2" y="9"/>'
+        '<circle cx="4" cy="4" r="2"/>'
+    ),
+    "ORCID": (
+        '<circle cx="12" cy="12" r="9"/>'
+        '<path d="M9 16V8m3 0v8m0-4h4m0-4v8"/>'
+    ),
+    "Lattes": (
+        '<path d="M4 20h16"/>'
+        '<path d="M7 20V10m5 10V5m5 15v-7"/>'
+    ),
+    "Mastodon": (
+        '<path d="M20 10.5c0 4-2.6 6.5-6.5 6.5S7 14.5 7 10.5V8a4.5 4.5 0 0 1 9 0v2.5"/>'
+        '<path d="M7 10.5H4m16 0h-3M9.5 20l1-3m4 3-1-3"/>'
+    ),
+}
+
+ACTION_ICONS = {
+    "api": '<path d="m8 8-4 4 4 4m8-8 4 4-4 4"/>',
+    "dashboard": (
+        '<rect x="3" y="4" width="18" height="16" rx="2"/>'
+        '<path d="M3 10h18M9 10v10"/>'
+    ),
+    "source": (
+        '<circle cx="6" cy="6" r="2"/>'
+        '<circle cx="6" cy="18" r="2"/>'
+        '<circle cx="18" cy="8" r="2"/>'
+        '<path d="M6 8v8m0-4h6a6 6 0 0 0 6-4"/>'
+    ),
+}
+
+
+def inline_icon(markup: str) -> str:
+    return f'<svg {SVG_ATTRS}>{markup}</svg>' if markup else ""
+
+
 def build_json_ld(site: dict, loc: dict) -> str:
     payload = {
         "@context": "https://schema.org",
@@ -81,11 +130,13 @@ def render_page(template: str, site: dict, loc: dict, lang: str) -> str:
         f"<li>{esc(item)}</li>" for item in loc["hero"]["focus"]
     )
     profile_links = "\n          ".join(
-        f'<a href="{esc(p["url"])}" target="_blank" rel="{esc(p["rel"])}">{esc(p["label"])} ↗</a>'
+        f'<a href="{esc(p["url"])}" target="_blank" rel="{esc(p["rel"])}">'
+        f'{inline_icon(PROFILE_ICONS.get(p["label"], ""))}{esc(p["label"])} ↗</a>'
         for p in site["profiles"]
     )
     closing_links = "\n          ".join(
-        f'<a class="link-arrow" href="{esc(p["url"])}" target="_blank" rel="{esc(p["rel"])}">{esc(p["label"])} ↗</a>'
+        f'<a class="link-arrow" href="{esc(p["url"])}" target="_blank" rel="{esc(p["rel"])}">'
+        f'{inline_icon(PROFILE_ICONS.get(p["label"], ""))}{esc(p["label"])} ↗</a>'
         for p in site["profiles"]
     )
 
@@ -154,6 +205,7 @@ def render_page(template: str, site: dict, loc: dict, lang: str) -> str:
         pcopy = loc["software"]["items"][proj["id"]]
         actions = "\n              ".join(
             f'<a class="link-arrow" href="{esc(a["url"])}" target="_blank" rel="noopener noreferrer">'
+            f'{inline_icon(ACTION_ICONS.get(a["key"], ""))}'
             f'{esc(loc["software"]["action_labels"][a["key"]])} ↗</a>'
             for a in proj["actions"]
         )
@@ -285,6 +337,8 @@ def render_page(template: str, site: dict, loc: dict, lang: str) -> str:
         "contact_title": esc(loc["contact"]["title"]),
         "contact_lead": esc(loc["contact"]["lead"]),
         "contact_links_aria": esc(loc["contact"]["links_aria"]),
+        "copy_email": esc(loc["contact"]["copy_email"]),
+        "copied_email": esc(loc["contact"]["copied_email"]),
         "closing_links": closing_links,
         "footer_status": esc(loc["footer"]["status"]),
     }

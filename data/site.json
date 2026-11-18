@@ -71,7 +71,6 @@
       "id": "datawashes",
       "name": "dataWASHES",
       "actions": [
-        { "key": "overview", "url": "https://gesid.github.io/dataWASHES" },
         { "key": "api", "url": "https://datawashes.pythonanywhere.com/" },
         { "key": "dashboard", "url": "https://datawashes.pythonanywhere.com/dashboard" },
         { "key": "source", "url": "https://github.com/gesid/dataWASHES" }

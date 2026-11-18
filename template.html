@@ -174,7 +174,11 @@
           <h2 class="section-title" id="contact-title">{{contact_title}}</h2>
           <p class="section-lead">{{contact_lead}}</p>
         </header>
-        <p class="closing-email"><a class="email-link" href="mailto:{{email}}">{{email}} <span class="email-link-icon" aria-hidden="true">↗</span></a></p>
+        <div class="email-row">
+          <a class="email-link" href="mailto:{{email}}">{{email}} <span class="email-link-icon" aria-hidden="true">↗</span></a>
+          <button class="btn btn--copy" type="button" data-copy-email="{{email}}" data-label-default="{{copy_email}}" data-label-copied="{{copied_email}}">{{copy_email}}</button>
+          <span class="sr-only" aria-live="polite" id="copy-status"></span>
+        </div>
         <div class="closing-links" aria-label="{{contact_links_aria}}">
           {{closing_links}}
         </div>
