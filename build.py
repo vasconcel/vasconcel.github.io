@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate static index.html and pt/index.html from template.html, data/site.json, and locales/*.json."""
+"""Generate static pages from templates, data/site.json, and locales/*.json."""
 
 from __future__ import annotations
 
@@ -65,6 +65,60 @@ def inline_icon(markup: str) -> str:
 
 
 def build_json_ld(site: dict, loc: dict) -> str:
+    person = {
+        "@type": "Person",
+        "@id": f"{site['url']}#person",
+        "name": site["name"],
+        "alternateName": site["alternate_names"],
+        "url": site["url"],
+        "email": f"mailto:{site['email']}",
+        "jobTitle": loc["jsonld_job_title"],
+        "description": loc["jsonld_description"],
+        "affiliation": {
+            "@type": "CollegeOrUniversity",
+            "name": loc["jsonld_affiliation"],
+            "url": "https://www.ufca.edu.br/",
+        },
+        "sameAs": [p["url"] for p in site["profiles"]],
+    }
+    graph = [
+        person,
+        {
+            "@type": "WebSite",
+            "@id": f"{site['url']}#website",
+            "url": site["url"],
+            "name": site["name"],
+            "author": {"@id": f"{site['url']}#person"},
+        },
+    ]
+    for pub in site["publications"]:
+        stype = pub.get("status_type")
+        if stype == "published" and pub.get("url"):
+            pub_loc = loc.get("publications", {}).get("items", {}).get(pub["id"], {})
+            graph.append(
+                {
+                    "@type": "ScholarlyArticle",
+                    "headline": pub_loc.get("title", pub["id"]),
+                    "author": {"@id": f"{site['url']}#person"},
+                    "url": pub["url"],
+                }
+            )
+        if stype == "accepted" and pub.get("url"):
+            pub_loc = loc.get("publications", {}).get("items", {}).get(pub["id"], {})
+            graph.append(
+                {
+                    "@type": "ScholarlyArticle",
+                    "headline": pub_loc.get("title", pub["id"]),
+                    "author": {"@id": f"{site['url']}#person"},
+                    "url": pub.get("url2", site["url"]),
+                    "sameAs": pub["url"],
+                }
+            )
+    payload = {"@context": "https://schema.org", "@graph": graph}
+    return json.dumps(payload, indent=2, ensure_ascii=False)
+
+
+def build_services_json_ld(site: dict, sloc: dict, page_url: str) -> str:
     payload = {
         "@context": "https://schema.org",
         "@graph": [
@@ -75,45 +129,25 @@ def build_json_ld(site: dict, loc: dict) -> str:
                 "alternateName": site["alternate_names"],
                 "url": site["url"],
                 "email": f"mailto:{site['email']}",
-                "jobTitle": loc["jsonld_job_title"],
-                "description": loc["jsonld_description"],
+                "jobTitle": sloc["jsonld_job_title"],
+                "description": sloc["jsonld_description"],
                 "affiliation": {
                     "@type": "CollegeOrUniversity",
-                    "name": loc["jsonld_affiliation"],
+                    "name": sloc["jsonld_affiliation"],
+                    "url": "https://www.ufca.edu.br/",
                 },
-                "knowsAbout": [
-                    "Empirical Software Engineering",
-                    "Qualitative Research",
-                    "Reflexive Thematic Analysis",
-                    "Multivocal Literature Review",
-                    "Evidence Synthesis",
-                    "Open Science",
-                    "Research Software",
-                    "Linux Systems Administration",
-                ],
                 "sameAs": [p["url"] for p in site["profiles"]],
             },
             {
-                "@type": "ScholarlyArticle",
-                "name": "Constructive Patterns for Human-Centered Tech Hiring",
-                "datePublished": "2026",
-                "inLanguage": "en",
-                "url": "https://doi.org/10.1145/3794860.3794899",
-                "sameAs": ["https://arxiv.org/abs/2602.13845"],
-                "isPartOf": "Proceedings of the 19th International Conference on Cooperative and Human Aspects of Software Engineering (CHASE 2026)",
-                "author": [
-                    {"@type": "Person", "name": "Allysson Allex Araújo"},
-                    {"@id": f"{site['url']}#person"},
-                    {"@type": "Person", "name": "Marvin Wyrich"},
-                    {"@type": "Person", "name": "Maria Teresa Baldassarre"},
-                    {"@type": "Person", "name": "Paloma Guenes"},
-                    {"@type": "Person", "name": "Marcos Kalinowski"},
-                ],
+                "@type": "WebPage",
+                "url": page_url,
+                "name": sloc["page_title"],
+                "isPartOf": {"@id": f"{site['url']}#website"},
+                "about": {"@id": f"{site['url']}#person"},
             },
         ],
     }
-    raw = json.dumps(payload, ensure_ascii=False, indent=2)
-    return "\n".join(f"  {line}" for line in raw.splitlines())
+    return json.dumps(payload, indent=2, ensure_ascii=False)
 
 
 def render_page(template: str, site: dict, loc: dict, lang: str) -> str:
@@ -121,6 +155,9 @@ def render_page(template: str, site: dict, loc: dict, lang: str) -> str:
     asset_prefix = "../" if is_pt else ""
     canonical_url = f"{site['url']}pt/" if is_pt else site["url"]
     lang_switch_href = "../" if is_pt else "pt/"
+    services_href = "servicos/" if is_pt else "services/"
+    alt_en = site["url"]
+    alt_pt = f"{site['url']}pt/"
 
     nav_links = "\n        ".join(
         f'<a href="{esc(item["href"])}">{esc(item["label"])}</a>'
@@ -163,20 +200,20 @@ def render_page(template: str, site: dict, loc: dict, lang: str) -> str:
     for pub in site["publications"]:
         pid = pub["id"]
         pcopy = loc["publications"]["items"][pid]
-        title_text = esc(pcopy.get("title") or pub["title"])
+        title_text = esc(pcopy.get("title") or pub.get("title", ""))
         title_inner = (
             f'<a href="{esc(pub["url"])}" target="_blank" rel="noopener noreferrer">{title_text}</a>'
-            if pub["url"]
+            if pub.get("url")
             else title_text
         )
         status_label = esc(loc["publications"]["status_labels"][pub["status_type"]])
         authors_block = (
             f'\n              <p class="pub-authors">{pub["authors_html"]}</p>'
-            if pub["authors_html"]
+            if pub.get("authors_html")
             else ""
         )
         links_block = ""
-        if pub["links"]:
+        if pub.get("links"):
             anchors = "\n                ".join(
                 f'<a class="link-arrow" href="{esc(lnk["url"])}" target="_blank" rel="noopener noreferrer">'
                 f'{esc(loc["publications"]["link_labels"][lnk["key"]])} ↗</a>'
@@ -284,6 +321,9 @@ def render_page(template: str, site: dict, loc: dict, lang: str) -> str:
         "email": esc(site["email"]),
         "og_description": esc(loc["og_description"]),
         "canonical_url": esc(canonical_url),
+        "alt_en_href": esc(alt_en),
+        "alt_pt_href": esc(alt_pt),
+        "alt_xdefault_href": esc(alt_en),
         "page_title": esc(loc["page_title"]),
         "asset_prefix": asset_prefix,
         "json_ld": build_json_ld(site, loc),
@@ -336,6 +376,11 @@ def render_page(template: str, site: dict, loc: dict, lang: str) -> str:
         "contact_kicker": esc(loc["contact"]["kicker"]),
         "contact_title": esc(loc["contact"]["title"]),
         "contact_lead": esc(loc["contact"]["lead"]),
+        "services_href": esc(services_href),
+        "contact_services_label": esc(loc["contact"]["services_label"]),
+        "contact_services_arrow": esc(loc["contact"]["services_arrow"]),
+        "contact_services_kicker": esc(loc["contact"]["services_kicker"]),
+        "contact_services_summary": esc(loc["contact"]["services_summary"]),
         "contact_links_aria": esc(loc["contact"]["links_aria"]),
         "copy_email": esc(loc["contact"]["copy_email"]),
         "copied_email": esc(loc["contact"]["copied_email"]),
@@ -352,9 +397,157 @@ def render_page(template: str, site: dict, loc: dict, lang: str) -> str:
     return output
 
 
+def render_services_page(template: str, site: dict, loc: dict, lang: str) -> str:
+    is_pt = lang == "pt"
+    sloc = loc["services"]
+    asset_prefix = "../../" if is_pt else "../"
+    canonical_url = f"{site['url']}pt/servicos/" if is_pt else f"{site['url']}services/"
+    lang_switch_href = "../../services/" if is_pt else "../pt/servicos/"
+    home_href = "../"
+    hreflang_en = f"{site['url']}services/"
+    hreflang_pt = f"{site['url']}pt/servicos/"
+
+    hero_focus_items = "\n          ".join(
+        f"<li>{esc(item)}</li>" for item in sloc["hero"]["focus"]
+    )
+
+    closing_profile_links = "\n          ".join(
+        f'<a class="link-arrow" href="{esc(p["url"])}" target="_blank" rel="{esc(p["rel"])}">'
+        f'{inline_icon(PROFILE_ICONS.get(p["label"], ""))}{esc(p["label"])} ↗</a>'
+        for p in site["profiles"]
+    )
+
+    offer_cards = []
+    for offer in site["services"]["offers"]:
+        oid = offer["id"]
+        ocopy = sloc["offers"]["items"][oid]
+        deliverables = "\n                ".join(
+            f"<li>{esc(d)}</li>" for d in ocopy["deliverables"]
+        )
+        offer_cards.append(
+            f'<article class="capability offer-card" id="offer-{esc(oid)}">\n'
+            '            <div class="capability-head">\n'
+            f'              <p class="capability-index">{esc(ocopy["index"])}</p>\n'
+            f'              <h3 class="capability-title">{esc(ocopy["title"])}</h3>\n'
+            '            </div>\n'
+            f'            <p class="offer-target"><span class="offer-sublabel">{esc(sloc["offers"]["audience_label"])}</span> {esc(ocopy["audience"])}</p>\n'
+            '            <div class="offer-deliverables">\n'
+            f'              <p class="offer-sublabel">{esc(sloc["offers"]["deliverables_label"])}</p>\n'
+            '              <ul class="capability-items">\n'
+            f'                {deliverables}\n'
+            '              </ul>\n'
+            '            </div>\n'
+            '            <div class="offer-meta">\n'
+            f'              <p class="offer-timeline"><span>{esc(sloc["offers"]["timing_label"])}</span> {esc(ocopy["timing"])}</p>\n'
+            f'              <p class="capability-evidence"><span>{esc(sloc["offers"]["proof_label"])}</span>'
+            f'<a class="link-arrow" href="{esc(offer["proof_url"])}" target="_blank" rel="noopener noreferrer">{esc(ocopy["proof"])} ↗</a></p>\n'
+            '            </div>\n'
+            '          </article>'
+        )
+
+    boundary_rows = []
+    for fact in sloc["boundaries"]["facts"]:
+        boundary_rows.append(
+            '<div class="fact">\n'
+            f'            <h3 class="fact-label">{esc(fact["label"])}</h3>\n'
+            f'            <p class="fact-value">{esc(fact["text"])}</p>\n'
+            '          </div>'
+        )
+
+    process_steps = []
+    for step in sloc["process"]["steps"]:
+        clean_title = re.sub(r"^\d+\s*[·\-–.]\s*", "", step["title"])
+        process_steps.append(
+            '<li>\n'
+            f'            <h3 class="index-title">{esc(clean_title)}</h3>\n'
+            f'            <p class="index-text">{esc(step["text"])}</p>\n'
+            '          </li>'
+        )
+
+    replacements = {
+        "html_lang": esc(loc["html_lang"]),
+        "meta_description": esc(sloc["meta_description"]),
+        "og_locale": esc(loc["og_locale"]),
+        "og_title": esc(sloc["og_title"]),
+        "og_description": esc(sloc["og_description"]),
+        "canonical_url": esc(canonical_url),
+        "og_image_url": esc(f"{site['url']}assets/og-image.png"),
+        "site_name": esc(site["name"]),
+        "hreflang_en": esc(hreflang_en),
+        "hreflang_pt": esc(hreflang_pt),
+        "asset_prefix": asset_prefix,
+        "page_title": esc(sloc["page_title"]),
+        "json_ld": build_services_json_ld(site, sloc, canonical_url),
+        "skip_link": esc(sloc["skip_link"]),
+        "nav_aria_label": esc(sloc["nav"]["aria_label"]),
+        "home_href": esc(home_href),
+        "brand_aria_label": esc(sloc["nav"]["brand_aria"]),
+        "handle": esc(site["handle"]),
+        "nav_home": esc(sloc["nav"]["home"]),
+        "nav_offers": esc(sloc["nav"]["offers"]),
+        "nav_boundaries": esc(sloc["nav"]["boundaries"]),
+        "nav_process": esc(sloc["nav"]["process"]),
+        "nav_contact": esc(sloc["nav"]["contact"]),
+        "lang_switch_href": esc(lang_switch_href),
+        "lang_switch_hreflang": esc(sloc["nav"]["lang_hreflang"]),
+        "lang_switch_lang": esc(sloc["nav"]["lang_lang"]),
+        "lang_switch_aria": esc(sloc["nav"]["lang_aria"]),
+        "lang_switch_title": esc(sloc["nav"]["lang_title"]),
+        "lang_switch_label": esc(sloc["nav"]["lang_label"]),
+        "theme_toggle_aria": esc(sloc["nav"]["theme_aria"]),
+        "hero_kicker": esc(sloc["hero"]["kicker"]),
+        "hero_title": esc(sloc["hero"]["title"]),
+        "hero_statement": esc(sloc["hero"]["statement"]),
+        "hero_focus_aria": esc(sloc["hero"]["focus_aria"]),
+        "hero_focus_items": hero_focus_items,
+        "hero_cta_primary": esc(sloc["hero"]["cta_primary"]),
+        "hero_cta_secondary": esc(sloc["hero"]["cta_secondary"]),
+        "brief_aria_label": esc(sloc["brief"]["aria_label"]),
+        "brief_kicker": esc(sloc["brief"]["kicker"]),
+        "brief_format_label": esc(sloc["brief"]["format_label"]),
+        "brief_format_value": esc(sloc["brief"]["format_value"]),
+        "brief_timeline_label": esc(sloc["brief"]["timeline_label"]),
+        "brief_timeline_value": esc(sloc["brief"]["timeline_value"]),
+        "brief_languages_label": esc(sloc["brief"]["languages_label"]),
+        "brief_languages_value": esc(sloc["brief"]["languages_value"]),
+        "brief_link_publications": esc(sloc["brief"]["link_publications"]),
+        "brief_link_software": esc(sloc["brief"]["link_software"]),
+        "offers_kicker": esc(sloc["offers"]["kicker"]),
+        "offers_title": esc(sloc["offers"]["title"]),
+        "offers_lead": esc(sloc["offers"]["lead"]),
+        "offer_cards": "\n          ".join(offer_cards),
+        "boundaries_kicker": esc(sloc["boundaries"]["kicker"]),
+        "boundaries_title": esc(sloc["boundaries"]["title"]),
+        "boundaries_lead": esc(sloc["boundaries"]["lead"]),
+        "boundary_rows": "\n          ".join(boundary_rows),
+        "process_kicker": esc(sloc["process"]["kicker"]),
+        "process_title": esc(sloc["process"]["title"]),
+        "process_lead": esc(sloc["process"]["lead"]),
+        "process_steps": "\n          ".join(process_steps),
+        "contact_kicker": esc(sloc["contact"]["kicker"]),
+        "contact_title": esc(sloc["contact"]["title"]),
+        "contact_lead": esc(sloc["contact"]["lead"]),
+        "email": esc(site["email"]),
+        "copy_default": esc(sloc["contact"]["copy_default"]),
+        "copy_copied": esc(sloc["contact"]["copy_copied"]),
+        "external_profiles_aria": esc(sloc["contact"]["external_profiles_aria"]),
+        "closing_profile_links": closing_profile_links,
+        "footer_status": esc(sloc["footer"]["status"]),
+    }
+
+    output = re.sub(
+        r"\{\{([a-z0-9_]+)\}\}",
+        lambda match: replacements[match.group(1)],
+        template,
+    )
+    assert "{{" not in output and "}}" not in output
+    return output
+
+
 def main() -> None:
     site = json.loads((ROOT / "data/site.json").read_text(encoding="utf-8"))
     template = (ROOT / "template.html").read_text(encoding="utf-8")
+    services_template = (ROOT / "services.template.html").read_text(encoding="utf-8")
 
     targets = [
         ("en", ROOT / "index.html"),
@@ -364,6 +557,18 @@ def main() -> None:
         loc = json.loads((ROOT / f"locales/{lang}.json").read_text(encoding="utf-8"))
         out_path.parent.mkdir(parents=True, exist_ok=True)
         out_path.write_text(render_page(template, site, loc, lang), encoding="utf-8")
+        print(f"Generated {out_path.relative_to(ROOT)}")
+
+    service_targets = [
+        ("en", ROOT / "services/index.html"),
+        ("pt", ROOT / "pt/servicos/index.html"),
+    ]
+    for lang, out_path in service_targets:
+        loc = json.loads((ROOT / f"locales/{lang}.json").read_text(encoding="utf-8"))
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_text(
+            render_services_page(services_template, site, loc, lang), encoding="utf-8"
+        )
         print(f"Generated {out_path.relative_to(ROOT)}")
 
 

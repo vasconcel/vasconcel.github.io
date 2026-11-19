@@ -19,9 +19,9 @@
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="canonical" href="{{canonical_url}}">
-  <link rel="alternate" hreflang="en" href="https://vasconcel.github.io/">
-  <link rel="alternate" hreflang="pt-BR" href="https://vasconcel.github.io/pt/">
-  <link rel="alternate" hreflang="x-default" href="https://vasconcel.github.io/">
+  <link rel="alternate" hreflang="en" href="{{alt_en_href}}">
+  <link rel="alternate" hreflang="pt-BR" href="{{alt_pt_href}}">
+  <link rel="alternate" hreflang="x-default" href="{{alt_xdefault_href}}">
   <link rel="icon" href="{{asset_prefix}}assets/favicon.svg" type="image/svg+xml">
 
   <script>
@@ -174,6 +174,13 @@
           <h2 class="section-title" id="contact-title">{{contact_title}}</h2>
           <p class="section-lead">{{contact_lead}}</p>
         </header>
+        <div class="services-cta">
+          <div class="services-cta-copy">
+            <p class="services-cta-kicker">{{contact_services_kicker}}</p>
+            <p class="services-cta-text">{{contact_services_summary}}</p>
+          </div>
+          <a class="btn" href="{{services_href}}">{{contact_services_label}} <span aria-hidden="true">{{contact_services_arrow}}</span></a>
+        </div>
         <div class="email-row">
           <a class="email-link" href="mailto:{{email}}">{{email}} <span class="email-link-icon" aria-hidden="true">↗</span></a>
           <button class="btn btn--copy" type="button" data-copy-email="{{email}}" data-label-default="{{copy_email}}" data-label-copied="{{copied_email}}">{{copy_email}}</button>

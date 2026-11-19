@@ -228,7 +228,7 @@
   if (!reduceMotion && "IntersectionObserver" in window) {
     revealTargets = Array.prototype.slice.call(
       document.querySelectorAll(
-        ".section-head, .research-index li, .publication, .project, .capability, .tools-line, .facts, .section--contact .email-row, .section--contact .closing-links"
+        ".section-head, .research-index li, .publication, .project, .capability, .tools-line, .facts, .services-cta, .section--contact .email-row, .section--contact .closing-links"
       )
     );
   }

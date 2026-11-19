@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#09090b">
+  <meta name="description" content="Engenharia de dados, empacotamento de dados bibliográficos e micro-APIs em Flask para grupos de pesquisa e pequenas equipes, sob escopo fechado.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Engenharia de dados e infraestrutura de pesquisa sob escopo">
+  <meta property="og:description" content="Python · pytest · GitHub Actions · Flask · Zenodo">
+  <meta property="og:url" content="https://vasconcel.github.io/pt/servicos/">
+  <meta property="og:image" content="https://vasconcel.github.io/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Gabriel V. Silva">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="canonical" href="https://vasconcel.github.io/pt/servicos/">
+  <link rel="alternate" hreflang="en" href="https://vasconcel.github.io/services/">
+  <link rel="alternate" hreflang="pt-BR" href="https://vasconcel.github.io/pt/servicos/">
+  <link rel="alternate" hreflang="x-default" href="https://vasconcel.github.io/services/">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+
+  <script>
+    try {
+      if (localStorage.getItem("theme") === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+        document.querySelector('meta[name="theme-color"]').content = "#fafafa";
+      }
+    } catch (e) {}
+  </script>
+
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <title>Engenharia de dados sob escopo | Gabriel V. Silva</title>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://vasconcel.github.io/#person",
+      "name": "Gabriel V. Silva",
+      "alternateName": [
+        "Gabriel Vasconcelos",
+        "G. Vasconcelos",
+        "Gabriel Vasconcelos Andrade da Silva"
+      ],
+      "url": "https://vasconcel.github.io/",
+      "email": "mailto:gabriel.vasconcel@outlook.com",
+      "jobTitle": "Bolsista de Iniciação Científica (PIBIC/CNPq)",
+      "description": "Graduando e pesquisador PIBIC/CNPq na UFCA com atuação em Engenharia de Software Empírica, métodos qualitativos, síntese de evidências e software de apoio à pesquisa.",
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": "Universidade Federal do Cariri (UFCA)",
+        "url": "https://www.ufca.edu.br/"
+      },
+      "sameAs": [
+        "https://github.com/vasconcel",
+        "https://www.linkedin.com/in/vasconcel/",
+        "https://orcid.org/0009-0005-1736-354X",
+        "http://lattes.cnpq.br/7193014410256740",
+        "https://mastodon.com.br/@vasconcel"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "url": "https://vasconcel.github.io/pt/servicos/",
+      "name": "Engenharia de dados sob escopo | Gabriel V. Silva",
+      "isPartOf": {
+        "@id": "https://vasconcel.github.io/#website"
+      },
+      "about": {
+        "@id": "https://vasconcel.github.io/#person"
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body class="page-services">
+  <a class="skip-link" href="#main">Ir para o conteúdo</a>
+
+  <nav class="global-nav" aria-label="Navegação de serviços">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="../" aria-label="Gabriel V. Silva, voltar ao perfil acadêmico">
+        <span class="nav-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M9 6H5v20h4"/><path d="M23 6h4v20h-4"/><path d="M11.5 14 16 23l4.5-9"/><circle cx="16" cy="8.5" r="2.4" fill="currentColor" stroke="none"/></svg>
+        </span>
+        <span class="nav-name">vasconcel</span>
+      </a>
+
+      <div class="nav-links">
+        <a class="nav-back" href="../"><span aria-hidden="true">←</span> Perfil acadêmico</a>
+        <a href="#offers">Ofertas</a>
+        <a href="#boundaries">Escopo</a>
+        <a href="#process">Processo</a>
+        <a href="#contact">Contato</a>
+      </div>
+
+      <div class="nav-tools">
+        <a class="lang-link" href="../../services/" hreflang="en" lang="en" aria-label="Read in English" title="English">EN</a>
+        <button class="theme-toggle" type="button" aria-label="Alternar tema de cores" aria-pressed="false"><span aria-hidden="true">◐</span></button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero hero--services" id="top">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="kicker">Serviços Técnicos · Brasil e Exterior</p>
+        <h1 class="hero-title">Engenharia de dados e infraestrutura de pesquisa sob escopo fechado</h1>
+        <p class="hero-statement">Trabalho entregue sob escopo fechado, com o stack comprovado em produção e pesquisa: Python, pytest, GitHub Actions, Flask e Zenodo. Sem contratação aberta por hora.</p>
+        <ul class="hero-focus" aria-label="Stack técnico">
+          <li>Python, pytest e automação</li>
+          <li>GitHub Actions e pipelines reprodutíveis</li>
+          <li>APIs e painéis em Flask e empacotamento no Zenodo</li>
+        </ul>
+        <div class="hero-actions">
+          <a class="btn btn--primary" href="#contact">Discutir um escopo <span aria-hidden="true">↘</span></a>
+          <a class="btn btn--secondary" href="../#project">Projeto dataWASHES <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <aside class="hero-aside service-brief" aria-label="Resumo do serviço">
+        <p class="service-brief-kicker">Em resumo</p>
+        <dl class="service-brief-list">
+          <div class="service-brief-item">
+            <dt>Formato</dt>
+            <dd>Escopo fechado, entregáveis por escrito e repasse documentado.</dd>
+          </div>
+          <div class="service-brief-item">
+            <dt>Prazo</dt>
+            <dd>5 dias úteis a 4 semanas, conforme a oferta.</dd>
+          </div>
+          <div class="service-brief-item">
+            <dt>Idiomas</dt>
+            <dd>Português e inglês.</dd>
+          </div>
+        </dl>
+        <div class="service-brief-links">
+          <a class="link-arrow" href="../#publications">Publicações ↗</a>
+          <a class="link-arrow" href="../#project">Software de pesquisa ↗</a>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section" id="offers" aria-labelledby="offers-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-kicker">[01] Ofertas</p>
+          <h2 class="section-title" id="offers-title">Serviços produtizados</h2>
+          <p class="section-lead">Três frentes definidas, cada uma com entregáveis por escrito, exclusões explícitas e repasse documentado.</p>
+        </header>
+        <div class="capability-list offer-grid">
+          <article class="capability offer-card" id="offer-pipelines">
+            <div class="capability-head">
+              <p class="capability-index">01 / Oferta</p>
+              <h3 class="capability-title">Pipelines de Coleta, Limpeza e Automação de Dados em Python</h3>
+            </div>
+            <p class="offer-target"><span class="offer-sublabel">Para quem</span> Pequenas equipes, consultorias, projetos e pesquisadores com trabalho manual repetitivo em fontes web, APIs públicas, PDFs, planilhas e JSON.</p>
+            <div class="offer-deliverables">
+              <p class="offer-sublabel">Entregáveis</p>
+              <ul class="capability-items">
+                <li>Script ou pipeline modular em Python</li>
+                <li>Validação de dados e suíte de testes em pytest</li>
+                <li>Dataset final limpo (CSV, Excel ou JSON)</li>
+                <li>Documentação em README</li>
+                <li>Agendamento opcional via GitHub Actions</li>
+              </ul>
+            </div>
+            <div class="offer-meta">
+              <p class="offer-timeline"><span>Prazo típico</span> 5 a 12 dias úteis</p>
+              <p class="capability-evidence"><span>Prova</span><a class="link-arrow" href="https://github.com/gesid/dataWASHES" target="_blank" rel="noopener noreferrer">dataWASHES · adaptação do CitationMiner ↗</a></p>
+            </div>
+          </article>
+          <article class="capability offer-card" id="offer-bibliographic">
+            <div class="capability-head">
+              <p class="capability-index">02 / Oferta</p>
+              <h3 class="capability-title">Engenharia de Dados Bibliográficos e Pacotes Open Science</h3>
+            </div>
+            <p class="offer-target"><span class="offer-sublabel">Para quem</span> Pesquisadores, pós-graduandos e grupos de pesquisa conduzindo Revisões Sistemáticas ou Multivocais da Literatura (SLR/MLR), ou preparando submissões com exigência de reprodutibilidade.</p>
+            <div class="offer-deliverables">
+              <p class="offer-sublabel">Entregáveis</p>
+              <ul class="capability-items">
+                <li>Scripts auditáveis de coleta e deduplicação multi-base (.bib, .ris, .csv, OpenAlex, Crossref)</li>
+                <li>Contagem rastreável para fluxo PRISMA e exportações prontas para triagem (Rayyan ou planilha)</li>
+                <li>Organização e higienização de datasets e codebooks, com documentação</li>
+                <li>Empacotamento pronto para Zenodo, incluindo CITATION.cff</li>
+              </ul>
+            </div>
+            <div class="offer-meta">
+              <p class="offer-timeline"><span>Prazo típico</span> 5 a 10 dias úteis</p>
+              <p class="capability-evidence"><span>Prova</span><a class="link-arrow" href="https://doi.org/10.5281/zenodo.17552394" target="_blank" rel="noopener noreferrer">CHASE 2026 · EMSE (aceito) · MLR em andamento ↗</a></p>
+            </div>
+          </article>
+          <article class="capability offer-card" id="offer-flask">
+            <div class="capability-head">
+              <p class="capability-index">03 / Oferta</p>
+              <h3 class="capability-title">Micro-APIs de Dados em Flask e Painéis Web Leves</h3>
+            </div>
+            <p class="offer-target"><span class="offer-sublabel">Para quem</span> Grupos de pesquisa e pequenos projetos que precisam transformar conjuntos de dados estáticos ou pipelines em uma API REST consultável e um painel web enxuto.</p>
+            <div class="offer-deliverables">
+              <p class="offer-sublabel">Entregáveis</p>
+              <ul class="capability-items">
+                <li>Aplicação Python/Flask com rotas documentadas</li>
+                <li>Painel HTML/CSS/JS leve</li>
+                <li>Suíte de testes em pytest</li>
+                <li>Deploy e atualização automatizados via GitHub Actions (PythonAnywhere ou Docker no ambiente do cliente)</li>
+              </ul>
+            </div>
+            <div class="offer-meta">
+              <p class="offer-timeline"><span>Prazo típico</span> 2 a 4 semanas</p>
+              <p class="capability-evidence"><span>Prova</span><a class="link-arrow" href="https://datawashes.pythonanywhere.com/" target="_blank" rel="noopener noreferrer">dataWASHES · API pública, dashboard e CI/CD ↗</a></p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="boundaries" aria-labelledby="boundaries-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-kicker">[02] Escopo, Limites e Ética</p>
+          <h2 class="section-title" id="boundaries-title">Escopo, limites e ética</h2>
+          <p class="section-lead">Clareza comercial e integridade científica antes do início de qualquer trabalho.</p>
+        </header>
+        <div class="facts facts--wide">
+          <div class="fact">
+            <h3 class="fact-label">Modelo de contratação</h3>
+            <p class="fact-value">Escopo fechado definido por escrito antes do início, orçamento sob demanda (sem cobrança aberta por hora), entregas por marcos e código e documentação entregues ao cliente.</p>
+          </div>
+          <div class="fact">
+            <h3 class="fact-label">Sem ghostwriting acadêmico</h3>
+            <p class="fact-value">Não escrevo artigos, TCCs, dissertações ou teses, nem realizo análise qualitativa ou temática interpretativa no lugar do pesquisador.</p>
+          </div>
+          <div class="fact">
+            <h3 class="fact-label">Coleta responsável</h3>
+            <p class="fact-value">Sem bypass de proteções anti-bot agressivas ou CAPTCHAs, e sem coleta de dados privados sem autorização.</p>
+          </div>
+          <div class="fact">
+            <h3 class="fact-label">Infraestrutura e suporte</h3>
+            <p class="fact-value">Sem custódia de infraestrutura em contas pessoais e sem SLA de sustentação 24/7 após a entrega. A hospedagem fica em conta do cliente; manutenção posterior é combinada à parte.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process" aria-labelledby="process-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-kicker">[03] Processo</p>
+          <h2 class="section-title" id="process-title">Como o trabalho começa</h2>
+          <p class="section-lead">Três passos curtos, do resumo técnico à entrega documentada.</p>
+        </header>
+        <ol class="research-index">
+          <li>
+            <h3 class="index-title">Envio de resumo técnico</h3>
+            <p class="index-text">Envie por e-mail a fonte e o formato dos dados, o objetivo e eventuais restrições.</p>
+          </li>
+          <li>
+            <h3 class="index-title">Proposta escrita</h3>
+            <p class="index-text">Entregáveis, exclusões, prazo e valor fechado são enviados por escrito.</p>
+          </li>
+          <li>
+            <h3 class="index-title">Execução e entrega</h3>
+            <p class="index-text">Implementação, testes e entrega documentada.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section--contact" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-kicker">[04] Contato</p>
+          <h2 class="section-title" id="contact-title">Envie um resumo técnico</h2>
+          <p class="section-lead">Use o endereço abaixo para consultas com escopo definido. Os perfis externos são listados para verificação de trabalhos públicos.</p>
+        </header>
+        <div class="email-row">
+          <a class="email-link" href="mailto:gabriel.vasconcel@outlook.com">gabriel.vasconcel@outlook.com <span class="email-link-icon" aria-hidden="true">↗</span></a>
+          <button class="btn btn--copy" type="button" data-copy-email="gabriel.vasconcel@outlook.com" data-label-default="Copiar" data-label-copied="Copiado">Copiar</button>
+          <span class="sr-only" aria-live="polite" id="copy-status"></span>
+        </div>
+        <div class="closing-links" aria-label="Perfis externos">
+          <a class="link-arrow" href="https://github.com/vasconcel" target="_blank" rel="me noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.1-1.2-.3-2.5-1-3.5.3-1.2.3-2.4 0-3.5 0 0-1 0-3 1.5a12 12 0 0 0-8 0C5 2.5 4 2.5 4 2.5c-.3 1.1-.3 2.3 0 3.5A5.4 5.4 0 0 0 3 9.5c0 3.5 3 5.5 6 5.5a4.8 4.8 0 0 0-1 3.5v4"/><path d="M9 18c-4.5 2-5-2-7-2"/></svg>GitHub ↗</a>
+          <a class="link-arrow" href="https://www.linkedin.com/in/vasconcel/" target="_blank" rel="me noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn ↗</a>
+          <a class="link-arrow" href="https://orcid.org/0009-0005-1736-354X" target="_blank" rel="me noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M9 16V8m3 0v8m0-4h4m0-4v8"/></svg>ORCID ↗</a>
+          <a class="link-arrow" href="http://lattes.cnpq.br/7193014410256740" target="_blank" rel="noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20h16"/><path d="M7 20V10m5 10V5m5 15v-7"/></svg>Lattes ↗</a>
+          <a class="link-arrow" href="https://mastodon.com.br/@vasconcel" target="_blank" rel="me noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10.5c0 4-2.6 6.5-6.5 6.5S7 14.5 7 10.5V8a4.5 4.5 0 0 1 9 0v2.5"/><path d="M7 10.5H4m16 0h-3M9.5 20l1-3m4 3-1-3"/></svg>Mastodon ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year">2026</span> Gabriel V. Silva</p>
+      <p class="footer-status"><span aria-hidden="true"></span> Pesquisador PIBIC/CNPq · UFCA</p>
+    </div>
+  </footer>
+
+  <script src="../../scripts/main.js"></script>
+</body>
+</html>

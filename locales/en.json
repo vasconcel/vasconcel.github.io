@@ -52,8 +52,8 @@
         "link_label": "DOI"
       },
       "emse": {
-        "title": "EMSE (Minor revision)",
-        "text": "First-author manuscript in second-round review, with open study artifacts on Zenodo.",
+        "title": "EMSE (Accepted)",
+        "text": "First-author article accepted for publication, with open study artifacts on Zenodo.",
         "link_label": "Zenodo"
       },
       "datawashes": {
@@ -85,10 +85,10 @@
   "publications": {
     "kicker": "[02] Publications",
     "title": "Publications and manuscripts",
-    "lead": "Peer-reviewed publications, manuscripts under revision, and ongoing secondary studies.",
+    "lead": "Peer-reviewed publications, accepted manuscripts, and ongoing secondary studies.",
     "status_labels": {
       "published": "Published",
-      "revision": "Minor revision",
+      "accepted": "Accepted",
       "progress": "In progress"
     },
     "link_labels": {
@@ -104,7 +104,7 @@
         "abstract": "Qualitative interview study with 22 early-career software engineers examining over 470 online hiring experiences through Applicant Attribution-Reaction Theory (AART), synthesizing 22 constructive patterns for human-centered recruitment practices."
       },
       "emse2026": {
-        "venue": "Under second-round review at Empirical Software Engineering (EMSE-D-25-00839R1).",
+        "venue": "Accepted for publication in Empirical Software Engineering.",
         "abstract": "Qualitative investigation of negative online hiring experiences reported by 22 early-career Brazilian software engineers, identifying 25 anti-patterns across 10 analytical themes through Reflexive Thematic Analysis and AART, accompanied by an open codebook and interactive web panel."
       },
       "mlr2026": {
@@ -155,15 +155,16 @@
           "Semi-structured interviews and verbatim verification",
           "Multivocal Literature Reviews (MLR)"
         ],
-        "evidence": "CHASE 2026 · EMSE submission · Ongoing MLR"
+        "evidence": "CHASE 2026 · EMSE accepted · Ongoing MLR"
       },
       {
         "index": "02 / Operations",
         "title": "Research workflows",
         "items": [
           "Qualitative codebook structuring and traceability",
-          "Automated data ingestion and CI/CD pipelines",
-          "Open Science artifact packaging on Zenodo",
+          "Bibliographic data structuring and Open Science packaging",
+          "Automated data collection and cleaning with Python",
+          "CI/CD with GitHub Actions",
           "Academic writing and typesetting in LaTeX"
         ],
         "evidence": "dataWASHES · Zenodo datasets · MLR audit"
@@ -172,7 +173,7 @@
         "index": "03 / Systems",
         "title": "Software and Linux",
         "items": [
-          "Python (Flask, pytest, scripting) and Node.js",
+          "Python (Flask, pytest, data collection and automation) and Node.js",
           "Linux administration, SSH, and firewalls",
           "Docker and Docker Compose service stacks",
           "Self-hosted Git and Tailscale networking"
@@ -181,7 +182,7 @@
       }
     ],
     "tools": [
-      { "label": "Primary stack", "value": "Python · Linux · Docker · Git · LaTeX" },
+      { "label": "Primary stack", "value": "Python · Flask · pytest · Linux · Docker · Git · LaTeX" },
       { "label": "Working knowledge", "value": "JavaScript / Node.js · HTML / CSS · GitHub Actions · AWS · Tailscale" }
     ]
   },
@@ -192,7 +193,7 @@
     "facts": [
       {
         "label": "Education",
-        "value_html": "Technologist Degree in Systems Analysis and Development (ADS), Federal University of Cariri (UFCA)."
+        "value_html": "Technologist Degree in Systems Analysis and Development (ADS), Federal University of Cariri (UFCA). <span class=\"fact-note\">Expected completion: 1st semester 2027.</span>"
       },
       {
         "label": "Research groups",
@@ -215,12 +216,149 @@
   "contact": {
     "kicker": "[06] Contact",
     "title": "Get in touch",
-    "lead": "Open to research collaborations, graduate program inquiries, and technical assistance on literature reviews, research workflows, and data documentation.",
+    "lead": "Open to research collaborations, graduate program inquiries, and scoped technical engagements in data engineering, Python automation, and research infrastructure, defined under a closed scope.",
+    "services_label": "Services & scope",
+    "services_arrow": "→",
+    "services_kicker": "Scoped work",
+    "services_summary": "Python data pipelines, bibliographic/Open Science packaging, and lightweight Flask APIs.",
     "links_aria": "External profiles",
     "copy_email": "Copy",
     "copied_email": "Copied"
   },
   "footer": {
     "status": "PIBIC/CNPq Researcher · UFCA"
+  },
+  "services": {
+    "page_title": "Scoped Data Engineering | Gabriel V. Silva",
+    "meta_description": "Scoped data engineering, bibliographic data packaging, and lightweight Flask data services for research groups and small teams.",
+    "og_title": "Scoped Data Engineering and Research Infrastructure",
+    "og_description": "Python · pytest · GitHub Actions · Flask · Zenodo",
+    "jsonld_job_title": "PIBIC/CNPq Undergraduate Researcher",
+    "jsonld_description": "PIBIC/CNPq undergraduate researcher at UFCA studying empirical software engineering, qualitative methods, evidence synthesis, and open research software.",
+    "jsonld_affiliation": "Federal University of Cariri (UFCA)",
+    "skip_link": "Skip to content",
+    "nav": {
+      "aria_label": "Services navigation",
+      "brand_aria": "Gabriel V. Silva, back to research profile",
+      "home": "Research profile",
+      "offers": "Offers",
+      "boundaries": "Scope",
+      "process": "Process",
+      "contact": "Contact",
+      "lang_hreflang": "pt-BR",
+      "lang_lang": "pt-BR",
+      "lang_aria": "Ler em português",
+      "lang_title": "Português",
+      "lang_label": "PT",
+      "theme_aria": "Switch color theme"
+    },
+    "hero": {
+      "kicker": "Technical Services · Brazil & International",
+      "title": "Scoped data engineering and research infrastructure",
+      "statement": "Work delivered under a closed scope, using the stack proven in production and research: Python, pytest, GitHub Actions, Flask, and Zenodo. No open-ended hourly arrangements.",
+      "focus_aria": "Technical stack",
+      "focus": [
+        "Python, pytest, and automation",
+        "GitHub Actions and reproducible pipelines",
+        "Flask APIs, dashboards, and Zenodo packaging"
+      ],
+      "cta_primary": "Discuss a scope",
+      "cta_secondary": "dataWASHES project"
+    },
+    "brief": {
+      "aria_label": "Engagement brief",
+      "kicker": "At a glance",
+      "format_label": "Format",
+      "format_value": "Closed scope, written deliverables, and documented handover.",
+      "timeline_label": "Timeline",
+      "timeline_value": "5 business days to 4 weeks, depending on the offer.",
+      "languages_label": "Languages",
+      "languages_value": "English and Portuguese.",
+      "link_publications": "Publications",
+      "link_software": "Research software"
+    },
+    "offers": {
+      "kicker": "Offers",
+      "title": "Productized technical work",
+      "lead": "Three defined engagements, each with written deliverables, explicit exclusions, and a documented handover.",
+      "audience_label": "For",
+      "deliverables_label": "Deliverables",
+      "timing_label": "Typical timeline",
+      "proof_label": "Proof",
+      "items": {
+        "pipelines": {
+          "index": "01 / Offer",
+          "title": "Python Data Collection, Cleaning & Automation Pipelines",
+          "audience": "Small teams, consultancies, projects, and researchers handling repetitive manual work across web sources, public APIs, PDFs, spreadsheets, and JSON.",
+          "deliverables": [
+            "Modular Python script or pipeline",
+            "Data validation and pytest test suite",
+            "Clean final dataset (CSV, Excel, or JSON)",
+            "README documentation",
+            "Optional scheduling with GitHub Actions"
+          ],
+          "timing": "5–12 business days",
+          "proof": "dataWASHES · CitationMiner adaptation"
+        },
+        "bibliographic": {
+          "index": "02 / Offer",
+          "title": "Bibliographic Data Engineering & Open Science Packaging",
+          "audience": "Researchers, graduate students, and research groups conducting systematic or multivocal literature reviews (SLR/MLR), or preparing submissions that require reproducibility.",
+          "deliverables": [
+            "Auditable collection and deduplication scripts for multiple bases (.bib, .ris, .csv, OpenAlex, Crossref)",
+            "Traceable counts for the PRISMA flow and screening-ready exports (Rayyan or spreadsheet)",
+            "Dataset and codebook cleaning, with documentation",
+            "Zenodo-ready packaging, including CITATION.cff"
+          ],
+          "timing": "5–10 business days",
+          "proof": "CHASE 2026 · EMSE accepted · ongoing MLR"
+        },
+        "flask": {
+          "index": "03 / Offer",
+          "title": "Lightweight Flask Data APIs & Web Dashboards",
+          "audience": "Research groups and small projects that need to turn static datasets or pipelines into a queryable REST API and a compact web panel.",
+          "deliverables": [
+            "Python/Flask application with documented routes",
+            "Lightweight HTML/CSS/JS dashboard",
+            "pytest test suite",
+            "Automated deployment and updates with GitHub Actions (PythonAnywhere or Docker in the client environment)"
+          ],
+          "timing": "2–4 weeks",
+          "proof": "dataWASHES · public API, dashboard and CI/CD"
+        }
+      }
+    },
+    "boundaries": {
+      "kicker": "Scope & Boundaries",
+      "title": "Scope, boundaries and ethics",
+      "lead": "Clear commercial terms and scientific integrity before any work begins.",
+      "facts": [
+        { "label": "Engagement model", "text": "Closed scope defined in writing before work starts, budget quoted on demand (no open-ended hourly billing), delivery by milestones, and code and documentation handed to the client." },
+        { "label": "No academic ghostwriting", "text": "I do not write papers, undergraduate theses, master's theses, or doctoral dissertations, and I do not perform interpretative qualitative or thematic analysis in place of the researcher." },
+        { "label": "Responsible collection", "text": "No bypassing aggressive anti-bot protections or CAPTCHAs, and no collection of private data without authorization." },
+        { "label": "Infrastructure and support", "text": "No custody of infrastructure in personal accounts and no 24/7 support SLA after handover. Hosting stays in the client's account; later maintenance is agreed separately." }
+      ]
+    },
+    "process": {
+      "kicker": "Process",
+      "title": "How work starts",
+      "lead": "Three short steps, from a technical summary to a documented handover.",
+      "steps": [
+        { "title": "01 · Send a technical summary", "text": "Email the data source and format, the intended outcome, and any constraints." },
+        { "title": "02 · Written proposal", "text": "Deliverables, exclusions, timeline, and a fixed price are sent in writing." },
+        { "title": "03 · Execution and handover", "text": "Implementation, tests, and documented delivery." }
+      ]
+    },
+    "contact": {
+      "kicker": "Contact",
+      "title": "Send a technical summary",
+      "lead": "Use the address below for scoped enquiries. External profiles are listed for verification of public work.",
+      "external_profiles_aria": "External profiles",
+      "copy_default": "Copy",
+      "copy_copied": "Copied"
+    },
+    "footer": {
+      "status": "PIBIC/CNPq Researcher · UFCA"
+    }
   }
 }

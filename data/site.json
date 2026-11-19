@@ -47,7 +47,7 @@
     },
     {
       "id": "emse2026",
-      "status_type": "revision",
+      "status_type": "accepted",
       "year": "2026",
       "title": "Anti-patterns in Online Recruitment and Selection Experienced by Early-Career Software Engineers",
       "url": "https://gesid.github.io/papers/swe-aps-hiring",
@@ -83,6 +83,13 @@
       ]
     }
   ],
+  "services": {
+    "offers": [
+      { "id": "pipelines", "proof_url": "https://github.com/gesid/dataWASHES" },
+      { "id": "bibliographic", "proof_url": "https://doi.org/10.5281/zenodo.17552394" },
+      { "id": "flask", "proof_url": "https://datawashes.pythonanywhere.com/" }
+    ]
+  },
   "links": {
     "gesid": "https://gesid.github.io/",
     "padim": "http://dgp.cnpq.br/dgp/espelhogrupo/790337",

@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#09090b">
+  <meta name="description" content="Scoped data engineering, bibliographic data packaging, and lightweight Flask data services for research groups and small teams.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Scoped Data Engineering and Research Infrastructure">
+  <meta property="og:description" content="Python · pytest · GitHub Actions · Flask · Zenodo">
+  <meta property="og:url" content="https://vasconcel.github.io/services/">
+  <meta property="og:image" content="https://vasconcel.github.io/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Gabriel V. Silva">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="canonical" href="https://vasconcel.github.io/services/">
+  <link rel="alternate" hreflang="en" href="https://vasconcel.github.io/services/">
+  <link rel="alternate" hreflang="pt-BR" href="https://vasconcel.github.io/pt/servicos/">
+  <link rel="alternate" hreflang="x-default" href="https://vasconcel.github.io/services/">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+
+  <script>
+    try {
+      if (localStorage.getItem("theme") === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+        document.querySelector('meta[name="theme-color"]').content = "#fafafa";
+      }
+    } catch (e) {}
+  </script>
+
+  <link rel="stylesheet" href="../assets/styles.css">
+  <title>Scoped Data Engineering | Gabriel V. Silva</title>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://vasconcel.github.io/#person",
+      "name": "Gabriel V. Silva",
+      "alternateName": [
+        "Gabriel Vasconcelos",
+        "G. Vasconcelos",
+        "Gabriel Vasconcelos Andrade da Silva"
+      ],
+      "url": "https://vasconcel.github.io/",
+      "email": "mailto:gabriel.vasconcel@outlook.com",
+      "jobTitle": "PIBIC/CNPq Undergraduate Researcher",
+      "description": "PIBIC/CNPq undergraduate researcher at UFCA studying empirical software engineering, qualitative methods, evidence synthesis, and open research software.",
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": "Federal University of Cariri (UFCA)",
+        "url": "https://www.ufca.edu.br/"
+      },
+      "sameAs": [
+        "https://github.com/vasconcel",
+        "https://www.linkedin.com/in/vasconcel/",
+        "https://orcid.org/0009-0005-1736-354X",
+        "http://lattes.cnpq.br/7193014410256740",
+        "https://mastodon.com.br/@vasconcel"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "url": "https://vasconcel.github.io/services/",
+      "name": "Scoped Data Engineering | Gabriel V. Silva",
+      "isPartOf": {
+        "@id": "https://vasconcel.github.io/#website"
+      },
+      "about": {
+        "@id": "https://vasconcel.github.io/#person"
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body class="page-services">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="global-nav" aria-label="Services navigation">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="../" aria-label="Gabriel V. Silva, back to research profile">
+        <span class="nav-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M9 6H5v20h4"/><path d="M23 6h4v20h-4"/><path d="M11.5 14 16 23l4.5-9"/><circle cx="16" cy="8.5" r="2.4" fill="currentColor" stroke="none"/></svg>
+        </span>
+        <span class="nav-name">vasconcel</span>
+      </a>
+
+      <div class="nav-links">
+        <a class="nav-back" href="../"><span aria-hidden="true">←</span> Research profile</a>
+        <a href="#offers">Offers</a>
+        <a href="#boundaries">Scope</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="nav-tools">
+        <a class="lang-link" href="../pt/servicos/" hreflang="pt-BR" lang="pt-BR" aria-label="Ler em português" title="Português">PT</a>
+        <button class="theme-toggle" type="button" aria-label="Switch color theme" aria-pressed="false"><span aria-hidden="true">◐</span></button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero hero--services" id="top">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="kicker">Technical Services · Brazil &amp; International</p>
+        <h1 class="hero-title">Scoped data engineering and research infrastructure</h1>
+        <p class="hero-statement">Work delivered under a closed scope, using the stack proven in production and research: Python, pytest, GitHub Actions, Flask, and Zenodo. No open-ended hourly arrangements.</p>
+        <ul class="hero-focus" aria-label="Technical stack">
+          <li>Python, pytest, and automation</li>
+          <li>GitHub Actions and reproducible pipelines</li>
+          <li>Flask APIs, dashboards, and Zenodo packaging</li>
+        </ul>
+        <div class="hero-actions">
+          <a class="btn btn--primary" href="#contact">Discuss a scope <span aria-hidden="true">↘</span></a>
+          <a class="btn btn--secondary" href="../#project">dataWASHES project <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <aside class="hero-aside service-brief" aria-label="Engagement brief">
+        <p class="service-brief-kicker">At a glance</p>
+        <dl class="service-brief-list">
+          <div class="service-brief-item">
+            <dt>Format</dt>
+            <dd>Closed scope, written deliverables, and documented handover.</dd>
+          </div>
+          <div class="service-brief-item">
+            <dt>Timeline</dt>
+            <dd>5 business days to 4 weeks, depending on the offer.</dd>
+          </div>
+          <div class="service-brief-item">
+            <dt>Languages</dt>
+            <dd>English and Portuguese.</dd>
+          </div>
+        </dl>
+        <div class="service-brief-links">
+          <a class="link-arrow" href="../#publications">Publications ↗</a>
+          <a class="link-arrow" href="../#project">Research software ↗</a>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section" id="offers" aria-labelledby="offers-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-kicker">[01] Offers</p>
+          <h2 class="section-title" id="offers-title">Productized technical work</h2>
+          <p class="section-lead">Three defined engagements, each with written deliverables, explicit exclusions, and a documented handover.</p>
+        </header>
+        <div class="capability-list offer-grid">
+          <article class="capability offer-card" id="offer-pipelines">
+            <div class="capability-head">
+              <p class="capability-index">01 / Offer</p>
+              <h3 class="capability-title">Python Data Collection, Cleaning &amp; Automation Pipelines</h3>
+            </div>
+            <p class="offer-target"><span class="offer-sublabel">For</span> Small teams, consultancies, projects, and researchers handling repetitive manual work across web sources, public APIs, PDFs, spreadsheets, and JSON.</p>
+            <div class="offer-deliverables">
+              <p class="offer-sublabel">Deliverables</p>
+              <ul class="capability-items">
+                <li>Modular Python script or pipeline</li>
+                <li>Data validation and pytest test suite</li>
+                <li>Clean final dataset (CSV, Excel, or JSON)</li>
+                <li>README documentation</li>
+                <li>Optional scheduling with GitHub Actions</li>
+              </ul>
+            </div>
+            <div class="offer-meta">
+              <p class="offer-timeline"><span>Typical timeline</span> 5–12 business days</p>
+              <p class="capability-evidence"><span>Proof</span><a class="link-arrow" href="https://github.com/gesid/dataWASHES" target="_blank" rel="noopener noreferrer">dataWASHES · CitationMiner adaptation ↗</a></p>
+            </div>
+          </article>
+          <article class="capability offer-card" id="offer-bibliographic">
+            <div class="capability-head">
+              <p class="capability-index">02 / Offer</p>
+              <h3 class="capability-title">Bibliographic Data Engineering &amp; Open Science Packaging</h3>
+            </div>
+            <p class="offer-target"><span class="offer-sublabel">For</span> Researchers, graduate students, and research groups conducting systematic or multivocal literature reviews (SLR/MLR), or preparing submissions that require reproducibility.</p>
+            <div class="offer-deliverables">
+              <p class="offer-sublabel">Deliverables</p>
+              <ul class="capability-items">
+                <li>Auditable collection and deduplication scripts for multiple bases (.bib, .ris, .csv, OpenAlex, Crossref)</li>
+                <li>Traceable counts for the PRISMA flow and screening-ready exports (Rayyan or spreadsheet)</li>
+                <li>Dataset and codebook cleaning, with documentation</li>
+                <li>Zenodo-ready packaging, including CITATION.cff</li>
+              </ul>
+            </div>
+            <div class="offer-meta">
+              <p class="offer-timeline"><span>Typical timeline</span> 5–10 business days</p>
+              <p class="capability-evidence"><span>Proof</span><a class="link-arrow" href="https://doi.org/10.5281/zenodo.17552394" target="_blank" rel="noopener noreferrer">CHASE 2026 · EMSE accepted · ongoing MLR ↗</a></p>
+            </div>
+          </article>
+          <article class="capability offer-card" id="offer-flask">
+            <div class="capability-head">
+              <p class="capability-index">03 / Offer</p>
+              <h3 class="capability-title">Lightweight Flask Data APIs &amp; Web Dashboards</h3>
+            </div>
+            <p class="offer-target"><span class="offer-sublabel">For</span> Research groups and small projects that need to turn static datasets or pipelines into a queryable REST API and a compact web panel.</p>
+            <div class="offer-deliverables">
+              <p class="offer-sublabel">Deliverables</p>
+              <ul class="capability-items">
+                <li>Python/Flask application with documented routes</li>
+                <li>Lightweight HTML/CSS/JS dashboard</li>
+                <li>pytest test suite</li>
+                <li>Automated deployment and updates with GitHub Actions (PythonAnywhere or Docker in the client environment)</li>
+              </ul>
+            </div>
+            <div class="offer-meta">
+              <p class="offer-timeline"><span>Typical timeline</span> 2–4 weeks</p>
+              <p class="capability-evidence"><span>Proof</span><a class="link-arrow" href="https://datawashes.pythonanywhere.com/" target="_blank" rel="noopener noreferrer">dataWASHES · public API, dashboard and CI/CD ↗</a></p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="boundaries" aria-labelledby="boundaries-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-kicker">[02] Scope &amp; Boundaries</p>
+          <h2 class="section-title" id="boundaries-title">Scope, boundaries and ethics</h2>
+          <p class="section-lead">Clear commercial terms and scientific integrity before any work begins.</p>
+        </header>
+        <div class="facts facts--wide">
+          <div class="fact">
+            <h3 class="fact-label">Engagement model</h3>
+            <p class="fact-value">Closed scope defined in writing before work starts, budget quoted on demand (no open-ended hourly billing), delivery by milestones, and code and documentation handed to the client.</p>
+          </div>
+          <div class="fact">
+            <h3 class="fact-label">No academic ghostwriting</h3>
+            <p class="fact-value">I do not write papers, undergraduate theses, master&#x27;s theses, or doctoral dissertations, and I do not perform interpretative qualitative or thematic analysis in place of the researcher.</p>
+          </div>
+          <div class="fact">
+            <h3 class="fact-label">Responsible collection</h3>
+            <p class="fact-value">No bypassing aggressive anti-bot protections or CAPTCHAs, and no collection of private data without authorization.</p>
+          </div>
+          <div class="fact">
+            <h3 class="fact-label">Infrastructure and support</h3>
+            <p class="fact-value">No custody of infrastructure in personal accounts and no 24/7 support SLA after handover. Hosting stays in the client&#x27;s account; later maintenance is agreed separately.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process" aria-labelledby="process-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-kicker">[03] Process</p>
+          <h2 class="section-title" id="process-title">How work starts</h2>
+          <p class="section-lead">Three short steps, from a technical summary to a documented handover.</p>
+        </header>
+        <ol class="research-index">
+          <li>
+            <h3 class="index-title">Send a technical summary</h3>
+            <p class="index-text">Email the data source and format, the intended outcome, and any constraints.</p>
+          </li>
+          <li>
+            <h3 class="index-title">Written proposal</h3>
+            <p class="index-text">Deliverables, exclusions, timeline, and a fixed price are sent in writing.</p>
+          </li>
+          <li>
+            <h3 class="index-title">Execution and handover</h3>
+            <p class="index-text">Implementation, tests, and documented delivery.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section--contact" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-kicker">[04] Contact</p>
+          <h2 class="section-title" id="contact-title">Send a technical summary</h2>
+          <p class="section-lead">Use the address below for scoped enquiries. External profiles are listed for verification of public work.</p>
+        </header>
+        <div class="email-row">
+          <a class="email-link" href="mailto:gabriel.vasconcel@outlook.com">gabriel.vasconcel@outlook.com <span class="email-link-icon" aria-hidden="true">↗</span></a>
+          <button class="btn btn--copy" type="button" data-copy-email="gabriel.vasconcel@outlook.com" data-label-default="Copy" data-label-copied="Copied">Copy</button>
+          <span class="sr-only" aria-live="polite" id="copy-status"></span>
+        </div>
+        <div class="closing-links" aria-label="External profiles">
+          <a class="link-arrow" href="https://github.com/vasconcel" target="_blank" rel="me noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.1-1.2-.3-2.5-1-3.5.3-1.2.3-2.4 0-3.5 0 0-1 0-3 1.5a12 12 0 0 0-8 0C5 2.5 4 2.5 4 2.5c-.3 1.1-.3 2.3 0 3.5A5.4 5.4 0 0 0 3 9.5c0 3.5 3 5.5 6 5.5a4.8 4.8 0 0 0-1 3.5v4"/><path d="M9 18c-4.5 2-5-2-7-2"/></svg>GitHub ↗</a>
+          <a class="link-arrow" href="https://www.linkedin.com/in/vasconcel/" target="_blank" rel="me noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn ↗</a>
+          <a class="link-arrow" href="https://orcid.org/0009-0005-1736-354X" target="_blank" rel="me noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M9 16V8m3 0v8m0-4h4m0-4v8"/></svg>ORCID ↗</a>
+          <a class="link-arrow" href="http://lattes.cnpq.br/7193014410256740" target="_blank" rel="noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20h16"/><path d="M7 20V10m5 10V5m5 15v-7"/></svg>Lattes ↗</a>
+          <a class="link-arrow" href="https://mastodon.com.br/@vasconcel" target="_blank" rel="me noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10.5c0 4-2.6 6.5-6.5 6.5S7 14.5 7 10.5V8a4.5 4.5 0 0 1 9 0v2.5"/><path d="M7 10.5H4m16 0h-3M9.5 20l1-3m4 3-1-3"/></svg>Mastodon ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year">2026</span> Gabriel V. Silva</p>
+      <p class="footer-status"><span aria-hidden="true"></span> PIBIC/CNPq Researcher · UFCA</p>
+    </div>
+  </footer>
+
+  <script src="../scripts/main.js"></script>
+</body>
+</html>

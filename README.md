@@ -5,23 +5,28 @@ The English version is served at `/` and the Portuguese version at `/pt/`.
 
 ## Architecture
 
-The two HTML pages are generated artifacts; all editable content lives in the
+The HTML pages are generated artifacts; all editable content lives in the
 sources below.
 
 | File | Role |
 | --- | --- |
 | `build.py` | Generator using only the Python standard library. |
-| `template.html` | Shared HTML template with `{{placeholder}}` tokens. |
-| `data/site.json` | Shared data: URLs, profiles, publications, projects and links. |
-| `locales/en.json` | English copy and metadata for `/`. |
-| `locales/pt.json` | Portuguese copy and metadata for `/pt/`. |
-| `index.html` | Generated English page. |
-| `pt/index.html` | Generated Portuguese page. |
+| `template.html` | Shared template for the home pages (`/` and `/pt/`). |
+| `services.template.html` | Shared template for the services pages (`/services/` and `/pt/servicos/`). |
+| `data/site.json` | Shared data: URLs, profiles, publications, projects, service offers and links. |
+| `locales/en.json` | English copy and metadata for `/` and `/services/`. |
+| `locales/pt.json` | Portuguese copy and metadata for `/pt/` and `/pt/servicos/`. |
+| `index.html` | Generated English home page. |
+| `pt/index.html` | Generated Portuguese home page. |
+| `services/index.html` | Generated English services page. |
+| `pt/servicos/index.html` | Generated Portuguese services page. |
 | `assets/` | Stylesheet, favicon, portrait, Open Graph image and legacy media. |
-| `scripts/main.js` | Progressive enhancement: theme toggle with `localStorage`, scroll spy and anchor navigation. |
+| `scripts/main.js` | Progressive enhancement: theme toggle with `localStorage`, scroll spy/reveal and anchor navigation. |
 
 Generated HTML files are committed because GitHub Pages serves them directly.
-Do not edit `index.html` or `pt/index.html` by hand.
+Do not edit `index.html`, `pt/index.html`, `services/index.html` or
+`pt/servicos/index.html` by hand; make changes to the sources and regenerate
+them.
 
 ## Build
 
@@ -36,7 +41,10 @@ site data or either locale.
 
 ```bash
 python -m http.server 8000
-# http://localhost:8000/  and  http://localhost:8000/pt/
+# http://localhost:8000/           (EN home)
+# http://localhost:8000/pt/        (PT home)
+# http://localhost:8000/services/  (EN services)
+# http://localhost:8000/pt/servicos/ (PT services)
 ```
 
 Using HTTP instead of opening files directly keeps relative asset paths and

@@ -52,8 +52,8 @@
         "link_label": "DOI"
       },
       "emse": {
-        "title": "EMSE (Minor revision)",
-        "text": "Manuscrito em segunda rodada de revisão como primeiro autor, com artefatos abertos no Zenodo.",
+        "title": "EMSE (Aceito)",
+        "text": "Artigo de primeiro autor aceito para publicação, com artefatos abertos no Zenodo.",
         "link_label": "Zenodo"
       },
       "datawashes": {
@@ -85,10 +85,10 @@
   "publications": {
     "kicker": "[02] Publicações",
     "title": "Publicações e manuscritos",
-    "lead": "Artigos revisados por pares, manuscritos em avaliação e estudos secundários em andamento.",
+    "lead": "Publicações revisadas por pares, artigos aceitos e estudos secundários em andamento.",
     "status_labels": {
       "published": "Publicado",
-      "revision": "Minor revision",
+      "accepted": "Aceito",
       "progress": "Em andamento"
     },
     "link_labels": {
@@ -104,7 +104,7 @@
         "abstract": "Estudo qualitativo com 22 engenheiros de software em início de carreira examinando mais de 470 experiências de seleção online sob a lente da Applicant Attribution-Reaction Theory (AART), sistematizando 22 padrões construtivos para processos mais centrados no candidato."
       },
       "emse2026": {
-        "venue": "Em segunda rodada de revisão no periódico Empirical Software Engineering (EMSE-D-25-00839R1).",
+        "venue": "Aceito para publicação na Empirical Software Engineering.",
         "abstract": "Investigação qualitativa sobre experiências negativas de recrutamento e seleção online relatadas por 22 profissionais brasileiros em início de carreira, identificando 25 anti-padrões em 10 temas analíticos via Reflexive Thematic Analysis e AART, com codebook aberto e painel interativo."
       },
       "mlr2026": {
@@ -155,15 +155,16 @@
           "Entrevistas semiestruturadas e verificação verbatim",
           "Revisões Multivocais da Literatura (MLR)"
         ],
-        "evidence": "CHASE 2026 · Submissão EMSE · MLR em andamento"
+        "evidence": "CHASE 2026 · EMSE aceito · MLR em andamento"
       },
       {
         "index": "02 / Operação",
         "title": "Fluxos de pesquisa",
         "items": [
           "Estruturação e rastreabilidade de codebooks qualitativos",
-          "Ingestão automatizada de dados e pipelines CI/CD",
-          "Publicação de artefatos de Ciência Aberta no Zenodo",
+          "Estruturação de dados bibliográficos e empacotamento de Ciência Aberta",
+          "Coleta e limpeza automatizada de dados com Python",
+          "CI/CD com GitHub Actions",
           "Redação e diagramação científica em LaTeX"
         ],
         "evidence": "dataWASHES · Conjuntos no Zenodo · Auditoria MLR"
@@ -172,7 +173,7 @@
         "index": "03 / Sistemas",
         "title": "Software e Linux",
         "items": [
-          "Python (Flask, pytest, scripts) e Node.js",
+          "Python (Flask, pytest, coleta e automação de dados) e Node.js",
           "Administração Linux, SSH e regras de firewall",
           "Stacks de serviços com Docker e Docker Compose",
           "Git autohospedado e redes privadas com Tailscale"
@@ -181,7 +182,7 @@
       }
     ],
     "tools": [
-      { "label": "Stack principal", "value": "Python · Linux · Docker · Git · LaTeX" },
+      { "label": "Stack principal", "value": "Python · Flask · pytest · Linux · Docker · Git · LaTeX" },
       { "label": "Conhecimento de uso", "value": "JavaScript / Node.js · HTML / CSS · GitHub Actions · AWS · Tailscale" }
     ]
   },
@@ -192,7 +193,7 @@
     "facts": [
       {
         "label": "Formação",
-        "value_html": "Tecnólogo em Análise e Desenvolvimento de Sistemas (ADS), Universidade Federal do Cariri (UFCA)."
+        "value_html": "Tecnólogo em Análise e Desenvolvimento de Sistemas (ADS), Universidade Federal do Cariri (UFCA). <span class=\"fact-note\">Conclusão prevista: 1º semestre de 2027.</span>"
       },
       {
         "label": "Grupos de pesquisa",
@@ -215,12 +216,149 @@
   "contact": {
     "kicker": "[06] Contato",
     "title": "Entre em contato",
-    "lead": "Disponível para colaborações em pesquisa, contato com programas de pós-graduação e apoio técnico em revisões de literatura, fluxos de pesquisa e organização de dados.",
+    "lead": "Disponível para colaborações em pesquisa, contato com programas de pós-graduação e projetos pontuais de engenharia de dados, automação em Python e infraestrutura de pesquisa sob escopo fechado.",
+    "services_label": "Serviços e escopo",
+    "services_arrow": "→",
+    "services_kicker": "Escopo fechado",
+    "services_summary": "Pipelines em Python, dados bibliográficos/Open Science e micro-APIs em Flask.",
     "links_aria": "Perfis externos",
     "copy_email": "Copiar",
     "copied_email": "Copiado"
   },
   "footer": {
     "status": "Pesquisador PIBIC/CNPq · UFCA"
+  },
+  "services": {
+    "page_title": "Engenharia de dados sob escopo | Gabriel V. Silva",
+    "meta_description": "Engenharia de dados, empacotamento de dados bibliográficos e micro-APIs em Flask para grupos de pesquisa e pequenas equipes, sob escopo fechado.",
+    "og_title": "Engenharia de dados e infraestrutura de pesquisa sob escopo",
+    "og_description": "Python · pytest · GitHub Actions · Flask · Zenodo",
+    "jsonld_job_title": "Bolsista de Iniciação Científica (PIBIC/CNPq)",
+    "jsonld_description": "Graduando e pesquisador PIBIC/CNPq na UFCA com atuação em Engenharia de Software Empírica, métodos qualitativos, síntese de evidências e software de apoio à pesquisa.",
+    "jsonld_affiliation": "Universidade Federal do Cariri (UFCA)",
+    "skip_link": "Ir para o conteúdo",
+    "nav": {
+      "aria_label": "Navegação de serviços",
+      "brand_aria": "Gabriel V. Silva, voltar ao perfil acadêmico",
+      "home": "Perfil acadêmico",
+      "offers": "Ofertas",
+      "boundaries": "Escopo",
+      "process": "Processo",
+      "contact": "Contato",
+      "lang_hreflang": "en",
+      "lang_lang": "en",
+      "lang_aria": "Read in English",
+      "lang_title": "English",
+      "lang_label": "EN",
+      "theme_aria": "Alternar tema de cores"
+    },
+    "hero": {
+      "kicker": "Serviços Técnicos · Brasil e Exterior",
+      "title": "Engenharia de dados e infraestrutura de pesquisa sob escopo fechado",
+      "statement": "Trabalho entregue sob escopo fechado, com o stack comprovado em produção e pesquisa: Python, pytest, GitHub Actions, Flask e Zenodo. Sem contratação aberta por hora.",
+      "focus_aria": "Stack técnico",
+      "focus": [
+        "Python, pytest e automação",
+        "GitHub Actions e pipelines reprodutíveis",
+        "APIs e painéis em Flask e empacotamento no Zenodo"
+      ],
+      "cta_primary": "Discutir um escopo",
+      "cta_secondary": "Projeto dataWASHES"
+    },
+    "brief": {
+      "aria_label": "Resumo do serviço",
+      "kicker": "Em resumo",
+      "format_label": "Formato",
+      "format_value": "Escopo fechado, entregáveis por escrito e repasse documentado.",
+      "timeline_label": "Prazo",
+      "timeline_value": "5 dias úteis a 4 semanas, conforme a oferta.",
+      "languages_label": "Idiomas",
+      "languages_value": "Português e inglês.",
+      "link_publications": "Publicações",
+      "link_software": "Software de pesquisa"
+    },
+    "offers": {
+      "kicker": "Ofertas",
+      "title": "Serviços produtizados",
+      "lead": "Três frentes definidas, cada uma com entregáveis por escrito, exclusões explícitas e repasse documentado.",
+      "audience_label": "Para quem",
+      "deliverables_label": "Entregáveis",
+      "timing_label": "Prazo típico",
+      "proof_label": "Prova",
+      "items": {
+        "pipelines": {
+          "index": "01 / Oferta",
+          "title": "Pipelines de Coleta, Limpeza e Automação de Dados em Python",
+          "audience": "Pequenas equipes, consultorias, projetos e pesquisadores com trabalho manual repetitivo em fontes web, APIs públicas, PDFs, planilhas e JSON.",
+          "deliverables": [
+            "Script ou pipeline modular em Python",
+            "Validação de dados e suíte de testes em pytest",
+            "Dataset final limpo (CSV, Excel ou JSON)",
+            "Documentação em README",
+            "Agendamento opcional via GitHub Actions"
+          ],
+          "timing": "5 a 12 dias úteis",
+          "proof": "dataWASHES · adaptação do CitationMiner"
+        },
+        "bibliographic": {
+          "index": "02 / Oferta",
+          "title": "Engenharia de Dados Bibliográficos e Pacotes Open Science",
+          "audience": "Pesquisadores, pós-graduandos e grupos de pesquisa conduzindo Revisões Sistemáticas ou Multivocais da Literatura (SLR/MLR), ou preparando submissões com exigência de reprodutibilidade.",
+          "deliverables": [
+            "Scripts auditáveis de coleta e deduplicação multi-base (.bib, .ris, .csv, OpenAlex, Crossref)",
+            "Contagem rastreável para fluxo PRISMA e exportações prontas para triagem (Rayyan ou planilha)",
+            "Organização e higienização de datasets e codebooks, com documentação",
+            "Empacotamento pronto para Zenodo, incluindo CITATION.cff"
+          ],
+          "timing": "5 a 10 dias úteis",
+          "proof": "CHASE 2026 · EMSE (aceito) · MLR em andamento"
+        },
+        "flask": {
+          "index": "03 / Oferta",
+          "title": "Micro-APIs de Dados em Flask e Painéis Web Leves",
+          "audience": "Grupos de pesquisa e pequenos projetos que precisam transformar conjuntos de dados estáticos ou pipelines em uma API REST consultável e um painel web enxuto.",
+          "deliverables": [
+            "Aplicação Python/Flask com rotas documentadas",
+            "Painel HTML/CSS/JS leve",
+            "Suíte de testes em pytest",
+            "Deploy e atualização automatizados via GitHub Actions (PythonAnywhere ou Docker no ambiente do cliente)"
+          ],
+          "timing": "2 a 4 semanas",
+          "proof": "dataWASHES · API pública, dashboard e CI/CD"
+        }
+      }
+    },
+    "boundaries": {
+      "kicker": "Escopo, Limites e Ética",
+      "title": "Escopo, limites e ética",
+      "lead": "Clareza comercial e integridade científica antes do início de qualquer trabalho.",
+      "facts": [
+        { "label": "Modelo de contratação", "text": "Escopo fechado definido por escrito antes do início, orçamento sob demanda (sem cobrança aberta por hora), entregas por marcos e código e documentação entregues ao cliente." },
+        { "label": "Sem ghostwriting acadêmico", "text": "Não escrevo artigos, TCCs, dissertações ou teses, nem realizo análise qualitativa ou temática interpretativa no lugar do pesquisador." },
+        { "label": "Coleta responsável", "text": "Sem bypass de proteções anti-bot agressivas ou CAPTCHAs, e sem coleta de dados privados sem autorização." },
+        { "label": "Infraestrutura e suporte", "text": "Sem custódia de infraestrutura em contas pessoais e sem SLA de sustentação 24/7 após a entrega. A hospedagem fica em conta do cliente; manutenção posterior é combinada à parte." }
+      ]
+    },
+    "process": {
+      "kicker": "Processo",
+      "title": "Como o trabalho começa",
+      "lead": "Três passos curtos, do resumo técnico à entrega documentada.",
+      "steps": [
+        { "title": "01 · Envio de resumo técnico", "text": "Envie por e-mail a fonte e o formato dos dados, o objetivo e eventuais restrições." },
+        { "title": "02 · Proposta escrita", "text": "Entregáveis, exclusões, prazo e valor fechado são enviados por escrito." },
+        { "title": "03 · Execução e entrega", "text": "Implementação, testes e entrega documentada." }
+      ]
+    },
+    "contact": {
+      "kicker": "Contato",
+      "title": "Envie um resumo técnico",
+      "lead": "Use o endereço abaixo para consultas com escopo definido. Os perfis externos são listados para verificação de trabalhos públicos.",
+      "external_profiles_aria": "Perfis externos",
+      "copy_default": "Copiar",
+      "copy_copied": "Copiado"
+    },
+    "footer": {
+      "status": "Pesquisador PIBIC/CNPq · UFCA"
+    }
   }
 }

@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="{{html_lang}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#09090b">
+  <meta name="description" content="{{meta_description}}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="{{og_locale}}">
+  <meta property="og:title" content="{{og_title}}">
+  <meta property="og:description" content="{{og_description}}">
+  <meta property="og:url" content="{{canonical_url}}">
+  <meta property="og:image" content="{{og_image_url}}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{site_name}}">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="canonical" href="{{canonical_url}}">
+  <link rel="alternate" hreflang="en" href="{{hreflang_en}}">
+  <link rel="alternate" hreflang="pt-BR" href="{{hreflang_pt}}">
+  <link rel="alternate" hreflang="x-default" href="{{hreflang_en}}">
+  <link rel="icon" href="{{asset_prefix}}assets/favicon.svg" type="image/svg+xml">
+
+  <script>
+    try {
+      if (localStorage.getItem("theme") === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+        document.querySelector('meta[name="theme-color"]').content = "#fafafa";
+      }
+    } catch (e) {}
+  </script>
+
+  <link rel="stylesheet" href="{{asset_prefix}}assets/styles.css">
+  <title>{{page_title}}</title>
+
+  <script type="application/ld+json">
+{{json_ld}}
+  </script>
+</head>
+<body class="page-services">
+  <a class="skip-link" href="#main">{{skip_link}}</a>
+
+  <nav class="global-nav" aria-label="{{nav_aria_label}}">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="{{home_href}}" aria-label="{{brand_aria_label}}">
+        <span class="nav-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M9 6H5v20h4"/><path d="M23 6h4v20h-4"/><path d="M11.5 14 16 23l4.5-9"/><circle cx="16" cy="8.5" r="2.4" fill="currentColor" stroke="none"/></svg>
+        </span>
+        <span class="nav-name">{{handle}}</span>
+      </a>
+
+      <div class="nav-links">
+        <a class="nav-back" href="{{home_href}}"><span aria-hidden="true">←</span> {{nav_home}}</a>
+        <a href="#offers">{{nav_offers}}</a>
+        <a href="#boundaries">{{nav_boundaries}}</a>
+        <a href="#process">{{nav_process}}</a>
+        <a href="#contact">{{nav_contact}}</a>
+      </div>
+
+      <div class="nav-tools">
+        <a class="lang-link" href="{{lang_switch_href}}" hreflang="{{lang_switch_hreflang}}" lang="{{lang_switch_lang}}" aria-label="{{lang_switch_aria}}" title="{{lang_switch_title}}">{{lang_switch_label}}</a>
+        <button class="theme-toggle" type="button" aria-label="{{theme_toggle_aria}}" aria-pressed="false"><span aria-hidden="true">◐</span></button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero hero--services" id="top">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="kicker">{{hero_kicker}}</p>
+        <h1 class="hero-title">{{hero_title}}</h1>
+        <p class="hero-statement">{{hero_statement}}</p>
+        <ul class="hero-focus" aria-label="{{hero_focus_aria}}">
+          {{hero_focus_items}}
+        </ul>
+        <div class="hero-actions">
+          <a class="btn btn--primary" href="#contact">{{hero_cta_primary}} <span aria-hidden="true">↘</span></a>
+          <a class="btn btn--secondary" href="{{home_href}}#project">{{hero_cta_secondary}} <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <aside class="hero-aside service-brief" aria-label="{{brief_aria_label}}">
+        <p class="service-brief-kicker">{{brief_kicker}}</p>
+        <dl class="service-brief-list">
+          <div class="service-brief-item">
+            <dt>{{brief_format_label}}</dt>
+            <dd>{{brief_format_value}}</dd>
+          </div>
+          <div class="service-brief-item">
+            <dt>{{brief_timeline_label}}</dt>
+            <dd>{{brief_timeline_value}}</dd>
+          </div>
+          <div class="service-brief-item">
+            <dt>{{brief_languages_label}}</dt>
+            <dd>{{brief_languages_value}}</dd>
+          </div>
+        </dl>
+        <div class="service-brief-links">
+          <a class="link-arrow" href="{{home_href}}#publications">{{brief_link_publications}} ↗</a>
+          <a class="link-arrow" href="{{home_href}}#project">{{brief_link_software}} ↗</a>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section" id="offers" aria-labelledby="offers-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-kicker">[01] {{offers_kicker}}</p>
+          <h2 class="section-title" id="offers-title">{{offers_title}}</h2>
+          <p class="section-lead">{{offers_lead}}</p>
+        </header>
+        <div class="capability-list offer-grid">
+          {{offer_cards}}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="boundaries" aria-labelledby="boundaries-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-kicker">[02] {{boundaries_kicker}}</p>
+          <h2 class="section-title" id="boundaries-title">{{boundaries_title}}</h2>
+          <p class="section-lead">{{boundaries_lead}}</p>
+        </header>
+        <div class="facts facts--wide">
+          {{boundary_rows}}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process" aria-labelledby="process-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-kicker">[03] {{process_kicker}}</p>
+          <h2 class="section-title" id="process-title">{{process_title}}</h2>
+          <p class="section-lead">{{process_lead}}</p>
+        </header>
+        <ol class="research-index">
+          {{process_steps}}
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section--contact" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-kicker">[04] {{contact_kicker}}</p>
+          <h2 class="section-title" id="contact-title">{{contact_title}}</h2>
+          <p class="section-lead">{{contact_lead}}</p>
+        </header>
+        <div class="email-row">
+          <a class="email-link" href="mailto:{{email}}">{{email}} <span class="email-link-icon" aria-hidden="true">↗</span></a>
+          <button class="btn btn--copy" type="button" data-copy-email="{{email}}" data-label-default="{{copy_default}}" data-label-copied="{{copy_copied}}">{{copy_default}}</button>
+          <span class="sr-only" aria-live="polite" id="copy-status"></span>
+        </div>
+        <div class="closing-links" aria-label="{{external_profiles_aria}}">
+          {{closing_profile_links}}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year">2026</span> {{site_name}}</p>
+      <p class="footer-status"><span aria-hidden="true"></span> {{footer_status}}</p>
+    </div>
+  </footer>
+
+  <script src="{{asset_prefix}}scripts/main.js"></script>
+</body>
+</html>
