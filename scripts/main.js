@@ -189,10 +189,30 @@
   var revealTargets = [];
   var revealObserver = null;
 
-  function showReveal(element) {
+  function showReveal(element, delay) {
     if (element.classList.contains("is-visible")) return;
+    if (delay) {
+      element.style.transitionDelay = delay + "ms";
+      var clearDelay = function (event) {
+        if (event && event.propertyName !== "transform") return;
+        element.removeEventListener("transitionend", clearDelay);
+        element.style.transitionDelay = "";
+      };
+      element.addEventListener("transitionend", clearDelay);
+      /* Segurança: a transição pode não disparar em abas em segundo plano */
+      window.setTimeout(clearDelay, 1100);
+    }
     element.classList.add("is-visible");
     if (revealObserver) revealObserver.unobserve(element);
+  }
+
+  function revealBatch(elements) {
+    var index = 0;
+    elements.forEach(function (element) {
+      if (element.classList.contains("is-visible")) return;
+      showReveal(element, Math.min(index * 45, 180));
+      index++;
+    });
   }
 
   function revealThrough(target) {
@@ -220,23 +240,27 @@
     });
 
     function revealEntered() {
+      var entering = [];
       revealTargets.forEach(function (element) {
         if (
           !element.classList.contains("is-visible") &&
           element.getBoundingClientRect().top < window.innerHeight * 0.92
         ) {
-          showReveal(element);
+          entering.push(element);
         }
       });
+      revealBatch(entering);
     }
 
     revealObserver = new IntersectionObserver(
       function (entries) {
+        var entering = [];
         entries.forEach(function (entry) {
-          if (entry.isIntersecting) showReveal(entry.target);
+          if (entry.isIntersecting) entering.push(entry.target);
         });
+        revealBatch(entering);
       },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.05 }
+      { rootMargin: "0px 0px -48px 0px", threshold: 0.05 }
     );
 
     revealTargets.forEach(function (element) {
@@ -246,6 +270,19 @@
     window.addEventListener("scroll", revealEntered, { passive: true });
     window.addEventListener("resize", revealEntered);
     revealEntered();
+
+    /* Hash na URL: revela sem delay tudo que está acima e na tela do destino */
+    function revealHashTarget() {
+      var id = window.location.hash.slice(1);
+      var target = id ? document.getElementById(id) : null;
+      if (!target) return;
+      var limit = target.getBoundingClientRect().top + window.scrollY + window.innerHeight;
+      revealTargets.forEach(function (element) {
+        if (element.getBoundingClientRect().top + window.scrollY <= limit) showReveal(element);
+      });
+    }
+    revealHashTarget();
+    window.addEventListener("load", revealHashTarget);
   }
 
   /* ---------- 7. Copiar e-mail ---------- */
